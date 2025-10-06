@@ -1,14 +1,21 @@
 import { MapPin, Home, TrendingUp, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import shimlaGreenValley from "@/assets/shimla-green-valley.jpg";
+import dharamshalaMountainView from "@/assets/dharamshala-mountain-view.jpg";
+import manaliPinePlots from "@/assets/manali-pine-plots.jpg";
+import kulluValleyFlats from "@/assets/kullu-valley-flats.jpg";
+import solanPlots from "@/assets/solan-plots.jpg";
+import mandiHeightsFlats from "@/assets/mandi-heights-flats.jpg";
 
 const projects = [
   {
     id: 1,
     title: "Green Valley Residency",
     location: "Shimla",
-    image: "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80",
+    image: shimlaGreenValley,
     units: 120,
+    type: "Apartments",
     status: "Under Construction",
     price: "₹45 Lakhs onwards",
   },
@@ -16,8 +23,9 @@ const projects = [
     id: 2,
     title: "Mountain View Apartments",
     location: "Dharamshala",
-    image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80",
+    image: dharamshalaMountainView,
     units: 85,
+    type: "Apartments",
     status: "New Launch",
     price: "₹38 Lakhs onwards",
   },
@@ -25,8 +33,9 @@ const projects = [
     id: 3,
     title: "Pine Hills Estate",
     location: "Manali",
-    image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80",
+    image: manaliPinePlots,
     units: 150,
+    type: "Plots",
     status: "Ready to Move",
     price: "₹52 Lakhs onwards",
   },
@@ -34,8 +43,9 @@ const projects = [
     id: 4,
     title: "Valley View Homes",
     location: "Kullu",
-    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80",
+    image: kulluValleyFlats,
     units: 95,
+    type: "Flats",
     status: "Booking Open",
     price: "₹42 Lakhs onwards",
   },
@@ -43,8 +53,9 @@ const projects = [
     id: 5,
     title: "Sunrise Residency",
     location: "Solan",
-    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80",
+    image: solanPlots,
     units: 110,
+    type: "Plots",
     status: "Under Construction",
     price: "₹35 Lakhs onwards",
   },
@@ -52,8 +63,9 @@ const projects = [
     id: 6,
     title: "Himalayan Heights",
     location: "Mandi",
-    image: "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?q=80",
+    image: mandiHeightsFlats,
     units: 75,
+    type: "Flats",
     status: "New Launch",
     price: "₹48 Lakhs onwards",
   },
@@ -108,6 +120,9 @@ export const ProjectsSection = () => {
                   className={`absolute top-4 right-4 ${getStatusColor(project.status)} text-white border-0`}
                 >
                   {project.status}
+                </Badge>
+                <Badge className="absolute top-4 left-4 bg-primary text-primary-foreground border-0">
+                  {project.type}
                 </Badge>
                 <div className="absolute bottom-4 left-4 text-white">
                   <div className="flex items-center gap-1 text-sm mb-1">
