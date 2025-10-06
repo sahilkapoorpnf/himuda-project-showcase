@@ -1148,7 +1148,7 @@ const Index = () => {
     </PresentationSlide>,
 
     // Slide 12: Notification Management System
-    <PresentationSlide key="notifications" gradient="accent">
+    <PresentationSlide key="notifications" gradient="hero">
       <div className="space-y-10 text-white">
         {/* Header */}
         <div className="text-center mb-10">
