@@ -39,16 +39,23 @@ All colors MUST be HSL.
     --radius: 0.75rem;
     
     /* Premium gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(220 70% 15%) 0%, hsl(220 60% 25%) 100%);
-    --gradient-accent: linear-gradient(135deg, hsl(162 73% 46%) 0%, hsl(162 83% 56%) 100%);
-    --gradient-gold: linear-gradient(135deg, hsl(45 93% 47%) 0%, hsl(38 100% 58%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(220 70% 15%) 0%, hsl(220 65% 20%) 50%, hsl(220 70% 25%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(162 73% 46%) 0%, hsl(162 78% 51%) 50%, hsl(162 83% 56%) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(45 93% 47%) 0%, hsl(42 98% 52%) 50%, hsl(38 100% 58%) 100%);
+    --gradient-mesh: radial-gradient(at 40% 20%, hsl(220 70% 15% / 0.5) 0px, transparent 50%),
+                     radial-gradient(at 80% 0%, hsl(162 73% 46% / 0.3) 0px, transparent 50%),
+                     radial-gradient(at 0% 50%, hsl(45 93% 47% / 0.2) 0px, transparent 50%);
     
-    /* Shadows */
-    --shadow-elegant: 0 20px 60px -15px hsl(220 70% 15% / 0.3);
-    --shadow-card: 0 10px 30px -10px hsl(220 70% 15% / 0.15);
+    /* Enhanced Shadows */
+    --shadow-elegant: 0 25px 70px -20px hsl(220 70% 15% / 0.4), 0 10px 30px -10px hsl(220 70% 15% / 0.2);
+    --shadow-card: 0 10px 35px -12px hsl(220 70% 15% / 0.2), 0 4px 12px -4px hsl(220 70% 15% / 0.1);
+    --shadow-glow: 0 0 40px hsl(162 73% 46% / 0.3), 0 0 80px hsl(162 73% 46% / 0.1);
+    --shadow-gold-glow: 0 0 40px hsl(45 93% 47% / 0.4), 0 0 80px hsl(45 93% 47% / 0.15);
     
-    /* Animations */
+    /* Advanced Animations */
     --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --transition-elastic: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
     --sidebar-background: 0 0% 98%;
 
@@ -113,21 +120,56 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Poppins', 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
   
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+  
+  h1 {
+    font-weight: 900;
+    letter-spacing: -0.03em;
   }
 }
 
 @layer components {
   .slide-container {
-    @apply min-h-screen flex items-center justify-center p-8 transition-all duration-500;
+    @apply min-h-screen flex items-center justify-center p-8 relative overflow-hidden;
+    transition: var(--transition-smooth);
+  }
+  
+  .slide-container::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gradient-mesh);
+    opacity: 0.6;
+    animation: gradient-shift 15s ease infinite;
+    z-index: 0;
+  }
+  
+  .slide-container > * {
+    position: relative;
+    z-index: 1;
   }
   
   .gradient-hero {
     background: var(--gradient-hero);
+    position: relative;
+  }
+  
+  .gradient-hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gradient-mesh);
+    opacity: 0.4;
+    pointer-events: none;
   }
   
   .gradient-accent {
@@ -139,30 +181,129 @@ All colors MUST be HSL.
   }
   
   .card-elegant {
-    @apply bg-card rounded-xl p-6 transition-all duration-300 hover:scale-105;
+    @apply bg-card rounded-2xl p-6 border border-border/50;
     box-shadow: var(--shadow-card);
+    transition: var(--transition-smooth);
+    backdrop-filter: blur(10px);
+  }
+  
+  .card-elegant:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: var(--shadow-elegant);
+    border-color: hsl(var(--primary) / 0.2);
   }
   
   .btn-primary {
-    @apply inline-flex items-center justify-center rounded-lg px-8 py-3 font-semibold transition-all duration-300;
+    @apply inline-flex items-center justify-center rounded-xl px-8 py-4 font-semibold relative overflow-hidden;
     background: var(--gradient-hero);
     color: hsl(var(--primary-foreground));
+    transition: var(--transition-smooth);
+    box-shadow: var(--shadow-card);
+  }
+  
+  .btn-primary::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, transparent 0%, hsl(0 0% 100% / 0.1) 50%, transparent 100%);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+  }
+  
+  .btn-primary:hover::before {
+    transform: translateX(100%);
   }
   
   .btn-primary:hover {
-    @apply scale-105;
-    box-shadow: var(--shadow-elegant);
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: var(--shadow-elegant), var(--shadow-glow);
   }
   
   .btn-secondary {
-    @apply inline-flex items-center justify-center rounded-lg px-8 py-3 font-semibold transition-all duration-300;
+    @apply inline-flex items-center justify-center rounded-xl px-8 py-4 font-semibold relative overflow-hidden;
     background: var(--gradient-accent);
     color: hsl(var(--secondary-foreground));
+    transition: var(--transition-smooth);
+    box-shadow: var(--shadow-card);
+  }
+  
+  .btn-secondary::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, transparent 0%, hsl(0 0% 100% / 0.1) 50%, transparent 100%);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+  }
+  
+  .btn-secondary:hover::before {
+    transform: translateX(100%);
   }
   
   .btn-secondary:hover {
-    @apply scale-105;
-    box-shadow: var(--shadow-elegant);
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: var(--shadow-elegant), var(--shadow-glow);
+  }
+  
+  /* Gradient Animation */
+  @keyframes gradient-shift {
+    0%, 100% {
+      opacity: 0.6;
+      transform: scale(1) rotate(0deg);
+    }
+    50% {
+      opacity: 0.8;
+      transform: scale(1.1) rotate(5deg);
+    }
+  }
+  
+  /* Floating Animation */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  /* Pulse Glow Animation */
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: var(--shadow-card);
+    }
+    50% {
+      box-shadow: var(--shadow-glow);
+    }
+  }
+  
+  .animate-pulse-glow {
+    animation: pulse-glow 3s ease-in-out infinite;
+  }
+  
+  /* Shimmer Effect */
+  @keyframes shimmer {
+    0% {
+      background-position: -1000px 0;
+    }
+    100% {
+      background-position: 1000px 0;
+    }
+  }
+  
+  .shimmer {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      hsl(0 0% 100% / 0.1) 50%,
+      transparent 100%
+    );
+    background-size: 1000px 100%;
+    animation: shimmer 3s infinite;
   }
 
   /* Marquee Animation */
