@@ -259,10 +259,18 @@ const Index = () => {
               </label>
               <select className="w-full py-2 px-4 rounded-lg border border-input bg-background">
                 <option>Select District</option>
-                <option>Panchkula</option>
-                <option>Ambala</option>
-                <option>Karnal</option>
-                <option>Yamunanagar</option>
+                <option>Shimla</option>
+                <option>Kangra</option>
+                <option>Mandi</option>
+                <option>Solan</option>
+                <option>Sirmaur</option>
+                <option>Una</option>
+                <option>Hamirpur</option>
+                <option>Kullu</option>
+                <option>Bilaspur</option>
+                <option>Chamba</option>
+                <option>Kinnaur</option>
+                <option>Lahaul and Spiti</option>
               </select>
             </div>
 
@@ -292,9 +300,48 @@ const Index = () => {
             </div>
           </div>
 
-          <button className="btn-secondary w-full md:w-auto px-12">
+          <button className="w-full md:w-auto px-12 py-3 rounded-lg bg-primary text-primary-foreground font-semibold hover:opacity-90 transition-all">
             Apply Filters
           </button>
+        </div>
+
+        {/* Search Results */}
+        <div className="space-y-6">
+          <div className="flex items-center justify-between">
+            <h3 className="text-2xl font-bold text-primary">Search Results</h3>
+            <span className="text-muted-foreground">6 Properties Found</span>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <PropertyCard
+              image={shimlaResidence}
+              title="Green Valley Residences"
+              location="Shimla, Himachal Pradesh"
+              price="₹45,00,000"
+              beds={3}
+              baths={2}
+              area="1,450 sq ft"
+              type="buy"
+            />
+            <PropertyCard
+              image={dharamshalaTownhouse}
+              title="Royal Townhouses"
+              location="Dharamshala, Himachal Pradesh"
+              price="₹62,00,000"
+              beds={4}
+              baths={3}
+              area="2,100 sq ft"
+              type="allotment"
+            />
+            <PropertyCard
+              image={manaliPlot}
+              title="Mountain View Plots"
+              location="Manali, Himachal Pradesh"
+              price="₹35,00,000"
+              area="2,500 sq ft"
+              type="allotment"
+            />
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">

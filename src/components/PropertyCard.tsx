@@ -21,7 +21,7 @@ export const PropertyCard = ({ image, title, location, price, beds, baths, area,
           className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
         />
         <div className={`absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-semibold ${
-          type === 'buy' ? 'bg-secondary text-secondary-foreground' : 'bg-accent text-accent-foreground'
+          type === 'buy' ? 'bg-primary text-primary-foreground' : 'bg-accent text-accent-foreground'
         }`}>
           {type === 'buy' ? 'For Sale' : 'For Allotment'}
         </div>
@@ -61,7 +61,7 @@ export const PropertyCard = ({ image, title, location, price, beds, baths, area,
         <button className="flex-1 py-2 px-4 rounded-lg border border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300">
           View Details
         </button>
-        <button className="flex-1 btn-secondary py-2 px-4 text-sm">
+        <button className="flex-1 py-2 px-4 rounded-lg bg-primary text-primary-foreground hover:opacity-90 transition-all duration-300 text-sm font-semibold">
           Apply Now
         </button>
       </div>
