@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState } from 'react';
 import { PresentationSlide } from '@/components/PresentationSlide';
 import { PropertyCard } from '@/components/PropertyCard';
 import { FeatureShowcase } from '@/components/FeatureShowcase';
@@ -11,6 +11,7 @@ import { OnlineServices } from "@/components/OnlineServices";
 import { TendersSection } from "@/components/TendersSection";
 import { ProjectsSection } from "@/components/ProjectsSection";
 import { CitizenSection } from "@/components/CitizenSection";
+import { MinistersSection } from "@/components/MinistersSection";
 import { Footer } from "@/components/Footer";
 import { ChevronLeft, ChevronRight, Home, Search, FileText, UserCheck, Download, Building2, Filter, MapPin, Calendar, FileCheck } from 'lucide-react';
 
@@ -23,14 +24,6 @@ import interior2 from '@/assets/interior-2.jpg';
 
 const Index = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const urbanVidRef = useRef<HTMLVideoElement>(null);
-  useEffect(() => {
-    if (currentSlide === 2 && urbanVidRef.current) {
-      const v = urbanVidRef.current;
-      v.muted = true;
-      v.play().catch(() => {});
-    }
-  }, [currentSlide]);
 
   const slides = [
     // Slide 1: Title Slide
@@ -105,65 +98,28 @@ const Index = () => {
       </div>
     </PresentationSlide>,
 
-    // Slide 3: NEW HIMUDA WEBSITE VIEW
+    // Slide 3: NEW HIMUDA WEBSITE VIEW - Government Style
     <div key="new-website" className="min-h-screen bg-background overflow-y-auto">
       <Header />
       
-      <div className="pt-32">
+      <div className="pt-44">
         <HeroBanner />
         <PropertyPopup />
 
-        {/* Video Section */}
-        <section className="py-16 bg-gradient-to-b from-background to-accent/5">
-          <div className="container mx-auto px-4">
-            <div className="mb-12">
-              <h2 className="text-4xl font-bold text-center mb-4 text-primary">Himachal Urban Development</h2>
-              <p className="text-center text-muted-foreground mb-8">Building the future of Himachal Pradesh</p>
-              
-              <div className="relative rounded-2xl overflow-hidden" style={{ boxShadow: 'var(--shadow-elegant)' }}>
-                <video 
-                  ref={urbanVidRef}
-                  autoPlay 
-                  muted 
-                  loop 
-                  playsInline
-                  preload="metadata"
-                  crossOrigin="anonymous"
-                  className="w-full h-[500px] object-cover"
-                  poster="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?q=80"
-                  onCanPlay={() => {
-                    const v = urbanVidRef.current;
-                    if (v) { v.muted = true; v.play().catch(() => {}); }
-                  }}
-                  onError={(e) => { console.warn('Slide 3 video failed to load/autoplay', e); }}
-                >
-                  <source src="https://cdn.pixabay.com/video/2023/05/08/160916-823815003_large.mp4" type="video/mp4" />
-                  <source src="https://videos.pexels.com/video-files/856196/856196-uhd_2560_1440_25fps.mp4" type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
-                <div className="absolute bottom-8 left-8 text-white">
-                  <h3 className="text-3xl font-bold mb-2">Transforming Urban Landscapes</h3>
-                  <p className="text-lg text-white/90">Modern infrastructure for sustainable living</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        {/* Ministers/Leadership Section */}
+        <MinistersSection />
 
-        {/* Three Column Section */}
-        <section className="py-16 bg-gradient-to-b from-accent/10 via-background to-accent/5 relative">
-          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMTAgNjAgTSAwIDEwIEwgNjAgMTAgTSAyMCAwIEwgMjAgNjAgTSAwIDIwIEwgNjAgMjAgTSAzMCAwIEwgMzAgNjAgTSAwIDMwIEwgNjAgMzAgTSA0MCAwIEwgNDAgNjAgTSAwIDQwIEwgNjAgNDAgTSA1MCAwIEwgNTAgNjAgTSAwIDUwIEwgNjAgNTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iY3VycmVudENvbG9yIiBzdHJva2Utb3BhY2l0eT0iMC4wMyIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-50" />
-          
-          <div className="container mx-auto px-4 relative z-10">
-            <div className="grid grid-cols-3 gap-6">
-              <div className="col-span-1">
+        {/* Three Column Section - Properly Aligned */}
+        <section className="py-16 bg-accent/5 border-y">
+          <div className="container mx-auto px-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="h-full">
                 <ImportantLinks />
               </div>
-              <div className="col-span-1">
+              <div className="h-full">
                 <LatestNews />
               </div>
-              <div className="col-span-1">
+              <div className="h-full">
                 <OnlineServices />
               </div>
             </div>

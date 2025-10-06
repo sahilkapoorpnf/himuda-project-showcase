@@ -1,94 +1,63 @@
 import { useState } from "react";
-import { Menu, X, Phone, Mail, Search } from "lucide-react";
+import { Phone, Mail, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
 export const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b shadow-sm">
-      {/* Top Bar */}
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background border-b shadow-sm">
+      {/* Top Bar - Government Style */}
       <div className="bg-primary text-primary-foreground py-2">
         <div className="container mx-auto px-4 flex justify-between items-center text-sm">
           <div className="flex items-center gap-6">
-            <a href="tel:+911772620115" className="flex items-center gap-2 hover:text-accent transition-colors">
-              <Phone className="h-4 w-4" />
-              <span className="hidden sm:inline">+91 177 2620115</span>
+            <a href="tel:+911772620115" className="flex items-center gap-2 hover:underline">
+              <Phone className="h-3 w-3" />
+              <span>+91 177 2620115</span>
             </a>
-            <a href="mailto:himuda@hp.gov.in" className="flex items-center gap-2 hover:text-accent transition-colors">
-              <Mail className="h-4 w-4" />
-              <span className="hidden sm:inline">himuda@hp.gov.in</span>
+            <a href="mailto:himuda@hp.gov.in" className="flex items-center gap-2 hover:underline">
+              <Mail className="h-3 w-3" />
+              <span>himuda@hp.gov.in</span>
             </a>
           </div>
-          <div className="flex items-center gap-4">
-            <button className="hover:text-accent transition-colors text-sm">हिंदी</button>
-            <button className="hover:text-accent transition-colors text-sm">A-</button>
-            <button className="hover:text-accent transition-colors text-sm">A</button>
-            <button className="hover:text-accent transition-colors text-sm">A+</button>
+          <div className="flex items-center gap-3">
+            <button className="hover:underline text-xs">हिंदी</button>
+            <span className="text-xs">|</span>
+            <button className="hover:underline text-xs">English</button>
+            <span className="text-xs">|</span>
+            <button className="hover:underline text-xs">Screen Reader</button>
           </div>
         </div>
       </div>
 
       {/* Main Header */}
-      <div className="bg-background">
-        <div className="container mx-auto px-4 py-4">
+      <div className="bg-background border-b">
+        <div className="container mx-auto px-4 py-3">
           <div className="flex items-center justify-between">
-            {/* Logo */}
+            {/* Logo Section */}
             <div className="flex items-center gap-4">
               <img 
                 src="/placeholder.svg" 
-                alt="HIMUDA Logo" 
-                className="h-16 w-16 object-contain"
+                alt="Government of Himachal Pradesh" 
+                className="h-20 w-20 object-contain"
               />
-              <div>
-                <h1 className="text-xl font-bold text-primary">HIMUDA</h1>
-                <p className="text-sm text-muted-foreground">Housing & Urban Development Authority</p>
-                <p className="text-xs text-muted-foreground">Himachal Pradesh</p>
+              <div className="border-l-2 border-primary pl-4">
+                <h1 className="text-2xl font-bold text-primary leading-tight">HIMUDA</h1>
+                <p className="text-sm text-foreground font-medium">Housing & Urban Development Authority</p>
+                <p className="text-xs text-muted-foreground">Government of Himachal Pradesh</p>
               </div>
             </div>
 
-            {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center gap-1">
-              <a href="/" className="px-4 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground rounded-md transition-colors">
-                Home
-              </a>
-              <a href="/about" className="px-4 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground rounded-md transition-colors">
-                About Us
-              </a>
-              <a href="/projects" className="px-4 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground rounded-md transition-colors">
-                Projects
-              </a>
-              <a href="/schemes" className="px-4 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground rounded-md transition-colors">
-                Schemes
-              </a>
-              <a href="/tenders" className="px-4 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground rounded-md transition-colors">
-                Tenders
-              </a>
-              <a href="/contact" className="px-4 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground rounded-md transition-colors">
-                Contact
-              </a>
-            </nav>
-
-            {/* Search & Mobile Menu */}
+            {/* Search */}
             <div className="flex items-center gap-2">
               <Button
-                variant="ghost"
-                size="icon"
+                variant="outline"
+                size="sm"
                 onClick={() => setIsSearchOpen(!isSearchOpen)}
-                className="hidden md:flex"
               >
-                <Search className="h-5 w-5" />
-              </Button>
-              
-              <Button
-                variant="ghost"
-                size="icon"
-                className="lg:hidden"
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-              >
-                {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+                <Search className="h-4 w-4 mr-2" />
+                Search
               </Button>
             </div>
           </div>
@@ -98,38 +67,44 @@ export const Header = () => {
             <div className="mt-4 animate-fade-in">
               <Input
                 type="search"
-                placeholder="Search..."
-                className="w-full"
+                placeholder="Search on this site..."
+                className="w-full max-w-2xl"
               />
             </div>
           )}
         </div>
+      </div>
 
-        {/* Mobile Menu */}
-        {isMenuOpen && (
-          <div className="lg:hidden border-t animate-fade-in">
-            <nav className="container mx-auto px-4 py-4 flex flex-col gap-2">
-              <a href="/" className="px-4 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground rounded-md transition-colors">
-                Home
-              </a>
-              <a href="/about" className="px-4 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground rounded-md transition-colors">
-                About Us
-              </a>
-              <a href="/projects" className="px-4 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground rounded-md transition-colors">
-                Projects
-              </a>
-              <a href="/schemes" className="px-4 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground rounded-md transition-colors">
-                Schemes
-              </a>
-              <a href="/tenders" className="px-4 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground rounded-md transition-colors">
-                Tenders
-              </a>
-              <a href="/contact" className="px-4 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground rounded-md transition-colors">
-                Contact
-              </a>
-            </nav>
-          </div>
-        )}
+      {/* Navigation Menu - Desktop Only Government Style */}
+      <div className="bg-secondary/10 border-b">
+        <div className="container mx-auto px-4">
+          <nav className="flex items-center justify-center">
+            <a href="/" className="px-6 py-3 text-sm font-medium hover:bg-primary hover:text-primary-foreground transition-colors border-r border-border">
+              Home
+            </a>
+            <a href="/about" className="px-6 py-3 text-sm font-medium hover:bg-primary hover:text-primary-foreground transition-colors border-r border-border">
+              About Us
+            </a>
+            <a href="/organization" className="px-6 py-3 text-sm font-medium hover:bg-primary hover:text-primary-foreground transition-colors border-r border-border">
+              Organization
+            </a>
+            <a href="/schemes" className="px-6 py-3 text-sm font-medium hover:bg-primary hover:text-primary-foreground transition-colors border-r border-border">
+              Schemes
+            </a>
+            <a href="/projects" className="px-6 py-3 text-sm font-medium hover:bg-primary hover:text-primary-foreground transition-colors border-r border-border">
+              Projects
+            </a>
+            <a href="/tenders" className="px-6 py-3 text-sm font-medium hover:bg-primary hover:text-primary-foreground transition-colors border-r border-border">
+              Tenders
+            </a>
+            <a href="/rti" className="px-6 py-3 text-sm font-medium hover:bg-primary hover:text-primary-foreground transition-colors border-r border-border">
+              RTI
+            </a>
+            <a href="/contact" className="px-6 py-3 text-sm font-medium hover:bg-primary hover:text-primary-foreground transition-colors">
+              Contact Us
+            </a>
+          </nav>
+        </div>
       </div>
     </header>
   );
