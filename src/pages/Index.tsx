@@ -38,14 +38,6 @@ const Index = () => {
             className="w-24 h-24 object-contain animate-fade-in drop-shadow-2xl"
           />
         </div>
-        <div className="absolute top-4 right-4">
-          <img 
-            src={bitdecentroLogo} 
-            alt="Bitdecentro Logo" 
-            className="h-12 object-contain animate-fade-in drop-shadow-2xl"
-            style={{ filter: 'brightness(0) invert(1)' }}
-          />
-        </div>
         <div className="flex items-center justify-center min-h-screen">
           <div className="text-center text-white space-y-8">
             <h1 className="text-7xl font-bold mb-6 animate-fade-in">HIMUDA Digital Platform</h1>
