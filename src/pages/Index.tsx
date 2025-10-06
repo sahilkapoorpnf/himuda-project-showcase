@@ -168,7 +168,7 @@ const Index = () => {
           <PropertyCard
             image={propertyListing1}
             title="Green Valley Residences"
-            location="Panchkula, Haryana"
+            location="Shimla, Himachal Pradesh"
             price="₹45,00,000"
             beds={3}
             baths={2}
@@ -178,7 +178,7 @@ const Index = () => {
           <PropertyCard
             image={propertyListing2}
             title="Royal Townhouses"
-            location="Ambala, Haryana"
+            location="Dharamshala, Himachal Pradesh"
             price="₹62,00,000"
             beds={4}
             baths={3}
@@ -188,7 +188,7 @@ const Index = () => {
           <PropertyCard
             image={propertyListing3}
             title="Commercial Hub Plaza"
-            location="Karnal, Haryana"
+            location="Solan, Himachal Pradesh"
             price="₹1,20,00,000"
             area="3,500 sq ft"
             type="buy"
