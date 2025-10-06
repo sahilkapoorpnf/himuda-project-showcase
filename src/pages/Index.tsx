@@ -13,6 +13,7 @@ import { ProjectsSection } from "@/components/ProjectsSection";
 import { CitizenSection } from "@/components/CitizenSection";
 import { MinistersSection } from "@/components/MinistersSection";
 import { Footer } from "@/components/Footer";
+import { WhatsNewSection } from "@/components/WhatsNewSection";
 import { ChevronLeft, ChevronRight, Home, Search, FileText, UserCheck, Download, Building2, Filter, MapPin, Calendar, FileCheck } from 'lucide-react';
 
 import heroProperty from '@/assets/hero-property.jpg';
@@ -127,6 +128,9 @@ const Index = () => {
 
         {/* Ministers/Leadership Section */}
         <MinistersSection />
+
+        {/* What's New Marquee Section */}
+        <WhatsNewSection />
 
         {/* Three Column Section - Properly Aligned */}
         <section className="py-16 bg-accent/5 border-y">
