@@ -39,8 +39,7 @@ export const HeroBanner = () => {
           console.warn('Hero video failed to load/autoplay', e);
         }}
       >
-        <source src="https://cdn.pixabay.com/video/2024/02/19/201305-914673452_large.mp4" type="video/mp4" />
-        <source src="https://assets.mixkit.co/videos/preview/mixkit-snowy-mountain-village-in-the-alps-3324-large.mp4" type="video/mp4" />
+        <source src="/videos/himuda.mp4" type="video/mp4" />
       </video>
       <div className="absolute inset-0 bg-gradient-to-r from-primary/80 to-primary/60 z-10" />
       
