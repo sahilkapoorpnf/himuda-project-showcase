@@ -53,43 +53,45 @@ export const LatestNews = () => {
         <p className="text-white/90 text-sm">Stay informed with recent announcements</p>
       </div>
 
-      {/* News List */}
-      <div className="p-6 space-y-3 bg-gradient-to-b from-orange-50/50 to-white max-h-[600px] overflow-y-auto">
-        {newsItems.map((news, index) => (
-          <div
-            key={news.id}
-            className="group relative bg-white border-l-4 border-orange-500 rounded-r-xl p-5 hover:shadow-lg transition-all duration-300 hover:-translate-x-1 cursor-pointer"
-          >
-            {/* Decorative corner */}
-            <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-orange-100/50 to-transparent rounded-bl-full" />
-            
-            <div className="relative">
-              {/* Category and Tag */}
-              <div className="flex items-center gap-2 mb-3">
-                <Badge variant="secondary" className="text-xs bg-orange-100 text-orange-700 hover:bg-orange-200">
-                  {news.category}
-                </Badge>
-                {news.tag && (
-                  <Badge className="text-xs bg-red-500 text-white animate-pulse">
-                    <Sparkles className="h-3 w-3 mr-1" />
-                    {news.tag}
+      {/* Scrolling Marquee News */}
+      <div className="relative bg-gradient-to-b from-orange-50/50 to-white h-[600px] overflow-hidden">
+        <div className="animate-marquee-vertical space-y-3 p-6">
+          {[...newsItems, ...newsItems].map((news, index) => (
+            <div
+              key={`${news.id}-${index}`}
+              className="group relative bg-white border-l-4 border-orange-500 rounded-r-xl p-5 hover:shadow-lg transition-all duration-300 hover:-translate-x-1 cursor-pointer"
+            >
+              {/* Decorative corner */}
+              <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-orange-100/50 to-transparent rounded-bl-full" />
+              
+              <div className="relative">
+                {/* Category and Tag */}
+                <div className="flex items-center gap-2 mb-3">
+                  <Badge variant="secondary" className="text-xs bg-orange-100 text-orange-700 hover:bg-orange-200">
+                    {news.category}
                   </Badge>
-                )}
-              </div>
+                  {news.tag && (
+                    <Badge className="text-xs bg-red-500 text-white animate-pulse">
+                      <Sparkles className="h-3 w-3 mr-1" />
+                      {news.tag}
+                    </Badge>
+                  )}
+                </div>
 
-              {/* Title */}
-              <h3 className="font-bold text-base mb-3 text-gray-800 group-hover:text-orange-600 transition-colors line-clamp-2">
-                {news.title}
-              </h3>
+                {/* Title */}
+                <h3 className="font-bold text-base mb-3 text-gray-800 group-hover:text-orange-600 transition-colors line-clamp-2">
+                  {news.title}
+                </h3>
 
-              {/* Date and Arrow */}
-              <div className="flex items-center justify-between text-sm">
-                <span className="text-gray-500 font-medium">{news.date}</span>
-                <ChevronRight className="h-5 w-5 text-orange-500 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+                {/* Date and Arrow */}
+                <div className="flex items-center justify-between text-sm">
+                  <span className="text-gray-500 font-medium">{news.date}</span>
+                  <ChevronRight className="h-5 w-5 text-orange-500 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
 
       {/* Footer */}

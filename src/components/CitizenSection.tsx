@@ -1,5 +1,9 @@
 import { Users, MessageSquare, Phone, FileText, Image as ImageIcon, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import gallery1 from "@/assets/gallery-1.jpg";
+import gallery2 from "@/assets/gallery-2.jpg";
+import gallery3 from "@/assets/gallery-3.jpg";
+import gallery4 from "@/assets/gallery-4.jpg";
 
 const facilities = [
   {
@@ -26,20 +30,20 @@ const facilities = [
 
 const galleryImages = [
   {
-    url: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80",
-    title: "Modern Housing Complex",
+    url: gallery1,
+    title: "Modern Housing Complex - Shimla",
   },
   {
-    url: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80",
-    title: "Residential Project",
+    url: gallery2,
+    title: "Residential Project Development",
   },
   {
-    url: "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?q=80",
-    title: "Urban Development",
+    url: gallery3,
+    title: "Completed Township - Kullu",
   },
   {
-    url: "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?q=80",
-    title: "Community Spaces",
+    url: gallery4,
+    title: "Modern Apartments - Dharamshala",
   },
 ];
 

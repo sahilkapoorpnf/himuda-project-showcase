@@ -164,4 +164,22 @@ All colors MUST be HSL.
     @apply scale-105;
     box-shadow: var(--shadow-elegant);
   }
+
+  /* Marquee Animation */
+  @keyframes marquee-vertical {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-50%);
+    }
+  }
+
+  .animate-marquee-vertical {
+    animation: marquee-vertical 30s linear infinite;
+  }
+
+  .animate-marquee-vertical:hover {
+    animation-play-state: paused;
+  }
 }
