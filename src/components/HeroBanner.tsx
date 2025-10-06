@@ -27,6 +27,17 @@ export const HeroBanner = () => {
         preload="auto"
         className="absolute inset-0 w-full h-full object-cover z-[1]"
         poster="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?q=80"
+        onLoadedData={() => {
+          const v = videoRef.current;
+          if (!v) return;
+          v.play().catch(() => {
+            v.muted = true;
+            v.play().catch(() => {});
+          });
+        }}
+        onError={(e) => {
+          console.warn('Hero video failed to load/autoplay', e);
+        }}
       >
         <source src="https://cdn.pixabay.com/video/2024/02/19/201305-914673452_large.mp4" type="video/mp4" />
         <source src="https://assets.mixkit.co/videos/preview/mixkit-snowy-mountain-village-in-the-alps-3324-large.mp4" type="video/mp4" />
