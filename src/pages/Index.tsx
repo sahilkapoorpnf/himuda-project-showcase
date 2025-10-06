@@ -1788,25 +1788,30 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      {/* Slides */}
+      <div className="relative">
+        {slides[currentSlide]}
+      </div>
+
       {/* Navigation */}
-      <div className="fixed top-4 right-4 z-50 flex items-center gap-3 bg-card/95 backdrop-blur-md px-6 py-3 rounded-full border border-border/50 animate-fade-in" style={{ boxShadow: 'var(--shadow-elegant)' }}>
+      <div className="flex items-center justify-center gap-4 bg-card/95 backdrop-blur-md px-8 py-4 rounded-2xl border border-border/50 animate-fade-in mx-auto w-fit mb-8" style={{ boxShadow: 'var(--shadow-elegant)' }}>
         <button
           onClick={prevSlide}
-          className="p-2 hover:bg-primary/10 rounded-full transition-all duration-300 hover:scale-110 group"
+          className="p-3 hover:bg-primary/10 rounded-xl transition-all duration-300 hover:scale-110 group"
           aria-label="Previous slide"
         >
-          <ChevronLeft className="w-5 h-5 text-primary group-hover:text-secondary transition-colors" />
+          <ChevronLeft className="w-6 h-6 text-primary group-hover:text-secondary transition-colors" />
         </button>
         
-        <div className="flex gap-2">
+        <div className="flex gap-3">
           {slides.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentSlide(index)}
-              className={`h-2 rounded-full transition-all duration-500 ${
+              className={`h-2.5 rounded-full transition-all duration-500 ${
                 index === currentSlide 
-                  ? 'w-8 bg-gradient-to-r from-primary via-secondary to-accent shadow-lg' 
-                  : 'w-2 bg-muted-foreground/30 hover:bg-muted-foreground/60 hover:scale-125'
+                  ? 'w-10 bg-gradient-to-r from-primary via-secondary to-accent shadow-lg' 
+                  : 'w-2.5 bg-muted-foreground/30 hover:bg-muted-foreground/60 hover:scale-125'
               }`}
               aria-label={`Go to slide ${index + 1}`}
             />
@@ -1815,20 +1820,15 @@ const Index = () => {
 
         <button
           onClick={nextSlide}
-          className="p-2 hover:bg-primary/10 rounded-full transition-all duration-300 hover:scale-110 group"
+          className="p-3 hover:bg-primary/10 rounded-xl transition-all duration-300 hover:scale-110 group"
           aria-label="Next slide"
         >
-          <ChevronRight className="w-5 h-5 text-primary group-hover:text-secondary transition-colors" />
+          <ChevronRight className="w-6 h-6 text-primary group-hover:text-secondary transition-colors" />
         </button>
 
-        <div className="ml-2 pl-2 border-l border-border text-xs font-bold text-primary tracking-wide">
-          {currentSlide + 1}/{slides.length}
+        <div className="ml-4 pl-4 border-l border-border text-sm font-bold text-primary tracking-wide">
+          {currentSlide + 1} / {slides.length}
         </div>
-      </div>
-
-      {/* Slides */}
-      <div className="relative">
-        {slides[currentSlide]}
       </div>
     </div>
   );
