@@ -29,15 +29,15 @@ const Index = () => {
   const slides = [
     // Slide 1: Title Slide
     <PresentationSlide key="title" gradient="hero">
-      <div className="flex items-center justify-between gap-12">
-        <div className="flex-shrink-0">
+      <div className="relative">
+        <div className="absolute top-0 left-0">
           <img 
             src={himudaLogo} 
             alt="HIMUDA Logo" 
-            className="w-64 h-64 object-contain animate-fade-in drop-shadow-2xl"
+            className="w-32 h-32 object-contain animate-fade-in drop-shadow-2xl"
           />
         </div>
-        <div className="flex-1 text-center text-white space-y-8">
+        <div className="text-center text-white space-y-8 pt-20">
           <h1 className="text-7xl font-bold mb-6 animate-fade-in">HIMUDA Digital Platform</h1>
           <p className="text-3xl font-light mb-8 animate-fade-in" style={{ animationDelay: '0.2s' }}>
             Complete Digital Solution by Bitdecentro
