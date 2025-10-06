@@ -105,6 +105,34 @@ const Index = () => {
         <HeroBanner />
         <PropertyPopup />
 
+        {/* Video Section */}
+        <section className="py-16 bg-gradient-to-b from-background to-accent/5">
+          <div className="container mx-auto px-4">
+            <div className="mb-12">
+              <h2 className="text-4xl font-bold text-center mb-4 text-primary">Himachal Urban Development</h2>
+              <p className="text-center text-muted-foreground mb-8">Building the future of Himachal Pradesh</p>
+              
+              <div className="relative rounded-2xl overflow-hidden" style={{ boxShadow: 'var(--shadow-elegant)' }}>
+                <video 
+                  autoPlay 
+                  muted 
+                  loop 
+                  playsInline
+                  className="w-full h-[500px] object-cover"
+                >
+                  <source src="https://cdn.pixabay.com/video/2023/05/08/160916-823815003_large.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute bottom-8 left-8 text-white">
+                  <h3 className="text-3xl font-bold mb-2">Transforming Urban Landscapes</h3>
+                  <p className="text-lg text-white/90">Modern infrastructure for sustainable living</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Three Column Section */}
         <section className="py-16 bg-gradient-to-b from-accent/10 via-background to-accent/5 relative">
           <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMTAgNjAgTSAwIDEwIEwgNjAgMTAgTSAyMCAwIEwgMjAgNjAgTSAwIDIwIEwgNjAgMjAgTSAzMCAwIEwgMzAgNjAgTSAwIDMwIEwgNjAgMzAgTSA0MCAwIEwgNDAgNjAgTSAwIDQwIEwgNjAgNDAgTSA1MCAwIEwgNTAgNjAgTSAwIDUwIEwgNjAgNTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iY3VycmVudENvbG9yIiBzdHJva2Utb3BhY2l0eT0iMC4wMyIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-50" />
