@@ -1,3 +1,7 @@
+import { useState } from 'react';
+import { PresentationSlide } from '@/components/PresentationSlide';
+import { PropertyCard } from '@/components/PropertyCard';
+import { FeatureShowcase } from '@/components/FeatureShowcase';
 import { Header } from "@/components/Header";
 import { HeroBanner } from "@/components/HeroBanner";
 import { PropertyPopup } from "@/components/PropertyPopup";
@@ -8,35 +12,111 @@ import { TendersSection } from "@/components/TendersSection";
 import { ProjectsSection } from "@/components/ProjectsSection";
 import { CitizenSection } from "@/components/CitizenSection";
 import { Footer } from "@/components/Footer";
+import { ChevronLeft, ChevronRight, Home, Search, FileText, UserCheck, Download, Building2, Filter, MapPin, Calendar, FileCheck } from 'lucide-react';
+
+import heroProperty from '@/assets/hero-property.jpg';
+import propertyListing1 from '@/assets/property-listing-1.jpg';
+import propertyListing2 from '@/assets/property-listing-2.jpg';
+import propertyListing3 from '@/assets/property-listing-3.jpg';
+import interior1 from '@/assets/interior-1.jpg';
+import interior2 from '@/assets/interior-2.jpg';
 
 const Index = () => {
-  return (
-    <div className="min-h-screen">
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const slides = [
+    // Slide 1: Title Slide
+    <PresentationSlide key="title" gradient="hero">
+      <div className="text-center text-white space-y-8">
+        <h1 className="text-7xl font-bold mb-6 animate-fade-in">HIMUDA Digital Platform</h1>
+        <p className="text-3xl font-light mb-8 animate-fade-in" style={{ animationDelay: '0.2s' }}>
+          Complete Digital Solution by Bitdecentro
+        </p>
+        <div className="h-1 w-32 bg-accent mx-auto mb-8 animate-fade-in" style={{ animationDelay: '0.4s' }} />
+        <p className="text-xl text-white/90 max-w-3xl mx-auto animate-fade-in" style={{ animationDelay: '0.6s' }}>
+          Transforming Property Management & Allotment with Premium User Experience
+        </p>
+      </div>
+    </PresentationSlide>,
+
+    // Slide 2: Platform Overview
+    <PresentationSlide key="overview">
+      <div className="space-y-12">
+        <h2 className="text-5xl font-bold text-primary text-center mb-12">Platform Overview</h2>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <FeatureShowcase
+            icon={Home}
+            title="Premium Home Page"
+            description="Design quality exceeding DLF.in standards with HSVPHRY content structure"
+            gradient="hero"
+          />
+          <FeatureShowcase
+            icon={Building2}
+            title="Smart Listings"
+            description="Bayut-inspired project listings with advanced filters and search capabilities"
+            gradient="accent"
+          />
+          <FeatureShowcase
+            icon={FileCheck}
+            title="Seamless Applications"
+            description="Streamlined buy/allotment process with document management"
+            gradient="gold"
+          />
+        </div>
+
+        <div className="mt-12 p-8 bg-card rounded-2xl" style={{ boxShadow: 'var(--shadow-card)' }}>
+          <h3 className="text-2xl font-semibold mb-4 text-primary">Key Features</h3>
+          <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 text-lg">
+            <li className="flex items-center gap-3">
+              <div className="w-2 h-2 rounded-full bg-secondary" />
+              <span>Beautiful, responsive design</span>
+            </li>
+            <li className="flex items-center gap-3">
+              <div className="w-2 h-2 rounded-full bg-secondary" />
+              <span>Advanced property filtering</span>
+            </li>
+            <li className="flex items-center gap-3">
+              <div className="w-2 h-2 rounded-full bg-secondary" />
+              <span>Comprehensive property details</span>
+            </li>
+            <li className="flex items-center gap-3">
+              <div className="w-2 h-2 rounded-full bg-secondary" />
+              <span>Integrated document downloads</span>
+            </li>
+            <li className="flex items-center gap-3">
+              <div className="w-2 h-2 rounded-full bg-secondary" />
+              <span>User registration & authentication</span>
+            </li>
+            <li className="flex items-center gap-3">
+              <div className="w-2 h-2 rounded-full bg-secondary" />
+              <span>Application management system</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </PresentationSlide>,
+
+    // Slide 3: NEW HIMUDA WEBSITE VIEW
+    <div key="new-website" className="min-h-screen bg-background overflow-y-auto">
       <Header />
       
-      {/* Add padding to account for fixed header */}
       <div className="pt-32">
         <HeroBanner />
         <PropertyPopup />
 
         {/* Three Column Section */}
         <section className="py-16 bg-gradient-to-b from-accent/10 via-background to-accent/5 relative">
-          {/* Decorative Background */}
           <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMTAgNjAgTSAwIDEwIEwgNjAgMTAgTSAyMCAwIEwgMjAgNjAgTSAwIDIwIEwgNjAgMjAgTSAzMCAwIEwgMzAgNjAgTSAwIDMwIEwgNjAgMzAgTSA0MCAwIEwgNDAgNjAgTSAwIDQwIEwgNjAgNDAgTSA1MCAwIEwgNTAgNjAgTSAwIDUwIEwgNjAgNTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iY3VycmVudENvbG9yIiBzdHJva2Utb3BhY2l0eT0iMC4wMyIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-50" />
           
           <div className="container mx-auto px-4 relative z-10">
             <div className="grid grid-cols-3 gap-6">
-              {/* Left - Important Links */}
               <div className="col-span-1">
                 <ImportantLinks />
               </div>
-
-              {/* Center - Latest News */}
               <div className="col-span-1">
                 <LatestNews />
               </div>
-
-              {/* Right - Online Services */}
               <div className="col-span-1">
                 <OnlineServices />
               </div>
@@ -48,6 +128,465 @@ const Index = () => {
         <ProjectsSection />
         <CitizenSection />
         <Footer />
+      </div>
+    </div>,
+
+    // Slide 4: Project Listing Section
+    <PresentationSlide key="listings">
+      <div className="space-y-8">
+        <h2 className="text-5xl font-bold text-primary text-center mb-4">Project Listings</h2>
+        <p className="text-xl text-muted-foreground text-center mb-8">Bayut-inspired design with smart filters</p>
+        
+        <div className="flex gap-4 mb-6 flex-wrap justify-center">
+          <button className="px-6 py-2 rounded-full bg-secondary text-secondary-foreground font-semibold hover:scale-105 transition-all">
+            All Properties
+          </button>
+          <button className="px-6 py-2 rounded-full border border-border hover:bg-muted transition-all">
+            Buy
+          </button>
+          <button className="px-6 py-2 rounded-full border border-border hover:bg-muted transition-all">
+            Allotment
+          </button>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <PropertyCard
+            image={propertyListing1}
+            title="Green Valley Residences"
+            location="Panchkula, Haryana"
+            price="₹45,00,000"
+            beds={3}
+            baths={2}
+            area="1,450 sq ft"
+            type="buy"
+          />
+          <PropertyCard
+            image={propertyListing2}
+            title="Royal Townhouses"
+            location="Ambala, Haryana"
+            price="₹62,00,000"
+            beds={4}
+            baths={3}
+            area="2,100 sq ft"
+            type="allotment"
+          />
+          <PropertyCard
+            image={propertyListing3}
+            title="Commercial Hub Plaza"
+            location="Karnal, Haryana"
+            price="₹1,20,00,000"
+            area="3,500 sq ft"
+            type="buy"
+          />
+        </div>
+      </div>
+    </PresentationSlide>,
+
+    // Slide 5: Filter & Search
+    <PresentationSlide key="filters">
+      <div className="space-y-8">
+        <h2 className="text-5xl font-bold text-primary text-center mb-8">Advanced Filters & Search</h2>
+        
+        <div className="bg-card p-8 rounded-2xl" style={{ boxShadow: 'var(--shadow-card)' }}>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <div className="space-y-2">
+              <label className="text-sm font-semibold flex items-center gap-2">
+                <Filter className="w-4 h-4 text-primary" />
+                Property Type
+              </label>
+              <div className="flex gap-2">
+                <button className="flex-1 py-2 px-4 rounded-lg bg-primary text-primary-foreground font-semibold">
+                  Buy
+                </button>
+                <button className="flex-1 py-2 px-4 rounded-lg border border-border hover:bg-muted transition-all">
+                  Allotment
+                </button>
+              </div>
+            </div>
+
+            <div className="space-y-2">
+              <label className="text-sm font-semibold flex items-center gap-2">
+                <MapPin className="w-4 h-4 text-secondary" />
+                District
+              </label>
+              <select className="w-full py-2 px-4 rounded-lg border border-input bg-background">
+                <option>Select District</option>
+                <option>Panchkula</option>
+                <option>Ambala</option>
+                <option>Karnal</option>
+                <option>Yamunanagar</option>
+              </select>
+            </div>
+
+            <div className="space-y-2">
+              <label className="text-sm font-semibold flex items-center gap-2">
+                <Calendar className="w-4 h-4 text-accent" />
+                Date Range
+              </label>
+              <select className="w-full py-2 px-4 rounded-lg border border-input bg-background">
+                <option>Any Time</option>
+                <option>Last 30 Days</option>
+                <option>Last 3 Months</option>
+                <option>Last Year</option>
+              </select>
+            </div>
+
+            <div className="space-y-2">
+              <label className="text-sm font-semibold flex items-center gap-2">
+                <Search className="w-4 h-4 text-primary" />
+                Location Search
+              </label>
+              <input 
+                type="text" 
+                placeholder="Search by location..."
+                className="w-full py-2 px-4 rounded-lg border border-input bg-background"
+              />
+            </div>
+          </div>
+
+          <button className="btn-secondary w-full md:w-auto px-12">
+            Apply Filters
+          </button>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+          <div className="card-elegant">
+            <h3 className="text-xl font-semibold mb-3 text-primary">Smart Filtering</h3>
+            <ul className="space-y-2 text-muted-foreground">
+              <li className="flex items-center gap-2">
+                <div className="w-1.5 h-1.5 rounded-full bg-secondary" />
+                Real-time property filtering
+              </li>
+              <li className="flex items-center gap-2">
+                <div className="w-1.5 h-1.5 rounded-full bg-secondary" />
+                Location-based search
+              </li>
+              <li className="flex items-center gap-2">
+                <div className="w-1.5 h-1.5 rounded-full bg-secondary" />
+                Date range filtering
+              </li>
+            </ul>
+          </div>
+
+          <div className="card-elegant">
+            <h3 className="text-xl font-semibold mb-3 text-primary">User Experience</h3>
+            <ul className="space-y-2 text-muted-foreground">
+              <li className="flex items-center gap-2">
+                <div className="w-1.5 h-1.5 rounded-full bg-accent" />
+                Intuitive interface
+              </li>
+              <li className="flex items-center gap-2">
+                <div className="w-1.5 h-1.5 rounded-full bg-accent" />
+                Instant results
+              </li>
+              <li className="flex items-center gap-2">
+                <div className="w-1.5 h-1.5 rounded-full bg-accent" />
+                Responsive design
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </PresentationSlide>,
+
+    // Slide 6: Property Detail Page
+    <PresentationSlide key="property-detail">
+      <div className="space-y-8">
+        <h2 className="text-5xl font-bold text-primary text-center mb-8">Property Detail Page</h2>
+        
+        <div className="bg-card rounded-2xl overflow-hidden" style={{ boxShadow: 'var(--shadow-elegant)' }}>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 p-6">
+            <div className="space-y-4">
+              <img 
+                src={interior1} 
+                alt="Property Interior" 
+                className="w-full h-64 object-cover rounded-xl"
+              />
+              <div className="grid grid-cols-2 gap-4">
+                <img 
+                  src={interior2} 
+                  alt="Property Detail 1" 
+                  className="w-full h-32 object-cover rounded-lg"
+                />
+                <img 
+                  src={propertyListing1} 
+                  alt="Property Detail 2" 
+                  className="w-full h-32 object-cover rounded-lg"
+                />
+              </div>
+            </div>
+
+            <div className="space-y-6">
+              <div>
+                <h3 className="text-3xl font-bold mb-2">Luxury 3BHK Apartment</h3>
+                <p className="text-muted-foreground flex items-center gap-2">
+                  <MapPin className="w-4 h-4" />
+                  Sector 21, Panchkula, Haryana
+                </p>
+              </div>
+
+              <div className="text-4xl font-bold text-primary">₹45,00,000</div>
+
+              <div className="grid grid-cols-3 gap-4 py-4 border-y border-border">
+                <div>
+                  <div className="text-2xl font-bold text-primary">3</div>
+                  <div className="text-sm text-muted-foreground">Bedrooms</div>
+                </div>
+                <div>
+                  <div className="text-2xl font-bold text-secondary">2</div>
+                  <div className="text-sm text-muted-foreground">Bathrooms</div>
+                </div>
+                <div>
+                  <div className="text-2xl font-bold text-accent">1,450</div>
+                  <div className="text-sm text-muted-foreground">Sq Ft</div>
+                </div>
+              </div>
+
+              <div className="space-y-3">
+                <h4 className="font-semibold text-lg">Property Highlights</h4>
+                <ul className="space-y-2 text-muted-foreground">
+                  <li className="flex items-center gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-secondary" />
+                    Premium location with park view
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-secondary" />
+                    Modern amenities & 24/7 security
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-secondary" />
+                    Excellent connectivity to main areas
+                  </li>
+                </ul>
+              </div>
+
+              <div className="flex gap-3">
+                <button className="flex-1 btn-primary flex items-center justify-center gap-2">
+                  <Download className="w-5 h-5" />
+                  Enquire Now
+                </button>
+                <button className="flex-1 btn-secondary flex items-center justify-center gap-2">
+                  <UserCheck className="w-5 h-5" />
+                  Apply Now
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </PresentationSlide>,
+
+    // Slide 7: User Flow
+    <PresentationSlide key="user-flow" gradient="hero">
+      <div className="space-y-12 text-white">
+        <h2 className="text-5xl font-bold text-center mb-12">User Journey Flow</h2>
+        
+        <div className="relative">
+          <div className="absolute top-1/2 left-0 right-0 h-1 bg-white/20 -translate-y-1/2 hidden md:block" />
+          
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
+            <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl text-center space-y-4">
+              <div className="w-16 h-16 rounded-full bg-secondary mx-auto flex items-center justify-center text-2xl font-bold">
+                1
+              </div>
+              <h3 className="text-xl font-semibold">Browse Properties</h3>
+              <p className="text-white/80 text-sm">
+                User explores listings with advanced filters
+              </p>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl text-center space-y-4">
+              <div className="w-16 h-16 rounded-full bg-accent mx-auto flex items-center justify-center text-2xl font-bold text-primary">
+                2
+              </div>
+              <h3 className="text-xl font-semibold">View Details</h3>
+              <p className="text-white/80 text-sm">
+                Comprehensive property information and media
+              </p>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl text-center space-y-4">
+              <div className="w-16 h-16 rounded-full bg-secondary mx-auto flex items-center justify-center text-2xl font-bold">
+                3
+              </div>
+              <h3 className="text-xl font-semibold">Enquire/Download</h3>
+              <p className="text-white/80 text-sm">
+                Access brochures and property documents
+              </p>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl text-center space-y-4">
+              <div className="w-16 h-16 rounded-full bg-accent mx-auto flex items-center justify-center text-2xl font-bold text-primary">
+                4
+              </div>
+              <h3 className="text-xl font-semibold">Apply & Track</h3>
+              <p className="text-white/80 text-sm">
+                Submit application and monitor status
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-16 bg-white/10 backdrop-blur-sm p-8 rounded-2xl">
+          <h3 className="text-2xl font-semibold mb-6 text-center">Seamless Experience</h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="text-center">
+              <div className="text-4xl font-bold mb-2">&lt; 3 min</div>
+              <p className="text-white/80">Average browsing time</p>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl font-bold mb-2">1-Click</div>
+              <p className="text-white/80">Document downloads</p>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl font-bold mb-2">24/7</div>
+              <p className="text-white/80">Application tracking</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </PresentationSlide>,
+
+    // Slide 8: Summary
+    <PresentationSlide key="summary" gradient="accent">
+      <div className="space-y-12 text-center">
+        <h2 className="text-6xl font-bold mb-8">Project Summary</h2>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          <div className="card-elegant text-left">
+            <h3 className="text-2xl font-semibold mb-4 text-primary">Design Excellence</h3>
+            <ul className="space-y-3 text-muted-foreground">
+              <li className="flex items-start gap-3">
+                <div className="w-2 h-2 rounded-full bg-primary mt-2 shrink-0" />
+                <span>Premium UI exceeding industry standards</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <div className="w-2 h-2 rounded-full bg-primary mt-2 shrink-0" />
+                <span>Responsive design for all devices</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <div className="w-2 h-2 rounded-full bg-primary mt-2 shrink-0" />
+                <span>Intuitive user experience</span>
+              </li>
+            </ul>
+          </div>
+
+          <div className="card-elegant text-left">
+            <h3 className="text-2xl font-semibold mb-4 text-secondary">Key Features</h3>
+            <ul className="space-y-3 text-muted-foreground">
+              <li className="flex items-start gap-3">
+                <div className="w-2 h-2 rounded-full bg-secondary mt-2 shrink-0" />
+                <span>Advanced property search & filters</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <div className="w-2 h-2 rounded-full bg-secondary mt-2 shrink-0" />
+                <span>Comprehensive property details</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <div className="w-2 h-2 rounded-full bg-secondary mt-2 shrink-0" />
+                <span>Integrated application system</span>
+              </li>
+            </ul>
+          </div>
+
+          <div className="card-elegant text-left">
+            <h3 className="text-2xl font-semibold mb-4 text-accent">Technical Stack</h3>
+            <ul className="space-y-3 text-muted-foreground">
+              <li className="flex items-start gap-3">
+                <div className="w-2 h-2 rounded-full bg-accent mt-2 shrink-0" />
+                <span>React + TypeScript</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <div className="w-2 h-2 rounded-full bg-accent mt-2 shrink-0" />
+                <span>Tailwind CSS</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <div className="w-2 h-2 rounded-full bg-accent mt-2 shrink-0" />
+                <span>Modern component architecture</span>
+              </li>
+            </ul>
+          </div>
+
+          <div className="card-elegant text-left">
+            <h3 className="text-2xl font-semibold mb-4 text-primary">Delivery</h3>
+            <ul className="space-y-3 text-muted-foreground">
+              <li className="flex items-start gap-3">
+                <div className="w-2 h-2 rounded-full bg-primary mt-2 shrink-0" />
+                <span>Fully functional prototype</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <div className="w-2 h-2 rounded-full bg-primary mt-2 shrink-0" />
+                <span>Production-ready code</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <div className="w-2 h-2 rounded-full bg-primary mt-2 shrink-0" />
+                <span>Documentation included</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="mt-16">
+          <h3 className="text-3xl font-bold mb-4">Ready for Deployment</h3>
+          <p className="text-xl text-muted-foreground">
+            A complete, scalable solution for HIMUDA's digital transformation
+          </p>
+        </div>
+      </div>
+    </PresentationSlide>,
+  ];
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  };
+
+  return (
+    <div className="min-h-screen bg-background">
+      {/* Navigation */}
+      <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 flex items-center gap-4 bg-card/95 backdrop-blur-sm px-6 py-4 rounded-full shadow-elegant border border-border">
+        <button
+          onClick={prevSlide}
+          className="p-2 hover:bg-accent rounded-full transition-colors"
+          aria-label="Previous slide"
+        >
+          <ChevronLeft className="w-6 h-6" />
+        </button>
+        
+        <div className="flex gap-2">
+          {slides.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentSlide(index)}
+              className={`h-2 rounded-full transition-all ${
+                index === currentSlide 
+                  ? 'w-8 bg-primary' 
+                  : 'w-2 bg-muted-foreground/30 hover:bg-muted-foreground/50'
+              }`}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
+        </div>
+
+        <button
+          onClick={nextSlide}
+          className="p-2 hover:bg-accent rounded-full transition-colors"
+          aria-label="Next slide"
+        >
+          <ChevronRight className="w-6 h-6" />
+        </button>
+
+        <div className="ml-4 pl-4 border-l border-border text-sm font-semibold text-muted-foreground">
+          {currentSlide + 1} / {slides.length}
+        </div>
+      </div>
+
+      {/* Slides */}
+      <div className="relative">
+        {slides[currentSlide]}
       </div>
     </div>
   );
