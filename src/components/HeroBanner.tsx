@@ -13,7 +13,7 @@ export const HeroBanner = () => {
     }
   }, []);
   return (
-    <section className="relative h-[600px] overflow-hidden">
+    <section className="relative h-[700px] overflow-hidden">
       {/* Fallback Background Image */}
       <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?q=80')] bg-cover bg-center" />
       

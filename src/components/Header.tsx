@@ -37,16 +37,16 @@ export const Header = () => {
         <div className="container mx-auto px-4 py-3">
           <div className="flex items-center justify-between">
             {/* Logo Section */}
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-3">
               <img 
                 src={himudaLogo} 
                 alt="HIMUDA Logo" 
-                className="h-20 w-20 object-contain"
+                className="h-14 w-14 object-contain"
               />
-              <div className="border-l-2 border-primary pl-4">
-                <h1 className="text-2xl font-bold text-primary leading-tight">HIMUDA</h1>
-                <p className="text-sm text-foreground font-medium">Housing & Urban Development Authority</p>
-                <p className="text-xs text-muted-foreground">Government of Himachal Pradesh</p>
+              <div className="border-l-2 border-primary pl-3">
+                <h1 className="text-xl font-bold text-primary leading-tight">HIMUDA</h1>
+                <p className="text-xs text-foreground font-medium">Housing & Urban Development Authority</p>
+                <p className="text-[10px] text-muted-foreground">Government of Himachal Pradesh</p>
               </div>
             </div>
 
