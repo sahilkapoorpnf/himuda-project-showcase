@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { X, MapPin, Home, TrendingUp } from "lucide-react";
+import { Building2, Home, Award, Users, Phone, Mail, MapPin } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -7,43 +7,6 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-
-interface Property {
-  id: number;
-  title: string;
-  location: string;
-  image: string;
-  status: "completed" | "upcoming" | "hot";
-  price: string;
-}
-
-const properties: Property[] = [
-  {
-    id: 1,
-    title: "Green Valley Residency",
-    location: "Shimla",
-    image: "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80",
-    status: "hot",
-    price: "₹45 Lakhs onwards"
-  },
-  {
-    id: 2,
-    title: "Mountain View Apartments",
-    location: "Dharamshala",
-    image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80",
-    status: "upcoming",
-    price: "₹38 Lakhs onwards"
-  },
-  {
-    id: 3,
-    title: "Pine Hills Estate",
-    location: "Manali",
-    image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80",
-    status: "completed",
-    price: "₹52 Lakhs onwards"
-  }
-];
 
 export const PropertyPopup = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -51,79 +14,120 @@ export const PropertyPopup = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsOpen(true);
-    }, 1500);
+    }, 2000);
 
     return () => clearTimeout(timer);
   }, []);
 
-  const getStatusColor = (status: Property["status"]) => {
-    switch (status) {
-      case "hot":
-        return "bg-destructive text-destructive-foreground";
-      case "upcoming":
-        return "bg-blue-500 text-white";
-      case "completed":
-        return "bg-green-500 text-white";
-    }
-  };
-
-  const getStatusIcon = (status: Property["status"]) => {
-    switch (status) {
-      case "hot":
-        return <TrendingUp className="h-4 w-4" />;
-      case "upcoming":
-        return <Home className="h-4 w-4" />;
-      case "completed":
-        return <Home className="h-4 w-4" />;
-    }
-  };
-
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
-      <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
-        <DialogHeader>
-          <DialogTitle className="text-2xl font-bold text-primary">
-            Featured Properties
-          </DialogTitle>
-        </DialogHeader>
-        
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-4">
-          {properties.map((property) => (
-            <div
-              key={property.id}
-              className="group relative overflow-hidden rounded-lg border bg-card hover:shadow-xl transition-all duration-300"
-            >
-              <div className="relative h-48 overflow-hidden">
-                <img
-                  src={property.image}
-                  alt={property.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                />
-                <Badge className={`absolute top-3 right-3 ${getStatusColor(property.status)} flex items-center gap-1`}>
-                  {getStatusIcon(property.status)}
-                  {property.status.toUpperCase()}
-                </Badge>
-              </div>
-              
-              <div className="p-4">
-                <h3 className="font-semibold text-lg mb-2">{property.title}</h3>
-                <div className="flex items-center text-muted-foreground text-sm mb-3">
-                  <MapPin className="h-4 w-4 mr-1" />
-                  {property.location}
+      <DialogContent className="max-w-5xl max-h-[90vh] overflow-y-auto">
+        <div className="relative">
+          {/* Hero Section */}
+          <div className="relative h-64 -mt-6 -mx-6 mb-6 overflow-hidden rounded-t-lg">
+            <img
+              src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80"
+              alt="HIMUDA Projects"
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent" />
+            <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
+              <h2 className="text-4xl font-bold mb-2">Build Your Dream Home with HIMUDA</h2>
+              <p className="text-lg text-white/90">Affordable Housing Solutions Across Himachal Pradesh</p>
+            </div>
+          </div>
+
+          {/* Why Choose HIMUDA */}
+          <div className="mb-8">
+            <h3 className="text-2xl font-bold text-center mb-6">Why Choose HIMUDA?</h3>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              <div className="text-center space-y-2">
+                <div className="mx-auto w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
+                  <Building2 className="h-8 w-8 text-primary" />
                 </div>
-                <p className="text-primary font-bold mb-3">{property.price}</p>
-                <Button className="w-full" size="sm">
-                  View Details
-                </Button>
+                <h4 className="font-semibold">Quality Projects</h4>
+                <p className="text-sm text-muted-foreground">Premium construction standards</p>
+              </div>
+              <div className="text-center space-y-2">
+                <div className="mx-auto w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
+                  <Home className="h-8 w-8 text-primary" />
+                </div>
+                <h4 className="font-semibold">Affordable Housing</h4>
+                <p className="text-sm text-muted-foreground">Best prices guaranteed</p>
+              </div>
+              <div className="text-center space-y-2">
+                <div className="mx-auto w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
+                  <Award className="h-8 w-8 text-primary" />
+                </div>
+                <h4 className="font-semibold">Trusted Brand</h4>
+                <p className="text-sm text-muted-foreground">Government backed reliability</p>
+              </div>
+              <div className="text-center space-y-2">
+                <div className="mx-auto w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
+                  <Users className="h-8 w-8 text-primary" />
+                </div>
+                <h4 className="font-semibold">10,000+ Families</h4>
+                <p className="text-sm text-muted-foreground">Happy homeowners</p>
               </div>
             </div>
-          ))}
-        </div>
+          </div>
 
-        <div className="mt-6 pt-4 border-t text-center">
-          <Button variant="outline" onClick={() => setIsOpen(false)} size="lg">
-            View All Properties
-          </Button>
+          {/* Special Offer Banner */}
+          <div className="bg-gradient-to-r from-primary to-primary/80 text-primary-foreground rounded-lg p-6 mb-8">
+            <div className="text-center">
+              <h3 className="text-2xl font-bold mb-2">🎉 Limited Time Offer!</h3>
+              <p className="text-lg mb-4">Register now and get special subsidies on new housing schemes</p>
+              <div className="flex flex-wrap justify-center gap-4 text-sm">
+                <div className="bg-white/20 backdrop-blur rounded-full px-4 py-2">
+                  ✓ Easy EMI Options
+                </div>
+                <div className="bg-white/20 backdrop-blur rounded-full px-4 py-2">
+                  ✓ Prime Locations
+                </div>
+                <div className="bg-white/20 backdrop-blur rounded-full px-4 py-2">
+                  ✓ Fast Approval
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Contact Information */}
+          <div className="bg-muted/50 rounded-lg p-6 mb-6">
+            <h3 className="text-xl font-bold mb-4 text-center">Get in Touch Today!</h3>
+            <div className="grid md:grid-cols-3 gap-4 text-center">
+              <div className="flex flex-col items-center gap-2">
+                <Phone className="h-5 w-5 text-primary" />
+                <div>
+                  <p className="font-semibold">Call Us</p>
+                  <p className="text-sm text-muted-foreground">1800-XXX-XXXX</p>
+                </div>
+              </div>
+              <div className="flex flex-col items-center gap-2">
+                <Mail className="h-5 w-5 text-primary" />
+                <div>
+                  <p className="font-semibold">Email Us</p>
+                  <p className="text-sm text-muted-foreground">info@himuda.gov.in</p>
+                </div>
+              </div>
+              <div className="flex flex-col items-center gap-2">
+                <MapPin className="h-5 w-5 text-primary" />
+                <div>
+                  <p className="font-semibold">Visit Office</p>
+                  <p className="text-sm text-muted-foreground">Shimla, HP</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button size="lg" className="text-lg px-8">
+              Register Your Interest
+            </Button>
+            <Button size="lg" variant="outline" className="text-lg px-8">
+              View All Projects
+            </Button>
+          </div>
         </div>
       </DialogContent>
     </Dialog>
