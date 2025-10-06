@@ -14,7 +14,7 @@ import { CitizenSection } from "@/components/CitizenSection";
 import { MinistersSection } from "@/components/MinistersSection";
 import { Footer } from "@/components/Footer";
 import { WhatsNewSection } from "@/components/WhatsNewSection";
-import { ChevronLeft, ChevronRight, Home, Search, FileText, UserCheck, Download, Building2, Filter, MapPin, Calendar, FileCheck, User, CreditCard, Bell, Edit, MessageSquare, Shield, CheckCircle2, Forward, Upload, FileSpreadsheet, Megaphone, FolderCheck, Settings, DollarSign, Receipt, TrendingUp, FileBarChart, RefreshCw, AlertCircle, PieChart, Wallet } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Home, Search, FileText, UserCheck, Download, Building2, Filter, MapPin, Calendar, FileCheck, User, CreditCard, Bell, Edit, MessageSquare, Shield, CheckCircle2, Forward, Upload, FileSpreadsheet, Megaphone, FolderCheck, Settings, DollarSign, Receipt, TrendingUp, FileBarChart, RefreshCw, AlertCircle, PieChart, Wallet, Crown, Users, Lock, Globe, Activity, Database, BarChart3, Target, Newspaper } from 'lucide-react';
 
 import heroProperty from '@/assets/hero-property.jpg';
 import propertyListing1 from '@/assets/property-listing-1.jpg';
@@ -963,7 +963,191 @@ const Index = () => {
       </div>
     </PresentationSlide>,
 
-    // Slide 11: Summary
+    // Slide 11: Superadmin Login
+    <PresentationSlide key="superadmin" gradient="hero">
+      <div className="space-y-12 text-white">
+        {/* Header */}
+        <div className="text-center mb-12">
+          <div className="inline-flex items-center gap-3 mb-6 px-6 py-3 bg-gradient-to-r from-accent/20 to-secondary/20 backdrop-blur-sm rounded-full border border-white/30">
+            <Crown className="w-6 h-6 text-accent" />
+            <span className="text-lg font-semibold">Complete System Control</span>
+          </div>
+          <h2 className="text-6xl font-bold mb-6 animate-fade-in">Superadmin Login</h2>
+          <div className="h-1 w-40 bg-gradient-to-r from-accent via-secondary to-accent mx-auto mb-6 animate-fade-in" style={{ animationDelay: '0.2s' }} />
+          <p className="text-xl text-white/90 max-w-3xl mx-auto animate-fade-in" style={{ animationDelay: '0.4s' }}>
+            Master control panel with comprehensive analytics, user management, and system-wide configuration
+          </p>
+        </div>
+
+        {/* Analytics Dashboard Preview */}
+        <div className="bg-gradient-to-br from-accent/15 to-secondary/15 backdrop-blur-sm rounded-2xl p-10 border border-white/20 max-w-6xl mx-auto mb-12">
+          <div className="flex items-center gap-3 mb-8">
+            <BarChart3 className="w-8 h-8 text-accent" />
+            <h3 className="text-3xl font-bold">Analytics & Business Intelligence</h3>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <div className="bg-white/10 rounded-xl p-6 border border-white/10">
+              <Target className="w-10 h-10 text-accent mb-3" />
+              <h4 className="text-2xl font-bold mb-2">Lead Tracking</h4>
+              <p className="text-white/80 text-sm">Monitor work growth and lead closure rates in real-time</p>
+            </div>
+            <div className="bg-white/10 rounded-xl p-6 border border-white/10">
+              <MapPin className="w-10 h-10 text-secondary mb-3" />
+              <h4 className="text-2xl font-bold mb-2">Location Analytics</h4>
+              <p className="text-white/80 text-sm">Track user locations and identify high-potential markets</p>
+            </div>
+            <div className="bg-white/10 rounded-xl p-6 border border-white/10">
+              <Newspaper className="w-10 h-10 text-accent mb-3" />
+              <h4 className="text-2xl font-bold mb-2">Marketing Insights</h4>
+              <p className="text-white/80 text-sm">Data-driven targeting for newspaper and social media ads</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Access Level Section */}
+        <div className="bg-gradient-to-br from-white/15 to-white/5 backdrop-blur-sm rounded-2xl p-10 border border-white/20 max-w-5xl mx-auto mb-12">
+          <div className="flex items-center gap-3 mb-6">
+            <Crown className="w-8 h-8 text-accent" />
+            <h3 className="text-3xl font-bold">Access Level Permissions</h3>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="flex items-start gap-4 bg-white/10 rounded-xl p-5 border border-white/10 hover:bg-white/15 transition-all">
+              <div className="p-2 bg-accent/20 rounded-lg shrink-0">
+                <Globe className="w-6 h-6 text-accent" />
+              </div>
+              <div>
+                <h4 className="font-semibold text-lg mb-2">Full System Access</h4>
+                <p className="text-white/80 text-sm">Unrestricted access to all modules, user roles, and system settings</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-4 bg-white/10 rounded-xl p-5 border border-white/10 hover:bg-white/15 transition-all">
+              <div className="p-2 bg-secondary/20 rounded-lg shrink-0">
+                <Settings className="w-6 h-6 text-secondary" />
+              </div>
+              <div>
+                <h4 className="font-semibold text-lg mb-2">Configuration Control</h4>
+                <p className="text-white/80 text-sm">Complete authority over permissions, configurations, and content management</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Key Features Section */}
+        <div className="max-w-6xl mx-auto">
+          <div className="flex items-center gap-3 mb-8">
+            <Shield className="w-8 h-8 text-accent" />
+            <h3 className="text-3xl font-bold">Key Responsibility Features</h3>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* Feature 1 */}
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:scale-105 transition-transform">
+              <div className="p-3 bg-accent/20 rounded-lg w-fit mb-4">
+                <Users className="w-8 h-8 text-accent" />
+              </div>
+              <h4 className="text-xl font-semibold mb-3">User Management</h4>
+              <p className="text-white/80">Create, update, and delete users or departments</p>
+            </div>
+
+            {/* Feature 2 */}
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:scale-105 transition-transform">
+              <div className="p-3 bg-secondary/20 rounded-lg w-fit mb-4">
+                <Lock className="w-8 h-8 text-secondary" />
+              </div>
+              <h4 className="text-xl font-semibold mb-3">Role Management</h4>
+              <p className="text-white/80">Assign and revoke user roles and privileges</p>
+            </div>
+
+            {/* Feature 3 */}
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:scale-105 transition-transform">
+              <div className="p-3 bg-accent/20 rounded-lg w-fit mb-4">
+                <Globe className="w-8 h-8 text-accent" />
+              </div>
+              <h4 className="text-xl font-semibold mb-3">Content Management</h4>
+              <p className="text-white/80">Manage banners, notices, and popups sitewide</p>
+            </div>
+
+            {/* Feature 4 */}
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:scale-105 transition-transform">
+              <div className="p-3 bg-secondary/20 rounded-lg w-fit mb-4">
+                <Settings className="w-8 h-8 text-secondary" />
+              </div>
+              <h4 className="text-xl font-semibold mb-3">Global Settings</h4>
+              <p className="text-white/80">Configure rates, fees, and timelines</p>
+            </div>
+
+            {/* Feature 5 */}
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:scale-105 transition-transform">
+              <div className="p-3 bg-accent/20 rounded-lg w-fit mb-4">
+                <Activity className="w-8 h-8 text-accent" />
+              </div>
+              <h4 className="text-xl font-semibold mb-3">Activity Monitoring</h4>
+              <p className="text-white/80">Monitor logs, audit trails, and system activity</p>
+            </div>
+
+            {/* Feature 6 */}
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:scale-105 transition-transform">
+              <div className="p-3 bg-secondary/20 rounded-lg w-fit mb-4">
+                <CheckCircle2 className="w-8 h-8 text-secondary" />
+              </div>
+              <h4 className="text-xl font-semibold mb-3">Project Approval</h4>
+              <p className="text-white/80">Approve new projects and schemes</p>
+            </div>
+
+            {/* Feature 7 */}
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:scale-105 transition-transform">
+              <div className="p-3 bg-accent/20 rounded-lg w-fit mb-4">
+                <Database className="w-8 h-8 text-accent" />
+              </div>
+              <h4 className="text-xl font-semibold mb-3">System Backup</h4>
+              <p className="text-white/80">Manage backups and data recovery</p>
+            </div>
+
+            {/* Feature 8 */}
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:scale-105 transition-transform">
+              <div className="p-3 bg-secondary/20 rounded-lg w-fit mb-4">
+                <Shield className="w-8 h-8 text-secondary" />
+              </div>
+              <h4 className="text-xl font-semibold mb-3">Security & Performance</h4>
+              <p className="text-white/80">Monitor security and system performance</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Superadmin Stats */}
+        <div className="bg-gradient-to-r from-accent/20 via-secondary/20 to-accent/20 backdrop-blur-sm rounded-2xl p-10 border border-white/20 max-w-5xl mx-auto mt-12">
+          <h3 className="text-3xl font-bold text-center mb-8">Master Control Dashboard</h3>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div className="text-center">
+              <div className="flex items-center justify-center mb-3">
+                <Crown className="w-12 h-12 text-accent" />
+              </div>
+              <p className="text-lg text-white/90 font-semibold">Full Authority</p>
+            </div>
+            <div className="text-center">
+              <div className="flex items-center justify-center mb-3">
+                <BarChart3 className="w-12 h-12 text-secondary" />
+              </div>
+              <p className="text-lg text-white/90 font-semibold">Advanced Analytics</p>
+            </div>
+            <div className="text-center">
+              <div className="flex items-center justify-center mb-3">
+                <Activity className="w-12 h-12 text-accent" />
+              </div>
+              <p className="text-lg text-white/90 font-semibold">Real-time Monitoring</p>
+            </div>
+            <div className="text-center">
+              <div className="flex items-center justify-center mb-3">
+                <Shield className="w-12 h-12 text-secondary" />
+              </div>
+              <p className="text-lg text-white/90 font-semibold">Maximum Security</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </PresentationSlide>,
+
+    // Slide 12: Summary
     <PresentationSlide key="summary" gradient="hero">
       <div className="space-y-12 text-white">
         <div className="text-center mb-16">
@@ -978,7 +1162,7 @@ const Index = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-16">
           <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center border border-white/20 hover:scale-105 transition-transform">
             <Building2 className="w-12 h-12 mx-auto mb-4 text-accent" />
-            <div className="text-4xl font-bold mb-2">11</div>
+            <div className="text-4xl font-bold mb-2">12</div>
             <div className="text-white/80">Slides</div>
           </div>
           <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center border border-white/20 hover:scale-105 transition-transform">
