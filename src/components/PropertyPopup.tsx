@@ -8,7 +8,7 @@ import {
   DialogDescription,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import himudaBuilding from "@/assets/himuda-building.jpg";
+import sankatMochanTemple from "@/assets/sankat-mochan-temple.jpg";
 
 export const PropertyPopup = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -32,8 +32,8 @@ export const PropertyPopup = () => {
           {/* Full Hero Image */}
           <div className="relative h-[500px] overflow-hidden">
             <img
-              src={himudaBuilding}
-              alt="HIMUDA Building Shimla"
+              src={sankatMochanTemple}
+              alt="Sankat Mochan Hanuman Temple Shimla"
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
