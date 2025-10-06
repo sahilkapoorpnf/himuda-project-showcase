@@ -14,7 +14,7 @@ import { CitizenSection } from "@/components/CitizenSection";
 import { MinistersSection } from "@/components/MinistersSection";
 import { Footer } from "@/components/Footer";
 import { WhatsNewSection } from "@/components/WhatsNewSection";
-import { ChevronLeft, ChevronRight, Home, Search, FileText, UserCheck, Download, Building2, Filter, MapPin, Calendar, FileCheck } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Home, Search, FileText, UserCheck, Download, Building2, Filter, MapPin, Calendar, FileCheck, User, CreditCard, Bell, Edit, MessageSquare, Shield } from 'lucide-react';
 
 import heroProperty from '@/assets/hero-property.jpg';
 import propertyListing1 from '@/assets/property-listing-1.jpg';
@@ -546,7 +546,132 @@ const Index = () => {
       </div>
     </PresentationSlide>,
 
-    // Slide 8: Summary
+    // Slide 8: Allottee / Citizen User Type
+    <PresentationSlide key="citizen-user" gradient="hero">
+      <div className="space-y-12 text-white">
+        <div className="text-center mb-12">
+          <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-white/20 backdrop-blur-sm mb-6 border border-white/30">
+            <User className="w-10 h-10 text-white" />
+          </div>
+          <h2 className="text-6xl font-bold mb-4 animate-fade-in">Allottee / Citizen User</h2>
+          <div className="h-1 w-40 bg-accent mx-auto mb-6 animate-fade-in" style={{ animationDelay: '0.2s' }} />
+          <p className="text-2xl text-white/90 max-w-3xl mx-auto animate-fade-in" style={{ animationDelay: '0.4s' }}>
+            Registered citizen or applicant who has purchased/applied for a property
+          </p>
+        </div>
+
+        {/* Access Level Permissions */}
+        <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 mb-12">
+          <div className="flex items-center gap-4 mb-6">
+            <div className="p-3 bg-secondary/30 rounded-lg">
+              <Shield className="w-8 h-8 text-secondary" />
+            </div>
+            <h3 className="text-3xl font-semibold">Access Level Permissions</h3>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="flex items-start gap-4 bg-white/5 rounded-xl p-6 hover:bg-white/10 transition-all">
+              <div className="p-2 bg-accent/20 rounded-lg shrink-0">
+                <UserCheck className="w-6 h-6 text-accent" />
+              </div>
+              <div>
+                <h4 className="text-xl font-semibold mb-2">Dashboard Access</h4>
+                <p className="text-white/80 text-base">Login-based access to personalized user dashboard with complete overview</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-4 bg-white/5 rounded-xl p-6 hover:bg-white/10 transition-all">
+              <div className="p-2 bg-secondary/20 rounded-lg shrink-0">
+                <Edit className="w-6 h-6 text-secondary" />
+              </div>
+              <div>
+                <h4 className="text-xl font-semibold mb-2">Manage Data</h4>
+                <p className="text-white/80 text-base">View, edit, and manage applications, payments, and documents seamlessly</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Key Features */}
+        <div>
+          <h3 className="text-3xl font-semibold mb-8 text-center">Key Responsibility Features</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Feature 1 */}
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:scale-105 transition-transform">
+              <div className="p-3 bg-accent/20 rounded-lg w-fit mb-4">
+                <FileCheck className="w-8 h-8 text-accent" />
+              </div>
+              <h4 className="text-xl font-semibold mb-3">Application Status</h4>
+              <p className="text-white/80">View real-time allotment and application status with detailed tracking</p>
+            </div>
+
+            {/* Feature 2 */}
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:scale-105 transition-transform">
+              <div className="p-3 bg-secondary/20 rounded-lg w-fit mb-4">
+                <CreditCard className="w-8 h-8 text-secondary" />
+              </div>
+              <h4 className="text-xl font-semibold mb-3">Online Payments</h4>
+              <p className="text-white/80">Pay instalments or dues online securely with multiple payment options</p>
+            </div>
+
+            {/* Feature 3 */}
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:scale-105 transition-transform">
+              <div className="p-3 bg-accent/20 rounded-lg w-fit mb-4">
+                <Download className="w-8 h-8 text-accent" />
+              </div>
+              <h4 className="text-xl font-semibold mb-3">Document Downloads</h4>
+              <p className="text-white/80">Download allotment letters, receipts, and agreements instantly</p>
+            </div>
+
+            {/* Feature 4 */}
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:scale-105 transition-transform">
+              <div className="p-3 bg-secondary/20 rounded-lg w-fit mb-4">
+                <MessageSquare className="w-8 h-8 text-secondary" />
+              </div>
+              <h4 className="text-xl font-semibold mb-3">Grievances & Feedback</h4>
+              <p className="text-white/80">Submit grievances or feedback directly through the portal</p>
+            </div>
+
+            {/* Feature 5 */}
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:scale-105 transition-transform">
+              <div className="p-3 bg-accent/20 rounded-lg w-fit mb-4">
+                <User className="w-8 h-8 text-accent" />
+              </div>
+              <h4 className="text-xl font-semibold mb-3">Profile Management</h4>
+              <p className="text-white/80">Update personal details and KYC documents anytime</p>
+            </div>
+
+            {/* Feature 6 */}
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:scale-105 transition-transform">
+              <div className="p-3 bg-secondary/20 rounded-lg w-fit mb-4">
+                <Bell className="w-8 h-8 text-secondary" />
+              </div>
+              <h4 className="text-xl font-semibold mb-3">Smart Notifications</h4>
+              <p className="text-white/80">Receive system notifications, payment reminders, and official messages</p>
+            </div>
+          </div>
+        </div>
+
+        {/* User Benefits */}
+        <div className="bg-gradient-to-r from-accent/20 to-secondary/20 backdrop-blur-sm rounded-2xl p-10 border border-white/20 max-w-5xl mx-auto mt-12">
+          <h3 className="text-3xl font-bold text-center mb-8">Empowering Citizens</h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="text-center">
+              <div className="text-5xl font-bold mb-3 text-accent">24/7</div>
+              <p className="text-lg text-white/90">Portal Access</p>
+            </div>
+            <div className="text-center">
+              <div className="text-5xl font-bold mb-3 text-secondary">100%</div>
+              <p className="text-lg text-white/90">Digital Process</p>
+            </div>
+            <div className="text-center">
+              <div className="text-5xl font-bold mb-3 text-accent">Real-time</div>
+              <p className="text-lg text-white/90">Status Updates</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </PresentationSlide>,
+
+    // Slide 9: Summary
     <PresentationSlide key="summary" gradient="hero">
       <div className="space-y-12 text-white">
         <div className="text-center mb-16">
