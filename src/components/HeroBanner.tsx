@@ -1,9 +1,18 @@
 export const HeroBanner = () => {
   return (
     <section className="relative h-[600px] overflow-hidden">
-      {/* Video Background Placeholder */}
-      <div className="absolute inset-0 bg-gradient-to-r from-primary/90 to-primary/70 z-10" />
-      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80')] bg-cover bg-center" />
+      {/* Video Background */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover"
+      >
+        <source src="https://cdn.pixabay.com/video/2023/04/22/159165-819882230_large.mp4" type="video/mp4" />
+        {/* Fallback image if video doesn't load */}
+      </video>
+      <div className="absolute inset-0 bg-gradient-to-r from-primary/80 to-primary/60 z-10" />
       
       {/* Content Overlay */}
       <div className="relative z-20 h-full flex items-center justify-center text-center px-4">
