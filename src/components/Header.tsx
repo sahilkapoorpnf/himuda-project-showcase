@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Phone, Mail, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import himudaLogo from "@/assets/himuda-logo.png";
 
 export const Header = () => {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -38,8 +39,8 @@ export const Header = () => {
             {/* Logo Section */}
             <div className="flex items-center gap-4">
               <img 
-                src="/placeholder.svg" 
-                alt="Government of Himachal Pradesh" 
+                src={himudaLogo} 
+                alt="HIMUDA Logo" 
                 className="h-20 w-20 object-contain"
               />
               <div className="border-l-2 border-primary pl-4">
