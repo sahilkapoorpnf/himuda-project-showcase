@@ -22,6 +22,7 @@ import propertyListing3 from '@/assets/property-listing-3.jpg';
 import interior1 from '@/assets/interior-1.jpg';
 import interior2 from '@/assets/interior-2.jpg';
 import himudaLogo from '@/assets/himuda-logo.png';
+import bitdecentroLogo from '@/assets/bitdecentro-original.png';
 
 const Index = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -35,6 +36,14 @@ const Index = () => {
             src={himudaLogo} 
             alt="HIMUDA Logo" 
             className="w-24 h-24 object-contain animate-fade-in drop-shadow-2xl"
+          />
+        </div>
+        <div className="absolute top-4 right-4">
+          <img 
+            src={bitdecentroLogo} 
+            alt="Bitdecentro Logo" 
+            className="h-12 object-contain animate-fade-in drop-shadow-2xl"
+            style={{ filter: 'brightness(0) invert(1)' }}
           />
         </div>
         <div className="flex items-center justify-center min-h-screen">
