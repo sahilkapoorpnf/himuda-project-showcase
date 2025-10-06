@@ -76,32 +76,32 @@ export const Header = () => {
       </div>
 
       {/* Navigation Menu - Desktop Only Government Style */}
-      <div className="bg-secondary/10 border-b">
-        <div className="container mx-auto px-4">
-          <nav className="flex items-center justify-center">
-            <a href="/" className="px-6 py-3 text-sm font-medium hover:bg-primary hover:text-primary-foreground transition-colors border-r border-border">
-              Home
+      <div className="bg-primary text-primary-foreground shadow-md">
+        <div className="container mx-auto">
+          <nav className="flex items-center justify-center divide-x divide-primary-foreground/20">
+            <a href="/" className="px-8 py-4 text-sm font-semibold hover:bg-primary-foreground/10 transition-all">
+              HOME
             </a>
-            <a href="/about" className="px-6 py-3 text-sm font-medium hover:bg-primary hover:text-primary-foreground transition-colors border-r border-border">
-              About Us
+            <a href="/about" className="px-8 py-4 text-sm font-semibold hover:bg-primary-foreground/10 transition-all">
+              ABOUT US
             </a>
-            <a href="/organization" className="px-6 py-3 text-sm font-medium hover:bg-primary hover:text-primary-foreground transition-colors border-r border-border">
-              Organization
+            <a href="/organization" className="px-8 py-4 text-sm font-semibold hover:bg-primary-foreground/10 transition-all">
+              ORGANIZATION
             </a>
-            <a href="/schemes" className="px-6 py-3 text-sm font-medium hover:bg-primary hover:text-primary-foreground transition-colors border-r border-border">
-              Schemes
+            <a href="/schemes" className="px-8 py-4 text-sm font-semibold hover:bg-primary-foreground/10 transition-all">
+              SCHEMES
             </a>
-            <a href="/projects" className="px-6 py-3 text-sm font-medium hover:bg-primary hover:text-primary-foreground transition-colors border-r border-border">
-              Projects
+            <a href="/projects" className="px-8 py-4 text-sm font-semibold hover:bg-primary-foreground/10 transition-all">
+              PROJECTS
             </a>
-            <a href="/tenders" className="px-6 py-3 text-sm font-medium hover:bg-primary hover:text-primary-foreground transition-colors border-r border-border">
-              Tenders
+            <a href="/tenders" className="px-8 py-4 text-sm font-semibold hover:bg-primary-foreground/10 transition-all">
+              TENDERS
             </a>
-            <a href="/rti" className="px-6 py-3 text-sm font-medium hover:bg-primary hover:text-primary-foreground transition-colors border-r border-border">
+            <a href="/rti" className="px-8 py-4 text-sm font-semibold hover:bg-primary-foreground/10 transition-all">
               RTI
             </a>
-            <a href="/contact" className="px-6 py-3 text-sm font-medium hover:bg-primary hover:text-primary-foreground transition-colors">
-              Contact Us
+            <a href="/contact" className="px-8 py-4 text-sm font-semibold hover:bg-primary-foreground/10 transition-all">
+              CONTACT US
             </a>
           </nav>
         </div>
