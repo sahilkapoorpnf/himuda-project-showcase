@@ -14,7 +14,7 @@ import { CitizenSection } from "@/components/CitizenSection";
 import { MinistersSection } from "@/components/MinistersSection";
 import { Footer } from "@/components/Footer";
 import { WhatsNewSection } from "@/components/WhatsNewSection";
-import { ChevronLeft, ChevronRight, Home, Search, FileText, UserCheck, Download, Building2, Filter, MapPin, Calendar, FileCheck, User, CreditCard, Bell, Edit, MessageSquare, Shield, CheckCircle2, Forward, Upload, FileSpreadsheet, Megaphone, FolderCheck, Settings, DollarSign, Receipt, TrendingUp, FileBarChart, RefreshCw, AlertCircle, PieChart, Wallet, Crown, Users, Lock, Globe, Activity, Database, BarChart3, Target, Newspaper } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Home, Search, FileText, UserCheck, Download, Building2, Filter, MapPin, Calendar, FileCheck, User, CreditCard, Bell, Edit, MessageSquare, Shield, CheckCircle2, Forward, Upload, FileSpreadsheet, Megaphone, FolderCheck, Settings, DollarSign, Receipt, TrendingUp, FileBarChart, RefreshCw, AlertCircle, PieChart, Wallet, Crown, Users, Lock, Globe, Activity, Database, BarChart3, Target, Newspaper, Mail, Smartphone, BellRing, Clock, Send, AlertTriangle, Phone } from 'lucide-react';
 
 import heroProperty from '@/assets/hero-property.jpg';
 import propertyListing1 from '@/assets/property-listing-1.jpg';
@@ -1147,7 +1147,292 @@ const Index = () => {
       </div>
     </PresentationSlide>,
 
-    // Slide 12: Summary
+    // Slide 12: Notification Management System
+    <PresentationSlide key="notifications" gradient="accent">
+      <div className="space-y-10 text-white">
+        {/* Header */}
+        <div className="text-center mb-10">
+          <div className="inline-flex items-center gap-3 mb-6 px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
+            <BellRing className="w-6 h-6 text-accent" />
+            <span className="text-lg font-semibold">Multi-Channel Communication System</span>
+          </div>
+          <h2 className="text-6xl font-bold mb-6 animate-fade-in">Notification Management</h2>
+          <div className="h-1 w-40 bg-white/40 mx-auto mb-6 animate-fade-in" style={{ animationDelay: '0.2s' }} />
+          <p className="text-xl text-white/90 max-w-3xl mx-auto animate-fade-in" style={{ animationDelay: '0.4s' }}>
+            Comprehensive notification system with email, SMS, and portal alerts across all user types
+          </p>
+        </div>
+
+        {/* Communication Channels */}
+        <div className="bg-gradient-to-br from-white/15 to-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/20 max-w-5xl mx-auto">
+          <h3 className="text-2xl font-bold mb-6 text-center">Communication Channels</h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="bg-white/10 rounded-xl p-5 border border-white/10 hover:scale-105 transition-transform">
+              <Mail className="w-10 h-10 text-accent mb-3 mx-auto" />
+              <h4 className="text-lg font-semibold text-center mb-2">Email Notifications</h4>
+              <p className="text-white/80 text-sm text-center">Detailed communications with attachments and links</p>
+            </div>
+            <div className="bg-white/10 rounded-xl p-5 border border-white/10 hover:scale-105 transition-transform">
+              <Smartphone className="w-10 h-10 text-secondary mb-3 mx-auto" />
+              <h4 className="text-lg font-semibold text-center mb-2">SMS Alerts</h4>
+              <p className="text-white/80 text-sm text-center">Instant text messages for urgent updates</p>
+            </div>
+            <div className="bg-white/10 rounded-xl p-5 border border-white/10 hover:scale-105 transition-transform">
+              <Bell className="w-10 h-10 text-accent mb-3 mx-auto" />
+              <h4 className="text-lg font-semibold text-center mb-2">Portal Notifications</h4>
+              <p className="text-white/80 text-sm text-center">Real-time in-app notifications and alerts</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Notification Flow by User Type */}
+        <div className="max-w-6xl mx-auto">
+          <h3 className="text-3xl font-bold mb-8 text-center flex items-center justify-center gap-3">
+            <Send className="w-8 h-8 text-accent" />
+            Notification Flow by User Type
+          </h3>
+          
+          <div className="space-y-6">
+            {/* Allottee/Citizen - Receives */}
+            <div className="bg-gradient-to-r from-accent/20 to-accent/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+              <div className="flex items-start gap-4">
+                <div className="p-3 bg-accent/30 rounded-lg shrink-0">
+                  <User className="w-8 h-8 text-white" />
+                </div>
+                <div className="flex-1">
+                  <h4 className="text-2xl font-bold mb-3">Allottee / Citizen</h4>
+                  <div className="flex items-center gap-2 mb-3">
+                    <Bell className="w-5 h-5 text-accent" />
+                    <span className="font-semibold text-lg">Receives Notifications:</span>
+                  </div>
+                  <ul className="grid grid-cols-1 md:grid-cols-2 gap-2 text-white/90">
+                    <li className="flex items-center gap-2">
+                      <div className="w-1.5 h-1.5 rounded-full bg-accent" />
+                      Payment reminders and due alerts
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <div className="w-1.5 h-1.5 rounded-full bg-accent" />
+                      Application status updates
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <div className="w-1.5 h-1.5 rounded-full bg-accent" />
+                      Document submission requests
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <div className="w-1.5 h-1.5 rounded-full bg-accent" />
+                      Approval/rejection notifications
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <div className="w-1.5 h-1.5 rounded-full bg-accent" />
+                      Property allotment confirmations
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <div className="w-1.5 h-1.5 rounded-full bg-accent" />
+                      Portal announcements and updates
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            {/* IT Department - Receives & Sends */}
+            <div className="bg-gradient-to-r from-secondary/20 to-secondary/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+              <div className="flex items-start gap-4">
+                <div className="p-3 bg-secondary/30 rounded-lg shrink-0">
+                  <Shield className="w-8 h-8 text-white" />
+                </div>
+                <div className="flex-1">
+                  <h4 className="text-2xl font-bold mb-3">IT Department</h4>
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                    <div>
+                      <div className="flex items-center gap-2 mb-3">
+                        <Bell className="w-5 h-5 text-secondary" />
+                        <span className="font-semibold text-lg">Receives:</span>
+                      </div>
+                      <ul className="space-y-2 text-white/90">
+                        <li className="flex items-center gap-2">
+                          <div className="w-1.5 h-1.5 rounded-full bg-secondary" />
+                          New application alerts
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <div className="w-1.5 h-1.5 rounded-full bg-secondary" />
+                          Pending approval reminders
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <div className="w-1.5 h-1.5 rounded-full bg-secondary" />
+                          Document verification alerts
+                        </li>
+                      </ul>
+                    </div>
+                    <div>
+                      <div className="flex items-center gap-2 mb-3">
+                        <Send className="w-5 h-5 text-secondary" />
+                        <span className="font-semibold text-lg">Generates & Sends:</span>
+                      </div>
+                      <ul className="space-y-2 text-white/90">
+                        <li className="flex items-center gap-2">
+                          <div className="w-1.5 h-1.5 rounded-full bg-secondary" />
+                          Application status updates to citizens
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <div className="w-1.5 h-1.5 rounded-full bg-secondary" />
+                          Document requirement notifications
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <div className="w-1.5 h-1.5 rounded-full bg-secondary" />
+                          Approval/rejection communications
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Accounts Team - Receives & Sends */}
+            <div className="bg-gradient-to-r from-accent/20 to-accent/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+              <div className="flex items-start gap-4">
+                <div className="p-3 bg-accent/30 rounded-lg shrink-0">
+                  <DollarSign className="w-8 h-8 text-white" />
+                </div>
+                <div className="flex-1">
+                  <h4 className="text-2xl font-bold mb-3">Accounts Team</h4>
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                    <div>
+                      <div className="flex items-center gap-2 mb-3">
+                        <Bell className="w-5 h-5 text-accent" />
+                        <span className="font-semibold text-lg">Receives:</span>
+                      </div>
+                      <ul className="space-y-2 text-white/90">
+                        <li className="flex items-center gap-2">
+                          <div className="w-1.5 h-1.5 rounded-full bg-accent" />
+                          New payment transaction alerts
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <div className="w-1.5 h-1.5 rounded-full bg-accent" />
+                          Refund request notifications
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <div className="w-1.5 h-1.5 rounded-full bg-accent" />
+                          Payment reconciliation reminders
+                        </li>
+                      </ul>
+                    </div>
+                    <div>
+                      <div className="flex items-center gap-2 mb-3">
+                        <Send className="w-5 h-5 text-accent" />
+                        <span className="font-semibold text-lg">Generates & Sends:</span>
+                      </div>
+                      <ul className="space-y-2 text-white/90">
+                        <li className="flex items-center gap-2">
+                          <div className="w-1.5 h-1.5 rounded-full bg-accent" />
+                          Payment due reminders to citizens
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <div className="w-1.5 h-1.5 rounded-full bg-accent" />
+                          Receipt and invoice notifications
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <div className="w-1.5 h-1.5 rounded-full bg-accent" />
+                          Penalty and late fee alerts
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Superadmin - Master Control */}
+            <div className="bg-gradient-to-r from-secondary/20 to-accent/20 backdrop-blur-sm rounded-xl p-6 border border-white/30">
+              <div className="flex items-start gap-4">
+                <div className="p-3 bg-gradient-to-r from-accent/30 to-secondary/30 rounded-lg shrink-0">
+                  <Crown className="w-8 h-8 text-white" />
+                </div>
+                <div className="flex-1">
+                  <h4 className="text-2xl font-bold mb-3">Superadmin - Master Control</h4>
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                    <div>
+                      <div className="flex items-center gap-2 mb-3">
+                        <Activity className="w-5 h-5 text-accent" />
+                        <span className="font-semibold text-lg">Monitors:</span>
+                      </div>
+                      <ul className="space-y-2 text-white/90">
+                        <li className="flex items-center gap-2">
+                          <div className="w-1.5 h-1.5 rounded-full bg-accent" />
+                          All notification activities system-wide
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <div className="w-1.5 h-1.5 rounded-full bg-accent" />
+                          Timeliness of team responses
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <div className="w-1.5 h-1.5 rounded-full bg-accent" />
+                          Delayed or missed notifications
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <div className="w-1.5 h-1.5 rounded-full bg-accent" />
+                          Department performance metrics
+                        </li>
+                      </ul>
+                    </div>
+                    <div>
+                      <div className="flex items-center gap-2 mb-3">
+                        <AlertTriangle className="w-5 h-5 text-secondary" />
+                        <span className="font-semibold text-lg">Can Raise Concerns:</span>
+                      </div>
+                      <ul className="space-y-2 text-white/90">
+                        <li className="flex items-center gap-2">
+                          <div className="w-1.5 h-1.5 rounded-full bg-secondary" />
+                          Alert teams about delays
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <div className="w-1.5 h-1.5 rounded-full bg-secondary" />
+                          Call meetings for performance issues
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <div className="w-1.5 h-1.5 rounded-full bg-secondary" />
+                          Send escalation notices
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <div className="w-1.5 h-1.5 rounded-full bg-secondary" />
+                          Generate system-wide announcements
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Notification Stats */}
+        <div className="bg-gradient-to-r from-accent/20 via-secondary/20 to-accent/20 backdrop-blur-sm rounded-2xl p-10 border border-white/20 max-w-5xl mx-auto">
+          <h3 className="text-3xl font-bold text-center mb-8">Smart Notification System</h3>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div className="text-center">
+              <Clock className="w-12 h-12 mx-auto mb-3 text-accent" />
+              <p className="text-lg text-white/90 font-semibold">Real-time Delivery</p>
+            </div>
+            <div className="text-center">
+              <Send className="w-12 h-12 mx-auto mb-3 text-secondary" />
+              <p className="text-lg text-white/90 font-semibold">Multi-Channel</p>
+            </div>
+            <div className="text-center">
+              <Activity className="w-12 h-12 mx-auto mb-3 text-accent" />
+              <p className="text-lg text-white/90 font-semibold">Performance Tracking</p>
+            </div>
+            <div className="text-center">
+              <Phone className="w-12 h-12 mx-auto mb-3 text-secondary" />
+              <p className="text-lg text-white/90 font-semibold">Automated Reminders</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </PresentationSlide>,
+
+    // Slide 13: Summary
     <PresentationSlide key="summary" gradient="hero">
       <div className="space-y-12 text-white">
         <div className="text-center mb-16">
@@ -1162,7 +1447,7 @@ const Index = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-16">
           <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center border border-white/20 hover:scale-105 transition-transform">
             <Building2 className="w-12 h-12 mx-auto mb-4 text-accent" />
-            <div className="text-4xl font-bold mb-2">12</div>
+            <div className="text-4xl font-bold mb-2">13</div>
             <div className="text-white/80">Slides</div>
           </div>
           <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center border border-white/20 hover:scale-105 transition-transform">
