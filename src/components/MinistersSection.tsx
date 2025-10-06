@@ -1,27 +1,34 @@
 import { Card } from "@/components/ui/card";
-import cmSukhu from "@/assets/cm-sukhu.png";
-import mukeshAgnihotri from "@/assets/mukesh-agnihotri.jpg";
-import vikramadityaSingh from "@/assets/vikramaditya-singh.jpg";
+import sukhvinderSingh from "@/assets/sukhvinder-singh.jpg";
+import rajeshDharmani from "@/assets/rajesh-dharmani.jpg";
+import yashwantChhajta from "@/assets/yashwant-chhajta.jpg";
+import deveshKumar from "@/assets/devesh-kumar.jpg";
 
 export const MinistersSection = () => {
   const ministers = [
     {
-      name: "Shri Sukhvinder Singh Sukhu",
+      name: "Shri Sukhvinder Singh",
       designation: "Hon'ble Chief Minister",
-      department: "Himachal Pradesh",
-      image: cmSukhu
+      department: "",
+      image: sukhvinderSingh
     },
     {
-      name: "Shri Mukesh Agnihotri",
-      designation: "Hon'ble Deputy Chief Minister",
-      department: "Urban Development",
-      image: mukeshAgnihotri
-    },
-    {
-      name: "Shri Vikramaditya Singh",
+      name: "Sh. Rajesh Dharmani",
       designation: "Hon'ble Minister",
-      department: "Urban Development & Housing",
-      image: vikramadityaSingh
+      department: "TCP, Housing, Technical Education",
+      image: rajeshDharmani
+    },
+    {
+      name: "Er. Yashwant Chhajta",
+      designation: "Vice Chairman",
+      department: "HIMUDA",
+      image: yashwantChhajta
+    },
+    {
+      name: "Sh. Devesh Kumar, IAS",
+      designation: "Pr. Secretary, Housing",
+      department: "Govt. of HP",
+      image: deveshKumar
     }
   ];
 
@@ -34,7 +41,7 @@ export const MinistersSection = () => {
           <p className="text-muted-foreground">Government of Himachal Pradesh</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
           {ministers.map((minister, index) => (
             <Card key={index} className="overflow-hidden hover:shadow-lg transition-shadow">
               <div className="aspect-square overflow-hidden bg-muted">
