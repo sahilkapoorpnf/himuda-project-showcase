@@ -1432,174 +1432,285 @@ const Index = () => {
       </div>
     </PresentationSlide>,
 
-    // Slide 13: Summary
-    <PresentationSlide key="summary" gradient="hero">
-      <div className="space-y-12 text-white">
-        <div className="text-center mb-16">
-          <h2 className="text-7xl font-bold mb-6 animate-fade-in">Project Summary</h2>
-          <div className="h-1 w-48 bg-accent mx-auto animate-fade-in" style={{ animationDelay: '0.2s' }} />
-          <p className="text-2xl text-white/90 mt-6 animate-fade-in" style={{ animationDelay: '0.4s' }}>
-            Transforming Government Property Management
+    // Slide 13: Bitdecentro Success Strategy
+    <PresentationSlide key="success-strategy" gradient="hero">
+      <div className="space-y-10 text-white">
+        {/* Header */}
+        <div className="text-center mb-12">
+          <div className="inline-flex items-center gap-3 mb-6 px-6 py-3 bg-gradient-to-r from-accent/20 to-secondary/20 backdrop-blur-sm rounded-full border border-white/30">
+            <img 
+              src={bitdecentroLogo} 
+              alt="Bitdecentro" 
+              className="h-6 object-contain brightness-0 invert"
+            />
+            <span className="text-lg font-semibold">Success Roadmap</span>
+          </div>
+          <h2 className="text-7xl font-bold mb-6 animate-fade-in">How Bitdecentro Will Achieve Success</h2>
+          <div className="h-1 w-48 bg-gradient-to-r from-accent via-secondary to-accent mx-auto animate-fade-in" style={{ animationDelay: '0.2s' }} />
+          <p className="text-2xl text-white/90 mt-6 max-w-3xl mx-auto animate-fade-in" style={{ animationDelay: '0.4s' }}>
+            Strategic approach to deliver HIMUDA's complete digital transformation
           </p>
         </div>
 
-        {/* Key Metrics */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-16">
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center border border-white/20 hover:scale-105 transition-transform">
-            <Building2 className="w-12 h-12 mx-auto mb-4 text-accent" />
-            <div className="text-4xl font-bold mb-2">13</div>
-            <div className="text-white/80">Slides</div>
-          </div>
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center border border-white/20 hover:scale-105 transition-transform">
-            <Home className="w-12 h-12 mx-auto mb-4 text-secondary" />
-            <div className="text-4xl font-bold mb-2">20+</div>
-            <div className="text-white/80">Components</div>
-          </div>
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center border border-white/20 hover:scale-105 transition-transform">
-            <Search className="w-12 h-12 mx-auto mb-4 text-accent" />
-            <div className="text-4xl font-bold mb-2">100%</div>
-            <div className="text-white/80">Responsive</div>
-          </div>
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center border border-white/20 hover:scale-105 transition-transform">
-            <FileCheck className="w-12 h-12 mx-auto mb-4 text-secondary" />
-            <div className="text-4xl font-bold mb-2">12</div>
-            <div className="text-white/80">Districts</div>
-          </div>
-        </div>
-        
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-          {/* Design Excellence */}
-          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 hover:bg-white/15 transition-all">
-            <div className="flex items-center gap-4 mb-6">
-              <div className="p-3 bg-accent/20 rounded-lg">
-                <Building2 className="w-8 h-8 text-accent" />
+        {/* Implementation Strategy */}
+        <div className="max-w-6xl mx-auto">
+          <h3 className="text-3xl font-bold mb-8 text-center">Implementation Strategy</h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            {/* Phase 1 */}
+            <div className="bg-gradient-to-br from-accent/20 to-accent/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:scale-105 transition-transform">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="px-3 py-1 bg-accent/30 rounded-full text-sm font-bold">Phase 1</div>
+                <span className="text-white/70">Weeks 1-4</span>
               </div>
-              <h3 className="text-3xl font-semibold">Design Excellence</h3>
+              <h4 className="text-2xl font-bold mb-4">Foundation & Design</h4>
+              <ul className="space-y-2 text-white/90">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-5 h-5 text-accent mt-0.5 shrink-0" />
+                  <span>Requirements analysis & user research</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-5 h-5 text-accent mt-0.5 shrink-0" />
+                  <span>Premium UI/UX design system</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-5 h-5 text-accent mt-0.5 shrink-0" />
+                  <span>Database architecture & API design</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-5 h-5 text-accent mt-0.5 shrink-0" />
+                  <span>Security framework setup</span>
+                </li>
+              </ul>
             </div>
-            <ul className="space-y-4">
-              <li className="flex items-start gap-3">
-                <div className="w-2 h-2 rounded-full bg-accent mt-2 shrink-0" />
-                <span className="text-lg text-white/90">Premium UI exceeding DLF.in standards</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <div className="w-2 h-2 rounded-full bg-accent mt-2 shrink-0" />
-                <span className="text-lg text-white/90">Beautiful responsive design for all devices</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <div className="w-2 h-2 rounded-full bg-accent mt-2 shrink-0" />
-                <span className="text-lg text-white/90">Modern gradient themes & animations</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <div className="w-2 h-2 rounded-full bg-accent mt-2 shrink-0" />
-                <span className="text-lg text-white/90">Government-style professional layout</span>
-              </li>
-            </ul>
-          </div>
 
-          {/* Key Features */}
-          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 hover:bg-white/15 transition-all">
-            <div className="flex items-center gap-4 mb-6">
-              <div className="p-3 bg-secondary/20 rounded-lg">
-                <Search className="w-8 h-8 text-secondary" />
+            {/* Phase 2 */}
+            <div className="bg-gradient-to-br from-secondary/20 to-secondary/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:scale-105 transition-transform">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="px-3 py-1 bg-secondary/30 rounded-full text-sm font-bold">Phase 2</div>
+                <span className="text-white/70">Weeks 5-10</span>
               </div>
-              <h3 className="text-3xl font-semibold">Key Features</h3>
+              <h4 className="text-2xl font-bold mb-4">Core Development</h4>
+              <ul className="space-y-2 text-white/90">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-5 h-5 text-secondary mt-0.5 shrink-0" />
+                  <span>User authentication & role management</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-5 h-5 text-secondary mt-0.5 shrink-0" />
+                  <span>Property listing & search modules</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-5 h-5 text-secondary mt-0.5 shrink-0" />
+                  <span>Application management system</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-5 h-5 text-secondary mt-0.5 shrink-0" />
+                  <span>Payment gateway integration</span>
+                </li>
+              </ul>
             </div>
-            <ul className="space-y-4">
-              <li className="flex items-start gap-3">
-                <div className="w-2 h-2 rounded-full bg-secondary mt-2 shrink-0" />
-                <span className="text-lg text-white/90">Advanced property search with smart filters</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <div className="w-2 h-2 rounded-full bg-secondary mt-2 shrink-0" />
-                <span className="text-lg text-white/90">Comprehensive property detail pages</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <div className="w-2 h-2 rounded-full bg-secondary mt-2 shrink-0" />
-                <span className="text-lg text-white/90">Integrated application management system</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <div className="w-2 h-2 rounded-full bg-secondary mt-2 shrink-0" />
-                <span className="text-lg text-white/90">Real-time marquee news updates</span>
-              </li>
-            </ul>
-          </div>
 
-          {/* Technical Stack */}
-          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 hover:bg-white/15 transition-all">
-            <div className="flex items-center gap-4 mb-6">
-              <div className="p-3 bg-accent/20 rounded-lg">
-                <FileText className="w-8 h-8 text-accent" />
+            {/* Phase 3 */}
+            <div className="bg-gradient-to-br from-accent/20 to-accent/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:scale-105 transition-transform">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="px-3 py-1 bg-accent/30 rounded-full text-sm font-bold">Phase 3</div>
+                <span className="text-white/70">Weeks 11-12</span>
               </div>
-              <h3 className="text-3xl font-semibold">Technical Stack</h3>
+              <h4 className="text-2xl font-bold mb-4">Testing & Launch</h4>
+              <ul className="space-y-2 text-white/90">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-5 h-5 text-accent mt-0.5 shrink-0" />
+                  <span>Comprehensive testing & QA</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-5 h-5 text-accent mt-0.5 shrink-0" />
+                  <span>User training & documentation</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-5 h-5 text-accent mt-0.5 shrink-0" />
+                  <span>Performance optimization</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-5 h-5 text-accent mt-0.5 shrink-0" />
+                  <span>Production deployment & go-live</span>
+                </li>
+              </ul>
             </div>
-            <ul className="space-y-4">
-              <li className="flex items-start gap-3">
-                <div className="w-2 h-2 rounded-full bg-accent mt-2 shrink-0" />
-                <span className="text-lg text-white/90">React 18 + TypeScript for type safety</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <div className="w-2 h-2 rounded-full bg-accent mt-2 shrink-0" />
-                <span className="text-lg text-white/90">Tailwind CSS with custom design system</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <div className="w-2 h-2 rounded-full bg-accent mt-2 shrink-0" />
-                <span className="text-lg text-white/90">Modern component architecture</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <div className="w-2 h-2 rounded-full bg-accent mt-2 shrink-0" />
-                <span className="text-lg text-white/90">Optimized performance & animations</span>
-              </li>
-            </ul>
-          </div>
-
-          {/* Delivery & Impact */}
-          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 hover:bg-white/15 transition-all">
-            <div className="flex items-center gap-4 mb-6">
-              <div className="p-3 bg-secondary/20 rounded-lg">
-                <FileCheck className="w-8 h-8 text-secondary" />
-              </div>
-              <h3 className="text-3xl font-semibold">Delivery & Impact</h3>
-            </div>
-            <ul className="space-y-4">
-              <li className="flex items-start gap-3">
-                <div className="w-2 h-2 rounded-full bg-secondary mt-2 shrink-0" />
-                <span className="text-lg text-white/90">Fully functional production-ready code</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <div className="w-2 h-2 rounded-full bg-secondary mt-2 shrink-0" />
-                <span className="text-lg text-white/90">Complete documentation included</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <div className="w-2 h-2 rounded-full bg-secondary mt-2 shrink-0" />
-                <span className="text-lg text-white/90">Scalable architecture for future growth</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <div className="w-2 h-2 rounded-full bg-secondary mt-2 shrink-0" />
-                <span className="text-lg text-white/90">Enhanced citizen digital experience</span>
-              </li>
-            </ul>
           </div>
         </div>
 
-        {/* Final CTA */}
-        <div className="mt-16 text-center bg-white/10 backdrop-blur-sm rounded-2xl p-12 border border-white/20 max-w-4xl mx-auto">
-          <h3 className="text-5xl font-bold mb-6">Ready for Deployment</h3>
-          <p className="text-2xl text-white/90 mb-8">
-            A complete, scalable solution for HIMUDA's digital transformation
+        {/* Success Factors */}
+        <div className="max-w-6xl mx-auto">
+          <h3 className="text-3xl font-bold mb-8 text-center">Bitdecentro Success Factors</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Technical Excellence */}
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="p-3 bg-accent/20 rounded-lg">
+                  <Building2 className="w-8 h-8 text-accent" />
+                </div>
+                <h4 className="text-2xl font-semibold">Technical Excellence</h4>
+              </div>
+              <ul className="space-y-3">
+                <li className="flex items-start gap-3">
+                  <div className="w-2 h-2 rounded-full bg-accent mt-2 shrink-0" />
+                  <span className="text-white/90">Modern tech stack: React, TypeScript, Tailwind</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-2 h-2 rounded-full bg-accent mt-2 shrink-0" />
+                  <span className="text-white/90">Scalable cloud infrastructure</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-2 h-2 rounded-full bg-accent mt-2 shrink-0" />
+                  <span className="text-white/90">Advanced security & data protection</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-2 h-2 rounded-full bg-accent mt-2 shrink-0" />
+                  <span className="text-white/90">Mobile-first responsive design</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Quality Assurance */}
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="p-3 bg-secondary/20 rounded-lg">
+                  <Shield className="w-8 h-8 text-secondary" />
+                </div>
+                <h4 className="text-2xl font-semibold">Quality Assurance</h4>
+              </div>
+              <ul className="space-y-3">
+                <li className="flex items-start gap-3">
+                  <div className="w-2 h-2 rounded-full bg-secondary mt-2 shrink-0" />
+                  <span className="text-white/90">Rigorous testing at every phase</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-2 h-2 rounded-full bg-secondary mt-2 shrink-0" />
+                  <span className="text-white/90">Code reviews & best practices</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-2 h-2 rounded-full bg-secondary mt-2 shrink-0" />
+                  <span className="text-white/90">Performance monitoring & optimization</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-2 h-2 rounded-full bg-secondary mt-2 shrink-0" />
+                  <span className="text-white/90">Security audits & compliance</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* User Experience */}
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="p-3 bg-accent/20 rounded-lg">
+                  <Users className="w-8 h-8 text-accent" />
+                </div>
+                <h4 className="text-2xl font-semibold">User-Centric Design</h4>
+              </div>
+              <ul className="space-y-3">
+                <li className="flex items-start gap-3">
+                  <div className="w-2 h-2 rounded-full bg-accent mt-2 shrink-0" />
+                  <span className="text-white/90">Intuitive interfaces for all user types</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-2 h-2 rounded-full bg-accent mt-2 shrink-0" />
+                  <span className="text-white/90">Comprehensive training & onboarding</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-2 h-2 rounded-full bg-accent mt-2 shrink-0" />
+                  <span className="text-white/90">24/7 technical support post-launch</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-2 h-2 rounded-full bg-accent mt-2 shrink-0" />
+                  <span className="text-white/90">Continuous feedback implementation</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Post-Launch Support */}
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="p-3 bg-secondary/20 rounded-lg">
+                  <Activity className="w-8 h-8 text-secondary" />
+                </div>
+                <h4 className="text-2xl font-semibold">Post-Launch Support</h4>
+              </div>
+              <ul className="space-y-3">
+                <li className="flex items-start gap-3">
+                  <div className="w-2 h-2 rounded-full bg-secondary mt-2 shrink-0" />
+                  <span className="text-white/90">6 months warranty & bug fixes</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-2 h-2 rounded-full bg-secondary mt-2 shrink-0" />
+                  <span className="text-white/90">Regular updates & enhancements</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-2 h-2 rounded-full bg-secondary mt-2 shrink-0" />
+                  <span className="text-white/90">Dedicated support team</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-2 h-2 rounded-full bg-secondary mt-2 shrink-0" />
+                  <span className="text-white/90">System monitoring & maintenance</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        {/* Measurable Outcomes */}
+        <div className="bg-gradient-to-r from-accent/20 via-secondary/20 to-accent/20 backdrop-blur-sm rounded-2xl p-10 border border-white/20 max-w-6xl mx-auto">
+          <h3 className="text-3xl font-bold text-center mb-8">Expected Measurable Outcomes</h3>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div className="text-center">
+              <div className="text-5xl font-bold mb-3 text-accent">80%</div>
+              <p className="text-lg text-white/90">Reduction in Processing Time</p>
+            </div>
+            <div className="text-center">
+              <div className="text-5xl font-bold mb-3 text-secondary">90%</div>
+              <p className="text-lg text-white/90">Digital Adoption Rate</p>
+            </div>
+            <div className="text-center">
+              <div className="text-5xl font-bold mb-3 text-accent">100%</div>
+              <p className="text-lg text-white/90">Transparency in Operations</p>
+            </div>
+            <div className="text-center">
+              <div className="text-5xl font-bold mb-3 text-secondary">24/7</div>
+              <p className="text-lg text-white/90">Citizen Service Availability</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Final Message */}
+        <div className="mt-12 text-center bg-gradient-to-br from-white/15 to-white/5 backdrop-blur-sm rounded-2xl p-12 border border-white/20 max-w-5xl mx-auto">
+          <div className="flex items-center justify-center gap-4 mb-6">
+            <img 
+              src={bitdecentroLogo} 
+              alt="Bitdecentro" 
+              className="h-12 object-contain brightness-0 invert"
+            />
+            <div className="h-12 w-px bg-white/30" />
+            <img 
+              src={himudaLogo} 
+              alt="HIMUDA" 
+              className="h-12 object-contain brightness-0 invert"
+            />
+          </div>
+          <h3 className="text-5xl font-bold mb-6">Partnership for Digital Excellence</h3>
+          <p className="text-2xl text-white/90 mb-8 max-w-3xl mx-auto">
+            Bitdecentro is committed to delivering a world-class digital platform that will transform HIMUDA's operations and citizen services
           </p>
           <div className="flex gap-4 justify-center flex-wrap">
             <div className="flex items-center gap-2 px-6 py-3 bg-accent/20 rounded-lg border border-accent/40">
-              <UserCheck className="w-6 h-6 text-accent" />
-              <span className="text-lg">User-Centric Design</span>
+              <CheckCircle2 className="w-6 h-6 text-accent" />
+              <span className="text-lg font-semibold">On-Time Delivery</span>
             </div>
             <div className="flex items-center gap-2 px-6 py-3 bg-secondary/20 rounded-lg border border-secondary/40">
-              <Download className="w-6 h-6 text-secondary" />
-              <span className="text-lg">Government Standards</span>
+              <Shield className="w-6 h-6 text-secondary" />
+              <span className="text-lg font-semibold">Quality Guaranteed</span>
             </div>
             <div className="flex items-center gap-2 px-6 py-3 bg-accent/20 rounded-lg border border-accent/40">
-              <Building2 className="w-6 h-6 text-accent" />
-              <span className="text-lg">Future-Ready Platform</span>
+              <Activity className="w-6 h-6 text-accent" />
+              <span className="text-lg font-semibold">Long-Term Support</span>
             </div>
           </div>
         </div>
