@@ -14,7 +14,7 @@ import { CitizenSection } from "@/components/CitizenSection";
 import { MinistersSection } from "@/components/MinistersSection";
 import { Footer } from "@/components/Footer";
 import { WhatsNewSection } from "@/components/WhatsNewSection";
-import { ChevronLeft, ChevronRight, Home, Search, FileText, UserCheck, Download, Building2, Filter, MapPin, Calendar, FileCheck, User, CreditCard, Bell, Edit, MessageSquare, Shield } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Home, Search, FileText, UserCheck, Download, Building2, Filter, MapPin, Calendar, FileCheck, User, CreditCard, Bell, Edit, MessageSquare, Shield, CheckCircle2, Forward, Upload, FileSpreadsheet, Megaphone, FolderCheck, Settings } from 'lucide-react';
 
 import heroProperty from '@/assets/hero-property.jpg';
 import propertyListing1 from '@/assets/property-listing-1.jpg';
@@ -671,7 +671,163 @@ const Index = () => {
       </div>
     </PresentationSlide>,
 
-    // Slide 9: Summary
+    // Slide 9: IT Department Login
+    <PresentationSlide key="it-department" gradient="accent">
+      <div className="space-y-12 text-white">
+        {/* Header */}
+        <div className="text-center mb-12">
+          <div className="inline-flex items-center gap-3 mb-6 px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
+            <Shield className="w-6 h-6 text-accent" />
+            <span className="text-lg font-semibold">Administrative Access</span>
+          </div>
+          <h2 className="text-6xl font-bold mb-6 animate-fade-in">IT Department Login</h2>
+          <div className="h-1 w-40 bg-white/40 mx-auto mb-6 animate-fade-in" style={{ animationDelay: '0.2s' }} />
+          <p className="text-xl text-white/90 max-w-3xl mx-auto animate-fade-in" style={{ animationDelay: '0.4s' }}>
+            Comprehensive administrative dashboard for reviewing applications, managing projects, and publishing updates
+          </p>
+        </div>
+
+        {/* Access Level Section */}
+        <div className="bg-gradient-to-br from-white/15 to-white/5 backdrop-blur-sm rounded-2xl p-10 border border-white/20 max-w-5xl mx-auto mb-12">
+          <div className="flex items-center gap-3 mb-6">
+            <Settings className="w-8 h-8 text-accent" />
+            <h3 className="text-3xl font-bold">Access Level Permissions</h3>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="flex items-start gap-4 bg-white/10 rounded-xl p-5 border border-white/10 hover:bg-white/15 transition-all">
+              <div className="p-2 bg-accent/20 rounded-lg shrink-0">
+                <Shield className="w-6 h-6 text-accent" />
+              </div>
+              <div>
+                <h4 className="font-semibold text-lg mb-2">Role-Based Access</h4>
+                <p className="text-white/80 text-sm">Access to administrative dashboard with department-specific permissions</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-4 bg-white/10 rounded-xl p-5 border border-white/10 hover:bg-white/15 transition-all">
+              <div className="p-2 bg-secondary/20 rounded-lg shrink-0">
+                <CheckCircle2 className="w-6 h-6 text-secondary" />
+              </div>
+              <div>
+                <h4 className="font-semibold text-lg mb-2">Review & Approval</h4>
+                <p className="text-white/80 text-sm">Can review, approve, or forward applications to other departments</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-4 bg-white/10 rounded-xl p-5 border border-white/10 hover:bg-white/15 transition-all">
+              <div className="p-2 bg-accent/20 rounded-lg shrink-0">
+                <Building2 className="w-6 h-6 text-accent" />
+              </div>
+              <div>
+                <h4 className="font-semibold text-lg mb-2">Project Management</h4>
+                <p className="text-white/80 text-sm">Access to project management modules and progress tracking</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-4 bg-white/10 rounded-xl p-5 border border-white/10 hover:bg-white/15 transition-all">
+              <div className="p-2 bg-secondary/20 rounded-lg shrink-0">
+                <Edit className="w-6 h-6 text-secondary" />
+              </div>
+              <div>
+                <h4 className="font-semibold text-lg mb-2">Project Creation</h4>
+                <p className="text-white/80 text-sm">Add new project details, edit existing ones, and forward to approval</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Key Features Section */}
+        <div className="max-w-6xl mx-auto">
+          <div className="flex items-center gap-3 mb-8">
+            <FolderCheck className="w-8 h-8 text-accent" />
+            <h3 className="text-3xl font-bold">Key Responsibility Features</h3>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Feature 1 */}
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:scale-105 transition-transform">
+              <div className="p-3 bg-accent/20 rounded-lg w-fit mb-4">
+                <FileCheck className="w-8 h-8 text-accent" />
+              </div>
+              <h4 className="text-xl font-semibold mb-3">Document Verification</h4>
+              <p className="text-white/80">Verify applications and review all uploaded documents for compliance</p>
+            </div>
+
+            {/* Feature 2 */}
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:scale-105 transition-transform">
+              <div className="p-3 bg-secondary/20 rounded-lg w-fit mb-4">
+                <CheckCircle2 className="w-8 h-8 text-secondary" />
+              </div>
+              <h4 className="text-xl font-semibold mb-3">Approval Management</h4>
+              <p className="text-white/80">Approve or reject allotment applications with detailed remarks</p>
+            </div>
+
+            {/* Feature 3 */}
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:scale-105 transition-transform">
+              <div className="p-3 bg-accent/20 rounded-lg w-fit mb-4">
+                <Forward className="w-8 h-8 text-accent" />
+              </div>
+              <h4 className="text-xl font-semibold mb-3">Case Forwarding</h4>
+              <p className="text-white/80">Forward cases to other departments with workflow tracking</p>
+            </div>
+
+            {/* Feature 4 */}
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:scale-105 transition-transform">
+              <div className="p-3 bg-secondary/20 rounded-lg w-fit mb-4">
+                <Building2 className="w-8 h-8 text-secondary" />
+              </div>
+              <h4 className="text-xl font-semibold mb-3">Project Progress</h4>
+              <p className="text-white/80">Manage and update project milestones and progress reports</p>
+            </div>
+
+            {/* Feature 5 */}
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:scale-105 transition-transform">
+              <div className="p-3 bg-accent/20 rounded-lg w-fit mb-4">
+                <Upload className="w-8 h-8 text-accent" />
+              </div>
+              <h4 className="text-xl font-semibold mb-3">Document Upload</h4>
+              <p className="text-white/80">Upload documents, site reports, and project images for public access</p>
+            </div>
+
+            {/* Feature 6 */}
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:scale-105 transition-transform">
+              <div className="p-3 bg-secondary/20 rounded-lg w-fit mb-4">
+                <FileSpreadsheet className="w-8 h-8 text-secondary" />
+              </div>
+              <h4 className="text-xl font-semibold mb-3">Report Generation</h4>
+              <p className="text-white/80">Generate comprehensive department-level reports and analytics</p>
+            </div>
+
+            {/* Feature 7 */}
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:scale-105 transition-transform col-span-1 md:col-span-2 lg:col-span-1">
+              <div className="p-3 bg-accent/20 rounded-lg w-fit mb-4">
+                <Megaphone className="w-8 h-8 text-accent" />
+              </div>
+              <h4 className="text-xl font-semibold mb-3">Public Notices</h4>
+              <p className="text-white/80">Publish official notices, updates, and announcements to the public portal</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Department Stats */}
+        <div className="bg-gradient-to-r from-secondary/20 to-accent/20 backdrop-blur-sm rounded-2xl p-10 border border-white/20 max-w-5xl mx-auto mt-12">
+          <h3 className="text-3xl font-bold text-center mb-8">Administrative Control</h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="text-center">
+              <div className="text-5xl font-bold mb-3 text-accent">Full</div>
+              <p className="text-lg text-white/90">Application Control</p>
+            </div>
+            <div className="text-center">
+              <div className="text-5xl font-bold mb-3 text-secondary">Secure</div>
+              <p className="text-lg text-white/90">Role-Based Access</p>
+            </div>
+            <div className="text-center">
+              <div className="text-5xl font-bold mb-3 text-accent">Real-time</div>
+              <p className="text-lg text-white/90">Project Updates</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </PresentationSlide>,
+
+    // Slide 10: Summary
     <PresentationSlide key="summary" gradient="hero">
       <div className="space-y-12 text-white">
         <div className="text-center mb-16">
@@ -686,7 +842,7 @@ const Index = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-16">
           <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center border border-white/20 hover:scale-105 transition-transform">
             <Building2 className="w-12 h-12 mx-auto mb-4 text-accent" />
-            <div className="text-4xl font-bold mb-2">8+</div>
+            <div className="text-4xl font-bold mb-2">10</div>
             <div className="text-white/80">Slides</div>
           </div>
           <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center border border-white/20 hover:scale-105 transition-transform">
