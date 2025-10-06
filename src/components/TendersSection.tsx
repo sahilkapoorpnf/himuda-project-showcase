@@ -48,7 +48,7 @@ export const TendersSection = () => {
   return (
     <section className="py-12 bg-gradient-to-b from-accent/5 to-transparent">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-2 gap-6">
           {/* Tenders */}
           <div className="bg-card border rounded-lg shadow-md overflow-hidden">
             <div className="bg-gradient-to-r from-blue-600 to-blue-500 text-white p-6">
