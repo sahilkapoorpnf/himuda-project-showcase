@@ -672,7 +672,7 @@ const Index = () => {
     </PresentationSlide>,
 
     // Slide 9: IT Department Login
-    <PresentationSlide key="it-department" gradient="accent">
+    <PresentationSlide key="it-department" gradient="hero">
       <div className="space-y-12 text-white">
         {/* Header */}
         <div className="text-center mb-12">
