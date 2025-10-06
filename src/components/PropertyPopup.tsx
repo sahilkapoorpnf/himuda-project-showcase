@@ -31,8 +31,8 @@ export const PropertyPopup = () => {
           {/* Full Hero Image */}
           <div className="relative h-[500px] overflow-hidden">
             <img
-              src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?q=80&w=2000"
-              alt="Himachal Mountains"
+              src="https://images.unsplash.com/photo-1582510003544-4d00b7f74220?q=80&w=2000"
+              alt="Shimla Government Building"
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
