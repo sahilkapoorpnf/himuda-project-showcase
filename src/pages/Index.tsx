@@ -1460,7 +1460,6 @@ const Index = () => {
             <div className="bg-gradient-to-br from-accent/20 to-accent/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:scale-105 transition-transform">
               <div className="flex items-center gap-3 mb-4">
                 <div className="px-3 py-1 bg-accent/30 rounded-full text-sm font-bold">Phase 1</div>
-                <span className="text-white/70">Weeks 1-4</span>
               </div>
               <h4 className="text-2xl font-bold mb-4">Foundation & Design</h4>
               <ul className="space-y-2 text-white/90">
@@ -1487,7 +1486,6 @@ const Index = () => {
             <div className="bg-gradient-to-br from-secondary/20 to-secondary/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:scale-105 transition-transform">
               <div className="flex items-center gap-3 mb-4">
                 <div className="px-3 py-1 bg-secondary/30 rounded-full text-sm font-bold">Phase 2</div>
-                <span className="text-white/70">Weeks 5-10</span>
               </div>
               <h4 className="text-2xl font-bold mb-4">Core Development</h4>
               <ul className="space-y-2 text-white/90">
@@ -1514,7 +1512,6 @@ const Index = () => {
             <div className="bg-gradient-to-br from-accent/20 to-accent/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:scale-105 transition-transform">
               <div className="flex items-center gap-3 mb-4">
                 <div className="px-3 py-1 bg-accent/30 rounded-full text-sm font-bold">Phase 3</div>
-                <span className="text-white/70">Weeks 11-12</span>
               </div>
               <h4 className="text-2xl font-bold mb-4">Testing & Launch</h4>
               <ul className="space-y-2 text-white/90">
@@ -1636,10 +1633,6 @@ const Index = () => {
                 <h4 className="text-2xl font-semibold">Post-Launch Support</h4>
               </div>
               <ul className="space-y-3">
-                <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 rounded-full bg-secondary mt-2 shrink-0" />
-                  <span className="text-white/90">6 months warranty & bug fixes</span>
-                </li>
                 <li className="flex items-start gap-3">
                   <div className="w-2 h-2 rounded-full bg-secondary mt-2 shrink-0" />
                   <span className="text-white/90">Regular updates & enhancements</span>
