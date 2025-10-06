@@ -1,16 +1,19 @@
 export const HeroBanner = () => {
   return (
     <section className="relative h-[600px] overflow-hidden">
+      {/* Fallback Background Image */}
+      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80')] bg-cover bg-center" />
+      
       {/* Video Background */}
       <video
         autoPlay
         loop
         muted
         playsInline
-        className="absolute inset-0 w-full h-full object-cover"
+        className="absolute inset-0 w-full h-full object-cover z-[1]"
+        poster="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80"
       >
-        <source src="https://cdn.pixabay.com/video/2023/04/22/159165-819882230_large.mp4" type="video/mp4" />
-        {/* Fallback image if video doesn't load */}
+        <source src="https://assets.mixkit.co/videos/preview/mixkit-aerial-view-of-a-mountain-village-covered-in-fog-39766-large.mp4" type="video/mp4" />
       </video>
       <div className="absolute inset-0 bg-gradient-to-r from-primary/80 to-primary/60 z-10" />
       
