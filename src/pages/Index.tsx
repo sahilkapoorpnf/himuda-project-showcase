@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { PresentationSlide } from '@/components/PresentationSlide';
 import { PropertyCard } from '@/components/PropertyCard';
 import { FeatureShowcase } from '@/components/FeatureShowcase';
@@ -23,6 +23,14 @@ import interior2 from '@/assets/interior-2.jpg';
 
 const Index = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const urbanVidRef = useRef<HTMLVideoElement>(null);
+  useEffect(() => {
+    if (currentSlide === 2 && urbanVidRef.current) {
+      const v = urbanVidRef.current;
+      v.muted = true;
+      v.play().catch(() => {});
+    }
+  }, [currentSlide]);
 
   const slides = [
     // Slide 1: Title Slide
@@ -114,13 +122,23 @@ const Index = () => {
               
               <div className="relative rounded-2xl overflow-hidden" style={{ boxShadow: 'var(--shadow-elegant)' }}>
                 <video 
+                  ref={urbanVidRef}
                   autoPlay 
                   muted 
                   loop 
                   playsInline
+                  preload="metadata"
+                  crossOrigin="anonymous"
                   className="w-full h-[500px] object-cover"
+                  poster="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?q=80"
+                  onCanPlay={() => {
+                    const v = urbanVidRef.current;
+                    if (v) { v.muted = true; v.play().catch(() => {}); }
+                  }}
+                  onError={(e) => { console.warn('Slide 3 video failed to load/autoplay', e); }}
                 >
                   <source src="https://cdn.pixabay.com/video/2023/05/08/160916-823815003_large.mp4" type="video/mp4" />
+                  <source src="https://videos.pexels.com/video-files/856196/856196-uhd_2560_1440_25fps.mp4" type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
