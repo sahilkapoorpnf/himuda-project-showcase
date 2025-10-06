@@ -1,78 +1,97 @@
-import { FileText, Download, CreditCard, Home, User, Phone, ArrowRight } from "lucide-react";
+import { FileText, Download, CreditCard, Home, User, Phone, MousePointerClick, Zap } from "lucide-react";
 
 const services = [
   {
     icon: Home,
     title: "Apply for Allotment",
     description: "Submit online application",
-    gradient: "from-blue-500 to-cyan-500",
+    color: "bg-blue-500",
+    hoverColor: "hover:bg-blue-50"
   },
   {
     icon: FileText,
     title: "Check Status",
     description: "Track your application",
-    gradient: "from-green-500 to-emerald-500",
+    color: "bg-green-500",
+    hoverColor: "hover:bg-green-50"
   },
   {
     icon: CreditCard,
     title: "Online Payment",
     description: "Secure payments",
-    gradient: "from-purple-500 to-pink-500",
+    color: "bg-purple-500",
+    hoverColor: "hover:bg-purple-50"
   },
   {
     icon: Download,
     title: "Download Forms",
     description: "Access documents",
-    gradient: "from-orange-500 to-red-500",
+    color: "bg-orange-500",
+    hoverColor: "hover:bg-orange-50"
   },
   {
     icon: User,
     title: "Registration",
     description: "Register for schemes",
-    gradient: "from-pink-500 to-rose-500",
+    color: "bg-pink-500",
+    hoverColor: "hover:bg-pink-50"
   },
   {
     icon: Phone,
     title: "Grievance Portal",
     description: "Submit complaints",
-    gradient: "from-red-500 to-orange-500",
+    color: "bg-red-500",
+    hoverColor: "hover:bg-red-50"
   },
 ];
 
 export const OnlineServices = () => {
   return (
-    <div className="bg-gradient-to-br from-card to-accent/5 border rounded-xl shadow-lg sticky top-32 overflow-hidden">
-      <div className="relative bg-gradient-to-r from-primary via-primary/95 to-primary/90 text-primary-foreground p-6">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAwIDEwIEwgNDAgMTAgTSAxMCAwIEwgMTAgNDAgTSAwIDIwIEwgNDAgMjAgTSAyMCAwIEwgMjAgNDAgTSAwIDMwIEwgNDAgMzAgTSAzMCAwIEwgMzAgNDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS1vcGFjaXR5PSIwLjA1IiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-10" />
-        <h2 className="text-2xl font-bold relative flex items-center gap-2">
-          <CreditCard className="h-6 w-6" />
-          Online Services
-        </h2>
-        <p className="text-sm text-primary-foreground/80 mt-1 relative">Digital services at your fingertips</p>
+    <div className="bg-white rounded-2xl shadow-xl border-t-4 border-green-500 overflow-hidden h-full">
+      {/* Header */}
+      <div className="bg-gradient-to-r from-green-500 via-emerald-600 to-teal-600 p-6">
+        <div className="flex items-center gap-3 mb-2">
+          <div className="p-2 bg-white/20 rounded-lg backdrop-blur-sm">
+            <MousePointerClick className="h-6 w-6 text-white" />
+          </div>
+          <h2 className="text-2xl font-bold text-white">Online Services</h2>
+        </div>
+        <p className="text-white/90 text-sm">Digital services at your fingertips</p>
       </div>
 
-      <div className="p-4 space-y-3">
+      {/* Services Grid */}
+      <div className="p-6 grid grid-cols-1 gap-3 bg-gradient-to-b from-green-50/30 to-white max-h-[600px] overflow-y-auto">
         {services.map((service, index) => (
-          <div
+          <button
             key={index}
-            className="group relative overflow-hidden rounded-xl bg-background/50 hover:bg-background border border-border/50 hover:border-primary/30 transition-all hover:shadow-lg hover:-translate-y-1 cursor-pointer"
+            className={`group relative flex items-center gap-4 p-5 rounded-xl bg-white border-2 border-gray-100 ${service.hoverColor} hover:border-green-300 hover:shadow-xl transition-all duration-300 hover:scale-[1.03] text-left`}
           >
-            <div className="flex items-center gap-4 p-4">
-              <div className={`relative p-3.5 rounded-xl bg-gradient-to-br ${service.gradient} text-white shadow-lg group-hover:scale-110 transition-transform`}>
+            {/* Animated corner accent */}
+            <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-bl from-green-100/50 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity" />
+
+            {/* Icon with glow effect */}
+            <div className="relative">
+              <div className={`${service.color} p-4 rounded-2xl text-white shadow-lg group-hover:shadow-2xl group-hover:scale-110 transition-all duration-300`}>
                 <service.icon className="h-6 w-6" />
-                <div className="absolute inset-0 bg-white/20 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity" />
               </div>
-              <div className="flex-1 min-w-0">
-                <h3 className="font-bold text-sm mb-1 group-hover:text-primary transition-colors">
-                  {service.title}
-                </h3>
-                <p className="text-xs text-muted-foreground">
-                  {service.description}
-                </p>
-              </div>
-              <ArrowRight className="h-5 w-5 text-muted-foreground opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+              <Zap className="absolute -top-1 -right-1 h-4 w-4 text-yellow-400 opacity-0 group-hover:opacity-100 transition-opacity animate-pulse" />
             </div>
-          </div>
+
+            {/* Text content */}
+            <div className="flex-1 min-w-0">
+              <h3 className="font-bold text-base mb-1 text-gray-800 group-hover:text-green-600 transition-colors">
+                {service.title}
+              </h3>
+              <p className="text-sm text-gray-500">
+                {service.description}
+              </p>
+            </div>
+
+            {/* Action indicator */}
+            <div className="shrink-0 p-2 rounded-full bg-green-100 group-hover:bg-green-500 transition-colors">
+              <MousePointerClick className="h-4 w-4 text-green-600 group-hover:text-white transition-colors" />
+            </div>
+          </button>
         ))}
       </div>
     </div>
