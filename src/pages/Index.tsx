@@ -1753,19 +1753,24 @@ const Index = () => {
               the citizens of Himachal Pradesh with distinction"
             </p>
             <div className="mt-6 pt-6 border-t border-white/20">
-              <p className="text-lg font-semibold text-accent">Team Bitdecentro</p>
+              <p className="text-lg font-semibold text-accent">Sahil Kapoor</p>
+              <p className="text-sm text-white/70 mt-1">CEO, Bitdecentro</p>
             </div>
           </div>
 
           {/* Contact Info */}
-          <div className="flex items-center justify-center gap-8 mt-12 text-white/80 animate-fade-in" style={{ animationDelay: '1.2s' }}>
-            <div className="flex items-center gap-2">
-              <Globe className="w-5 h-5" />
-              <span>www.bitdecentro.com</span>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 text-white/80 animate-fade-in max-w-2xl mx-auto" style={{ animationDelay: '1.2s' }}>
+            <div className="flex items-center justify-center gap-2">
+              <Mail className="w-5 h-5 shrink-0" />
+              <span className="text-sm">sahil@bitdecentro.com</span>
             </div>
-            <div className="flex items-center gap-2">
-              <Mail className="w-5 h-5" />
-              <span>info@bitdecentro.com</span>
+            <div className="flex items-center justify-center gap-2">
+              <Phone className="w-5 h-5 shrink-0" />
+              <span className="text-sm">+91 78370 06262</span>
+            </div>
+            <div className="flex items-center justify-center gap-2">
+              <Globe className="w-5 h-5 shrink-0" />
+              <span className="text-sm">www.bitdecentro.com</span>
             </div>
           </div>
         </div>
