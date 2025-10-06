@@ -5,6 +5,7 @@ import {
   DialogContent,
   DialogHeader,
   DialogTitle,
+  DialogDescription,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 
@@ -22,6 +23,10 @@ export const PropertyPopup = () => {
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogContent className="max-w-3xl border-0 p-0 overflow-hidden">
+        <DialogHeader>
+          <DialogTitle className="sr-only">HIMUDA promotional banner</DialogTitle>
+          <DialogDescription className="sr-only">Promotional banner for HIMUDA housing projects with mountain video background.</DialogDescription>
+        </DialogHeader>
         <div className="relative">
           {/* Full Hero Image */}
           <div className="relative h-[500px] overflow-hidden">

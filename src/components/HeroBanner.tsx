@@ -1,4 +1,17 @@
+import { useEffect, useRef } from "react";
 export const HeroBanner = () => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  useEffect(() => {
+    const v = videoRef.current;
+    if (!v) return;
+    const playPromise = v.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {
+        v.muted = true;
+        v.play().catch(() => {});
+      });
+    }
+  }, []);
   return (
     <section className="relative h-[600px] overflow-hidden">
       {/* Fallback Background Image */}
@@ -6,6 +19,7 @@ export const HeroBanner = () => {
       
       {/* Video Background */}
       <video
+        ref={videoRef}
         autoPlay
         loop
         muted
