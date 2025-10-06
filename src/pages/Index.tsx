@@ -30,7 +30,7 @@ const Index = () => {
     // Slide 1: Title Slide
     <PresentationSlide key="title" gradient="hero">
       <div className="relative">
-        <div className="absolute top-0 left-0">
+        <div className="absolute -top-8 left-0">
           <img 
             src={himudaLogo} 
             alt="HIMUDA Logo" 
