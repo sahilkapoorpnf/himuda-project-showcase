@@ -1,4 +1,7 @@
 import { Card } from "@/components/ui/card";
+import cmSukhu from "@/assets/cm-sukhu.png";
+import mukeshAgnihotri from "@/assets/mukesh-agnihotri.jpg";
+import vikramadityaSingh from "@/assets/vikramaditya-singh.jpg";
 
 export const MinistersSection = () => {
   const ministers = [
@@ -6,19 +9,19 @@ export const MinistersSection = () => {
       name: "Shri Sukhvinder Singh Sukhu",
       designation: "Hon'ble Chief Minister",
       department: "Himachal Pradesh",
-      image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop"
+      image: cmSukhu
     },
     {
       name: "Shri Mukesh Agnihotri",
       designation: "Hon'ble Deputy Chief Minister",
       department: "Urban Development",
-      image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=400&fit=crop"
+      image: mukeshAgnihotri
     },
     {
       name: "Shri Vikramaditya Singh",
       designation: "Hon'ble Minister",
       department: "Urban Development & Housing",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop"
+      image: vikramadityaSingh
     }
   ];
 
