@@ -14,7 +14,7 @@ import { CitizenSection } from "@/components/CitizenSection";
 import { MinistersSection } from "@/components/MinistersSection";
 import { Footer } from "@/components/Footer";
 import { WhatsNewSection } from "@/components/WhatsNewSection";
-import { ChevronLeft, ChevronRight, Home, Search, FileText, UserCheck, Download, Building2, Filter, MapPin, Calendar, FileCheck, User, CreditCard, Bell, Edit, MessageSquare, Shield, CheckCircle2, Forward, Upload, FileSpreadsheet, Megaphone, FolderCheck, Settings } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Home, Search, FileText, UserCheck, Download, Building2, Filter, MapPin, Calendar, FileCheck, User, CreditCard, Bell, Edit, MessageSquare, Shield, CheckCircle2, Forward, Upload, FileSpreadsheet, Megaphone, FolderCheck, Settings, DollarSign, Receipt, TrendingUp, FileBarChart, RefreshCw, AlertCircle, PieChart, Wallet } from 'lucide-react';
 
 import heroProperty from '@/assets/hero-property.jpg';
 import propertyListing1 from '@/assets/property-listing-1.jpg';
@@ -827,7 +827,143 @@ const Index = () => {
       </div>
     </PresentationSlide>,
 
-    // Slide 10: Summary
+    // Slide 10: Accounts Team Login
+    <PresentationSlide key="accounts-team" gradient="hero">
+      <div className="space-y-12 text-white">
+        {/* Header */}
+        <div className="text-center mb-12">
+          <div className="inline-flex items-center gap-3 mb-6 px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
+            <Wallet className="w-6 h-6 text-accent" />
+            <span className="text-lg font-semibold">Financial Management Access</span>
+          </div>
+          <h2 className="text-6xl font-bold mb-6 animate-fade-in">Department Login</h2>
+          <h3 className="text-4xl font-semibold mb-6 text-accent animate-fade-in" style={{ animationDelay: '0.1s' }}>Accounts Team</h3>
+          <div className="h-1 w-40 bg-white/40 mx-auto mb-6 animate-fade-in" style={{ animationDelay: '0.2s' }} />
+          <p className="text-xl text-white/90 max-w-3xl mx-auto animate-fade-in" style={{ animationDelay: '0.4s' }}>
+            Finance and accounts personnel managing all financial operations and records of allottees
+          </p>
+        </div>
+
+        {/* Access Level Section */}
+        <div className="bg-gradient-to-br from-white/15 to-white/5 backdrop-blur-sm rounded-2xl p-10 border border-white/20 max-w-5xl mx-auto mb-12">
+          <div className="flex items-center gap-3 mb-6">
+            <Shield className="w-8 h-8 text-secondary" />
+            <h3 className="text-3xl font-bold">Access Level Permissions</h3>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="flex items-start gap-4 bg-white/10 rounded-xl p-5 border border-white/10 hover:bg-white/15 transition-all">
+              <div className="p-2 bg-accent/20 rounded-lg shrink-0">
+                <DollarSign className="w-6 h-6 text-accent" />
+              </div>
+              <div>
+                <h4 className="font-semibold text-lg mb-2">Financial Modules Only</h4>
+                <p className="text-white/80 text-sm">Restricted access to financial modules and payment management systems</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-4 bg-white/10 rounded-xl p-5 border border-white/10 hover:bg-white/15 transition-all">
+              <div className="p-2 bg-secondary/20 rounded-lg shrink-0">
+                <Receipt className="w-6 h-6 text-secondary" />
+              </div>
+              <div>
+                <h4 className="font-semibold text-lg mb-2">Payment Management</h4>
+                <p className="text-white/80 text-sm">Full control over payment receipts, refunds, and financial reports</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Key Features Section */}
+        <div className="max-w-6xl mx-auto">
+          <div className="flex items-center gap-3 mb-8">
+            <PieChart className="w-8 h-8 text-accent" />
+            <h3 className="text-3xl font-bold">Key Responsibility Features</h3>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Feature 1 */}
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:scale-105 transition-transform">
+              <div className="p-3 bg-accent/20 rounded-lg w-fit mb-4">
+                <CheckCircle2 className="w-8 h-8 text-accent" />
+              </div>
+              <h4 className="text-xl font-semibold mb-3">Payment Verification</h4>
+              <p className="text-white/80">Verify payments and reconcile all financial transactions</p>
+            </div>
+
+            {/* Feature 2 */}
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:scale-105 transition-transform">
+              <div className="p-3 bg-secondary/20 rounded-lg w-fit mb-4">
+                <Receipt className="w-8 h-8 text-secondary" />
+              </div>
+              <h4 className="text-xl font-semibold mb-3">Invoice Generation</h4>
+              <p className="text-white/80">Generate invoices, receipts, and comprehensive financial statements</p>
+            </div>
+
+            {/* Feature 3 */}
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:scale-105 transition-transform">
+              <div className="p-3 bg-accent/20 rounded-lg w-fit mb-4">
+                <RefreshCw className="w-8 h-8 text-accent" />
+              </div>
+              <h4 className="text-xl font-semibold mb-3">Refund Management</h4>
+              <p className="text-white/80">Manage refunds, adjustments, and payment corrections efficiently</p>
+            </div>
+
+            {/* Feature 4 */}
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:scale-105 transition-transform">
+              <div className="p-3 bg-secondary/20 rounded-lg w-fit mb-4">
+                <TrendingUp className="w-8 h-8 text-secondary" />
+              </div>
+              <h4 className="text-xl font-semibold mb-3">Performance Tracking</h4>
+              <p className="text-white/80">Track project-wise financial performance and revenue analysis</p>
+            </div>
+
+            {/* Feature 5 */}
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:scale-105 transition-transform">
+              <div className="p-3 bg-accent/20 rounded-lg w-fit mb-4">
+                <AlertCircle className="w-8 h-8 text-accent" />
+              </div>
+              <h4 className="text-xl font-semibold mb-3">Due Payments</h4>
+              <p className="text-white/80">Oversee due payments, penalties, and payment reminders</p>
+            </div>
+
+            {/* Feature 6 */}
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:scale-105 transition-transform">
+              <div className="p-3 bg-secondary/20 rounded-lg w-fit mb-4">
+                <FileBarChart className="w-8 h-8 text-secondary" />
+              </div>
+              <h4 className="text-xl font-semibold mb-3">Financial Reports</h4>
+              <p className="text-white/80">Generate detailed financial summaries for senior management</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Financial Stats */}
+        <div className="bg-gradient-to-r from-secondary/20 to-accent/20 backdrop-blur-sm rounded-2xl p-10 border border-white/20 max-w-5xl mx-auto mt-12">
+          <h3 className="text-3xl font-bold text-center mb-8">Financial Control & Transparency</h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="text-center">
+              <div className="flex items-center justify-center mb-3">
+                <DollarSign className="w-12 h-12 text-accent" />
+              </div>
+              <p className="text-lg text-white/90 font-semibold">Complete Payment Control</p>
+            </div>
+            <div className="text-center">
+              <div className="flex items-center justify-center mb-3">
+                <Receipt className="w-12 h-12 text-secondary" />
+              </div>
+              <p className="text-lg text-white/90 font-semibold">Automated Receipt System</p>
+            </div>
+            <div className="text-center">
+              <div className="flex items-center justify-center mb-3">
+                <TrendingUp className="w-12 h-12 text-accent" />
+              </div>
+              <p className="text-lg text-white/90 font-semibold">Real-time Analytics</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </PresentationSlide>,
+
+    // Slide 11: Summary
     <PresentationSlide key="summary" gradient="hero">
       <div className="space-y-12 text-white">
         <div className="text-center mb-16">
@@ -842,7 +978,7 @@ const Index = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-16">
           <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center border border-white/20 hover:scale-105 transition-transform">
             <Building2 className="w-12 h-12 mx-auto mb-4 text-accent" />
-            <div className="text-4xl font-bold mb-2">10</div>
+            <div className="text-4xl font-bold mb-2">11</div>
             <div className="text-white/80">Slides</div>
           </div>
           <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center border border-white/20 hover:scale-105 transition-transform">
