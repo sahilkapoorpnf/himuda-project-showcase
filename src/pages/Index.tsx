@@ -159,16 +159,16 @@ const Index = () => {
         <p className="text-xl text-muted-foreground text-center mb-8">Bayut-inspired design with smart filters</p>
         
         <div className="flex gap-4 mb-6 flex-wrap justify-center">
-          <button className="px-6 py-2 rounded-full bg-secondary text-secondary-foreground font-semibold hover:scale-105 transition-all">
+          <button className="px-6 py-2 rounded-full bg-primary text-primary-foreground font-semibold hover:scale-105 transition-all">
             All Properties
           </button>
-          <button className="px-6 py-2 rounded-full border border-border hover:bg-muted transition-all">
+          <button className="px-6 py-2 rounded-full border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all">
             Flats
           </button>
-          <button className="px-6 py-2 rounded-full border border-border hover:bg-muted transition-all">
+          <button className="px-6 py-2 rounded-full border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all">
             Plots
           </button>
-          <button className="px-6 py-2 rounded-full border border-border hover:bg-muted transition-all">
+          <button className="px-6 py-2 rounded-full border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all">
             Commercial
           </button>
         </div>
