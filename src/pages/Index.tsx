@@ -23,6 +23,12 @@ import interior1 from '@/assets/interior-1.jpg';
 import interior2 from '@/assets/interior-2.jpg';
 import himudaLogo from '@/assets/himuda-logo.png';
 import bitdecentroLogo from '@/assets/bitdecentro-original.png';
+import shimlaResidence from '@/assets/shimla-residence.jpg';
+import dharamshalaTownhouse from '@/assets/dharamshala-townhouse.jpg';
+import solanCommercial from '@/assets/solan-commercial.jpg';
+import manaliPlot from '@/assets/manali-plot.jpg';
+import kasauliPlot from '@/assets/kasauli-plot.jpg';
+import baddiPlot from '@/assets/baddi-plot.jpg';
 
 const Index = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -157,16 +163,19 @@ const Index = () => {
             All Properties
           </button>
           <button className="px-6 py-2 rounded-full border border-border hover:bg-muted transition-all">
-            Buy
+            Flats
           </button>
           <button className="px-6 py-2 rounded-full border border-border hover:bg-muted transition-all">
-            Allotment
+            Plots
+          </button>
+          <button className="px-6 py-2 rounded-full border border-border hover:bg-muted transition-all">
+            Commercial
           </button>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <PropertyCard
-            image={propertyListing1}
+            image={shimlaResidence}
             title="Green Valley Residences"
             location="Shimla, Himachal Pradesh"
             price="₹45,00,000"
@@ -176,7 +185,7 @@ const Index = () => {
             type="buy"
           />
           <PropertyCard
-            image={propertyListing2}
+            image={dharamshalaTownhouse}
             title="Royal Townhouses"
             location="Dharamshala, Himachal Pradesh"
             price="₹62,00,000"
@@ -186,12 +195,36 @@ const Index = () => {
             type="allotment"
           />
           <PropertyCard
-            image={propertyListing3}
+            image={solanCommercial}
             title="Commercial Hub Plaza"
             location="Solan, Himachal Pradesh"
             price="₹1,20,00,000"
             area="3,500 sq ft"
             type="buy"
+          />
+          <PropertyCard
+            image={manaliPlot}
+            title="Mountain View Plots"
+            location="Manali, Himachal Pradesh"
+            price="₹35,00,000"
+            area="2,500 sq ft"
+            type="allotment"
+          />
+          <PropertyCard
+            image={kasauliPlot}
+            title="Premium Hill Plots"
+            location="Kasauli, Himachal Pradesh"
+            price="₹28,00,000"
+            area="2,000 sq ft"
+            type="buy"
+          />
+          <PropertyCard
+            image={baddiPlot}
+            title="Industrial Plots"
+            location="Baddi, Himachal Pradesh"
+            price="₹85,00,000"
+            area="5,000 sq ft"
+            type="allotment"
           />
         </div>
       </div>
