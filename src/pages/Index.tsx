@@ -29,23 +29,25 @@ const Index = () => {
   const slides = [
     // Slide 1: Title Slide
     <PresentationSlide key="title" gradient="hero">
-      <div className="relative">
-        <div className="absolute -top-8 left-0">
+      <div className="relative min-h-screen">
+        <div className="absolute top-4 left-4">
           <img 
             src={himudaLogo} 
             alt="HIMUDA Logo" 
-            className="w-32 h-32 object-contain animate-fade-in drop-shadow-2xl"
+            className="w-24 h-24 object-contain animate-fade-in drop-shadow-2xl"
           />
         </div>
-        <div className="text-center text-white space-y-8 pt-20">
-          <h1 className="text-7xl font-bold mb-6 animate-fade-in">HIMUDA Digital Platform</h1>
-          <p className="text-3xl font-light mb-8 animate-fade-in" style={{ animationDelay: '0.2s' }}>
-            Complete Digital Solution by Bitdecentro
-          </p>
-          <div className="h-1 w-32 bg-accent mx-auto mb-8 animate-fade-in" style={{ animationDelay: '0.4s' }} />
-          <p className="text-xl text-white/90 max-w-3xl mx-auto animate-fade-in" style={{ animationDelay: '0.6s' }}>
-            Transforming Property Management & Allotment with Premium User Experience
-          </p>
+        <div className="flex items-center justify-center min-h-screen">
+          <div className="text-center text-white space-y-8">
+            <h1 className="text-7xl font-bold mb-6 animate-fade-in">HIMUDA Digital Platform</h1>
+            <p className="text-3xl font-light mb-8 animate-fade-in" style={{ animationDelay: '0.2s' }}>
+              Complete Digital Solution by Bitdecentro
+            </p>
+            <div className="h-1 w-32 bg-accent mx-auto mb-8 animate-fade-in" style={{ animationDelay: '0.4s' }} />
+            <p className="text-xl text-white/90 max-w-3xl mx-auto animate-fade-in" style={{ animationDelay: '0.6s' }}>
+              Transforming Property Management & Allotment with Premium User Experience
+            </p>
+          </div>
         </div>
       </div>
     </PresentationSlide>,
