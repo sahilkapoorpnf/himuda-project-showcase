@@ -22,7 +22,7 @@ export const PresentationSlide = ({ children, className, gradient = 'none' }: Pr
         <img 
           src={bitdecentroLogo} 
           alt="Bitdecentro Logo" 
-          className="w-24 h-24 object-contain drop-shadow-2xl"
+          className="w-32 h-32 object-contain drop-shadow-2xl"
           style={{ filter: gradient === 'hero' || gradient === 'accent' ? 'brightness(0) invert(1)' : 'none' }}
         />
       </div>
