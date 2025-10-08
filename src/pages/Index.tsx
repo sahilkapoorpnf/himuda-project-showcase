@@ -14,6 +14,7 @@ import { CitizenSection } from "@/components/CitizenSection";
 import { MinistersSection } from "@/components/MinistersSection";
 import { Footer } from "@/components/Footer";
 import { WhatsNewSection } from "@/components/WhatsNewSection";
+import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { ChevronLeft, ChevronRight, Home, Search, FileText, UserCheck, Download, Building2, Filter, MapPin, Calendar, FileCheck, User, CreditCard, Bell, Edit, MessageSquare, Shield, CheckCircle2, Forward, Upload, FileSpreadsheet, Megaphone, FolderCheck, Settings, DollarSign, Receipt, TrendingUp, FileBarChart, RefreshCw, AlertCircle, PieChart, Wallet, Crown, Users, Lock, Globe, Activity, Database, BarChart3, Target, Newspaper, Mail, Smartphone, BellRing, Clock, Send, AlertTriangle, Phone } from 'lucide-react';
 
 import heroProperty from '@/assets/hero-property.jpg';
@@ -151,6 +152,7 @@ const Index = () => {
 
         <TendersSection />
         <ProjectsSection />
+        <TestimonialsSection />
         <CitizenSection />
         <Footer />
       </div>
