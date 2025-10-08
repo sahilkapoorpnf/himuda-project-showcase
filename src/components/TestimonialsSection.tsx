@@ -26,19 +26,23 @@ export const TestimonialsSection = () => {
   ];
 
   return (
-    <section className="py-16 bg-gradient-to-br from-secondary/5 via-background to-accent/5">
-      <div className="container mx-auto px-4">
+    <section className="py-20 relative overflow-hidden">
+      {/* Background with gradient mesh */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-secondary/5" 
+           style={{ backgroundImage: 'var(--gradient-mesh)' }} />
+      
+      <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-12 animate-fade-in">
-          <div className="inline-flex items-center gap-2 px-6 py-2 bg-secondary/10 rounded-full mb-4 border border-secondary/20">
-            <Quote className="w-5 h-5 text-secondary" />
-            <span className="text-sm font-semibold text-secondary uppercase tracking-wider">Testimonials</span>
+        <div className="text-center mb-16 animate-fade-in">
+          <div className="inline-flex items-center gap-2 px-6 py-2.5 bg-primary/10 rounded-full mb-6 border border-primary/20">
+            <Quote className="w-5 h-5 text-primary" />
+            <span className="text-sm font-bold text-primary uppercase tracking-wider">Government Testimonials</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
-            Leadership Endorsements
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
+            Leadership <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">Endorsements</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Trusted by government officials and recognized for excellence in digital governance
+            Recognized for excellence in digital governance and citizen-centric services
           </p>
         </div>
 
@@ -47,61 +51,72 @@ export const TestimonialsSection = () => {
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="group relative bg-card rounded-2xl p-8 border border-border/50 hover:border-secondary/50 transition-all duration-500 hover:shadow-xl hover:-translate-y-2 animate-fade-in"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              className="group relative rounded-2xl p-8 border transition-all duration-500 hover:-translate-y-2 animate-fade-in card-elegant"
+              style={{ 
+                animationDelay: `${index * 0.15}s`,
+                boxShadow: 'var(--shadow-card)'
+              }}
             >
               {/* Quote Icon */}
-              <div className="absolute -top-4 left-8 w-12 h-12 bg-gradient-to-br from-secondary to-accent rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                <Quote className="w-6 h-6 text-white" />
+              <div className="absolute -top-5 left-8 w-14 h-14 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
+                   style={{ 
+                     background: 'var(--gradient-hero)',
+                     boxShadow: 'var(--shadow-elegant)'
+                   }}>
+                <Quote className="w-7 h-7 text-primary-foreground" />
               </div>
 
               {/* Rating Stars */}
-              <div className="flex gap-1 mb-6 mt-4">
+              <div className="flex gap-1 mb-6 mt-6">
                 {[...Array(testimonial.rating)].map((_, i) => (
                   <Star
                     key={i}
-                    className="w-5 h-5 fill-accent text-accent"
+                    className="w-5 h-5 fill-accent text-accent transition-transform hover:scale-125 duration-300"
                   />
                 ))}
               </div>
 
               {/* Quote Text */}
-              <blockquote className="text-muted-foreground mb-6 text-base leading-relaxed italic">
+              <blockquote className="text-muted-foreground mb-6 text-base leading-relaxed">
                 "{testimonial.quote}"
               </blockquote>
 
               {/* Author Info */}
-              <div className="border-t border-border/50 pt-6">
-                <div className="font-bold text-foreground text-lg mb-1">
+              <div className="border-t border-border pt-6">
+                <div className="font-bold text-foreground text-lg mb-2">
                   {testimonial.name}
                 </div>
-                <div className="text-secondary font-semibold text-sm mb-1">
+                <div className="text-secondary font-semibold text-sm mb-2">
                   {testimonial.position}
                 </div>
-                <div className="text-muted-foreground text-sm flex items-center gap-1">
+                <div className="text-muted-foreground text-sm">
                   {testimonial.location}
                 </div>
               </div>
 
               {/* Decorative gradient overlay on hover */}
-              <div className="absolute inset-0 bg-gradient-to-br from-secondary/5 to-accent/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+              <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                   style={{ background: 'var(--gradient-mesh)' }} />
             </div>
           ))}
         </div>
 
         {/* Bottom Stats */}
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-          <div className="text-center p-6 bg-gradient-to-br from-primary/10 to-primary/5 rounded-xl border border-primary/20">
-            <div className="text-4xl font-bold text-primary mb-2">98%</div>
-            <div className="text-muted-foreground text-sm">Citizen Satisfaction Rate</div>
+        <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <div className="text-center p-8 rounded-2xl border border-primary/30 bg-card hover:scale-105 transition-all duration-300"
+               style={{ boxShadow: 'var(--shadow-card)' }}>
+            <div className="text-5xl font-bold text-primary mb-3">98%</div>
+            <div className="text-muted-foreground font-medium">Citizen Satisfaction Rate</div>
           </div>
-          <div className="text-center p-6 bg-gradient-to-br from-secondary/10 to-secondary/5 rounded-xl border border-secondary/20">
-            <div className="text-4xl font-bold text-secondary mb-2">50K+</div>
-            <div className="text-muted-foreground text-sm">Applications Processed</div>
+          <div className="text-center p-8 rounded-2xl border border-secondary/30 bg-card hover:scale-105 transition-all duration-300"
+               style={{ boxShadow: 'var(--shadow-card)' }}>
+            <div className="text-5xl font-bold text-secondary mb-3">50K+</div>
+            <div className="text-muted-foreground font-medium">Applications Processed</div>
           </div>
-          <div className="text-center p-6 bg-gradient-to-br from-accent/10 to-accent/5 rounded-xl border border-accent/20">
-            <div className="text-4xl font-bold text-accent mb-2">24/7</div>
-            <div className="text-muted-foreground text-sm">Portal Availability</div>
+          <div className="text-center p-8 rounded-2xl border border-accent/30 bg-card hover:scale-105 transition-all duration-300"
+               style={{ boxShadow: 'var(--shadow-card)' }}>
+            <div className="text-5xl font-bold text-accent mb-3">24/7</div>
+            <div className="text-muted-foreground font-medium">Portal Availability</div>
           </div>
         </div>
       </div>
