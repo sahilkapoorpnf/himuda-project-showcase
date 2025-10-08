@@ -41,7 +41,7 @@ export const HeroBanner = () => {
       >
         <source src="/videos/himuda.mp4" type="video/mp4" />
       </video>
-      <div className="absolute inset-0 bg-gradient-to-r from-primary/80 to-primary/60 z-10" />
+      <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-primary/10 z-10" />
       
       {/* Content Overlay */}
       <div className="relative z-20 h-full flex items-center justify-center text-center px-4">
