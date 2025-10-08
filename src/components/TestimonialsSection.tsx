@@ -26,20 +26,16 @@ export const TestimonialsSection = () => {
   ];
 
   return (
-    <section className="py-20 relative overflow-hidden">
-      {/* Background with gradient mesh */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-secondary/5" 
-           style={{ backgroundImage: 'var(--gradient-mesh)' }} />
-      
-      <div className="container mx-auto px-4 relative z-10">
+    <section className="py-20 bg-muted/30">
+      <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-16 animate-fade-in">
-          <div className="inline-flex items-center gap-2 px-6 py-2.5 bg-primary/10 rounded-full mb-6 border border-primary/20">
-            <Quote className="w-5 h-5 text-primary" />
-            <span className="text-sm font-bold text-primary uppercase tracking-wider">Government Testimonials</span>
+          <div className="inline-flex items-center gap-3 px-6 py-3 bg-primary rounded-full mb-6">
+            <Quote className="w-5 h-5 text-primary-foreground" />
+            <span className="text-sm font-bold text-primary-foreground uppercase tracking-wider">Government Testimonials</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
-            Leadership <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">Endorsements</span>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-primary">
+            Leadership Endorsements
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             Recognized for excellence in digital governance and citizen-centric services
@@ -51,18 +47,11 @@ export const TestimonialsSection = () => {
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="group relative rounded-2xl p-8 border transition-all duration-500 hover:-translate-y-2 animate-fade-in card-elegant"
-              style={{ 
-                animationDelay: `${index * 0.15}s`,
-                boxShadow: 'var(--shadow-card)'
-              }}
+              className="group relative bg-card rounded-xl p-8 border border-border hover:border-primary/30 transition-all duration-300 hover:shadow-lg animate-fade-in"
+              style={{ animationDelay: `${index * 0.15}s` }}
             >
               {/* Quote Icon */}
-              <div className="absolute -top-5 left-8 w-14 h-14 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
-                   style={{ 
-                     background: 'var(--gradient-hero)',
-                     boxShadow: 'var(--shadow-elegant)'
-                   }}>
+              <div className="absolute -top-5 left-8 w-14 h-14 bg-primary rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
                 <Quote className="w-7 h-7 text-primary-foreground" />
               </div>
 
@@ -71,7 +60,7 @@ export const TestimonialsSection = () => {
                 {[...Array(testimonial.rating)].map((_, i) => (
                   <Star
                     key={i}
-                    className="w-5 h-5 fill-accent text-accent transition-transform hover:scale-125 duration-300"
+                    className="w-5 h-5 fill-secondary text-secondary"
                   />
                 ))}
               </div>
@@ -83,7 +72,7 @@ export const TestimonialsSection = () => {
 
               {/* Author Info */}
               <div className="border-t border-border pt-6">
-                <div className="font-bold text-foreground text-lg mb-2">
+                <div className="font-bold text-primary text-lg mb-2">
                   {testimonial.name}
                 </div>
                 <div className="text-secondary font-semibold text-sm mb-2">
@@ -93,28 +82,21 @@ export const TestimonialsSection = () => {
                   {testimonial.location}
                 </div>
               </div>
-
-              {/* Decorative gradient overlay on hover */}
-              <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                   style={{ background: 'var(--gradient-mesh)' }} />
             </div>
           ))}
         </div>
 
         {/* Bottom Stats */}
         <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          <div className="text-center p-8 rounded-2xl border border-primary/30 bg-card hover:scale-105 transition-all duration-300"
-               style={{ boxShadow: 'var(--shadow-card)' }}>
+          <div className="text-center p-8 rounded-xl bg-card border border-border hover:border-primary/30 hover:shadow-lg transition-all duration-300">
             <div className="text-5xl font-bold text-primary mb-3">98%</div>
             <div className="text-muted-foreground font-medium">Citizen Satisfaction Rate</div>
           </div>
-          <div className="text-center p-8 rounded-2xl border border-secondary/30 bg-card hover:scale-105 transition-all duration-300"
-               style={{ boxShadow: 'var(--shadow-card)' }}>
+          <div className="text-center p-8 rounded-xl bg-card border border-border hover:border-secondary/30 hover:shadow-lg transition-all duration-300">
             <div className="text-5xl font-bold text-secondary mb-3">50K+</div>
             <div className="text-muted-foreground font-medium">Applications Processed</div>
           </div>
-          <div className="text-center p-8 rounded-2xl border border-accent/30 bg-card hover:scale-105 transition-all duration-300"
-               style={{ boxShadow: 'var(--shadow-card)' }}>
+          <div className="text-center p-8 rounded-xl bg-card border border-border hover:border-accent/30 hover:shadow-lg transition-all duration-300">
             <div className="text-5xl font-bold text-accent mb-3">24/7</div>
             <div className="text-muted-foreground font-medium">Portal Availability</div>
           </div>
