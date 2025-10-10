@@ -489,18 +489,21 @@ const Index = () => {
         <h2 className="text-5xl font-bold text-primary text-center mb-8">User Dashboard Portal</h2>
         <p className="text-xl text-muted-foreground text-center mb-8">Complete management system for applications, properties, and payments</p>
         
+        <div className="flex justify-center mb-6">
+          <a 
+            href="/dashboard"
+            className="px-8 py-4 bg-gradient-to-r from-primary via-secondary to-accent text-white rounded-xl font-bold text-lg hover:opacity-90 transition-all hover:scale-105 shadow-lg animate-pulse"
+          >
+            🚀 Click Here to Open Live Dashboard →
+          </a>
+        </div>
+
         <div className="bg-card rounded-2xl border shadow-lg p-6">
           <div className="flex items-center justify-between mb-6">
             <div>
               <h3 className="text-2xl font-bold text-primary">Applications Management</h3>
               <p className="text-muted-foreground">Track all your property applications in one place</p>
             </div>
-            <a 
-              href="/dashboard"
-              className="px-6 py-3 bg-primary text-primary-foreground rounded-lg font-semibold hover:opacity-90 transition-all hover:scale-105"
-            >
-              Open Dashboard
-            </a>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
