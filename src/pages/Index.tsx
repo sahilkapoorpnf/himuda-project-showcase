@@ -481,7 +481,257 @@ const Index = () => {
       </div>
     </PresentationSlide>,
 
-    // Slide 7: User Dashboard Features
+    // Slide 7: Registration/Signup
+    <div key="registration" className="min-h-screen bg-background overflow-y-auto">
+      <Header />
+      
+      <div className="pt-44 pb-16">
+        <div className="container mx-auto px-4 max-w-2xl">
+          <div className="bg-card rounded-2xl p-8 shadow-elegant border border-border">
+            <div className="text-center mb-8">
+              <h2 className="text-4xl font-bold text-primary mb-2">Create Your Account</h2>
+              <p className="text-muted-foreground">Register to access HIMUDA services</p>
+            </div>
+
+            <form className="space-y-6">
+              <div className="space-y-2">
+                <label className="text-sm font-semibold text-foreground flex items-center gap-2">
+                  <User className="w-4 h-4 text-primary" />
+                  Full Name *
+                </label>
+                <input
+                  type="text"
+                  placeholder="Enter your full name"
+                  className="w-full px-4 py-3 rounded-lg border border-input bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                  required
+                />
+              </div>
+
+              <div className="space-y-2">
+                <label className="text-sm font-semibold text-foreground flex items-center gap-2">
+                  <Mail className="w-4 h-4 text-primary" />
+                  Email ID *
+                </label>
+                <input
+                  type="email"
+                  placeholder="your.email@example.com"
+                  className="w-full px-4 py-3 rounded-lg border border-input bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                  required
+                />
+              </div>
+
+              <div className="space-y-2">
+                <label className="text-sm font-semibold text-foreground flex items-center gap-2">
+                  <Smartphone className="w-4 h-4 text-primary" />
+                  Mobile Number (for OTP) *
+                </label>
+                <input
+                  type="tel"
+                  placeholder="+91 XXXXX XXXXX"
+                  className="w-full px-4 py-3 rounded-lg border border-input bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                  required
+                />
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <label className="text-sm font-semibold text-foreground flex items-center gap-2">
+                    <User className="w-4 h-4 text-primary" />
+                    Username *
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="Choose username"
+                    className="w-full px-4 py-3 rounded-lg border border-input bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                    required
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <label className="text-sm font-semibold text-foreground flex items-center gap-2">
+                    <Lock className="w-4 h-4 text-primary" />
+                    Password *
+                  </label>
+                  <input
+                    type="password"
+                    placeholder="Create password"
+                    className="w-full px-4 py-3 rounded-lg border border-input bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div className="space-y-2">
+                <label className="text-sm font-semibold text-foreground flex items-center gap-2">
+                  <Shield className="w-4 h-4 text-secondary" />
+                  Aadhaar / ID Verification (Optional)
+                </label>
+                <input
+                  type="text"
+                  placeholder="Enter Aadhaar or ID number"
+                  className="w-full px-4 py-3 rounded-lg border border-input bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-secondary"
+                />
+                <p className="text-xs text-muted-foreground">For faster verification (optional)</p>
+              </div>
+
+              <div className="border-t border-border pt-6">
+                <div className="space-y-2">
+                  <label className="text-sm font-semibold text-foreground flex items-center gap-2">
+                    <Send className="w-4 h-4 text-accent" />
+                    Verify via OTP
+                  </label>
+                  <div className="flex gap-2">
+                    <button
+                      type="button"
+                      className="flex-1 px-4 py-3 rounded-lg border-2 border-primary text-primary font-semibold hover:bg-primary hover:text-white transition-all"
+                    >
+                      Send OTP to Mobile
+                    </button>
+                    <button
+                      type="button"
+                      className="flex-1 px-4 py-3 rounded-lg border-2 border-secondary text-secondary font-semibold hover:bg-secondary hover:text-white transition-all"
+                    >
+                      Send OTP to Email
+                    </button>
+                  </div>
+                </div>
+
+                <div className="space-y-2 mt-4">
+                  <label className="text-sm font-semibold text-foreground">Enter OTP</label>
+                  <input
+                    type="text"
+                    placeholder="Enter 6-digit OTP"
+                    className="w-full px-4 py-3 rounded-lg border border-input bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-accent text-center text-2xl tracking-widest"
+                    maxLength={6}
+                  />
+                </div>
+              </div>
+
+              <button
+                type="submit"
+                className="w-full px-6 py-4 rounded-lg bg-primary text-white font-semibold text-lg hover:opacity-90 transition-all flex items-center justify-center gap-2"
+              >
+                <UserCheck className="w-5 h-5" />
+                Complete Registration
+              </button>
+
+              <p className="text-center text-sm text-muted-foreground">
+                Already have an account?{' '}
+                <button type="button" className="text-primary font-semibold hover:underline">
+                  Login here
+                </button>
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>,
+
+    // Slide 8: Login
+    <div key="login" className="min-h-screen bg-background overflow-y-auto">
+      <Header />
+      
+      <div className="pt-44 pb-16">
+        <div className="container mx-auto px-4 max-w-xl">
+          <div className="bg-card rounded-2xl p-8 shadow-elegant border border-border">
+            <div className="text-center mb-8">
+              <h2 className="text-4xl font-bold text-primary mb-2">Welcome Back</h2>
+              <p className="text-muted-foreground">Login to access your dashboard</p>
+            </div>
+
+            <form className="space-y-6">
+              <div className="space-y-2">
+                <label className="text-sm font-semibold text-foreground flex items-center gap-2">
+                  <Mail className="w-4 h-4 text-primary" />
+                  Email or Mobile Number *
+                </label>
+                <input
+                  type="text"
+                  placeholder="Enter email or mobile number"
+                  className="w-full px-4 py-3 rounded-lg border border-input bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                  required
+                />
+              </div>
+
+              <div className="space-y-2">
+                <label className="text-sm font-semibold text-foreground flex items-center gap-2">
+                  <Lock className="w-4 h-4 text-primary" />
+                  Password *
+                </label>
+                <input
+                  type="password"
+                  placeholder="Enter your password"
+                  className="w-full px-4 py-3 rounded-lg border border-input bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                  required
+                />
+                <div className="text-right">
+                  <button type="button" className="text-sm text-secondary hover:underline">
+                    Forgot Password?
+                  </button>
+                </div>
+              </div>
+
+              <div className="border border-accent/30 rounded-lg p-4 bg-accent/5">
+                <div className="flex items-start gap-3 mb-4">
+                  <Shield className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                  <div>
+                    <h4 className="font-semibold text-foreground mb-1">Enhanced Security</h4>
+                    <p className="text-sm text-muted-foreground">We'll send an OTP for verification</p>
+                  </div>
+                </div>
+
+                <button
+                  type="button"
+                  className="w-full px-4 py-3 rounded-lg bg-accent text-white font-semibold hover:opacity-90 transition-all flex items-center justify-center gap-2"
+                >
+                  <Send className="w-4 h-4" />
+                  Send OTP
+                </button>
+
+                <div className="space-y-2 mt-4">
+                  <label className="text-sm font-semibold text-foreground">Enter OTP</label>
+                  <input
+                    type="text"
+                    placeholder="Enter 6-digit OTP"
+                    className="w-full px-4 py-3 rounded-lg border border-input bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-accent text-center text-2xl tracking-widest"
+                    maxLength={6}
+                  />
+                  <p className="text-xs text-muted-foreground text-center">
+                    OTP sent to your registered mobile/email
+                  </p>
+                </div>
+              </div>
+
+              <button
+                type="submit"
+                className="w-full px-6 py-4 rounded-lg bg-primary text-white font-semibold text-lg hover:opacity-90 transition-all flex items-center justify-center gap-2"
+              >
+                <UserCheck className="w-5 h-5" />
+                Login to Dashboard
+              </button>
+
+              <div className="relative my-6">
+                <div className="absolute inset-0 flex items-center">
+                  <div className="w-full border-t border-border"></div>
+                </div>
+                <div className="relative flex justify-center text-sm">
+                  <span className="px-4 bg-card text-muted-foreground">New to HIMUDA?</span>
+                </div>
+              </div>
+
+              <button
+                type="button"
+                className="w-full px-6 py-3 rounded-lg border-2 border-secondary text-secondary font-semibold hover:bg-secondary hover:text-white transition-all"
+              >
+                Create New Account
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>,
+
+    // Slide 9: User Dashboard Features
     <div key="dashboard-features" className="min-h-screen bg-gradient-to-br from-background via-accent/5 to-background">
       <DashboardHeader />
       
