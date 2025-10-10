@@ -3,7 +3,7 @@ import { Search, Eye, Download } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { utils, writeFile } from 'xlsx';
+import * as ExcelJS from 'exceljs';
 import {
   Table,
   TableBody,
@@ -155,48 +155,61 @@ export const ApplicationsTable = () => {
     setIsDialogOpen(true);
   };
 
-  const exportToExcel = () => {
+  const exportToExcel = async () => {
     try {
-      // Prepare data for export
-      const exportData = filteredApplications.map((app) => ({
-        'Application ID': app.id,
-        'Property Name': app.propertyName,
-        'Applicant Name': app.applicantName,
-        'Location': app.location,
-        'Property Type': app.propertyType,
-        'Application Date': app.applicationDate,
-        'Status': app.status,
-        'Allotment Number': app.allotmentNumber,
-        'Price': app.price,
-      }));
+      // Create workbook and worksheet
+      const workbook = new ExcelJS.Workbook();
+      const worksheet = workbook.addWorksheet('Applications');
 
-      // Create worksheet
-      const worksheet = utils.json_to_sheet(exportData);
-      
-      // Set column widths
-      const columnWidths = [
-        { wch: 15 }, // Application ID
-        { wch: 30 }, // Property Name
-        { wch: 20 }, // Applicant Name
-        { wch: 15 }, // Location
-        { wch: 15 }, // Property Type
-        { wch: 18 }, // Application Date
-        { wch: 15 }, // Status
-        { wch: 20 }, // Allotment Number
-        { wch: 15 }, // Price
+      // Define columns with headers and widths
+      worksheet.columns = [
+        { header: 'Application ID', key: 'id', width: 15 },
+        { header: 'Property Name', key: 'propertyName', width: 30 },
+        { header: 'Applicant Name', key: 'applicantName', width: 20 },
+        { header: 'Location', key: 'location', width: 15 },
+        { header: 'Property Type', key: 'propertyType', width: 15 },
+        { header: 'Application Date', key: 'applicationDate', width: 18 },
+        { header: 'Status', key: 'status', width: 15 },
+        { header: 'Allotment Number', key: 'allotmentNumber', width: 20 },
+        { header: 'Price', key: 'price', width: 15 },
       ];
-      worksheet['!cols'] = columnWidths;
 
-      // Create workbook
-      const workbook = utils.book_new();
-      utils.book_append_sheet(workbook, worksheet, 'Applications');
+      // Style the header row
+      worksheet.getRow(1).font = { bold: true };
+      worksheet.getRow(1).fill = {
+        type: 'pattern',
+        pattern: 'solid',
+        fgColor: { argb: 'FFE0E0E0' }
+      };
+
+      // Add data rows
+      filteredApplications.forEach((app) => {
+        worksheet.addRow({
+          id: app.id,
+          propertyName: app.propertyName,
+          applicantName: app.applicantName,
+          location: app.location,
+          propertyType: app.propertyType,
+          applicationDate: app.applicationDate,
+          status: app.status,
+          allotmentNumber: app.allotmentNumber,
+          price: app.price,
+        });
+      });
 
       // Generate filename with current date
       const date = new Date().toISOString().split('T')[0];
       const filename = `HIMUDA_Applications_${date}.xlsx`;
 
-      // Download file
-      writeFile(workbook, filename);
+      // Generate buffer and download
+      const buffer = await workbook.xlsx.writeBuffer();
+      const blob = new Blob([buffer], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = filename;
+      link.click();
+      window.URL.revokeObjectURL(url);
 
       toast({
         title: "Export Successful",
