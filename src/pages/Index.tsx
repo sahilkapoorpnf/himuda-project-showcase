@@ -499,6 +499,135 @@ const Index = () => {
               <div className="h-1 w-40 bg-primary mx-auto mt-6" />
             </div>
 
+            {/* Statistics Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="card-elegant p-6 gradient-hero text-white">
+                <div className="flex items-center justify-between mb-4">
+                  <FileText className="w-8 h-8" />
+                  <TrendingUp className="w-5 h-5 opacity-70" />
+                </div>
+                <div className="text-3xl font-bold mb-1">24</div>
+                <div className="text-white/80 text-sm">Total Applications</div>
+                <div className="mt-3 text-xs text-white/60">+12% from last month</div>
+              </div>
+
+              <div className="card-elegant p-6 gradient-accent text-white">
+                <div className="flex items-center justify-between mb-4">
+                  <Clock className="w-8 h-8" />
+                  <RefreshCw className="w-5 h-5 opacity-70" />
+                </div>
+                <div className="text-3xl font-bold mb-1">8</div>
+                <div className="text-white/80 text-sm">Pending Review</div>
+                <div className="mt-3 text-xs text-white/60">Avg. processing: 5 days</div>
+              </div>
+
+              <div className="card-elegant p-6 gradient-gold text-white">
+                <div className="flex items-center justify-between mb-4">
+                  <CheckCircle2 className="w-8 h-8" />
+                  <Target className="w-5 h-5 opacity-70" />
+                </div>
+                <div className="text-3xl font-bold mb-1">14</div>
+                <div className="text-white/80 text-sm">Approved</div>
+                <div className="mt-3 text-xs text-white/60">Success rate: 85%</div>
+              </div>
+
+              <div className="card-elegant p-6 bg-gradient-to-br from-primary to-secondary text-white">
+                <div className="flex items-center justify-between mb-4">
+                  <Building2 className="w-8 h-8" />
+                  <Activity className="w-5 h-5 opacity-70" />
+                </div>
+                <div className="text-3xl font-bold mb-1">156</div>
+                <div className="text-white/80 text-sm">Properties Available</div>
+                <div className="mt-3 text-xs text-white/60">12 new this week</div>
+              </div>
+            </div>
+
+            {/* Application Status Chart */}
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+              <div className="lg:col-span-2 card-elegant p-8">
+                <h3 className="text-2xl font-bold text-primary mb-6 flex items-center gap-3">
+                  <BarChart3 className="w-6 h-6" />
+                  Application Status Overview
+                </h3>
+                <div className="space-y-4">
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="text-muted-foreground">Approved Applications</span>
+                      <span className="font-bold text-secondary">58%</span>
+                    </div>
+                    <div className="h-3 bg-muted rounded-full overflow-hidden">
+                      <div className="h-full gradient-hero rounded-full" style={{ width: '58%' }}></div>
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="text-muted-foreground">Under Review</span>
+                      <span className="font-bold text-accent">33%</span>
+                    </div>
+                    <div className="h-3 bg-muted rounded-full overflow-hidden">
+                      <div className="h-full gradient-accent rounded-full" style={{ width: '33%' }}></div>
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="text-muted-foreground">Pending Documents</span>
+                      <span className="font-bold text-primary">9%</span>
+                    </div>
+                    <div className="h-3 bg-muted rounded-full overflow-hidden">
+                      <div className="h-full gradient-gold rounded-full" style={{ width: '9%' }}></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="card-elegant p-8 bg-gradient-to-br from-accent/10 via-primary/10 to-secondary/10 border-2 border-primary/20">
+                <h3 className="text-xl font-bold text-primary mb-6 flex items-center gap-2">
+                  <Wallet className="w-5 h-5" />
+                  Payment Summary
+                </h3>
+                <div className="space-y-6">
+                  <div>
+                    <div className="text-sm text-muted-foreground mb-2">Total Paid</div>
+                    <div className="text-3xl font-bold text-primary">₹28.5L</div>
+                  </div>
+                  <div>
+                    <div className="text-sm text-muted-foreground mb-2">Pending Amount</div>
+                    <div className="text-2xl font-bold text-accent">₹5.2L</div>
+                  </div>
+                  <div className="pt-4 border-t">
+                    <div className="text-xs text-muted-foreground mb-2">Next Payment Due</div>
+                    <div className="text-sm font-semibold">March 15, 2025</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Quick Action Links */}
+            <div className="card-elegant p-8 bg-gradient-to-r from-primary/5 via-accent/5 to-secondary/5">
+              <h3 className="text-2xl font-bold text-primary mb-6 flex items-center gap-3">
+                <Target className="w-6 h-6" />
+                Quick Actions
+              </h3>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <button className="p-4 bg-card hover:bg-primary hover:text-white rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg border border-border hover:border-primary group">
+                  <Upload className="w-8 h-8 mx-auto mb-2 text-primary group-hover:text-white" />
+                  <div className="text-sm font-semibold">Upload Documents</div>
+                </button>
+                <button className="p-4 bg-card hover:bg-secondary hover:text-white rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg border border-border hover:border-secondary group">
+                  <CreditCard className="w-8 h-8 mx-auto mb-2 text-secondary group-hover:text-white" />
+                  <div className="text-sm font-semibold">Make Payment</div>
+                </button>
+                <button className="p-4 bg-card hover:bg-accent hover:text-white rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg border border-border hover:border-accent group">
+                  <Download className="w-8 h-8 mx-auto mb-2 text-accent group-hover:text-white" />
+                  <div className="text-sm font-semibold">Download Forms</div>
+                </button>
+                <button className="p-4 bg-card hover:bg-primary hover:text-white rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg border border-border hover:border-primary group">
+                  <Phone className="w-8 h-8 mx-auto mb-2 text-primary group-hover:text-white" />
+                  <div className="text-sm font-semibold">Contact Support</div>
+                </button>
+              </div>
+            </div>
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
               {/* Applications Management */}
               <div className="group card-elegant p-8 hover:shadow-2xl transition-all duration-300 hover:scale-105 border-2 border-transparent hover:border-primary/20">
