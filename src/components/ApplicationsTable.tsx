@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { Search, Eye } from "lucide-react";
+import { Search, Eye, Download } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import * as XLSX from 'xlsx';
 import {
   Table,
   TableBody,
@@ -20,6 +21,7 @@ import {
   PaginationPrevious,
 } from "@/components/ui/pagination";
 import { ApplicationDetailsDialog } from "@/components/ApplicationDetailsDialog";
+import { toast } from "@/hooks/use-toast";
 
 // Mock data for applications
 const mockApplications = [
@@ -153,6 +155,62 @@ export const ApplicationsTable = () => {
     setIsDialogOpen(true);
   };
 
+  const exportToExcel = () => {
+    try {
+      // Prepare data for export
+      const exportData = filteredApplications.map((app) => ({
+        'Application ID': app.id,
+        'Property Name': app.propertyName,
+        'Applicant Name': app.applicantName,
+        'Location': app.location,
+        'Property Type': app.propertyType,
+        'Application Date': app.applicationDate,
+        'Status': app.status,
+        'Allotment Number': app.allotmentNumber,
+        'Price': app.price,
+      }));
+
+      // Create worksheet
+      const worksheet = XLSX.utils.json_to_sheet(exportData);
+      
+      // Set column widths
+      const columnWidths = [
+        { wch: 15 }, // Application ID
+        { wch: 30 }, // Property Name
+        { wch: 20 }, // Applicant Name
+        { wch: 15 }, // Location
+        { wch: 15 }, // Property Type
+        { wch: 18 }, // Application Date
+        { wch: 15 }, // Status
+        { wch: 20 }, // Allotment Number
+        { wch: 15 }, // Price
+      ];
+      worksheet['!cols'] = columnWidths;
+
+      // Create workbook
+      const workbook = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(workbook, worksheet, 'Applications');
+
+      // Generate filename with current date
+      const date = new Date().toISOString().split('T')[0];
+      const filename = `HIMUDA_Applications_${date}.xlsx`;
+
+      // Download file
+      XLSX.writeFile(workbook, filename);
+
+      toast({
+        title: "Export Successful",
+        description: `Downloaded ${filteredApplications.length} records to ${filename}`,
+      });
+    } catch (error) {
+      toast({
+        title: "Export Failed",
+        description: "There was an error exporting the data",
+        variant: "destructive",
+      });
+    }
+  };
+
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
@@ -162,8 +220,8 @@ export const ApplicationsTable = () => {
         </div>
       </div>
 
-      {/* Search Bar */}
-      <div className="flex items-center gap-4">
+      {/* Search Bar and Actions */}
+      <div className="flex items-center gap-4 justify-between">
         <div className="relative flex-1 max-w-md">
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
           <Input
@@ -177,8 +235,19 @@ export const ApplicationsTable = () => {
             className="pl-10"
           />
         </div>
-        <div className="text-sm text-muted-foreground">
-          Showing {filteredApplications.length} of {mockApplications.length} applications
+        
+        <div className="flex items-center gap-3">
+          <div className="text-sm text-muted-foreground">
+            Showing {filteredApplications.length} of {mockApplications.length} applications
+          </div>
+          
+          <Button 
+            onClick={exportToExcel}
+            className="bg-gradient-to-r from-primary to-secondary hover:opacity-90 shadow-lg"
+          >
+            <Download className="h-4 w-4 mr-2" />
+            Export to Excel
+          </Button>
         </div>
       </div>
 
