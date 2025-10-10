@@ -1,9 +1,8 @@
 import { useState } from "react";
-import { Search, Eye, Download, Settings2 } from "lucide-react";
+import { Search, Eye, Download } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Checkbox } from "@/components/ui/checkbox";
 import * as XLSX from 'xlsx';
 import {
   Table,
@@ -21,13 +20,6 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 import { ApplicationDetailsDialog } from "@/components/ApplicationDetailsDialog";
 import { toast } from "@/hooks/use-toast";
 
@@ -125,26 +117,11 @@ const mockApplications = [
 
 const ITEMS_PER_PAGE = 5;
 
-const availableColumns = [
-  { key: 'id', label: 'Application ID' },
-  { key: 'propertyName', label: 'Property Name' },
-  { key: 'applicantName', label: 'Applicant Name' },
-  { key: 'location', label: 'Location' },
-  { key: 'propertyType', label: 'Property Type' },
-  { key: 'applicationDate', label: 'Application Date' },
-  { key: 'status', label: 'Status' },
-  { key: 'allotmentNumber', label: 'Allotment Number' },
-  { key: 'price', label: 'Price' },
-];
-
 export const ApplicationsTable = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedApplication, setSelectedApplication] = useState<typeof mockApplications[0] | null>(null);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const [selectedColumns, setSelectedColumns] = useState<string[]>(
-    availableColumns.map(col => col.key)
-  );
 
   // Filter applications based on search
   const filteredApplications = mockApplications.filter((app) =>
@@ -178,52 +155,36 @@ export const ApplicationsTable = () => {
     setIsDialogOpen(true);
   };
 
-  const toggleColumn = (columnKey: string) => {
-    setSelectedColumns(prev => 
-      prev.includes(columnKey)
-        ? prev.filter(key => key !== columnKey)
-        : [...prev, columnKey]
-    );
-  };
-
-  const toggleAllColumns = () => {
-    if (selectedColumns.length === availableColumns.length) {
-      setSelectedColumns([]);
-    } else {
-      setSelectedColumns(availableColumns.map(col => col.key));
-    }
-  };
-
   const exportToExcel = () => {
-    if (selectedColumns.length === 0) {
-      toast({
-        title: "No Columns Selected",
-        description: "Please select at least one column to export",
-        variant: "destructive",
-      });
-      return;
-    }
-
     try {
-      // Prepare data for export with only selected columns
-      const exportData = filteredApplications.map((app) => {
-        const row: Record<string, any> = {};
-        
-        selectedColumns.forEach(colKey => {
-          const column = availableColumns.find(c => c.key === colKey);
-          if (column) {
-            row[column.label] = app[colKey as keyof typeof app];
-          }
-        });
-        
-        return row;
-      });
+      // Prepare data for export
+      const exportData = filteredApplications.map((app) => ({
+        'Application ID': app.id,
+        'Property Name': app.propertyName,
+        'Applicant Name': app.applicantName,
+        'Location': app.location,
+        'Property Type': app.propertyType,
+        'Application Date': app.applicationDate,
+        'Status': app.status,
+        'Allotment Number': app.allotmentNumber,
+        'Price': app.price,
+      }));
 
       // Create worksheet
       const worksheet = XLSX.utils.json_to_sheet(exportData);
       
-      // Set column widths based on selected columns
-      const columnWidths = selectedColumns.map(() => ({ wch: 20 }));
+      // Set column widths
+      const columnWidths = [
+        { wch: 15 }, // Application ID
+        { wch: 30 }, // Property Name
+        { wch: 20 }, // Applicant Name
+        { wch: 15 }, // Location
+        { wch: 15 }, // Property Type
+        { wch: 18 }, // Application Date
+        { wch: 15 }, // Status
+        { wch: 20 }, // Allotment Number
+        { wch: 15 }, // Price
+      ];
       worksheet['!cols'] = columnWidths;
 
       // Create workbook
@@ -239,7 +200,7 @@ export const ApplicationsTable = () => {
 
       toast({
         title: "Export Successful",
-        description: `Downloaded ${filteredApplications.length} records with ${selectedColumns.length} columns to ${filename}`,
+        description: `Downloaded ${filteredApplications.length} records to ${filename}`,
       });
     } catch (error) {
       toast({
@@ -280,54 +241,9 @@ export const ApplicationsTable = () => {
             Showing {filteredApplications.length} of {mockApplications.length} applications
           </div>
           
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="outline" className="border-primary/30 hover:bg-primary/5">
-                <Settings2 className="h-4 w-4 mr-2" />
-                Select Columns ({selectedColumns.length})
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" className="w-64">
-              <DropdownMenuLabel className="flex items-center justify-between">
-                <span>Export Columns</span>
-                <Button 
-                  variant="ghost" 
-                  size="sm" 
-                  onClick={toggleAllColumns}
-                  className="h-6 text-xs"
-                >
-                  {selectedColumns.length === availableColumns.length ? 'Deselect All' : 'Select All'}
-                </Button>
-              </DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <div className="p-2 space-y-2 max-h-80 overflow-y-auto">
-                {availableColumns.map((column) => (
-                  <div
-                    key={column.key}
-                    className="flex items-center space-x-2 p-2 rounded-md hover:bg-accent cursor-pointer"
-                    onClick={() => toggleColumn(column.key)}
-                  >
-                    <Checkbox
-                      id={column.key}
-                      checked={selectedColumns.includes(column.key)}
-                      onCheckedChange={() => toggleColumn(column.key)}
-                    />
-                    <label
-                      htmlFor={column.key}
-                      className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 cursor-pointer flex-1"
-                    >
-                      {column.label}
-                    </label>
-                  </div>
-                ))}
-              </div>
-            </DropdownMenuContent>
-          </DropdownMenu>
-          
           <Button 
             onClick={exportToExcel}
-            disabled={selectedColumns.length === 0}
-            className="bg-gradient-to-r from-primary to-secondary hover:opacity-90 shadow-lg disabled:opacity-50"
+            className="bg-gradient-to-r from-primary to-secondary hover:opacity-90 shadow-lg"
           >
             <Download className="h-4 w-4 mr-2" />
             Export to Excel
