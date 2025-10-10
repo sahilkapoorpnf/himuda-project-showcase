@@ -482,37 +482,45 @@ const Index = () => {
     </PresentationSlide>,
 
     // Slide 7: Allotment Form in Dashboard Layout
-    <div key="allotment-dashboard" className="min-h-screen bg-background">
+    <div key="allotment-dashboard" className="min-h-screen bg-gradient-to-br from-background via-accent/5 to-background">
       <DashboardHeader />
       
-      <div className="flex w-full pt-32">
+      <div className="flex w-full pt-[8.5rem]">
         <DashboardSidebar 
           activeSection="apply"
           onSectionChange={() => {}}
         />
         
-        <main className="flex-1 p-8 overflow-y-auto">
-          <div className="mb-6">
-            <h1 className="text-3xl font-bold text-primary">Apply for Allotment</h1>
-            <p className="text-muted-foreground mt-1">Fill out the form to apply for property allotment</p>
+        <main className="flex-1 p-8 overflow-y-auto max-h-[calc(100vh-8.5rem)]">
+          <div className="max-w-6xl mx-auto">
+            <div className="mb-8 bg-gradient-to-r from-primary/10 via-accent/10 to-secondary/10 p-8 rounded-2xl border border-primary/20">
+              <h1 className="text-4xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-2">
+                Apply for Allotment
+              </h1>
+              <p className="text-muted-foreground text-lg">Fill out the form below to apply for property allotment</p>
+            </div>
+            <div className="bg-card/50 backdrop-blur-sm rounded-2xl shadow-xl border border-border/50 p-8">
+              <AllotmentForm />
+            </div>
           </div>
-          <AllotmentForm />
         </main>
       </div>
     </div>,
 
     // Slide 8: Applications Management Dashboard
-    <div key="applications-dashboard" className="min-h-screen bg-background">
+    <div key="applications-dashboard" className="min-h-screen bg-gradient-to-br from-background via-accent/5 to-background">
       <DashboardHeader />
       
-      <div className="flex w-full pt-32">
+      <div className="flex w-full pt-[8.5rem]">
         <DashboardSidebar 
           activeSection="applications"
           onSectionChange={() => {}}
         />
         
-        <main className="flex-1 p-8 overflow-y-auto">
-          <ApplicationsTable />
+        <main className="flex-1 p-8 overflow-y-auto max-h-[calc(100vh-8.5rem)]">
+          <div className="max-w-7xl mx-auto">
+            <ApplicationsTable />
+          </div>
         </main>
       </div>
     </div>,

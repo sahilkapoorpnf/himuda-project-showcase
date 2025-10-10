@@ -9,6 +9,7 @@ interface DashboardSidebarProps {
 export const DashboardSidebar = ({ activeSection, onSectionChange }: DashboardSidebarProps) => {
   const menuItems = [
     { id: "dashboard", label: "Dashboard", icon: Home },
+    { id: "apply", label: "Apply for Allotment", icon: FileText },
     { id: "applications", label: "Applications Management", icon: FileText },
     { id: "properties", label: "Property Management", icon: Building2 },
     { id: "payments", label: "Payment Management", icon: CreditCard },
@@ -22,32 +23,54 @@ export const DashboardSidebar = ({ activeSection, onSectionChange }: DashboardSi
   ];
 
   return (
-    <aside className="w-64 bg-card border-r min-h-[calc(100vh-8rem)] sticky top-32">
-      <nav className="p-4 space-y-2">
-        <div className="mb-4">
-          <h2 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider px-3 mb-2">
+    <aside className="w-72 bg-gradient-to-b from-card to-accent/5 border-r border-border/50 min-h-[calc(100vh-8.5rem)] sticky top-[8.5rem] shadow-lg">
+      <nav className="p-6 space-y-1.5">
+        <div className="mb-6">
+          <h2 className="text-xs font-bold text-primary/60 uppercase tracking-widest px-4 mb-3 flex items-center gap-2">
+            <div className="h-0.5 w-3 bg-gradient-to-r from-primary to-transparent" />
             Main Menu
           </h2>
         </div>
         {menuItems.map((item) => {
           const Icon = item.icon;
+          const isActive = activeSection === item.id;
           return (
             <button
               key={item.id}
               onClick={() => onSectionChange(item.id)}
               className={cn(
-                "w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all",
-                activeSection === item.id
-                  ? "bg-primary text-primary-foreground shadow-sm"
-                  : "text-foreground hover:bg-muted"
+                "w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200 group relative overflow-hidden",
+                isActive
+                  ? "bg-gradient-to-r from-primary via-primary to-secondary text-primary-foreground shadow-lg shadow-primary/20 scale-[1.02]"
+                  : "text-foreground hover:bg-accent/50 hover:translate-x-1"
               )}
             >
-              <Icon className="h-4 w-4" />
-              <span>{item.label}</span>
+              {isActive && (
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent animate-pulse" />
+              )}
+              <div className={cn(
+                "p-1.5 rounded-lg transition-all",
+                isActive 
+                  ? "bg-white/20" 
+                  : "bg-accent/20 group-hover:bg-accent/40"
+              )}>
+                <Icon className="h-4 w-4" />
+              </div>
+              <span className="relative">{item.label}</span>
+              {isActive && (
+                <div className="ml-auto h-2 w-2 rounded-full bg-accent animate-pulse" />
+              )}
             </button>
           );
         })}
       </nav>
+      
+      {/* Decorative Element */}
+      <div className="absolute bottom-6 left-6 right-6 p-4 bg-gradient-to-br from-primary/5 to-accent/5 rounded-xl border border-primary/10">
+        <p className="text-xs text-muted-foreground text-center">
+          Need help? Contact support
+        </p>
+      </div>
     </aside>
   );
 };
