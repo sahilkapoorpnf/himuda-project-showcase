@@ -394,7 +394,164 @@ const Index = () => {
       </div>
     </PresentationSlide>,
 
-    // Slide 6: Property Detail Page
+    // Slide 6: User Dashboard Features
+    <PresentationSlide key="dashboard-features" gradient="accent">
+      <div className="space-y-12">
+        <div className="text-center space-y-4">
+          <h2 className="text-6xl font-bold text-white mb-4">User Dashboard</h2>
+          <p className="text-2xl text-white/90">Complete Control at Your Fingertips</p>
+          <div className="h-1 w-40 bg-white/50 mx-auto mt-6" />
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
+          {/* Applications Management */}
+          <div className="group bg-white/10 backdrop-blur-sm p-8 rounded-2xl hover:bg-white/20 transition-all duration-300 hover:scale-105 border border-white/20">
+            <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <FileText className="w-8 h-8 text-white" />
+            </div>
+            <h3 className="text-2xl font-bold text-white mb-3">Applications</h3>
+            <p className="text-white/80 mb-4">Track and manage all your property applications in one place</p>
+            <ul className="space-y-2 text-white/70 text-sm">
+              <li className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4" />
+                View application status
+              </li>
+              <li className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4" />
+                Download application forms
+              </li>
+              <li className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4" />
+                Export to Excel
+              </li>
+            </ul>
+          </div>
+
+          {/* Property Management */}
+          <div className="group bg-white/10 backdrop-blur-sm p-8 rounded-2xl hover:bg-white/20 transition-all duration-300 hover:scale-105 border border-white/20">
+            <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <Building2 className="w-8 h-8 text-white" />
+            </div>
+            <h3 className="text-2xl font-bold text-white mb-3">Properties</h3>
+            <p className="text-white/80 mb-4">Browse and shortlist available properties effortlessly</p>
+            <ul className="space-y-2 text-white/70 text-sm">
+              <li className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4" />
+                Save favorites
+              </li>
+              <li className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4" />
+                Compare properties
+              </li>
+              <li className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4" />
+                Virtual tours
+              </li>
+            </ul>
+          </div>
+
+          {/* Payment Tracking */}
+          <div className="group bg-white/10 backdrop-blur-sm p-8 rounded-2xl hover:bg-white/20 transition-all duration-300 hover:scale-105 border border-white/20">
+            <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <CreditCard className="w-8 h-8 text-white" />
+            </div>
+            <h3 className="text-2xl font-bold text-white mb-3">Payments</h3>
+            <p className="text-white/80 mb-4">Secure online payments with complete transaction history</p>
+            <ul className="space-y-2 text-white/70 text-sm">
+              <li className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4" />
+                Online payments
+              </li>
+              <li className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4" />
+                Payment history
+              </li>
+              <li className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4" />
+                Download receipts
+              </li>
+            </ul>
+          </div>
+
+          {/* Document Management */}
+          <div className="group bg-white/10 backdrop-blur-sm p-8 rounded-2xl hover:bg-white/20 transition-all duration-300 hover:scale-105 border border-white/20">
+            <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <FileCheck className="w-8 h-8 text-white" />
+            </div>
+            <h3 className="text-2xl font-bold text-white mb-3">Documents</h3>
+            <p className="text-white/80 mb-4">Upload, store, and access all your documents securely</p>
+            <ul className="space-y-2 text-white/70 text-sm">
+              <li className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4" />
+                Secure cloud storage
+              </li>
+              <li className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4" />
+                Easy uploads
+              </li>
+              <li className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4" />
+                Document verification
+              </li>
+            </ul>
+          </div>
+
+          {/* Notifications */}
+          <div className="group bg-white/10 backdrop-blur-sm p-8 rounded-2xl hover:bg-white/20 transition-all duration-300 hover:scale-105 border border-white/20">
+            <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <Bell className="w-8 h-8 text-white" />
+            </div>
+            <h3 className="text-2xl font-bold text-white mb-3">Notifications</h3>
+            <p className="text-white/80 mb-4">Stay updated with real-time alerts and reminders</p>
+            <ul className="space-y-2 text-white/70 text-sm">
+              <li className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4" />
+                Application updates
+              </li>
+              <li className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4" />
+                Payment reminders
+              </li>
+              <li className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4" />
+                Important announcements
+              </li>
+            </ul>
+          </div>
+
+          {/* Profile Settings */}
+          <div className="group bg-white/10 backdrop-blur-sm p-8 rounded-2xl hover:bg-white/20 transition-all duration-300 hover:scale-105 border border-white/20">
+            <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <User className="w-8 h-8 text-white" />
+            </div>
+            <h3 className="text-2xl font-bold text-white mb-3">Profile</h3>
+            <p className="text-white/80 mb-4">Manage your personal information and preferences</p>
+            <ul className="space-y-2 text-white/70 text-sm">
+              <li className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4" />
+                Update profile details
+              </li>
+              <li className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4" />
+                Security settings
+              </li>
+              <li className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4" />
+                Communication preferences
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="mt-12 text-center">
+          <button className="px-12 py-4 bg-white text-primary rounded-full font-bold text-lg hover:scale-105 transition-transform shadow-2xl">
+            Access Dashboard
+          </button>
+        </div>
+      </div>
+    </PresentationSlide>,
+
+    // Slide 7: Property Detail Page
     <PresentationSlide key="property-detail">
       <div className="space-y-8">
         <h2 className="text-5xl font-bold text-primary text-center mb-8">Property Detail Page</h2>
