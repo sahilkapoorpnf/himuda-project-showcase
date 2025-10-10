@@ -15,6 +15,7 @@ import { MinistersSection } from "@/components/MinistersSection";
 import { Footer } from "@/components/Footer";
 import { WhatsNewSection } from "@/components/WhatsNewSection";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
+import { AllotmentForm } from "@/components/AllotmentForm";
 import { ChevronLeft, ChevronRight, Home, Search, FileText, UserCheck, Download, Building2, Filter, MapPin, Calendar, FileCheck, User, CreditCard, Bell, Edit, MessageSquare, Shield, CheckCircle2, Forward, Upload, FileSpreadsheet, Megaphone, FolderCheck, Settings, DollarSign, Receipt, TrendingUp, FileBarChart, RefreshCw, AlertCircle, PieChart, Wallet, Crown, Users, Lock, Globe, Activity, Database, BarChart3, Target, Newspaper, Mail, Smartphone, BellRing, Clock, Send, AlertTriangle, Phone } from 'lucide-react';
 
 import heroProperty from '@/assets/hero-property.jpg';
@@ -477,7 +478,12 @@ const Index = () => {
       </div>
     </PresentationSlide>,
 
-    // Slide 7: User Flow
+    // Slide 7: Allotment Form
+    <PresentationSlide key="allotment-form">
+      <AllotmentForm />
+    </PresentationSlide>,
+
+    // Slide 8: User Flow
     <PresentationSlide key="user-flow" gradient="hero">
       <div className="space-y-12 text-white">
         <h2 className="text-5xl font-bold text-center mb-12">User Journey Flow</h2>
@@ -548,7 +554,7 @@ const Index = () => {
       </div>
     </PresentationSlide>,
 
-    // Slide 8: Allottee / Citizen User Type
+    // Slide 9: Allottee / Citizen User Type
     <PresentationSlide key="citizen-user" gradient="hero">
       <div className="space-y-12 text-white">
         <div className="text-center mb-12">
@@ -673,7 +679,7 @@ const Index = () => {
       </div>
     </PresentationSlide>,
 
-    // Slide 9: IT Department Login
+    // Slide 10: IT Department Login
     <PresentationSlide key="it-department" gradient="hero">
       <div className="space-y-12 text-white">
         {/* Header */}
