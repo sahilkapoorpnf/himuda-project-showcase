@@ -16,6 +16,9 @@ import { Footer } from "@/components/Footer";
 import { WhatsNewSection } from "@/components/WhatsNewSection";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { AllotmentForm } from "@/components/AllotmentForm";
+import { DashboardHeader } from "@/components/DashboardHeader";
+import { DashboardSidebar } from "@/components/DashboardSidebar";
+import { ApplicationsTable } from "@/components/ApplicationsTable";
 import { ChevronLeft, ChevronRight, Home, Search, FileText, UserCheck, Download, Building2, Filter, MapPin, Calendar, FileCheck, User, CreditCard, Bell, Edit, MessageSquare, Shield, CheckCircle2, Forward, Upload, FileSpreadsheet, Megaphone, FolderCheck, Settings, DollarSign, Receipt, TrendingUp, FileBarChart, RefreshCw, AlertCircle, PieChart, Wallet, Crown, Users, Lock, Globe, Activity, Database, BarChart3, Target, Newspaper, Mail, Smartphone, BellRing, Clock, Send, AlertTriangle, Phone } from 'lucide-react';
 
 import heroProperty from '@/assets/hero-property.jpg';
@@ -478,142 +481,41 @@ const Index = () => {
       </div>
     </PresentationSlide>,
 
-    // Slide 7: Allotment Form
-    <PresentationSlide key="allotment-form">
-      <AllotmentForm />
-    </PresentationSlide>,
-
-    // Slide 8: User Dashboard Preview
-    <PresentationSlide key="dashboard-preview">
-      <div className="space-y-8">
-        <h2 className="text-5xl font-bold text-primary text-center mb-8">User Dashboard Portal</h2>
-        <p className="text-xl text-muted-foreground text-center mb-8">Complete management system for applications, properties, and payments</p>
+    // Slide 7: Allotment Form in Dashboard Layout
+    <div key="allotment-dashboard" className="min-h-screen bg-background">
+      <DashboardHeader />
+      
+      <div className="flex w-full pt-32">
+        <DashboardSidebar 
+          activeSection="apply"
+          onSectionChange={() => {}}
+        />
         
-        <div className="flex justify-center mb-6">
-          <a 
-            href="/dashboard"
-            className="px-8 py-4 bg-gradient-to-r from-primary via-secondary to-accent text-white rounded-xl font-bold text-lg hover:opacity-90 transition-all hover:scale-105 shadow-lg animate-pulse"
-          >
-            🚀 Click Here to Open Live Dashboard →
-          </a>
-        </div>
-
-        <div className="bg-card rounded-2xl border shadow-lg p-6">
-          <div className="flex items-center justify-between mb-6">
-            <div>
-              <h3 className="text-2xl font-bold text-primary">Applications Management</h3>
-              <p className="text-muted-foreground">Track all your property applications in one place</p>
-            </div>
+        <main className="flex-1 p-8 overflow-y-auto">
+          <div className="mb-6">
+            <h1 className="text-3xl font-bold text-primary">Apply for Allotment</h1>
+            <p className="text-muted-foreground mt-1">Fill out the form to apply for property allotment</p>
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-            <div className="card-elegant">
-              <div className="flex items-center gap-3 mb-3">
-                <div className="p-2 bg-primary/10 rounded-lg">
-                  <FileText className="h-6 w-6 text-primary" />
-                </div>
-                <h4 className="font-semibold text-lg">Application Tracking</h4>
-              </div>
-              <p className="text-muted-foreground text-sm">View all applications with real-time status updates</p>
-            </div>
-            
-            <div className="card-elegant">
-              <div className="flex items-center gap-3 mb-3">
-                <div className="p-2 bg-secondary/10 rounded-lg">
-                  <Search className="h-6 w-6 text-secondary" />
-                </div>
-                <h4 className="font-semibold text-lg">Advanced Search</h4>
-              </div>
-              <p className="text-muted-foreground text-sm">Search and filter applications instantly</p>
-            </div>
-            
-            <div className="card-elegant">
-              <div className="flex items-center gap-3 mb-3">
-                <div className="p-2 bg-accent/10 rounded-lg">
-                  <Bell className="h-6 w-6 text-accent" />
-                </div>
-                <h4 className="font-semibold text-lg">Notifications</h4>
-              </div>
-              <p className="text-muted-foreground text-sm">Get notified about important updates</p>
-            </div>
-          </div>
-
-          <div className="space-y-4">
-            <h4 className="font-semibold text-lg text-primary">Dashboard Features:</h4>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="flex items-center gap-3">
-                <div className="w-2 h-2 rounded-full bg-primary" />
-                <span>Applications Management with full details view</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="w-2 h-2 rounded-full bg-secondary" />
-                <span>Property Management & Allotment Status</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="w-2 h-2 rounded-full bg-accent" />
-                <span>Payment Management & Transaction History</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="w-2 h-2 rounded-full bg-primary" />
-                <span>Document Management System</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="w-2 h-2 rounded-full bg-secondary" />
-                <span>Profile & Family Members Management</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="w-2 h-2 rounded-full bg-accent" />
-                <span>Search, Pagination & Export Features</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="card-elegant">
-            <h3 className="text-xl font-semibold mb-3 text-primary flex items-center gap-2">
-              <CheckCircle2 className="h-5 w-5" />
-              Modern Interface
-            </h3>
-            <ul className="space-y-2 text-muted-foreground">
-              <li className="flex items-center gap-2">
-                <div className="w-1.5 h-1.5 rounded-full bg-secondary" />
-                Clean and intuitive design
-              </li>
-              <li className="flex items-center gap-2">
-                <div className="w-1.5 h-1.5 rounded-full bg-secondary" />
-                Responsive across all devices
-              </li>
-              <li className="flex items-center gap-2">
-                <div className="w-1.5 h-1.5 rounded-full bg-secondary" />
-                Easy navigation with sidebar menu
-              </li>
-            </ul>
-          </div>
-
-          <div className="card-elegant">
-            <h3 className="text-xl font-semibold mb-3 text-primary flex items-center gap-2">
-              <Shield className="h-5 w-5" />
-              Secure & Reliable
-            </h3>
-            <ul className="space-y-2 text-muted-foreground">
-              <li className="flex items-center gap-2">
-                <div className="w-1.5 h-1.5 rounded-full bg-accent" />
-                Secure user authentication
-              </li>
-              <li className="flex items-center gap-2">
-                <div className="w-1.5 h-1.5 rounded-full bg-accent" />
-                Real-time data synchronization
-              </li>
-              <li className="flex items-center gap-2">
-                <div className="w-1.5 h-1.5 rounded-full bg-accent" />
-                Role-based access control
-              </li>
-            </ul>
-          </div>
-        </div>
+          <AllotmentForm />
+        </main>
       </div>
-    </PresentationSlide>,
+    </div>,
+
+    // Slide 8: Applications Management Dashboard
+    <div key="applications-dashboard" className="min-h-screen bg-background">
+      <DashboardHeader />
+      
+      <div className="flex w-full pt-32">
+        <DashboardSidebar 
+          activeSection="applications"
+          onSectionChange={() => {}}
+        />
+        
+        <main className="flex-1 p-8 overflow-y-auto">
+          <ApplicationsTable />
+        </main>
+      </div>
+    </div>,
 
     // Slide 9: User Flow
     <PresentationSlide key="user-flow" gradient="hero">
