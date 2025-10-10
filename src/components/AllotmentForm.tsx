@@ -133,14 +133,6 @@ export const AllotmentForm = () => {
                   <RadioGroupItem value="new" id="new" />
                   <Label htmlFor="new" className="font-normal cursor-pointer">New Allotment</Label>
                 </div>
-                <div className="flex items-center space-x-2">
-                  <RadioGroupItem value="re" id="re" />
-                  <Label htmlFor="re" className="font-normal cursor-pointer">Re-Allotment</Label>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <RadioGroupItem value="transfer" id="transfer" />
-                  <Label htmlFor="transfer" className="font-normal cursor-pointer">Transfer Case</Label>
-                </div>
               </RadioGroup>
             </div>
           </div>
