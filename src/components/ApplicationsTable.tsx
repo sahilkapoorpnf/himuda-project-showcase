@@ -3,7 +3,7 @@ import { Search, Eye, Download } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import * as XLSX from 'xlsx';
+import { utils, writeFile } from 'xlsx';
 import {
   Table,
   TableBody,
@@ -171,7 +171,7 @@ export const ApplicationsTable = () => {
       }));
 
       // Create worksheet
-      const worksheet = XLSX.utils.json_to_sheet(exportData);
+      const worksheet = utils.json_to_sheet(exportData);
       
       // Set column widths
       const columnWidths = [
@@ -188,15 +188,15 @@ export const ApplicationsTable = () => {
       worksheet['!cols'] = columnWidths;
 
       // Create workbook
-      const workbook = XLSX.utils.book_new();
-      XLSX.utils.book_append_sheet(workbook, worksheet, 'Applications');
+      const workbook = utils.book_new();
+      utils.book_append_sheet(workbook, worksheet, 'Applications');
 
       // Generate filename with current date
       const date = new Date().toISOString().split('T')[0];
       const filename = `HIMUDA_Applications_${date}.xlsx`;
 
       // Download file
-      XLSX.writeFile(workbook, filename);
+      writeFile(workbook, filename);
 
       toast({
         title: "Export Successful",
