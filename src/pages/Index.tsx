@@ -441,20 +441,12 @@ const Index = () => {
                 </p>
               </div>
 
-              <div className="text-4xl font-bold text-primary">₹45,00,000</div>
+              <div className="text-4xl font-bold text-primary">₹45,00,000 Onwards</div>
 
-              <div className="grid grid-cols-3 gap-4 py-4 border-y border-border">
+              <div className="py-4 border-y border-border">
                 <div>
-                  <div className="text-2xl font-bold text-primary">3</div>
-                  <div className="text-sm text-muted-foreground">Bedrooms</div>
-                </div>
-                <div>
-                  <div className="text-2xl font-bold text-secondary">2</div>
-                  <div className="text-sm text-muted-foreground">Bathrooms</div>
-                </div>
-                <div>
-                  <div className="text-2xl font-bold text-accent">1,450</div>
-                  <div className="text-sm text-muted-foreground">Sq Ft</div>
+                  <div className="text-2xl font-bold text-primary">31,076.00 sqmt</div>
+                  <div className="text-sm text-muted-foreground">Total Area of Land</div>
                 </div>
               </div>
 
