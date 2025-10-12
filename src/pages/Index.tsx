@@ -19,7 +19,7 @@ import { AllotmentForm } from "@/components/AllotmentForm";
 import { DashboardHeader } from "@/components/DashboardHeader";
 import { DashboardSidebar } from "@/components/DashboardSidebar";
 import { ApplicationsTable } from "@/components/ApplicationsTable";
-import { ChevronLeft, ChevronRight, Home, Search, FileText, UserCheck, Download, Building2, Filter, MapPin, Calendar, FileCheck, User, CreditCard, Bell, Edit, MessageSquare, Shield, CheckCircle2, Forward, Upload, FileSpreadsheet, Megaphone, FolderCheck, Settings, DollarSign, Receipt, TrendingUp, FileBarChart, RefreshCw, AlertCircle, PieChart, Wallet, Crown, Users, Lock, Globe, Activity, Database, BarChart3, Target, Newspaper, Mail, Smartphone, BellRing, Clock, Send, AlertTriangle, Phone } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Home, Search, FileText, UserCheck, Download, Building2, Filter, MapPin, Calendar, FileCheck, User, CreditCard, Bell, Edit, MessageSquare, Shield, CheckCircle2, Forward, Upload, FileSpreadsheet, Megaphone, FolderCheck, Settings, DollarSign, Receipt, TrendingUp, FileBarChart, RefreshCw, AlertCircle, PieChart, Wallet, Crown, Users, Lock, Globe, Activity, Database, BarChart3, Target, Newspaper, Mail, Smartphone, BellRing, Clock, Send, AlertTriangle, Phone, Zap } from 'lucide-react';
 
 import heroProperty from '@/assets/hero-property.jpg';
 import propertyListing1 from '@/assets/property-listing-1.jpg';
@@ -1701,27 +1701,31 @@ const Index = () => {
             </button>
             <button className="w-full flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-muted transition-colors text-left">
               <Users className="w-5 h-5 text-primary" />
+              User Management
+            </button>
+            <button className="w-full flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-muted transition-colors text-left">
+              <Users className="w-5 h-5 text-primary" />
               Allottee Management
             </button>
             <button className="w-full flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-muted transition-colors text-left">
-              <Target className="w-5 h-5 text-primary" />
-              Lead Tracking
+              <Shield className="w-5 h-5 text-primary" />
+              Role Management
             </button>
             <button className="w-full flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-muted transition-colors text-left">
-              <MapPin className="w-5 h-5 text-primary" />
-              Location Analytics
+              <FileText className="w-5 h-5 text-primary" />
+              Content Management
             </button>
             <button className="w-full flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-muted transition-colors text-left">
-              <BarChart3 className="w-5 h-5 text-primary" />
-              Marketing Insights
+              <Building2 className="w-5 h-5 text-primary" />
+              Property Management
             </button>
             <button className="w-full flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-muted transition-colors text-left">
-              <DollarSign className="w-5 h-5 text-primary" />
-              Payment Analytics
+              <Activity className="w-5 h-5 text-primary" />
+              Activity Monitoring
             </button>
             <button className="w-full flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-muted transition-colors text-left">
               <Settings className="w-5 h-5 text-primary" />
-              System Settings
+              Setting
             </button>
           </nav>
         </aside>
@@ -1771,36 +1775,59 @@ const Index = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               <div className="card-elegant p-8">
                 <h3 className="text-2xl font-bold text-primary mb-6 flex items-center gap-3">
-                  <Target className="w-6 h-6" />
-                  Lead Tracking
+                  <MapPin className="w-6 h-6" />
+                  Lead Tracking - Visitor Locations
                 </h3>
-                <div className="space-y-4">
-                  <div className="space-y-2">
-                    <div className="flex items-center justify-between text-sm">
-                      <span className="text-muted-foreground">Hot Leads</span>
-                      <span className="font-bold text-secondary">326</span>
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between p-3 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-lg hover:shadow-md transition-shadow">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-full gradient-hero flex items-center justify-center text-white font-bold">1</div>
+                      <div>
+                        <div className="font-semibold text-primary">Delhi NCR</div>
+                        <div className="text-xs text-muted-foreground">National Capital</div>
+                      </div>
                     </div>
-                    <div className="h-3 bg-muted rounded-full overflow-hidden">
-                      <div className="h-full gradient-hero rounded-full" style={{ width: '65%' }}></div>
-                    </div>
+                    <span className="font-bold text-secondary text-lg">2,847</span>
                   </div>
-                  <div className="space-y-2">
-                    <div className="flex items-center justify-between text-sm">
-                      <span className="text-muted-foreground">Warm Leads</span>
-                      <span className="font-bold text-accent">184</span>
+                  <div className="flex items-center justify-between p-3 bg-gradient-to-r from-accent/10 to-primary/10 rounded-lg hover:shadow-md transition-shadow">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-full gradient-accent flex items-center justify-center text-white font-bold">2</div>
+                      <div>
+                        <div className="font-semibold text-primary">Mumbai</div>
+                        <div className="text-xs text-muted-foreground">Maharashtra</div>
+                      </div>
                     </div>
-                    <div className="h-3 bg-muted rounded-full overflow-hidden">
-                      <div className="h-full gradient-accent rounded-full" style={{ width: '40%' }}></div>
-                    </div>
+                    <span className="font-bold text-accent text-lg">1,923</span>
                   </div>
-                  <div className="space-y-2">
-                    <div className="flex items-center justify-between text-sm">
-                      <span className="text-muted-foreground">Cold Leads</span>
-                      <span className="font-bold text-primary">92</span>
+                  <div className="flex items-center justify-between p-3 bg-gradient-to-r from-secondary/10 to-accent/10 rounded-lg hover:shadow-md transition-shadow">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-full gradient-gold flex items-center justify-center text-white font-bold">3</div>
+                      <div>
+                        <div className="font-semibold text-primary">Bangalore</div>
+                        <div className="text-xs text-muted-foreground">Karnataka</div>
+                      </div>
                     </div>
-                    <div className="h-3 bg-muted rounded-full overflow-hidden">
-                      <div className="h-full gradient-gold rounded-full" style={{ width: '20%' }}></div>
+                    <span className="font-bold text-primary text-lg">1,564</span>
+                  </div>
+                  <div className="flex items-center justify-between p-3 bg-muted/50 rounded-lg">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-full bg-muted flex items-center justify-center text-foreground font-bold">4</div>
+                      <div>
+                        <div className="font-semibold">Chandigarh</div>
+                        <div className="text-xs text-muted-foreground">Punjab & Haryana</div>
+                      </div>
                     </div>
+                    <span className="font-bold text-lg">892</span>
+                  </div>
+                  <div className="flex items-center justify-between p-3 bg-muted/50 rounded-lg">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-full bg-muted flex items-center justify-center text-foreground font-bold">5</div>
+                      <div>
+                        <div className="font-semibold">Kolkata</div>
+                        <div className="text-xs text-muted-foreground">West Bengal</div>
+                      </div>
+                    </div>
+                    <span className="font-bold text-lg">621</span>
                   </div>
                 </div>
               </div>
@@ -1830,32 +1857,61 @@ const Index = () => {
                 </div>
               </div>
 
-              <div className="card-elegant p-8">
+              <div className="card-elegant p-8 bg-gradient-to-br from-primary/5 via-accent/5 to-secondary/5">
                 <h3 className="text-2xl font-bold text-primary mb-6 flex items-center gap-3">
                   <BarChart3 className="w-6 h-6" />
                   Marketing Insights
                 </h3>
                 <div className="space-y-4">
-                  <div className="flex items-center justify-between p-3 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-lg">
-                    <div>
-                      <div className="text-sm text-muted-foreground">Website Visitors</div>
-                      <div className="text-2xl font-bold text-primary">12,847</div>
+                  <div className="relative overflow-hidden rounded-xl p-5 bg-gradient-to-r from-primary/20 to-secondary/20 border border-primary/20">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <div className="text-sm text-muted-foreground mb-1 flex items-center gap-2">
+                          <Globe className="w-4 h-4" />
+                          Total Website Visitors
+                        </div>
+                        <div className="text-3xl font-bold text-primary">12,847</div>
+                        <div className="text-xs text-secondary mt-1 flex items-center gap-1">
+                          <TrendingUp className="w-3 h-3" />
+                          +18.2% from last month
+                        </div>
+                      </div>
+                      <div className="text-6xl opacity-10">📊</div>
                     </div>
-                    <TrendingUp className="w-8 h-8 text-secondary" />
                   </div>
-                  <div className="flex items-center justify-between p-3 bg-gradient-to-r from-accent/10 to-primary/10 rounded-lg">
-                    <div>
-                      <div className="text-sm text-muted-foreground">Conversion Rate</div>
-                      <div className="text-2xl font-bold text-accent">23.4%</div>
+                  
+                  <div className="relative overflow-hidden rounded-xl p-5 bg-gradient-to-r from-accent/20 to-primary/20 border border-accent/20">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <div className="text-sm text-muted-foreground mb-1 flex items-center gap-2">
+                          <Target className="w-4 h-4" />
+                          Active Campaigns
+                        </div>
+                        <div className="text-3xl font-bold text-accent">8</div>
+                        <div className="text-xs text-green-600 mt-1 flex items-center gap-1">
+                          <Activity className="w-3 h-3" />
+                          All campaigns performing well
+                        </div>
+                      </div>
+                      <div className="text-6xl opacity-10">🎯</div>
                     </div>
-                    <Target className="w-8 h-8 text-accent" />
                   </div>
-                  <div className="flex items-center justify-between p-3 bg-gradient-to-r from-secondary/10 to-accent/10 rounded-lg">
-                    <div>
-                      <div className="text-sm text-muted-foreground">Active Campaigns</div>
-                      <div className="text-2xl font-bold text-secondary">8</div>
+                  
+                  <div className="relative overflow-hidden rounded-xl p-5 bg-gradient-to-r from-secondary/20 to-accent/20 border border-secondary/20">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <div className="text-sm text-muted-foreground mb-1 flex items-center gap-2">
+                          <Zap className="w-4 h-4" />
+                          Engagement Rate
+                        </div>
+                        <div className="text-3xl font-bold text-secondary">67.8%</div>
+                        <div className="text-xs text-secondary mt-1 flex items-center gap-1">
+                          <TrendingUp className="w-3 h-3" />
+                          High user engagement
+                        </div>
+                      </div>
+                      <div className="text-6xl opacity-10">⚡</div>
                     </div>
-                    <Activity className="w-8 h-8 text-primary" />
                   </div>
                 </div>
               </div>
@@ -1912,29 +1968,33 @@ const Index = () => {
               <Crown className="w-5 h-5 text-primary" />
               Dashboard
             </button>
+            <button className="w-full flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-muted transition-colors text-left">
+              <Users className="w-5 h-5 text-primary" />
+              User Management
+            </button>
             <button className="w-full flex items-center gap-3 px-4 py-3 rounded-lg bg-primary text-primary-foreground font-medium">
               <Users className="w-5 h-5" />
               Allottee Management
             </button>
             <button className="w-full flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-muted transition-colors text-left">
-              <Target className="w-5 h-5 text-primary" />
-              Lead Tracking
+              <Shield className="w-5 h-5 text-primary" />
+              Role Management
             </button>
             <button className="w-full flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-muted transition-colors text-left">
-              <MapPin className="w-5 h-5 text-primary" />
-              Location Analytics
+              <FileText className="w-5 h-5 text-primary" />
+              Content Management
             </button>
             <button className="w-full flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-muted transition-colors text-left">
-              <BarChart3 className="w-5 h-5 text-primary" />
-              Marketing Insights
+              <Building2 className="w-5 h-5 text-primary" />
+              Property Management
             </button>
             <button className="w-full flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-muted transition-colors text-left">
-              <DollarSign className="w-5 h-5 text-primary" />
-              Payment Analytics
+              <Activity className="w-5 h-5 text-primary" />
+              Activity Monitoring
             </button>
             <button className="w-full flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-muted transition-colors text-left">
               <Settings className="w-5 h-5 text-primary" />
-              System Settings
+              Setting
             </button>
           </nav>
         </aside>
@@ -1977,6 +2037,12 @@ const Index = () => {
                     <tr>
                       <th className="px-6 py-4 text-left text-sm font-semibold">S.No.</th>
                       <th className="px-6 py-4 text-left text-sm font-semibold">Allottee ID</th>
+                      <th className="px-6 py-4 text-left text-sm font-semibold">First Name</th>
+                      <th className="px-6 py-4 text-left text-sm font-semibold">Last Name</th>
+                      <th className="px-6 py-4 text-left text-sm font-semibold">Email</th>
+                      <th className="px-6 py-4 text-left text-sm font-semibold">Phone</th>
+                      <th className="px-6 py-4 text-left text-sm font-semibold">Project Name</th>
+                      <th className="px-6 py-4 text-left text-sm font-semibold">Location</th>
                       <th className="px-6 py-4 text-left text-sm font-semibold">Unit</th>
                       <th className="px-6 py-4 text-left text-sm font-semibold">Possession Taken</th>
                       <th className="px-6 py-4 text-left text-sm font-semibold">Allotment Date</th>
@@ -1989,6 +2055,12 @@ const Index = () => {
                       <td className="px-6 py-4">
                         <button className="text-primary font-semibold hover:underline">HIMUDA091983</button>
                       </td>
+                      <td className="px-6 py-4">Rajesh</td>
+                      <td className="px-6 py-4">Kumar</td>
+                      <td className="px-6 py-4">rajesh.k@email.com</td>
+                      <td className="px-6 py-4">+91-9876543210</td>
+                      <td className="px-6 py-4">Dehra Housing Plots PHASE-II</td>
+                      <td className="px-6 py-4">Jawalamukhi, Distt Kangra</td>
                       <td className="px-6 py-4">Type-A Plot No. 8</td>
                       <td className="px-6 py-4">24/06/2025 12:00:00 AM</td>
                       <td className="px-6 py-4">29/06/2022 / 16-05-2025</td>
@@ -2003,6 +2075,12 @@ const Index = () => {
                       <td className="px-6 py-4">
                         <button className="text-primary font-semibold hover:underline">HIMUDA091984</button>
                       </td>
+                      <td className="px-6 py-4">Priya</td>
+                      <td className="px-6 py-4">Sharma</td>
+                      <td className="px-6 py-4">priya.s@email.com</td>
+                      <td className="px-6 py-4">+91-9876543211</td>
+                      <td className="px-6 py-4">Dehra Housing Plots PHASE-II</td>
+                      <td className="px-6 py-4">Jawalamukhi, Distt Kangra</td>
                       <td className="px-6 py-4">Type-B Plot No. 15</td>
                       <td className="px-6 py-4">18/05/2025 10:30:00 AM</td>
                       <td className="px-6 py-4">12/03/2022 / 20-04-2025</td>
@@ -2017,6 +2095,12 @@ const Index = () => {
                       <td className="px-6 py-4">
                         <button className="text-primary font-semibold hover:underline">HIMUDA091985</button>
                       </td>
+                      <td className="px-6 py-4">Amit</td>
+                      <td className="px-6 py-4">Singh</td>
+                      <td className="px-6 py-4">amit.singh@email.com</td>
+                      <td className="px-6 py-4">+91-9876543212</td>
+                      <td className="px-6 py-4">Dehra Housing Plots PHASE-II</td>
+                      <td className="px-6 py-4">Jawalamukhi, Distt Kangra</td>
                       <td className="px-6 py-4">Type-C Plot No. 22</td>
                       <td className="px-6 py-4">03/07/2025 02:15:00 PM</td>
                       <td className="px-6 py-4">08/01/2023 / 10-06-2025</td>
@@ -2031,6 +2115,12 @@ const Index = () => {
                       <td className="px-6 py-4">
                         <button className="text-primary font-semibold hover:underline">HIMUDA091986</button>
                       </td>
+                      <td className="px-6 py-4">Neha</td>
+                      <td className="px-6 py-4">Verma</td>
+                      <td className="px-6 py-4">neha.v@email.com</td>
+                      <td className="px-6 py-4">+91-9876543213</td>
+                      <td className="px-6 py-4">Dehra Housing Plots PHASE-II</td>
+                      <td className="px-6 py-4">Jawalamukhi, Distt Kangra</td>
                       <td className="px-6 py-4">Type-D Plot No. 5</td>
                       <td className="px-6 py-4">15/04/2025 09:00:00 AM</td>
                       <td className="px-6 py-4">22/11/2022 / 01-04-2025</td>
@@ -2045,6 +2135,12 @@ const Index = () => {
                       <td className="px-6 py-4">
                         <button className="text-primary font-semibold hover:underline">HIMUDA091987</button>
                       </td>
+                      <td className="px-6 py-4">Vikram</td>
+                      <td className="px-6 py-4">Thakur</td>
+                      <td className="px-6 py-4">vikram.t@email.com</td>
+                      <td className="px-6 py-4">+91-9876543214</td>
+                      <td className="px-6 py-4">Dehra Housing Plots PHASE-II</td>
+                      <td className="px-6 py-4">Jawalamukhi, Distt Kangra</td>
                       <td className="px-6 py-4">Type-E(L.I.G.) Plot No. 31</td>
                       <td className="px-6 py-4">28/08/2025 03:45:00 PM</td>
                       <td className="px-6 py-4">15/04/2023 / 25-07-2025</td>
@@ -2059,6 +2155,12 @@ const Index = () => {
                       <td className="px-6 py-4">
                         <button className="text-primary font-semibold hover:underline">HIMUDA091988</button>
                       </td>
+                      <td className="px-6 py-4">Anjali</td>
+                      <td className="px-6 py-4">Patel</td>
+                      <td className="px-6 py-4">anjali.p@email.com</td>
+                      <td className="px-6 py-4">+91-9876543215</td>
+                      <td className="px-6 py-4">Dehra Housing Plots PHASE-II</td>
+                      <td className="px-6 py-4">Jawalamukhi, Distt Kangra</td>
                       <td className="px-6 py-4">Type-F(E.W.S.) Plot No. 12</td>
                       <td className="px-6 py-4">10/09/2025 11:20:00 AM</td>
                       <td className="px-6 py-4">05/06/2023 / 30-08-2025</td>
@@ -2104,7 +2206,173 @@ const Index = () => {
       </div>
     </div>,
 
-    // Slide 14: Notification Management System
+    // Slide 14: Properties Owned by Allottee
+    <div key="allottee-properties" className="min-h-screen bg-gradient-to-br from-background via-accent/5 to-background">
+      <DashboardHeader />
+      
+      <div className="flex w-full pt-[8.5rem]">
+        <aside className="w-64 bg-card border-r border-border sticky top-[8.5rem] h-[calc(100vh-8.5rem)] overflow-y-auto">
+          <nav className="p-4 space-y-2">
+            <button className="w-full flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-muted transition-colors text-left">
+              <Crown className="w-5 h-5 text-primary" />
+              Dashboard
+            </button>
+            <button className="w-full flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-muted transition-colors text-left">
+              <Users className="w-5 h-5 text-primary" />
+              User Management
+            </button>
+            <button className="w-full flex items-center gap-3 px-4 py-3 rounded-lg bg-primary text-primary-foreground font-medium">
+              <Users className="w-5 h-5" />
+              Allottee Management
+            </button>
+            <button className="w-full flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-muted transition-colors text-left">
+              <Shield className="w-5 h-5 text-primary" />
+              Role Management
+            </button>
+            <button className="w-full flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-muted transition-colors text-left">
+              <FileText className="w-5 h-5 text-primary" />
+              Content Management
+            </button>
+            <button className="w-full flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-muted transition-colors text-left">
+              <Building2 className="w-5 h-5 text-primary" />
+              Property Management
+            </button>
+            <button className="w-full flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-muted transition-colors text-left">
+              <Activity className="w-5 h-5 text-primary" />
+              Activity Monitoring
+            </button>
+            <button className="w-full flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-muted transition-colors text-left">
+              <Settings className="w-5 h-5 text-primary" />
+              Setting
+            </button>
+          </nav>
+        </aside>
+        
+        <main className="flex-1 p-8 overflow-y-auto max-h-[calc(100vh-8.5rem)]">
+          <div className="max-w-7xl mx-auto space-y-8">
+            <div className="flex items-center justify-between mb-8">
+              <div>
+                <h2 className="text-4xl font-bold text-primary mb-2">Properties Own By - HIMUDA091983</h2>
+                <p className="text-muted-foreground">All properties purchased by this allottee</p>
+              </div>
+              <button className="btn-primary flex items-center gap-2">
+                <Download className="w-5 h-5" />
+                Export to Excel
+              </button>
+            </div>
+
+            {/* Search Bar */}
+            <div className="card-elegant p-6">
+              <div className="flex gap-4">
+                <div className="flex-1 relative">
+                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+                  <input
+                    type="text"
+                    placeholder="Search by name, project, location, or property type..."
+                    className="w-full pl-10 pr-4 py-3 rounded-lg border border-input bg-background"
+                  />
+                </div>
+                <button className="px-6 py-3 rounded-lg bg-primary text-primary-foreground font-semibold hover:opacity-90">
+                  Search
+                </button>
+              </div>
+            </div>
+
+            {/* Data Table */}
+            <div className="card-elegant overflow-hidden">
+              <div className="overflow-x-auto">
+                <table className="w-full">
+                  <thead className="bg-muted">
+                    <tr>
+                      <th className="px-6 py-4 text-left text-sm font-semibold">S.No.</th>
+                      <th className="px-6 py-4 text-left text-sm font-semibold">Name</th>
+                      <th className="px-6 py-4 text-left text-sm font-semibold">Phone</th>
+                      <th className="px-6 py-4 text-left text-sm font-semibold">Email</th>
+                      <th className="px-6 py-4 text-left text-sm font-semibold">Project Name</th>
+                      <th className="px-6 py-4 text-left text-sm font-semibold">Property Location</th>
+                      <th className="px-6 py-4 text-left text-sm font-semibold">Property Type</th>
+                      <th className="px-6 py-4 text-left text-sm font-semibold">Size (Sqmt)</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-border">
+                    <tr className="hover:bg-muted/50 transition-colors">
+                      <td className="px-6 py-4">1</td>
+                      <td className="px-6 py-4">Rajesh Kumar</td>
+                      <td className="px-6 py-4">+91-9876543210</td>
+                      <td className="px-6 py-4">rajesh.k@email.com</td>
+                      <td className="px-6 py-4">Dehra Housing Plots PHASE-II</td>
+                      <td className="px-6 py-4">Jawalamukhi, Distt Kangra</td>
+                      <td className="px-6 py-4">Type-A Plot No. 8</td>
+                      <td className="px-6 py-4">420</td>
+                    </tr>
+                    <tr className="hover:bg-muted/50 transition-colors">
+                      <td className="px-6 py-4">2</td>
+                      <td className="px-6 py-4">Rajesh Kumar</td>
+                      <td className="px-6 py-4">+91-9876543210</td>
+                      <td className="px-6 py-4">rajesh.k@email.com</td>
+                      <td className="px-6 py-4">Shimla Valley Estates</td>
+                      <td className="px-6 py-4">Shimla, HP</td>
+                      <td className="px-6 py-4">Type-C Plot No. 15</td>
+                      <td className="px-6 py-4">150</td>
+                    </tr>
+                    <tr className="hover:bg-muted/50 transition-colors">
+                      <td className="px-6 py-4">3</td>
+                      <td className="px-6 py-4">Rajesh Kumar</td>
+                      <td className="px-6 py-4">+91-9876543210</td>
+                      <td className="px-6 py-4">rajesh.k@email.com</td>
+                      <td className="px-6 py-4">Kullu Valley Housing</td>
+                      <td className="px-6 py-4">Kullu, HP</td>
+                      <td className="px-6 py-4">Type-B Flat No. 201</td>
+                      <td className="px-6 py-4">216</td>
+                    </tr>
+                    <tr className="hover:bg-muted/50 transition-colors">
+                      <td className="px-6 py-4">4</td>
+                      <td className="px-6 py-4">Rajesh Kumar</td>
+                      <td className="px-6 py-4">+91-9876543210</td>
+                      <td className="px-6 py-4">rajesh.k@email.com</td>
+                      <td className="px-6 py-4">Mandi Heights</td>
+                      <td className="px-6 py-4">Mandi, HP</td>
+                      <td className="px-6 py-4">Type-E(L.I.G.) Plot No. 22</td>
+                      <td className="px-6 py-4">105</td>
+                    </tr>
+                    <tr className="hover:bg-muted/50 transition-colors">
+                      <td className="px-6 py-4">5</td>
+                      <td className="px-6 py-4">Rajesh Kumar</td>
+                      <td className="px-6 py-4">+91-9876543210</td>
+                      <td className="px-6 py-4">rajesh.k@email.com</td>
+                      <td className="px-6 py-4">Solan Commercial Hub</td>
+                      <td className="px-6 py-4">Solan, HP</td>
+                      <td className="px-6 py-4">Commercial Shop No. 45</td>
+                      <td className="px-6 py-4">85</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              {/* Pagination */}
+              <div className="flex items-center justify-between px-6 py-4 border-t border-border">
+                <div className="text-sm text-muted-foreground">
+                  Showing 1 to 5 of 5 entries
+                </div>
+                <div className="flex gap-2">
+                  <button className="px-4 py-2 rounded-lg border border-border hover:bg-muted transition-colors">
+                    Previous
+                  </button>
+                  <button className="px-4 py-2 rounded-lg bg-primary text-primary-foreground">
+                    1
+                  </button>
+                  <button className="px-4 py-2 rounded-lg border border-border hover:bg-muted transition-colors">
+                    Next
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>,
+
+    // Slide 15: Notification Management System
     <PresentationSlide key="notifications" gradient="hero">
       <div className="space-y-10 text-white">
         {/* Header */}
