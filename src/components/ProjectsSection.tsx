@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import shimlaGreenValley from "@/assets/shimla-green-valley.jpg";
 import dharamshalaMountainView from "@/assets/dharamshala-mountain-view.jpg";
-import manaliPinePlots from "@/assets/manali-pine-plots.jpg";
+import jawalamukhiPlots from "@/assets/jawalamukhi-plots.png";
 import kulluValleyFlats from "@/assets/kullu-valley-flats.jpg";
 import solanPlots from "@/assets/solan-plots.jpg";
 import mandiHeightsFlats from "@/assets/mandi-heights-flats.jpg";
@@ -31,9 +31,9 @@ const projects = [
   },
   {
     id: 3,
-    title: "Pine Hills Estate",
-    location: "Manali",
-    image: manaliPinePlots,
+    title: "Dehra, Jawalamukhi Housing Plots",
+    location: "Kangra",
+    image: jawalamukhiPlots,
     units: 150,
     type: "Plots",
     status: "Ready to Move",

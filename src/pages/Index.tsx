@@ -34,7 +34,7 @@ import bitdecentroLogo from '@/assets/bitdecentro-original.png';
 import shimlaResidence from '@/assets/shimla-residence.jpg';
 import dharamshalaTownhouse from '@/assets/dharamshala-townhouse.jpg';
 import solanCommercial from '@/assets/solan-commercial.jpg';
-import manaliPlot from '@/assets/manali-plot.jpg';
+import jawalamukhiPlots from '@/assets/jawalamukhi-plots.png';
 import kasauliPlot from '@/assets/kasauli-plot.jpg';
 import baddiPlot from '@/assets/baddi-plot.jpg';
 
@@ -224,9 +224,9 @@ const Index = () => {
             type="buy"
           />
           <PropertyCard
-            image={manaliPlot}
-            title="Mountain View Plots"
-            location="Manali, Himachal Pradesh"
+            image={jawalamukhiPlots}
+            title="Dehra, Jawalamukhi Housing Plots"
+            location="Kangra, Himachal Pradesh"
             price="₹35,00,000"
             area="2,500 sq ft"
             type="allotment"
@@ -355,9 +355,9 @@ const Index = () => {
               type="allotment"
             />
             <PropertyCard
-              image={manaliPlot}
-              title="Mountain View Plots"
-              location="Manali, Himachal Pradesh"
+              image={jawalamukhiPlots}
+              title="Dehra, Jawalamukhi Housing Plots"
+              location="Kangra, Himachal Pradesh"
               price="₹35,00,000"
               area="2,500 sq ft"
               type="allotment"
@@ -414,7 +414,7 @@ const Index = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 p-6">
             <div className="space-y-4">
               <img 
-                src={interior1} 
+                src={jawalamukhiPlots} 
                 alt="Property Interior" 
                 className="w-full h-64 object-cover rounded-xl"
               />
@@ -434,10 +434,10 @@ const Index = () => {
 
             <div className="space-y-6">
               <div>
-                <h3 className="text-3xl font-bold mb-2">Luxury 3BHK Apartment</h3>
+                <h3 className="text-3xl font-bold mb-2">Dehra, Jawalamukhi Housing Plots</h3>
                 <p className="text-muted-foreground flex items-center gap-2">
                   <MapPin className="w-4 h-4" />
-                  Sector 21, Panchkula, Haryana
+                  Dehra, Jawalamukhi, Kangra, Himachal Pradesh
                 </p>
               </div>
 
