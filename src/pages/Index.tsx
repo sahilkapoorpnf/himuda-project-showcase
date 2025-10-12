@@ -181,6 +181,15 @@ const Index = () => {
           <button className="px-6 py-2 rounded-full border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all">
             Commercial
           </button>
+          <button className="px-6 py-2 rounded-full border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all">
+            Institutional
+          </button>
+          <button className="px-6 py-2 rounded-full border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all">
+            Garages
+          </button>
+          <button className="px-6 py-2 rounded-full border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all">
+            Industrials
+          </button>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -452,21 +461,43 @@ const Index = () => {
                 <ul className="space-y-2 text-muted-foreground">
                   <li className="flex items-center gap-2">
                     <div className="w-1.5 h-1.5 rounded-full bg-secondary" />
-                    Premium location with park view
+                    <strong>Type A:</strong> In this type plot size comes with 308-482 Sqmt
                   </li>
                   <li className="flex items-center gap-2">
                     <div className="w-1.5 h-1.5 rounded-full bg-secondary" />
-                    Modern amenities & 24/7 security
+                    <strong>Type B:</strong> In this type plot size comes with 216 Sqmt
                   </li>
                   <li className="flex items-center gap-2">
                     <div className="w-1.5 h-1.5 rounded-full bg-secondary" />
-                    Excellent connectivity to main areas
+                    <strong>Type C:</strong> In this type plot size comes with 150 Sqmt
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-secondary" />
+                    <strong>Type D:</strong> In this type plot size comes with 120-141 Sqmt
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-secondary" />
+                    <strong>Type E(L.I.G.):</strong> In this type plot size comes with 91-116 Sqmt
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-secondary" />
+                    <strong>Type F(E.W.S.):</strong> In this type plot size comes with 63-74 Sqmt
                   </li>
                 </ul>
               </div>
 
               <div className="flex gap-3">
-                <button className="flex-1 btn-primary flex items-center justify-center gap-2">
+                <button 
+                  onClick={() => {
+                    const link = document.createElement('a');
+                    link.href = '/documents/property-layout.pdf';
+                    link.download = 'HIMUDA_Property_Layout.pdf';
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                  }}
+                  className="flex-1 btn-primary flex items-center justify-center gap-2"
+                >
                   <Download className="w-5 h-5" />
                   Enquire Now
                 </button>
@@ -792,90 +823,9 @@ const Index = () => {
               </div>
             </div>
 
-            {/* Application Status Chart */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-              <div className="lg:col-span-2 card-elegant p-8">
-                <h3 className="text-2xl font-bold text-primary mb-6 flex items-center gap-3">
-                  <BarChart3 className="w-6 h-6" />
-                  Application Status Overview
-                </h3>
-                <div className="space-y-4">
-                  <div className="space-y-2">
-                    <div className="flex items-center justify-between text-sm">
-                      <span className="text-muted-foreground">Approved Applications</span>
-                      <span className="font-bold text-secondary">58%</span>
-                    </div>
-                    <div className="h-3 bg-muted rounded-full overflow-hidden">
-                      <div className="h-full gradient-hero rounded-full" style={{ width: '58%' }}></div>
-                    </div>
-                  </div>
-                  <div className="space-y-2">
-                    <div className="flex items-center justify-between text-sm">
-                      <span className="text-muted-foreground">Under Review</span>
-                      <span className="font-bold text-accent">33%</span>
-                    </div>
-                    <div className="h-3 bg-muted rounded-full overflow-hidden">
-                      <div className="h-full gradient-accent rounded-full" style={{ width: '33%' }}></div>
-                    </div>
-                  </div>
-                  <div className="space-y-2">
-                    <div className="flex items-center justify-between text-sm">
-                      <span className="text-muted-foreground">Pending Documents</span>
-                      <span className="font-bold text-primary">9%</span>
-                    </div>
-                    <div className="h-3 bg-muted rounded-full overflow-hidden">
-                      <div className="h-full gradient-gold rounded-full" style={{ width: '9%' }}></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="card-elegant p-8 bg-gradient-to-br from-accent/10 via-primary/10 to-secondary/10 border-2 border-primary/20">
-                <h3 className="text-xl font-bold text-primary mb-6 flex items-center gap-2">
-                  <Wallet className="w-5 h-5" />
-                  Payment Summary
-                </h3>
-                <div className="space-y-6">
-                  <div>
-                    <div className="text-sm text-muted-foreground mb-2">Total Paid</div>
-                    <div className="text-3xl font-bold text-primary">₹28.5L</div>
-                  </div>
-                  <div>
-                    <div className="text-sm text-muted-foreground mb-2">Pending Amount</div>
-                    <div className="text-2xl font-bold text-accent">₹5.2L</div>
-                  </div>
-                  <div className="pt-4 border-t">
-                    <div className="text-xs text-muted-foreground mb-2">Next Payment Due</div>
-                    <div className="text-sm font-semibold">March 15, 2025</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Quick Action Links */}
-            <div className="card-elegant p-8 bg-gradient-to-r from-primary/5 via-accent/5 to-secondary/5">
-              <h3 className="text-2xl font-bold text-primary mb-6 flex items-center gap-3">
-                <Target className="w-6 h-6" />
-                Quick Actions
-              </h3>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <button className="p-4 bg-card hover:bg-primary hover:text-white rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg border border-border hover:border-primary group">
-                  <Upload className="w-8 h-8 mx-auto mb-2 text-primary group-hover:text-white" />
-                  <div className="text-sm font-semibold">Upload Documents</div>
-                </button>
-                <button className="p-4 bg-card hover:bg-secondary hover:text-white rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg border border-border hover:border-secondary group">
-                  <CreditCard className="w-8 h-8 mx-auto mb-2 text-secondary group-hover:text-white" />
-                  <div className="text-sm font-semibold">Make Payment</div>
-                </button>
-                <button className="p-4 bg-card hover:bg-accent hover:text-white rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg border border-border hover:border-accent group">
-                  <Download className="w-8 h-8 mx-auto mb-2 text-accent group-hover:text-white" />
-                  <div className="text-sm font-semibold">Download Forms</div>
-                </button>
-                <button className="p-4 bg-card hover:bg-primary hover:text-white rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg border border-border hover:border-primary group">
-                  <Phone className="w-8 h-8 mx-auto mb-2 text-primary group-hover:text-white" />
-                  <div className="text-sm font-semibold">Contact Support</div>
-                </button>
-              </div>
+            {/* Latest News Section */}
+            <div className="card-elegant p-0 overflow-hidden">
+              <LatestNews />
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
@@ -1738,7 +1688,423 @@ const Index = () => {
       </div>
     </PresentationSlide>,
 
-    // Slide 12: Notification Management System
+    // Slide 12: Superadmin Dashboard
+    <div key="superadmin-dashboard" className="min-h-screen bg-gradient-to-br from-background via-accent/5 to-background">
+      <DashboardHeader />
+      
+      <div className="flex w-full pt-[8.5rem]">
+        <aside className="w-64 bg-card border-r border-border sticky top-[8.5rem] h-[calc(100vh-8.5rem)] overflow-y-auto">
+          <nav className="p-4 space-y-2">
+            <button className="w-full flex items-center gap-3 px-4 py-3 rounded-lg bg-primary text-primary-foreground font-medium">
+              <Crown className="w-5 h-5" />
+              Dashboard
+            </button>
+            <button className="w-full flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-muted transition-colors text-left">
+              <Users className="w-5 h-5 text-primary" />
+              Allottee Management
+            </button>
+            <button className="w-full flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-muted transition-colors text-left">
+              <Target className="w-5 h-5 text-primary" />
+              Lead Tracking
+            </button>
+            <button className="w-full flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-muted transition-colors text-left">
+              <MapPin className="w-5 h-5 text-primary" />
+              Location Analytics
+            </button>
+            <button className="w-full flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-muted transition-colors text-left">
+              <BarChart3 className="w-5 h-5 text-primary" />
+              Marketing Insights
+            </button>
+            <button className="w-full flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-muted transition-colors text-left">
+              <DollarSign className="w-5 h-5 text-primary" />
+              Payment Analytics
+            </button>
+            <button className="w-full flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-muted transition-colors text-left">
+              <Settings className="w-5 h-5 text-primary" />
+              System Settings
+            </button>
+          </nav>
+        </aside>
+        
+        <main className="flex-1 p-8 overflow-y-auto max-h-[calc(100vh-8.5rem)]">
+          <div className="max-w-7xl mx-auto space-y-8">
+            <div className="text-center space-y-4">
+              <h2 className="text-5xl font-bold text-primary mb-4">Superadmin Dashboard</h2>
+              <p className="text-xl text-muted-foreground">Master Control & Analytics Hub</p>
+              <div className="h-1 w-40 bg-primary mx-auto mt-6" />
+            </div>
+
+            {/* Quick View Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="card-elegant p-6 gradient-hero text-white">
+                <div className="flex items-center justify-between mb-4">
+                  <Clock className="w-8 h-8" />
+                  <TrendingUp className="w-5 h-5 opacity-70" />
+                </div>
+                <div className="text-3xl font-bold mb-1">142</div>
+                <div className="text-white/80 text-sm">Pending Applications</div>
+                <div className="mt-3 text-xs text-white/60">Awaiting review</div>
+              </div>
+
+              <div className="card-elegant p-6 gradient-accent text-white">
+                <div className="flex items-center justify-between mb-4">
+                  <CheckCircle2 className="w-8 h-8" />
+                  <Activity className="w-5 h-5 opacity-70" />
+                </div>
+                <div className="text-3xl font-bold mb-1">1,847</div>
+                <div className="text-white/80 text-sm">Total Allotments</div>
+                <div className="mt-3 text-xs text-white/60">All time</div>
+              </div>
+
+              <div className="card-elegant p-6 gradient-gold text-white">
+                <div className="flex items-center justify-between mb-4">
+                  <Users className="w-8 h-8" />
+                  <Target className="w-5 h-5 opacity-70" />
+                </div>
+                <div className="text-3xl font-bold mb-1">3,256</div>
+                <div className="text-white/80 text-sm">Total Allottees</div>
+                <div className="mt-3 text-xs text-white/60">Active users</div>
+              </div>
+            </div>
+
+            {/* Analytics Sections */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div className="card-elegant p-8">
+                <h3 className="text-2xl font-bold text-primary mb-6 flex items-center gap-3">
+                  <Target className="w-6 h-6" />
+                  Lead Tracking
+                </h3>
+                <div className="space-y-4">
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="text-muted-foreground">Hot Leads</span>
+                      <span className="font-bold text-secondary">326</span>
+                    </div>
+                    <div className="h-3 bg-muted rounded-full overflow-hidden">
+                      <div className="h-full gradient-hero rounded-full" style={{ width: '65%' }}></div>
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="text-muted-foreground">Warm Leads</span>
+                      <span className="font-bold text-accent">184</span>
+                    </div>
+                    <div className="h-3 bg-muted rounded-full overflow-hidden">
+                      <div className="h-full gradient-accent rounded-full" style={{ width: '40%' }}></div>
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="text-muted-foreground">Cold Leads</span>
+                      <span className="font-bold text-primary">92</span>
+                    </div>
+                    <div className="h-3 bg-muted rounded-full overflow-hidden">
+                      <div className="h-full gradient-gold rounded-full" style={{ width: '20%' }}></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="card-elegant p-8">
+                <h3 className="text-2xl font-bold text-primary mb-6 flex items-center gap-3">
+                  <MapPin className="w-6 h-6" />
+                  Location Analytics
+                </h3>
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between p-3 bg-muted/50 rounded-lg">
+                    <span className="font-medium">Shimla</span>
+                    <span className="font-bold text-primary">842 Properties</span>
+                  </div>
+                  <div className="flex items-center justify-between p-3 bg-muted/50 rounded-lg">
+                    <span className="font-medium">Dharamshala</span>
+                    <span className="font-bold text-secondary">623 Properties</span>
+                  </div>
+                  <div className="flex items-center justify-between p-3 bg-muted/50 rounded-lg">
+                    <span className="font-medium">Solan</span>
+                    <span className="font-bold text-accent">487 Properties</span>
+                  </div>
+                  <div className="flex items-center justify-between p-3 bg-muted/50 rounded-lg">
+                    <span className="font-medium">Kullu</span>
+                    <span className="font-bold text-primary">312 Properties</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="card-elegant p-8">
+                <h3 className="text-2xl font-bold text-primary mb-6 flex items-center gap-3">
+                  <BarChart3 className="w-6 h-6" />
+                  Marketing Insights
+                </h3>
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between p-3 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-lg">
+                    <div>
+                      <div className="text-sm text-muted-foreground">Website Visitors</div>
+                      <div className="text-2xl font-bold text-primary">12,847</div>
+                    </div>
+                    <TrendingUp className="w-8 h-8 text-secondary" />
+                  </div>
+                  <div className="flex items-center justify-between p-3 bg-gradient-to-r from-accent/10 to-primary/10 rounded-lg">
+                    <div>
+                      <div className="text-sm text-muted-foreground">Conversion Rate</div>
+                      <div className="text-2xl font-bold text-accent">23.4%</div>
+                    </div>
+                    <Target className="w-8 h-8 text-accent" />
+                  </div>
+                  <div className="flex items-center justify-between p-3 bg-gradient-to-r from-secondary/10 to-accent/10 rounded-lg">
+                    <div>
+                      <div className="text-sm text-muted-foreground">Active Campaigns</div>
+                      <div className="text-2xl font-bold text-secondary">8</div>
+                    </div>
+                    <Activity className="w-8 h-8 text-primary" />
+                  </div>
+                </div>
+              </div>
+
+              <div className="card-elegant p-8">
+                <h3 className="text-2xl font-bold text-primary mb-6 flex items-center gap-3">
+                  <DollarSign className="w-6 h-6" />
+                  Payment Due Analytics
+                </h3>
+                <div className="space-y-4">
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="text-muted-foreground">Overdue Payments</span>
+                      <span className="font-bold text-red-500">₹48.2L</span>
+                    </div>
+                    <div className="h-3 bg-muted rounded-full overflow-hidden">
+                      <div className="h-full bg-red-500 rounded-full" style={{ width: '35%' }}></div>
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="text-muted-foreground">Due This Month</span>
+                      <span className="font-bold text-orange-500">₹127.5L</span>
+                    </div>
+                    <div className="h-3 bg-muted rounded-full overflow-hidden">
+                      <div className="h-full bg-orange-500 rounded-full" style={{ width: '65%' }}></div>
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="text-muted-foreground">Paid On Time</span>
+                      <span className="font-bold text-green-500">₹892.3L</span>
+                    </div>
+                    <div className="h-3 bg-muted rounded-full overflow-hidden">
+                      <div className="h-full bg-green-500 rounded-full" style={{ width: '85%' }}></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>,
+
+    // Slide 13: Allottee Management
+    <div key="allottee-management" className="min-h-screen bg-gradient-to-br from-background via-accent/5 to-background">
+      <DashboardHeader />
+      
+      <div className="flex w-full pt-[8.5rem]">
+        <aside className="w-64 bg-card border-r border-border sticky top-[8.5rem] h-[calc(100vh-8.5rem)] overflow-y-auto">
+          <nav className="p-4 space-y-2">
+            <button className="w-full flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-muted transition-colors text-left">
+              <Crown className="w-5 h-5 text-primary" />
+              Dashboard
+            </button>
+            <button className="w-full flex items-center gap-3 px-4 py-3 rounded-lg bg-primary text-primary-foreground font-medium">
+              <Users className="w-5 h-5" />
+              Allottee Management
+            </button>
+            <button className="w-full flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-muted transition-colors text-left">
+              <Target className="w-5 h-5 text-primary" />
+              Lead Tracking
+            </button>
+            <button className="w-full flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-muted transition-colors text-left">
+              <MapPin className="w-5 h-5 text-primary" />
+              Location Analytics
+            </button>
+            <button className="w-full flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-muted transition-colors text-left">
+              <BarChart3 className="w-5 h-5 text-primary" />
+              Marketing Insights
+            </button>
+            <button className="w-full flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-muted transition-colors text-left">
+              <DollarSign className="w-5 h-5 text-primary" />
+              Payment Analytics
+            </button>
+            <button className="w-full flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-muted transition-colors text-left">
+              <Settings className="w-5 h-5 text-primary" />
+              System Settings
+            </button>
+          </nav>
+        </aside>
+        
+        <main className="flex-1 p-8 overflow-y-auto max-h-[calc(100vh-8.5rem)]">
+          <div className="max-w-7xl mx-auto space-y-8">
+            <div className="flex items-center justify-between mb-8">
+              <div>
+                <h2 className="text-4xl font-bold text-primary mb-2">Allottee Management</h2>
+                <p className="text-muted-foreground">Manage and track all allottees</p>
+              </div>
+              <button className="btn-primary flex items-center gap-2">
+                <Download className="w-5 h-5" />
+                Export to Excel
+              </button>
+            </div>
+
+            {/* Search Bar */}
+            <div className="card-elegant p-6">
+              <div className="flex gap-4">
+                <div className="flex-1 relative">
+                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+                  <input
+                    type="text"
+                    placeholder="Search by Allottee ID, Name, or Unit..."
+                    className="w-full pl-10 pr-4 py-3 rounded-lg border border-input bg-background"
+                  />
+                </div>
+                <button className="px-6 py-3 rounded-lg bg-primary text-primary-foreground font-semibold hover:opacity-90">
+                  Search
+                </button>
+              </div>
+            </div>
+
+            {/* Data Table */}
+            <div className="card-elegant overflow-hidden">
+              <div className="overflow-x-auto">
+                <table className="w-full">
+                  <thead className="bg-muted">
+                    <tr>
+                      <th className="px-6 py-4 text-left text-sm font-semibold">S.No.</th>
+                      <th className="px-6 py-4 text-left text-sm font-semibold">Allottee ID</th>
+                      <th className="px-6 py-4 text-left text-sm font-semibold">Unit</th>
+                      <th className="px-6 py-4 text-left text-sm font-semibold">Possession Taken</th>
+                      <th className="px-6 py-4 text-left text-sm font-semibold">Allotment Date</th>
+                      <th className="px-6 py-4 text-left text-sm font-semibold">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-border">
+                    <tr className="hover:bg-muted/50 transition-colors">
+                      <td className="px-6 py-4">1</td>
+                      <td className="px-6 py-4">
+                        <button className="text-primary font-semibold hover:underline">HIMUDA091983</button>
+                      </td>
+                      <td className="px-6 py-4">Type-A Plot No. 8</td>
+                      <td className="px-6 py-4">24/06/2025 12:00:00 AM</td>
+                      <td className="px-6 py-4">29/06/2022 / 16-05-2025</td>
+                      <td className="px-6 py-4">
+                        <button className="px-4 py-2 rounded-lg bg-primary text-primary-foreground text-sm hover:opacity-90">
+                          View
+                        </button>
+                      </td>
+                    </tr>
+                    <tr className="hover:bg-muted/50 transition-colors">
+                      <td className="px-6 py-4">2</td>
+                      <td className="px-6 py-4">
+                        <button className="text-primary font-semibold hover:underline">HIMUDA091984</button>
+                      </td>
+                      <td className="px-6 py-4">Type-B Plot No. 15</td>
+                      <td className="px-6 py-4">18/05/2025 10:30:00 AM</td>
+                      <td className="px-6 py-4">12/03/2022 / 20-04-2025</td>
+                      <td className="px-6 py-4">
+                        <button className="px-4 py-2 rounded-lg bg-primary text-primary-foreground text-sm hover:opacity-90">
+                          View
+                        </button>
+                      </td>
+                    </tr>
+                    <tr className="hover:bg-muted/50 transition-colors">
+                      <td className="px-6 py-4">3</td>
+                      <td className="px-6 py-4">
+                        <button className="text-primary font-semibold hover:underline">HIMUDA091985</button>
+                      </td>
+                      <td className="px-6 py-4">Type-C Plot No. 22</td>
+                      <td className="px-6 py-4">03/07/2025 02:15:00 PM</td>
+                      <td className="px-6 py-4">08/01/2023 / 10-06-2025</td>
+                      <td className="px-6 py-4">
+                        <button className="px-4 py-2 rounded-lg bg-primary text-primary-foreground text-sm hover:opacity-90">
+                          View
+                        </button>
+                      </td>
+                    </tr>
+                    <tr className="hover:bg-muted/50 transition-colors">
+                      <td className="px-6 py-4">4</td>
+                      <td className="px-6 py-4">
+                        <button className="text-primary font-semibold hover:underline">HIMUDA091986</button>
+                      </td>
+                      <td className="px-6 py-4">Type-D Plot No. 5</td>
+                      <td className="px-6 py-4">15/04/2025 09:00:00 AM</td>
+                      <td className="px-6 py-4">22/11/2022 / 01-04-2025</td>
+                      <td className="px-6 py-4">
+                        <button className="px-4 py-2 rounded-lg bg-primary text-primary-foreground text-sm hover:opacity-90">
+                          View
+                        </button>
+                      </td>
+                    </tr>
+                    <tr className="hover:bg-muted/50 transition-colors">
+                      <td className="px-6 py-4">5</td>
+                      <td className="px-6 py-4">
+                        <button className="text-primary font-semibold hover:underline">HIMUDA091987</button>
+                      </td>
+                      <td className="px-6 py-4">Type-E(L.I.G.) Plot No. 31</td>
+                      <td className="px-6 py-4">28/08/2025 03:45:00 PM</td>
+                      <td className="px-6 py-4">15/04/2023 / 25-07-2025</td>
+                      <td className="px-6 py-4">
+                        <button className="px-4 py-2 rounded-lg bg-primary text-primary-foreground text-sm hover:opacity-90">
+                          View
+                        </button>
+                      </td>
+                    </tr>
+                    <tr className="hover:bg-muted/50 transition-colors">
+                      <td className="px-6 py-4">6</td>
+                      <td className="px-6 py-4">
+                        <button className="text-primary font-semibold hover:underline">HIMUDA091988</button>
+                      </td>
+                      <td className="px-6 py-4">Type-F(E.W.S.) Plot No. 12</td>
+                      <td className="px-6 py-4">10/09/2025 11:20:00 AM</td>
+                      <td className="px-6 py-4">05/06/2023 / 30-08-2025</td>
+                      <td className="px-6 py-4">
+                        <button className="px-4 py-2 rounded-lg bg-primary text-primary-foreground text-sm hover:opacity-90">
+                          View
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              {/* Pagination */}
+              <div className="flex items-center justify-between px-6 py-4 border-t border-border">
+                <div className="text-sm text-muted-foreground">
+                  Showing 1 to 6 of 3,256 entries
+                </div>
+                <div className="flex gap-2">
+                  <button className="px-4 py-2 rounded-lg border border-border hover:bg-muted transition-colors">
+                    Previous
+                  </button>
+                  <button className="px-4 py-2 rounded-lg bg-primary text-primary-foreground">
+                    1
+                  </button>
+                  <button className="px-4 py-2 rounded-lg border border-border hover:bg-muted transition-colors">
+                    2
+                  </button>
+                  <button className="px-4 py-2 rounded-lg border border-border hover:bg-muted transition-colors">
+                    3
+                  </button>
+                  <button className="px-4 py-2 rounded-lg border border-border hover:bg-muted transition-colors">
+                    ...
+                  </button>
+                  <button className="px-4 py-2 rounded-lg border border-border hover:bg-muted transition-colors">
+                    Next
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>,
+
+    // Slide 14: Notification Management System
     <PresentationSlide key="notifications" gradient="hero">
       <div className="space-y-10 text-white">
         {/* Header */}
