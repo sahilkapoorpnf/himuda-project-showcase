@@ -420,12 +420,12 @@ const Index = () => {
               />
               <div className="grid grid-cols-2 gap-4">
                 <img 
-                  src={interior2} 
+                  src={jawalamukhiPlots} 
                   alt="Property Detail 1" 
                   className="w-full h-32 object-cover rounded-lg"
                 />
                 <img 
-                  src={propertyListing1} 
+                  src={jawalamukhiPlots} 
                   alt="Property Detail 2" 
                   className="w-full h-32 object-cover rounded-lg"
                 />
