@@ -1671,6 +1671,580 @@ const Index = () => {
         </div>
       </div>
     </PresentationSlide>,
+
+    // Slide 16: User Flow
+    <PresentationSlide key="user-flow" gradient="hero">
+      <div className="space-y-12 text-white">
+        <h2 className="text-5xl font-bold text-center mb-12">User Journey Flow</h2>
+        
+        <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 max-w-5xl mx-auto">
+          <div className="flex flex-col items-center gap-6">
+            <div className="flex items-center gap-4 w-full justify-center">
+              <div className="bg-accent/20 rounded-xl p-6 border border-accent/30 flex-1 max-w-xs text-center">
+                <User className="w-12 h-12 mx-auto mb-3 text-accent" />
+                <h3 className="text-xl font-bold mb-2">User Registration</h3>
+                <p className="text-white/80 text-sm">Sign up with basic details</p>
+              </div>
+              <Forward className="w-8 h-8 text-accent shrink-0" />
+              <div className="bg-secondary/20 rounded-xl p-6 border border-secondary/30 flex-1 max-w-xs text-center">
+                <Search className="w-12 h-12 mx-auto mb-3 text-secondary" />
+                <h3 className="text-xl font-bold mb-2">Browse Properties</h3>
+                <p className="text-white/80 text-sm">Filter and search listings</p>
+              </div>
+            </div>
+
+            <Forward className="w-8 h-8 text-accent rotate-90" />
+
+            <div className="flex items-center gap-4 w-full justify-center">
+              <div className="bg-accent/20 rounded-xl p-6 border border-accent/30 flex-1 max-w-xs text-center">
+                <FileText className="w-12 h-12 mx-auto mb-3 text-accent" />
+                <h3 className="text-xl font-bold mb-2">Submit Application</h3>
+                <p className="text-white/80 text-sm">Fill allotment form</p>
+              </div>
+              <Forward className="w-8 h-8 text-accent shrink-0" />
+              <div className="bg-secondary/20 rounded-xl p-6 border border-secondary/30 flex-1 max-w-xs text-center">
+                <CheckCircle2 className="w-12 h-12 mx-auto mb-3 text-secondary" />
+                <h3 className="text-xl font-bold mb-2">Track Status</h3>
+                <p className="text-white/80 text-sm">Monitor application progress</p>
+              </div>
+            </div>
+
+            <Forward className="w-8 h-8 text-accent rotate-90" />
+
+            <div className="bg-gradient-to-r from-accent/20 to-secondary/20 rounded-xl p-6 border border-accent/30 max-w-xs text-center">
+              <Home className="w-12 h-12 mx-auto mb-3 text-accent" />
+              <h3 className="text-xl font-bold mb-2">Allotment</h3>
+              <p className="text-white/80 text-sm">Receive property allocation</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </PresentationSlide>,
+
+    // Slide 17: Allottee / Citizen User Type
+    <PresentationSlide key="citizen-user" gradient="hero">
+      <div className="space-y-12 text-white">
+        <div className="text-center mb-8">
+          <div className="inline-flex items-center gap-3 mb-6 px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
+            <User className="w-6 h-6 text-accent" />
+            <span className="text-lg font-semibold">Citizen Portal</span>
+          </div>
+          <h2 className="text-6xl font-bold mb-6">Allottee / Citizen User</h2>
+          <div className="h-1 w-40 bg-white/40 mx-auto mb-6" />
+          <p className="text-xl text-white/90 max-w-3xl mx-auto">
+            Empowering citizens with seamless access to housing schemes
+          </p>
+        </div>
+
+        <div className="bg-gradient-to-br from-white/15 to-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/20 max-w-5xl mx-auto">
+          <h3 className="text-2xl font-bold mb-6 text-center">Key Features</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="bg-white/10 rounded-xl p-5 border border-white/10">
+              <Search className="w-10 h-10 text-accent mb-3" />
+              <h4 className="text-lg font-semibold mb-2">Browse Properties</h4>
+              <p className="text-white/80 text-sm">Search and filter available housing projects</p>
+            </div>
+            <div className="bg-white/10 rounded-xl p-5 border border-white/10">
+              <FileText className="w-10 h-10 text-secondary mb-3" />
+              <h4 className="text-lg font-semibold mb-2">Apply Online</h4>
+              <p className="text-white/80 text-sm">Submit applications digitally with ease</p>
+            </div>
+            <div className="bg-white/10 rounded-xl p-5 border border-white/10">
+              <Activity className="w-10 h-10 text-accent mb-3" />
+              <h4 className="text-lg font-semibold mb-2">Track Status</h4>
+              <p className="text-white/80 text-sm">Real-time updates on application progress</p>
+            </div>
+            <div className="bg-white/10 rounded-xl p-5 border border-white/10">
+              <CreditCard className="w-10 h-10 text-secondary mb-3" />
+              <h4 className="text-lg font-semibold mb-2">Payment Management</h4>
+              <p className="text-white/80 text-sm">Secure online payment processing</p>
+            </div>
+            <div className="bg-white/10 rounded-xl p-5 border border-white/10">
+              <Bell className="w-10 h-10 text-accent mb-3" />
+              <h4 className="text-lg font-semibold mb-2">Notifications</h4>
+              <p className="text-white/80 text-sm">Get alerts for important updates</p>
+            </div>
+            <div className="bg-white/10 rounded-xl p-5 border border-white/10">
+              <Download className="w-10 h-10 text-secondary mb-3" />
+              <h4 className="text-lg font-semibold mb-2">Download Documents</h4>
+              <p className="text-white/80 text-sm">Access allotment letters and receipts</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </PresentationSlide>,
+
+    // Slide 18: IT Department Login
+    <PresentationSlide key="it-department" gradient="hero">
+      <div className="space-y-12 text-white">
+        <div className="text-center mb-8">
+          <div className="inline-flex items-center gap-3 mb-6 px-6 py-3 bg-gradient-to-r from-accent/20 to-secondary/20 backdrop-blur-sm rounded-full border border-white/30">
+            <Settings className="w-6 h-6 text-accent" />
+            <span className="text-lg font-semibold">IT Department</span>
+          </div>
+          <h2 className="text-6xl font-bold mb-6">IT Department Portal</h2>
+          <div className="h-1 w-40 bg-accent mx-auto mb-6" />
+          <p className="text-xl text-white/90 max-w-3xl mx-auto">
+            Comprehensive tools for technical management and system operations
+          </p>
+        </div>
+
+        <div className="bg-gradient-to-br from-white/15 to-white/5 backdrop-blur-sm rounded-2xl p-10 border border-white/20 max-w-5xl mx-auto">
+          <div className="flex items-center gap-3 mb-8">
+            <Database className="w-8 h-8 text-accent" />
+            <h3 className="text-3xl font-bold">Core Responsibilities</h3>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:scale-105 transition-transform">
+              <div className="p-3 bg-accent/20 rounded-lg w-fit mb-4">
+                <Database className="w-8 h-8 text-accent" />
+              </div>
+              <h4 className="text-xl font-semibold mb-3">System Management</h4>
+              <p className="text-white/80">Oversee platform infrastructure and updates</p>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:scale-105 transition-transform">
+              <div className="p-3 bg-secondary/20 rounded-lg w-fit mb-4">
+                <Shield className="w-8 h-8 text-secondary" />
+              </div>
+              <h4 className="text-xl font-semibold mb-3">Security Monitoring</h4>
+              <p className="text-white/80">Implement security protocols and monitoring</p>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:scale-105 transition-transform">
+              <div className="p-3 bg-accent/20 rounded-lg w-fit mb-4">
+                <Activity className="w-8 h-8 text-accent" />
+              </div>
+              <h4 className="text-xl font-semibold mb-3">Performance Tracking</h4>
+              <p className="text-white/80">Monitor system performance metrics</p>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:scale-105 transition-transform">
+              <div className="p-3 bg-secondary/20 rounded-lg w-fit mb-4">
+                <Upload className="w-8 h-8 text-secondary" />
+              </div>
+              <h4 className="text-xl font-semibold mb-3">Content Updates</h4>
+              <p className="text-white/80">Manage website content and media</p>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:scale-105 transition-transform">
+              <div className="p-3 bg-accent/20 rounded-lg w-fit mb-4">
+                <Users className="w-8 h-8 text-accent" />
+              </div>
+              <h4 className="text-xl font-semibold mb-3">User Support</h4>
+              <p className="text-white/80">Technical assistance for departments</p>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:scale-105 transition-transform">
+              <div className="p-3 bg-secondary/20 rounded-lg w-fit mb-4">
+                <FileSpreadsheet className="w-8 h-8 text-secondary" />
+              </div>
+              <h4 className="text-xl font-semibold mb-3">Data Management</h4>
+              <p className="text-white/80">Database maintenance and backups</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </PresentationSlide>,
+
+    // Slide 19: Accounts Team Login
+    <PresentationSlide key="accounts-team" gradient="hero">
+      <div className="space-y-12 text-white">
+        <div className="text-center mb-8">
+          <div className="inline-flex items-center gap-3 mb-6 px-6 py-3 bg-gradient-to-r from-accent/20 to-secondary/20 backdrop-blur-sm rounded-full border border-white/30">
+            <Wallet className="w-6 h-6 text-secondary" />
+            <span className="text-lg font-semibold">Accounts Department</span>
+          </div>
+          <h2 className="text-6xl font-bold mb-6">Accounts Team Portal</h2>
+          <div className="h-1 w-40 bg-secondary mx-auto mb-6" />
+          <p className="text-xl text-white/90 max-w-3xl mx-auto">
+            Financial management and payment processing hub
+          </p>
+        </div>
+
+        <div className="bg-gradient-to-br from-white/15 to-white/5 backdrop-blur-sm rounded-2xl p-10 border border-white/20 max-w-5xl mx-auto">
+          <div className="flex items-center gap-3 mb-8">
+            <DollarSign className="w-8 h-8 text-secondary" />
+            <h3 className="text-3xl font-bold">Financial Operations</h3>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:scale-105 transition-transform">
+              <div className="p-3 bg-secondary/20 rounded-lg w-fit mb-4">
+                <CreditCard className="w-8 h-8 text-secondary" />
+              </div>
+              <h4 className="text-xl font-semibold mb-3">Payment Processing</h4>
+              <p className="text-white/80">Handle all financial transactions</p>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:scale-105 transition-transform">
+              <div className="p-3 bg-accent/20 rounded-lg w-fit mb-4">
+                <Receipt className="w-8 h-8 text-accent" />
+              </div>
+              <h4 className="text-xl font-semibold mb-3">Generate Receipts</h4>
+              <p className="text-white/80">Issue payment receipts and invoices</p>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:scale-105 transition-transform">
+              <div className="p-3 bg-secondary/20 rounded-lg w-fit mb-4">
+                <TrendingUp className="w-8 h-8 text-secondary" />
+              </div>
+              <h4 className="text-xl font-semibold mb-3">Financial Reports</h4>
+              <p className="text-white/80">Generate comprehensive financial analytics</p>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:scale-105 transition-transform">
+              <div className="p-3 bg-accent/20 rounded-lg w-fit mb-4">
+                <FileBarChart className="w-8 h-8 text-accent" />
+              </div>
+              <h4 className="text-xl font-semibold mb-3">Budget Tracking</h4>
+              <p className="text-white/80">Monitor project budgets and expenses</p>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:scale-105 transition-transform">
+              <div className="p-3 bg-secondary/20 rounded-lg w-fit mb-4">
+                <RefreshCw className="w-8 h-8 text-secondary" />
+              </div>
+              <h4 className="text-xl font-semibold mb-3">Reconciliation</h4>
+              <p className="text-white/80">Account reconciliation and auditing</p>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:scale-105 transition-transform">
+              <div className="p-3 bg-accent/20 rounded-lg w-fit mb-4">
+                <AlertCircle className="w-8 h-8 text-accent" />
+              </div>
+              <h4 className="text-xl font-semibold mb-3">Payment Alerts</h4>
+              <p className="text-white/80">Track overdue and pending payments</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="bg-gradient-to-r from-secondary/20 via-accent/20 to-secondary/20 backdrop-blur-sm rounded-2xl p-10 border border-white/20 max-w-5xl mx-auto mt-12">
+          <h3 className="text-3xl font-bold text-center mb-8">Financial Dashboard Metrics</h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="text-center">
+              <div className="flex items-center justify-center mb-3">
+                <PieChart className="w-12 h-12 text-secondary" />
+              </div>
+              <p className="text-lg text-white/90 font-semibold">Revenue Analytics</p>
+            </div>
+            <div className="text-center">
+              <div className="flex items-center justify-center mb-3">
+                <TrendingUp className="w-12 h-12 text-accent" />
+              </div>
+              <p className="text-lg text-white/90 font-semibold">Growth Tracking</p>
+            </div>
+            <div className="text-center">
+              <div className="flex items-center justify-center mb-3">
+                <FileBarChart className="w-12 h-12 text-secondary" />
+              </div>
+              <p className="text-lg text-white/90 font-semibold">Expense Reports</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </PresentationSlide>,
+
+    // Slide 20: Superadmin Login
+    <PresentationSlide key="superadmin" gradient="hero">
+      <div className="space-y-12 text-white">
+        <div className="text-center mb-12">
+          <div className="inline-flex items-center gap-3 mb-6 px-6 py-3 bg-gradient-to-r from-accent/20 to-secondary/20 backdrop-blur-sm rounded-full border border-white/30">
+            <Crown className="w-6 h-6 text-accent" />
+            <span className="text-lg font-semibold">Master Control</span>
+          </div>
+          <h2 className="text-7xl font-bold mb-6 animate-fade-in">Superadmin Portal</h2>
+          <div className="h-1 w-48 bg-gradient-to-r from-accent via-secondary to-accent mx-auto mb-8 animate-fade-in" style={{ animationDelay: '0.2s' }} />
+          <p className="text-2xl text-white/95 max-w-3xl mx-auto animate-fade-in" style={{ animationDelay: '0.4s' }}>
+            Complete system authority with advanced controls and analytics
+          </p>
+        </div>
+
+        <div className="bg-gradient-to-br from-white/15 to-white/5 backdrop-blur-sm rounded-2xl p-10 border border-white/20 max-w-6xl mx-auto">
+          <div className="flex items-center gap-3 mb-8">
+            <Shield className="w-8 h-8 text-accent" />
+            <h3 className="text-3xl font-bold">Key Responsibility Features</h3>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:scale-105 transition-transform">
+              <div className="p-3 bg-accent/20 rounded-lg w-fit mb-4">
+                <Users className="w-8 h-8 text-accent" />
+              </div>
+              <h4 className="text-xl font-semibold mb-3">User Management</h4>
+              <p className="text-white/80">Create, update, and delete users or departments</p>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:scale-105 transition-transform">
+              <div className="p-3 bg-secondary/20 rounded-lg w-fit mb-4">
+                <Lock className="w-8 h-8 text-secondary" />
+              </div>
+              <h4 className="text-xl font-semibold mb-3">Role Management</h4>
+              <p className="text-white/80">Assign and revoke user roles and privileges</p>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:scale-105 transition-transform">
+              <div className="p-3 bg-accent/20 rounded-lg w-fit mb-4">
+                <Globe className="w-8 h-8 text-accent" />
+              </div>
+              <h4 className="text-xl font-semibold mb-3">Content Management</h4>
+              <p className="text-white/80">Manage banners, notices, and popups sitewide</p>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:scale-105 transition-transform">
+              <div className="p-3 bg-secondary/20 rounded-lg w-fit mb-4">
+                <Settings className="w-8 h-8 text-secondary" />
+              </div>
+              <h4 className="text-xl font-semibold mb-3">Global Settings</h4>
+              <p className="text-white/80">Configure rates, fees, and timelines</p>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:scale-105 transition-transform">
+              <div className="p-3 bg-accent/20 rounded-lg w-fit mb-4">
+                <Activity className="w-8 h-8 text-accent" />
+              </div>
+              <h4 className="text-xl font-semibold mb-3">Activity Monitoring</h4>
+              <p className="text-white/80">Monitor logs, audit trails, and system activity</p>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:scale-105 transition-transform">
+              <div className="p-3 bg-secondary/20 rounded-lg w-fit mb-4">
+                <CheckCircle2 className="w-8 h-8 text-secondary" />
+              </div>
+              <h4 className="text-xl font-semibold mb-3">Project Approval</h4>
+              <p className="text-white/80">Approve new projects and schemes</p>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:scale-105 transition-transform">
+              <div className="p-3 bg-accent/20 rounded-lg w-fit mb-4">
+                <Database className="w-8 h-8 text-accent" />
+              </div>
+              <h4 className="text-xl font-semibold mb-3">System Backup</h4>
+              <p className="text-white/80">Manage backups and data recovery</p>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:scale-105 transition-transform">
+              <div className="p-3 bg-secondary/20 rounded-lg w-fit mb-4">
+                <Shield className="w-8 h-8 text-secondary" />
+              </div>
+              <h4 className="text-xl font-semibold mb-3">Security & Performance</h4>
+              <p className="text-white/80">Monitor security and system performance</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="bg-gradient-to-r from-accent/20 via-secondary/20 to-accent/20 backdrop-blur-sm rounded-2xl p-10 border border-white/20 max-w-5xl mx-auto mt-12">
+          <h3 className="text-3xl font-bold text-center mb-8">Master Control Dashboard</h3>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div className="text-center">
+              <div className="flex items-center justify-center mb-3">
+                <Crown className="w-12 h-12 text-accent" />
+              </div>
+              <p className="text-lg text-white/90 font-semibold">Full Authority</p>
+            </div>
+            <div className="text-center">
+              <div className="flex items-center justify-center mb-3">
+                <BarChart3 className="w-12 h-12 text-secondary" />
+              </div>
+              <p className="text-lg text-white/90 font-semibold">Advanced Analytics</p>
+            </div>
+            <div className="text-center">
+              <div className="flex items-center justify-center mb-3">
+                <Activity className="w-12 h-12 text-accent" />
+              </div>
+              <p className="text-lg text-white/90 font-semibold">Real-time Monitoring</p>
+            </div>
+            <div className="text-center">
+              <div className="flex items-center justify-center mb-3">
+                <Shield className="w-12 h-12 text-secondary" />
+              </div>
+              <p className="text-lg text-white/90 font-semibold">Maximum Security</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </PresentationSlide>,
+
+    // Slide 21: Bitdecentro Success Strategy
+    <PresentationSlide key="success-strategy" gradient="hero">
+      <div className="space-y-10 text-white">
+        <div className="text-center mb-12">
+          <div className="inline-flex items-center gap-3 mb-6 px-6 py-3 bg-gradient-to-r from-accent/20 to-secondary/20 backdrop-blur-sm rounded-full border border-white/30">
+            <img 
+              src={bitdecentroLogo} 
+              alt="Bitdecentro" 
+              className="h-6 object-contain brightness-0 invert"
+            />
+            <span className="text-lg font-semibold">Success Roadmap</span>
+          </div>
+          <h2 className="text-7xl font-bold mb-6 animate-fade-in">How Bitdecentro Will Achieve Success</h2>
+          <div className="h-1 w-48 bg-gradient-to-r from-accent via-secondary to-accent mx-auto mb-8 animate-fade-in" style={{ animationDelay: '0.2s' }} />
+          <p className="text-2xl text-white/95 max-w-4xl mx-auto animate-fade-in" style={{ animationDelay: '0.4s' }}>
+            Our strategic approach to delivering excellence for HIMUDA
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          <div className="bg-gradient-to-br from-white/15 to-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/20 hover:scale-105 transition-transform">
+            <div className="flex items-center gap-4 mb-6">
+              <div className="p-3 bg-accent/20 rounded-lg">
+                <Target className="w-10 h-10 text-accent" />
+              </div>
+              <h3 className="text-2xl font-bold">Agile Development</h3>
+            </div>
+            <p className="text-white/80 leading-relaxed">
+              Iterative development cycles with regular demos and feedback loops to ensure the platform meets HIMUDA's evolving needs
+            </p>
+          </div>
+
+          <div className="bg-gradient-to-br from-white/15 to-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/20 hover:scale-105 transition-transform">
+            <div className="flex items-center gap-4 mb-6">
+              <div className="p-3 bg-secondary/20 rounded-lg">
+                <Users className="w-10 h-10 text-secondary" />
+              </div>
+              <h3 className="text-2xl font-bold">User-Centric Design</h3>
+            </div>
+            <p className="text-white/80 leading-relaxed">
+              Focus on intuitive interfaces and seamless user experiences for citizens, staff, and administrators alike
+            </p>
+          </div>
+
+          <div className="bg-gradient-to-br from-white/15 to-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/20 hover:scale-105 transition-transform">
+            <div className="flex items-center gap-4 mb-6">
+              <div className="p-3 bg-accent/20 rounded-lg">
+                <Shield className="w-10 h-10 text-accent" />
+              </div>
+              <h3 className="text-2xl font-bold">Security First</h3>
+            </div>
+            <p className="text-white/80 leading-relaxed">
+              Enterprise-grade security measures, data encryption, and compliance with government standards
+            </p>
+          </div>
+
+          <div className="bg-gradient-to-br from-white/15 to-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/20 hover:scale-105 transition-transform">
+            <div className="flex items-center gap-4 mb-6">
+              <div className="p-3 bg-secondary/20 rounded-lg">
+                <TrendingUp className="w-10 h-10 text-secondary" />
+              </div>
+              <h3 className="text-2xl font-bold">Scalable Architecture</h3>
+            </div>
+            <p className="text-white/80 leading-relaxed">
+              Built to handle growth - from thousands to millions of users without compromising performance
+            </p>
+          </div>
+
+          <div className="bg-gradient-to-br from-white/15 to-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/20 hover:scale-105 transition-transform">
+            <div className="flex items-center gap-4 mb-6">
+              <div className="p-3 bg-accent/20 rounded-lg">
+                <Activity className="w-10 h-10 text-accent" />
+              </div>
+              <h3 className="text-2xl font-bold">Continuous Support</h3>
+            </div>
+            <p className="text-white/80 leading-relaxed">
+              24/7 technical support, regular updates, and proactive monitoring to ensure smooth operations
+            </p>
+          </div>
+
+          <div className="bg-gradient-to-br from-white/15 to-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/20 hover:scale-105 transition-transform">
+            <div className="flex items-center gap-4 mb-6">
+              <div className="p-3 bg-secondary/20 rounded-lg">
+                <Zap className="w-10 h-10 text-secondary" />
+              </div>
+              <h3 className="text-2xl font-bold">Rapid Deployment</h3>
+            </div>
+            <p className="text-white/80 leading-relaxed">
+              Phased rollout strategy with training programs to ensure smooth adoption across all departments
+            </p>
+          </div>
+        </div>
+
+        <div className="bg-gradient-to-r from-accent/20 via-secondary/20 to-accent/20 backdrop-blur-sm rounded-2xl p-10 border border-white/20 max-w-5xl mx-auto mt-12">
+          <h3 className="text-3xl font-bold text-center mb-8">Our Commitment</h3>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+            <div className="flex items-center gap-2 px-6 py-3 bg-accent/20 rounded-lg border border-accent/40">
+              <CheckCircle2 className="w-6 h-6 text-accent" />
+              <span className="text-lg font-semibold">Quality Assurance</span>
+            </div>
+            <div className="flex items-center gap-2 px-6 py-3 bg-secondary/20 rounded-lg border border-secondary/40">
+              <Clock className="w-6 h-6 text-secondary" />
+              <span className="text-lg font-semibold">Timely Delivery</span>
+            </div>
+            <div className="flex items-center gap-2 px-6 py-3 bg-accent/20 rounded-lg border border-accent/40">
+              <Target className="w-6 h-6 text-accent" />
+              <span className="text-lg font-semibold">Goal Alignment</span>
+            </div>
+            <div className="flex items-center gap-2 px-6 py-3 bg-accent/20 rounded-lg border border-accent/40">
+              <Activity className="w-6 h-6 text-accent" />
+              <span className="text-lg font-semibold">Long-Term Support</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </PresentationSlide>,
+
+    // Slide 22: Thank You
+    <PresentationSlide key="thank-you" gradient="hero">
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="text-center text-white space-y-10 max-w-4xl mx-auto px-8">
+          <div className="flex items-center justify-center gap-8 mb-12 animate-fade-in">
+            <img 
+              src={himudaLogo} 
+              alt="HIMUDA Logo" 
+              className="h-24 object-contain brightness-0 invert drop-shadow-2xl"
+            />
+            <div className="h-24 w-px bg-white/30" />
+            <img 
+              src={bitdecentroLogo} 
+              alt="Bitdecentro Logo" 
+              className="h-16 object-contain brightness-0 invert drop-shadow-2xl"
+            />
+          </div>
+
+          <h2 className="text-7xl font-bold mb-8 animate-fade-in" style={{ animationDelay: '0.2s' }}>
+            Thank You
+          </h2>
+          
+          <div className="h-1 w-32 bg-accent mx-auto mb-8 animate-fade-in" style={{ animationDelay: '0.4s' }} />
+
+          <p className="text-3xl text-white/95 leading-relaxed mb-8 animate-fade-in" style={{ animationDelay: '0.6s' }}>
+            We are honored that <span className="font-bold text-accent">HIMUDA</span> has trusted{' '}
+            <span className="font-bold text-secondary">Bitdecentro</span> as your technology partner
+          </p>
+
+          <p className="text-2xl text-white/90 leading-relaxed animate-fade-in" style={{ animationDelay: '0.8s' }}>
+            Thank you for giving us this incredible opportunity to contribute to{' '}
+            <span className="font-semibold">Himachal Pradesh's digital transformation</span>
+          </p>
+
+          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-10 border border-white/20 mt-12 animate-fade-in" style={{ animationDelay: '1s' }}>
+            <p className="text-xl text-white/95 italic">
+              "We are committed to delivering excellence and building a platform that will serve{' '}
+              the citizens of Himachal Pradesh with distinction"
+            </p>
+            <div className="mt-6 pt-6 border-t border-white/20">
+              <p className="text-lg font-semibold text-accent">Sahil Kapoor</p>
+              <p className="text-sm text-white/70 mt-1">CEO, Bitdecentro</p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 text-white/80 animate-fade-in max-w-2xl mx-auto" style={{ animationDelay: '1.2s' }}>
+            <div className="flex items-center justify-center gap-2">
+              <Mail className="w-5 h-5 shrink-0" />
+              <span className="text-sm">sahil@bitdecentro.com</span>
+            </div>
+            <div className="flex items-center justify-center gap-2">
+              <Phone className="w-5 h-5 shrink-0" />
+              <span className="text-sm">+91 78370 06262</span>
+            </div>
+            <div className="flex items-center justify-center gap-2">
+              <Globe className="w-5 h-5 shrink-0" />
+              <span className="text-sm">www.bitdecentro.com</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </PresentationSlide>,
   ];
 
   const nextSlide = () => {
