@@ -13,6 +13,7 @@ export const AllotmentForm = () => {
   const [permanentSameAsCorrespondence, setPermanentSameAsCorrespondence] = useState(false);
   const [propertyType, setPropertyType] = useState("");
   const [propertyCategory, setPropertyCategory] = useState("");
+  const [schemeName, setSchemeName] = useState("");
 
   const getSizeForCategory = (category: string) => {
     const sizeMap: Record<string, string> = {
@@ -24,6 +25,16 @@ export const AllotmentForm = () => {
       "type-f": "63-74 Sqmt",
     };
     return sizeMap[category] || "";
+  };
+
+  const getSchemeCode = (scheme: string) => {
+    const schemeCodeMap: Record<string, string> = {
+      "shimla-2025": "HIMUDA-SH25",
+      "dharamshala-phase2": "HIMUDA-DH-P2",
+      "solan-apartments": "HIMUDA-SOL-APT",
+      "dehra-jawalamukhi": "HIMUDA-DJ-HP",
+    };
+    return schemeCodeMap[scheme] || "";
   };
 
   return (
@@ -44,7 +55,7 @@ export const AllotmentForm = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="space-y-2">
               <Label htmlFor="scheme-name">Scheme Name *</Label>
-              <Select>
+              <Select value={schemeName} onValueChange={setSchemeName}>
                 <SelectTrigger id="scheme-name">
                   <SelectValue placeholder="Select Scheme" />
                 </SelectTrigger>
@@ -52,13 +63,14 @@ export const AllotmentForm = () => {
                   <SelectItem value="shimla-2025">Shimla Housing Scheme 2025</SelectItem>
                   <SelectItem value="dharamshala-phase2">Dharamshala Phase-II Housing Scheme</SelectItem>
                   <SelectItem value="solan-apartments">Solan Apartments Scheme</SelectItem>
+                  <SelectItem value="dehra-jawalamukhi">Dehra Jawalamukhi Housing Plots</SelectItem>
                 </SelectContent>
               </Select>
             </div>
 
             <div className="space-y-2">
               <Label htmlFor="scheme-code">Scheme Code</Label>
-              <Input id="scheme-code" value="HIMUDA-SH25" readOnly className="bg-muted" />
+              <Input id="scheme-code" value={getSchemeCode(schemeName)} readOnly className="bg-muted" placeholder="Select scheme first" />
             </div>
 
             <div className="space-y-2">
