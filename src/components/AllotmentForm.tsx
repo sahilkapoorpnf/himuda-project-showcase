@@ -100,12 +100,12 @@ export const AllotmentForm = () => {
                   <SelectValue placeholder="Select Category" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="type-a">Type A (308-482 Sqmt)</SelectItem>
-                  <SelectItem value="type-b">Type B (216 Sqmt)</SelectItem>
-                  <SelectItem value="type-c">Type C (150 Sqmt)</SelectItem>
-                  <SelectItem value="type-d">Type D (120-141 Sqmt)</SelectItem>
-                  <SelectItem value="type-e">Type E(L.I.G.) (91-116 Sqmt)</SelectItem>
-                  <SelectItem value="type-f">Type F(E.W.S.) (63-74 Sqmt)</SelectItem>
+                  <SelectItem value="type-a">Type A</SelectItem>
+                  <SelectItem value="type-b">Type B</SelectItem>
+                  <SelectItem value="type-c">Type C</SelectItem>
+                  <SelectItem value="type-d">Type D</SelectItem>
+                  <SelectItem value="type-e">Type E(L.I.G.)</SelectItem>
+                  <SelectItem value="type-f">Type F(E.W.S.)</SelectItem>
                 </SelectContent>
               </Select>
             </div>
