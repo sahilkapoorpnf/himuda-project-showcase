@@ -99,36 +99,34 @@ export const AllotmentForm = () => {
               </Select>
             </div>
 
-            {propertyType === "plot" && (
-              <>
-                <div className="space-y-2">
-                  <Label htmlFor="property-category">Property Category *</Label>
-                  <Select value={propertyCategory} onValueChange={setPropertyCategory}>
-                    <SelectTrigger id="property-category">
-                      <SelectValue placeholder="Select Category" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="type-a">Type A</SelectItem>
-                      <SelectItem value="type-b">Type B</SelectItem>
-                      <SelectItem value="type-c">Type C</SelectItem>
-                      <SelectItem value="type-d">Type D</SelectItem>
-                      <SelectItem value="type-e">Type E(L.I.G.)</SelectItem>
-                      <SelectItem value="type-f">Type F(E.W.S.)</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
+            <div className="space-y-2">
+              <Label htmlFor="property-category">Property Category *</Label>
+              <Select value={propertyCategory} onValueChange={setPropertyCategory} disabled={propertyType !== "plot"}>
+                <SelectTrigger id="property-category">
+                  <SelectValue placeholder={propertyType !== "plot" ? "Select property type first" : "Select Category"} />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="type-a">Type A</SelectItem>
+                  <SelectItem value="type-b">Type B</SelectItem>
+                  <SelectItem value="type-c">Type C</SelectItem>
+                  <SelectItem value="type-d">Type D</SelectItem>
+                  <SelectItem value="type-e">Type E(L.I.G.)</SelectItem>
+                  <SelectItem value="type-f">Type F(E.W.S.)</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
 
-                <div className="space-y-2">
-                  <Label htmlFor="plot-size">Size *</Label>
-                  <Input 
-                    id="plot-size" 
-                    value={getSizeForCategory(propertyCategory)} 
-                    placeholder={propertyCategory ? "" : "Select Property Category first"}
-                    readOnly 
-                    className="bg-muted"
-                  />
-                </div>
-              </>
+            {propertyType === "plot" && (
+              <div className="space-y-2">
+                <Label htmlFor="plot-size">Size *</Label>
+                <Input 
+                  id="plot-size" 
+                  value={getSizeForCategory(propertyCategory)} 
+                  placeholder={propertyCategory ? "" : "Select Property Category first"}
+                  readOnly 
+                  className="bg-muted"
+                />
+              </div>
             )}
 
             <div className="space-y-2 md:col-span-2">
