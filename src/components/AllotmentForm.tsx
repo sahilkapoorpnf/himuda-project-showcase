@@ -11,6 +11,19 @@ import { FileText, Upload, CheckCircle2 } from 'lucide-react';
 export const AllotmentForm = () => {
   const [showCoApplicant, setShowCoApplicant] = useState(false);
   const [permanentSameAsCorrespondence, setPermanentSameAsCorrespondence] = useState(false);
+  const [propertyCategory, setPropertyCategory] = useState("");
+
+  const getSizeForCategory = (category: string) => {
+    const sizeMap: Record<string, string> = {
+      "type-a": "308-482 Sqmt",
+      "type-b": "216 Sqmt",
+      "type-c": "150 Sqmt",
+      "type-d": "120-141 Sqmt",
+      "type-e": "91-116 Sqmt",
+      "type-f": "63-74 Sqmt",
+    };
+    return sizeMap[category] || "";
+  };
 
   return (
     <div className="space-y-8">
@@ -82,43 +95,30 @@ export const AllotmentForm = () => {
 
             <div className="space-y-2">
               <Label htmlFor="property-category">Property Category *</Label>
-              <Select>
+              <Select value={propertyCategory} onValueChange={setPropertyCategory}>
                 <SelectTrigger id="property-category">
                   <SelectValue placeholder="Select Category" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="general">General</SelectItem>
-                  <SelectItem value="ews">EWS</SelectItem>
-                  <SelectItem value="sc">SC</SelectItem>
-                  <SelectItem value="st">ST</SelectItem>
-                  <SelectItem value="obc">OBC</SelectItem>
-                  <SelectItem value="freedom-fighter">Freedom Fighter</SelectItem>
-                  <SelectItem value="defense">Defense</SelectItem>
-                  <SelectItem value="handicapped">Handicapped</SelectItem>
-                  <SelectItem value="ex-serviceman">Ex-Serviceman</SelectItem>
-                  <SelectItem value="govt-employee">Government Employee</SelectItem>
+                  <SelectItem value="type-a">Type A (308-482 Sqmt)</SelectItem>
+                  <SelectItem value="type-b">Type B (216 Sqmt)</SelectItem>
+                  <SelectItem value="type-c">Type C (150 Sqmt)</SelectItem>
+                  <SelectItem value="type-d">Type D (120-141 Sqmt)</SelectItem>
+                  <SelectItem value="type-e">Type E(L.I.G.) (91-116 Sqmt)</SelectItem>
+                  <SelectItem value="type-f">Type F(E.W.S.) (63-74 Sqmt)</SelectItem>
                 </SelectContent>
               </Select>
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="plot-size">Plot / Flat Size *</Label>
-              <Select>
-                <SelectTrigger id="plot-size">
-                  <SelectValue placeholder="Select Size" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="60">60 sq.m</SelectItem>
-                  <SelectItem value="90">90 sq.m</SelectItem>
-                  <SelectItem value="120">120 sq.m</SelectItem>
-                  <SelectItem value="200">200 sq.m</SelectItem>
-                  <SelectItem value="400">400 sq.m</SelectItem>
-                  <SelectItem value="1-kanal">1 Kanal</SelectItem>
-                  <SelectItem value="1bhk">1 BHK</SelectItem>
-                  <SelectItem value="2bhk">2 BHK</SelectItem>
-                  <SelectItem value="3bhk">3 BHK</SelectItem>
-                </SelectContent>
-              </Select>
+              <Label htmlFor="plot-size">Size *</Label>
+              <Input 
+                id="plot-size" 
+                value={getSizeForCategory(propertyCategory)} 
+                placeholder={propertyCategory ? "" : "Select Property Category first"}
+                readOnly 
+                className="bg-muted"
+              />
             </div>
 
             <div className="space-y-2">
