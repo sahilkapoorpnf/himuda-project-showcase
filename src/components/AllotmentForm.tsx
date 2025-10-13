@@ -11,6 +11,7 @@ import { FileText, Upload, CheckCircle2 } from 'lucide-react';
 export const AllotmentForm = () => {
   const [showCoApplicant, setShowCoApplicant] = useState(false);
   const [permanentSameAsCorrespondence, setPermanentSameAsCorrespondence] = useState(false);
+  const [propertyType, setPropertyType] = useState("");
   const [propertyCategory, setPropertyCategory] = useState("");
 
   const getSizeForCategory = (category: string) => {
@@ -79,7 +80,12 @@ export const AllotmentForm = () => {
 
             <div className="space-y-2">
               <Label htmlFor="property-type">Property Type *</Label>
-              <Select>
+              <Select value={propertyType} onValueChange={(value) => {
+                setPropertyType(value);
+                if (value !== "plot") {
+                  setPropertyCategory("");
+                }
+              }}>
                 <SelectTrigger id="property-type">
                   <SelectValue placeholder="Select Type" />
                 </SelectTrigger>
@@ -93,38 +99,37 @@ export const AllotmentForm = () => {
               </Select>
             </div>
 
-            <div className="space-y-2">
-              <Label htmlFor="property-category">Property Category *</Label>
-              <Select value={propertyCategory} onValueChange={setPropertyCategory}>
-                <SelectTrigger id="property-category">
-                  <SelectValue placeholder="Select Category" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="type-a">Type A</SelectItem>
-                  <SelectItem value="type-b">Type B</SelectItem>
-                  <SelectItem value="type-c">Type C</SelectItem>
-                  <SelectItem value="type-d">Type D</SelectItem>
-                  <SelectItem value="type-e">Type E(L.I.G.)</SelectItem>
-                  <SelectItem value="type-f">Type F(E.W.S.)</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
+            {propertyType === "plot" && (
+              <>
+                <div className="space-y-2">
+                  <Label htmlFor="property-category">Property Category *</Label>
+                  <Select value={propertyCategory} onValueChange={setPropertyCategory}>
+                    <SelectTrigger id="property-category">
+                      <SelectValue placeholder="Select Category" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="type-a">Type A</SelectItem>
+                      <SelectItem value="type-b">Type B</SelectItem>
+                      <SelectItem value="type-c">Type C</SelectItem>
+                      <SelectItem value="type-d">Type D</SelectItem>
+                      <SelectItem value="type-e">Type E(L.I.G.)</SelectItem>
+                      <SelectItem value="type-f">Type F(E.W.S.)</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
 
-            <div className="space-y-2">
-              <Label htmlFor="plot-size">Size *</Label>
-              <Input 
-                id="plot-size" 
-                value={getSizeForCategory(propertyCategory)} 
-                placeholder={propertyCategory ? "" : "Select Property Category first"}
-                readOnly 
-                className="bg-muted"
-              />
-            </div>
-
-            <div className="space-y-2">
-              <Label htmlFor="num-units">Number of Units (if applicable)</Label>
-              <Input id="num-units" type="number" placeholder="Enter number of units" />
-            </div>
+                <div className="space-y-2">
+                  <Label htmlFor="plot-size">Size *</Label>
+                  <Input 
+                    id="plot-size" 
+                    value={getSizeForCategory(propertyCategory)} 
+                    placeholder={propertyCategory ? "" : "Select Property Category first"}
+                    readOnly 
+                    className="bg-muted"
+                  />
+                </div>
+              </>
+            )}
 
             <div className="space-y-2 md:col-span-2">
               <Label>Preference Type *</Label>
