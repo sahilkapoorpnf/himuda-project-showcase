@@ -10,7 +10,6 @@ export const AllotmentStatusCheck = () => {
   const [upnVerification, setUpnVerification] = useState("");
   const [upnVerified, setUpnVerified] = useState(false);
   const [generatingUpn, setGeneratingUpn] = useState(false);
-  const [acceptingAllotment, setAcceptingAllotment] = useState(false);
   const { toast } = useToast();
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -88,18 +87,6 @@ export const AllotmentStatusCheck = () => {
         variant: "destructive",
       });
     }
-  };
-
-  const handleAcceptAllotment = async () => {
-    setAcceptingAllotment(true);
-    // Simulate API call
-    setTimeout(() => {
-      setAcceptingAllotment(false);
-      toast({
-        title: "Allotment Accepted",
-        description: "Your allotment has been successfully accepted.",
-      });
-    }, 1500);
   };
 
   return (
@@ -316,9 +303,13 @@ export const AllotmentStatusCheck = () => {
                     <CheckCircle2 className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
                     <div>
                       <h4 className="font-semibold text-foreground mb-1">UPN Generated Successfully</h4>
-                      <p className="text-sm text-muted-foreground">
+                      <p className="text-sm text-muted-foreground mb-3">
                         Your UPN has been sent to your registered email and mobile number. Please enter it below to download your allotment letter.
                       </p>
+                      <div className="p-3 bg-card rounded-lg border border-border">
+                        <p className="text-xs text-muted-foreground mb-1">Your UPN Number:</p>
+                        <p className="text-lg font-bold text-primary">{applicationData.upnNumber}</p>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -342,17 +333,9 @@ export const AllotmentStatusCheck = () => {
           ) : null}
 
           {/* Action Buttons */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <button
-              onClick={handleAcceptAllotment}
-              disabled={acceptingAllotment}
-              className="px-6 py-4 rounded-lg bg-primary text-white font-semibold hover:opacity-90 transition-all flex items-center justify-center gap-2 disabled:opacity-50"
-            >
-              <CheckCircle2 className="w-5 h-5" />
-              {acceptingAllotment ? "Processing..." : "Accept Allotment"}
-            </button>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {upnVerified && (
-              <button className="px-6 py-4 rounded-lg border-2 border-primary text-primary font-semibold hover:bg-primary hover:text-white transition-all flex items-center justify-center gap-2">
+              <button className="px-6 py-4 rounded-lg bg-primary text-white font-semibold hover:opacity-90 transition-all flex items-center justify-center gap-2">
                 <Download className="w-5 h-5" />
                 Download Allotment Letter
               </button>
