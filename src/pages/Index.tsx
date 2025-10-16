@@ -21,6 +21,9 @@ import { DashboardSidebar } from "@/components/DashboardSidebar";
 import { ApplicationsTable } from "@/components/ApplicationsTable";
 import { AllotteeManagementTable } from "@/components/AllotteeManagementTable";
 import { AllotteePropertiesTable } from "@/components/AllotteePropertiesTable";
+import { PaymentGateway } from "@/components/PaymentGateway";
+import { PaymentSuccess } from "@/components/PaymentSuccess";
+import { AllotmentStatusCheck } from "@/components/AllotmentStatusCheck";
 import { ChevronLeft, ChevronRight, Home, Search, FileText, UserCheck, Download, Building2, Filter, MapPin, Calendar, FileCheck, User, CreditCard, Bell, Edit, MessageSquare, Shield, CheckCircle2, Forward, Upload, FileSpreadsheet, Megaphone, FolderCheck, Settings, DollarSign, Receipt, TrendingUp, FileBarChart, RefreshCw, AlertCircle, PieChart, Wallet, Crown, Users, Lock, Globe, Activity, Database, BarChart3, Target, Newspaper, Mail, Smartphone, BellRing, Clock, Send, AlertTriangle, Phone, Zap } from 'lucide-react';
 
 import heroProperty from '@/assets/hero-property.jpg';
@@ -506,7 +509,7 @@ const Index = () => {
       </div>
     </PresentationSlide>,
 
-    // Slide 7: Registration/Signup
+    // Slide 7: Registration/Signup - Updated Structure
     <div key="registration" className="min-h-screen bg-background overflow-y-auto">
       <Header />
       
@@ -514,8 +517,8 @@ const Index = () => {
         <div className="container mx-auto px-4 max-w-2xl">
           <div className="bg-card rounded-2xl p-8 shadow-elegant border border-border">
             <div className="text-center mb-8">
-              <h2 className="text-4xl font-bold text-primary mb-2">Create Your Account</h2>
-              <p className="text-muted-foreground">Register to access HIMUDA services</p>
+              <h2 className="text-4xl font-bold text-primary mb-2">Citizen Registration</h2>
+              <p className="text-muted-foreground">Register to access HIMUDA allotment services</p>
             </div>
 
             <form className="space-y-6">
@@ -534,8 +537,75 @@ const Index = () => {
 
               <div className="space-y-2">
                 <label className="text-sm font-semibold text-foreground flex items-center gap-2">
+                  <User className="w-4 h-4 text-primary" />
+                  Father/Husband Name *
+                </label>
+                <input
+                  type="text"
+                  placeholder="Enter father's or husband's name"
+                  className="w-full px-4 py-3 rounded-lg border border-input bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                  required
+                />
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <label className="text-sm font-semibold text-foreground flex items-center gap-2">
+                    <Calendar className="w-4 h-4 text-primary" />
+                    Date of Birth *
+                  </label>
+                  <input
+                    type="date"
+                    className="w-full px-4 py-3 rounded-lg border border-input bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                    required
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <label className="text-sm font-semibold text-foreground flex items-center gap-2">
+                    <User className="w-4 h-4 text-primary" />
+                    Gender *
+                  </label>
+                  <select className="w-full px-4 py-3 rounded-lg border border-input bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary" required>
+                    <option value="">Select Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+              </div>
+
+              <div className="space-y-2">
+                <label className="text-sm font-semibold text-foreground flex items-center gap-2">
+                  <Smartphone className="w-4 h-4 text-primary" />
+                  Mobile Number (OTP verified) *
+                </label>
+                <div className="flex gap-2">
+                  <input
+                    type="tel"
+                    placeholder="+91 XXXXX XXXXX"
+                    className="flex-1 px-4 py-3 rounded-lg border border-input bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                    required
+                  />
+                  <button
+                    type="button"
+                    className="px-6 py-3 rounded-lg bg-primary text-white font-semibold hover:opacity-90 transition-all"
+                  >
+                    Send OTP
+                  </button>
+                </div>
+                <input
+                  type="text"
+                  placeholder="Enter OTP"
+                  className="w-full px-4 py-3 rounded-lg border border-input bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-accent text-center tracking-widest"
+                  maxLength={6}
+                />
+              </div>
+
+              <div className="space-y-2">
+                <label className="text-sm font-semibold text-foreground flex items-center gap-2">
                   <Mail className="w-4 h-4 text-primary" />
-                  Email ID *
+                  Email *
                 </label>
                 <input
                   type="email"
@@ -547,39 +617,52 @@ const Index = () => {
 
               <div className="space-y-2">
                 <label className="text-sm font-semibold text-foreground flex items-center gap-2">
-                  <Smartphone className="w-4 h-4 text-primary" />
-                  Mobile Number (for OTP) *
+                  <MapPin className="w-4 h-4 text-primary" />
+                  Address *
                 </label>
-                <input
-                  type="tel"
-                  placeholder="+91 XXXXX XXXXX"
+                <textarea
+                  placeholder="Enter complete address"
                   className="w-full px-4 py-3 rounded-lg border border-input bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                  rows={3}
                   required
                 />
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div className="space-y-2">
-                  <label className="text-sm font-semibold text-foreground flex items-center gap-2">
-                    <User className="w-4 h-4 text-primary" />
-                    Username *
-                  </label>
+                  <label className="text-sm font-semibold text-foreground">District *</label>
+                  <select className="w-full px-4 py-3 rounded-lg border border-input bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary" required>
+                    <option value="">Select District</option>
+                    <option>Shimla</option>
+                    <option>Kangra</option>
+                    <option>Mandi</option>
+                    <option>Solan</option>
+                    <option>Sirmaur</option>
+                    <option>Una</option>
+                    <option>Hamirpur</option>
+                    <option>Kullu</option>
+                    <option>Bilaspur</option>
+                    <option>Chamba</option>
+                    <option>Kinnaur</option>
+                    <option>Lahaul and Spiti</option>
+                  </select>
+                </div>
+
+                <div className="space-y-2">
+                  <label className="text-sm font-semibold text-foreground">State *</label>
                   <input
                     type="text"
-                    placeholder="Choose username"
-                    className="w-full px-4 py-3 rounded-lg border border-input bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
-                    required
+                    value="Himachal Pradesh"
+                    className="w-full px-4 py-3 rounded-lg border border-input bg-muted text-foreground"
+                    readOnly
                   />
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-sm font-semibold text-foreground flex items-center gap-2">
-                    <Lock className="w-4 h-4 text-primary" />
-                    Password *
-                  </label>
+                  <label className="text-sm font-semibold text-foreground">Pincode *</label>
                   <input
-                    type="password"
-                    placeholder="Create password"
+                    type="text"
+                    placeholder="Enter pincode"
                     className="w-full px-4 py-3 rounded-lg border border-input bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
                     required
                   />
@@ -588,48 +671,40 @@ const Index = () => {
 
               <div className="space-y-2">
                 <label className="text-sm font-semibold text-foreground flex items-center gap-2">
-                  <Shield className="w-4 h-4 text-secondary" />
-                  Aadhaar / ID Verification (Optional)
+                  <Upload className="w-4 h-4 text-primary" />
+                  Aadhaar / PAN Upload *
                 </label>
                 <input
-                  type="text"
-                  placeholder="Enter Aadhaar or ID number"
-                  className="w-full px-4 py-3 rounded-lg border border-input bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-secondary"
+                  type="file"
+                  accept=".pdf,.jpg,.jpeg,.png"
+                  className="w-full px-4 py-3 rounded-lg border border-input bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:bg-primary file:text-white file:font-semibold hover:file:opacity-90"
+                  required
                 />
-                <p className="text-xs text-muted-foreground">For faster verification (optional)</p>
+                <p className="text-xs text-muted-foreground">Upload Aadhaar or PAN card (PDF, JPG, PNG - Max 5MB)</p>
               </div>
 
-              <div className="border-t border-border pt-6">
-                <div className="space-y-2">
-                  <label className="text-sm font-semibold text-foreground flex items-center gap-2">
-                    <Send className="w-4 h-4 text-accent" />
-                    Verify via OTP
-                  </label>
-                  <div className="flex gap-2">
-                    <button
-                      type="button"
-                      className="flex-1 px-4 py-3 rounded-lg border-2 border-primary text-primary font-semibold hover:bg-primary hover:text-white transition-all"
-                    >
-                      Send OTP to Mobile
-                    </button>
-                    <button
-                      type="button"
-                      className="flex-1 px-4 py-3 rounded-lg border-2 border-secondary text-secondary font-semibold hover:bg-secondary hover:text-white transition-all"
-                    >
-                      Send OTP to Email
-                    </button>
-                  </div>
-                </div>
+              <div className="space-y-2">
+                <label className="text-sm font-semibold text-foreground flex items-center gap-2">
+                  <Lock className="w-4 h-4 text-primary" />
+                  Password *
+                </label>
+                <input
+                  type="password"
+                  placeholder="Create a strong password"
+                  className="w-full px-4 py-3 rounded-lg border border-input bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                  required
+                />
+                <p className="text-xs text-muted-foreground">Minimum 8 characters with uppercase, lowercase, number and special character</p>
+              </div>
 
-                <div className="space-y-2 mt-4">
-                  <label className="text-sm font-semibold text-foreground">Enter OTP</label>
-                  <input
-                    type="text"
-                    placeholder="Enter 6-digit OTP"
-                    className="w-full px-4 py-3 rounded-lg border border-input bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-accent text-center text-2xl tracking-widest"
-                    maxLength={6}
-                  />
-                </div>
+              <div className="border border-accent/30 rounded-lg p-4 bg-accent/5">
+                <label className="flex items-start gap-3 cursor-pointer">
+                  <input type="checkbox" className="mt-1" required />
+                  <span className="text-sm text-foreground">
+                    <span className="font-semibold">eKYC Consent: </span>
+                    I hereby consent to share my personal information for eKYC verification as per HIMUDA policies.
+                  </span>
+                </label>
               </div>
 
               <button
@@ -637,7 +712,7 @@ const Index = () => {
                 className="w-full px-6 py-4 rounded-lg bg-primary text-white font-semibold text-lg hover:opacity-90 transition-all flex items-center justify-center gap-2"
               >
                 <UserCheck className="w-5 h-5" />
-                Complete Registration
+                Register & Verify OTP
               </button>
 
               <p className="text-center text-sm text-muted-foreground">
@@ -972,7 +1047,7 @@ const Index = () => {
       
       <div className="flex w-full pt-[8.5rem]">
         <DashboardSidebar 
-          activeSection="apply"
+          activeSection="scheme-application"
           onSectionChange={() => {}}
         />
         
@@ -992,13 +1067,61 @@ const Index = () => {
       </div>
     </div>,
 
-    // Slide 11: Applications Management Dashboard
+    // Slide 11: Payment Gateway
+    <div key="payment-gateway" className="min-h-screen bg-gradient-to-br from-background via-accent/5 to-background">
+      <DashboardHeader />
+      
+      <div className="flex w-full pt-[8.5rem]">
+        <DashboardSidebar 
+          activeSection="emi-payment"
+          onSectionChange={() => {}}
+        />
+        
+        <main className="flex-1 p-8 overflow-y-auto max-h-[calc(100vh-8.5rem)]">
+          <PaymentGateway />
+        </main>
+      </div>
+    </div>,
+
+    // Slide 12: Payment Success
+    <div key="payment-success" className="min-h-screen bg-gradient-to-br from-background via-accent/5 to-background">
+      <DashboardHeader />
+      
+      <div className="flex w-full pt-[8.5rem]">
+        <DashboardSidebar 
+          activeSection="emi-payment"
+          onSectionChange={() => {}}
+        />
+        
+        <main className="flex-1 p-8 overflow-y-auto max-h-[calc(100vh-8.5rem)]">
+          <PaymentSuccess />
+        </main>
+      </div>
+    </div>,
+
+    // Slide 13: Allotment Status & Acceptance
+    <div key="allotment-status" className="min-h-screen bg-gradient-to-br from-background via-accent/5 to-background">
+      <DashboardHeader />
+      
+      <div className="flex w-full pt-[8.5rem]">
+        <DashboardSidebar 
+          activeSection="allotment-status"
+          onSectionChange={() => {}}
+        />
+        
+        <main className="flex-1 p-8 overflow-y-auto max-h-[calc(100vh-8.5rem)]">
+          <AllotmentStatusCheck />
+        </main>
+      </div>
+    </div>,
+
+    // Slide 14: Applications Management Dashboard
     <div key="applications-dashboard" className="min-h-screen bg-gradient-to-br from-background via-accent/5 to-background">
       <DashboardHeader />
       
       <div className="flex w-full pt-[8.5rem]">
         <DashboardSidebar 
-          activeSection="applications"
+          activeSection="dashboard"
           onSectionChange={() => {}}
         />
         
@@ -1010,7 +1133,7 @@ const Index = () => {
       </div>
     </div>,
 
-    // Slide 12: Superadmin Dashboard
+    // Slide 15: Superadmin Dashboard
     <div key="superadmin-dashboard" className="min-h-screen bg-gradient-to-br from-background via-accent/5 to-background">
       <DashboardHeader />
       

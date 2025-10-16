@@ -8,18 +8,14 @@ interface DashboardSidebarProps {
 
 export const DashboardSidebar = ({ activeSection, onSectionChange }: DashboardSidebarProps) => {
   const menuItems = [
-    { id: "dashboard", label: "Dashboard", icon: Home },
-    { id: "apply", label: "Apply for Allotment", icon: FileText },
-    { id: "applications", label: "Applications Management", icon: FileText },
-    { id: "properties", label: "Property Management", icon: Building2 },
-    { id: "payments", label: "Payment Management", icon: CreditCard },
-    { id: "documents", label: "Document Management", icon: FolderOpen },
-    { id: "allotments", label: "Allotment Status", icon: FileCheck },
-    { id: "transactions", label: "Transaction History", icon: Receipt },
-    { id: "dues", label: "Dues & Payments", icon: DollarSign },
-    { id: "profile", label: "Profile Settings", icon: User },
-    { id: "family", label: "Family Members", icon: Users },
-    { id: "settings", label: "Settings", icon: Settings },
+    { id: "dashboard", label: "Dashboard Summary", icon: Home },
+    { id: "scheme-application", label: "Scheme Application / Booking", icon: FileText },
+    { id: "allotment-status", label: "Allotment Status & Acceptance", icon: FileCheck },
+    { id: "emi-payment", label: "EMI & Payment Management", icon: CreditCard },
+    { id: "possession", label: "Possession Request", icon: Building2 },
+    { id: "post-allotment", label: "Post-Allotment Requests", icon: FolderOpen },
+    { id: "lease", label: "Lease Management", icon: Receipt },
+    { id: "grievance", label: "Grievance / Query", icon: Settings },
   ];
 
   return (
