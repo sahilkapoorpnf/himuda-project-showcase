@@ -13,11 +13,14 @@ export const AllotmentStatusCheck = () => {
   // Mock data - would come from backend in real implementation
   const applicationData = {
     applicationNumber: applicationNumber || "HIMUDA-2025-001234",
+    upnNumber: "UPN-2025-DJ-001234",
     applicantName: "Rajesh Kumar Sharma",
     fatherName: "Mohan Lal Sharma",
     schemeName: "Dehra Jawalamukhi Housing Plots",
     schemeCode: "HIMUDA-DJ-HP",
     propertyType: "Plot",
+    plotNumber: "Plot-125-A",
+    category: "Type A",
     propertyCategory: "Residential",
     size: "125 sq. yards",
     location: "Dehra, Jawalamukhi, Kangra",
@@ -88,8 +91,9 @@ export const AllotmentStatusCheck = () => {
                 </div>
               </div>
               <div className="text-right">
-                <p className="text-sm text-white/80 mb-1">Application Number</p>
-                <p className="text-2xl font-bold">{applicationData.applicationNumber}</p>
+                <p className="text-sm text-white/80 mb-1">UPN Number</p>
+                <p className="text-2xl font-bold">{applicationData.upnNumber}</p>
+                <p className="text-xs text-white/70 mt-1">App: {applicationData.applicationNumber}</p>
               </div>
             </div>
           </div>
@@ -140,6 +144,14 @@ export const AllotmentStatusCheck = () => {
               <div className="space-y-1">
                 <p className="text-sm text-muted-foreground">Scheme Code</p>
                 <p className="font-semibold text-foreground">{applicationData.schemeCode}</p>
+              </div>
+              <div className="space-y-1">
+                <p className="text-sm text-muted-foreground">Plot Number</p>
+                <p className="font-semibold text-foreground">{applicationData.plotNumber}</p>
+              </div>
+              <div className="space-y-1">
+                <p className="text-sm text-muted-foreground">Category</p>
+                <p className="font-semibold text-foreground">{applicationData.category}</p>
               </div>
               <div className="space-y-1">
                 <p className="text-sm text-muted-foreground">Property Type</p>
@@ -202,68 +214,6 @@ export const AllotmentStatusCheck = () => {
                   <p className="text-sm text-muted-foreground">
                     Please ensure timely payment of the next installment to avoid penalties. You can make payment through the EMI & Payment Management section.
                   </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Application Timeline */}
-          <div className="bg-card rounded-2xl p-6 border border-border">
-            <h3 className="text-xl font-semibold text-primary mb-6 flex items-center gap-2">
-              <Calendar className="w-5 h-5" />
-              Application Timeline
-            </h3>
-            <div className="relative">
-              <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-border"></div>
-              <div className="space-y-6 relative">
-                <div className="flex items-start gap-4">
-                  <div className="w-8 h-8 rounded-full bg-green-500 flex items-center justify-center flex-shrink-0 relative z-10">
-                    <CheckCircle2 className="w-5 h-5 text-white" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-foreground">Application Submitted</h4>
-                    <p className="text-sm text-muted-foreground">15th March 2025, 10:30 AM</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="w-8 h-8 rounded-full bg-green-500 flex items-center justify-center flex-shrink-0 relative z-10">
-                    <CheckCircle2 className="w-5 h-5 text-white" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-foreground">Payment Received</h4>
-                    <p className="text-sm text-muted-foreground">15th March 2025, 10:35 AM</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="w-8 h-8 rounded-full bg-green-500 flex items-center justify-center flex-shrink-0 relative z-10">
-                    <CheckCircle2 className="w-5 h-5 text-white" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-foreground">Documents Verified</h4>
-                    <p className="text-sm text-muted-foreground">20th March 2025, 2:15 PM</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="w-8 h-8 rounded-full bg-green-500 flex items-center justify-center flex-shrink-0 relative z-10">
-                    <CheckCircle2 className="w-5 h-5 text-white" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-foreground">Application Approved</h4>
-                    <p className="text-sm text-muted-foreground">5th April 2025, 11:00 AM</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center flex-shrink-0 relative z-10">
-                    <Clock className="w-5 h-5 text-white" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-foreground">Pending Acceptance</h4>
-                    <p className="text-sm text-muted-foreground">Please accept the allotment within 30 days</p>
-                  </div>
                 </div>
               </div>
             </div>
