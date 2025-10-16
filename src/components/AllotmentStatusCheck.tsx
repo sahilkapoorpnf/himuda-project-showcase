@@ -1,9 +1,17 @@
-import { Search, FileCheck, Calendar, User, MapPin, Home, Download, CheckCircle2, Clock, AlertCircle, Building2 } from 'lucide-react';
+import { Search, FileCheck, Calendar, User, MapPin, Home, Download, CheckCircle2, AlertCircle, Building2, Key } from 'lucide-react';
 import { useState } from 'react';
+import { supabase } from '@/integrations/supabase/client';
+import { useToast } from '@/hooks/use-toast';
 
 export const AllotmentStatusCheck = () => {
   const [applicationNumber, setApplicationNumber] = useState("");
   const [showResults, setShowResults] = useState(false);
+  const [upnGenerated, setUpnGenerated] = useState(false);
+  const [upnVerification, setUpnVerification] = useState("");
+  const [upnVerified, setUpnVerified] = useState(false);
+  const [generatingUpn, setGeneratingUpn] = useState(false);
+  const [acceptingAllotment, setAcceptingAllotment] = useState(false);
+  const { toast } = useToast();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -13,9 +21,11 @@ export const AllotmentStatusCheck = () => {
   // Mock data - would come from backend in real implementation
   const applicationData = {
     applicationNumber: applicationNumber || "HIMUDA-2025-001234",
-    upnNumber: "UPN-2025-DJ-001234",
+    upnNumber: upnGenerated ? "UPN-2025-DJ-001234" : "",
     applicantName: "Rajesh Kumar Sharma",
     fatherName: "Mohan Lal Sharma",
+    email: "rajesh.sharma@example.com",
+    mobile: "+91-9876543210",
     schemeName: "Dehra Jawalamukhi Housing Plots",
     schemeCode: "HIMUDA-DJ-HP",
     propertyType: "Plot",
@@ -27,10 +37,69 @@ export const AllotmentStatusCheck = () => {
     applicationDate: "15th March 2025",
     status: "Approved",
     allotmentDate: "5th April 2025",
-    paymentStatus: "Partial Payment Received",
-    amountPaid: "₹50,000",
-    pendingAmount: "₹25,000",
-    nextInstallmentDate: "15th May 2025",
+    paymentStatus: "Payment Received",
+    amountPaid: "₹75,000",
+  };
+
+  const handleGenerateUpn = async () => {
+    setGeneratingUpn(true);
+    try {
+      // Call edge function to send UPN via email and SMS
+      const { error } = await supabase.functions.invoke('send-upn-notification', {
+        body: {
+          name: applicationData.applicantName,
+          email: applicationData.email,
+          mobile: applicationData.mobile,
+          upnNumber: "UPN-2025-DJ-001234",
+          applicationNumber: applicationData.applicationNumber,
+        }
+      });
+
+      if (error) throw error;
+
+      setUpnGenerated(true);
+      toast({
+        title: "UPN Generated Successfully",
+        description: "Your UPN has been sent to your registered email and mobile number.",
+      });
+    } catch (error) {
+      console.error('Error generating UPN:', error);
+      toast({
+        title: "Error",
+        description: "Failed to generate UPN. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setGeneratingUpn(false);
+    }
+  };
+
+  const handleVerifyUpn = () => {
+    if (upnVerification === applicationData.upnNumber) {
+      setUpnVerified(true);
+      toast({
+        title: "UPN Verified",
+        description: "You can now download your allotment letter.",
+      });
+    } else {
+      toast({
+        title: "Invalid UPN",
+        description: "Please enter the correct UPN number.",
+        variant: "destructive",
+      });
+    }
+  };
+
+  const handleAcceptAllotment = async () => {
+    setAcceptingAllotment(true);
+    // Simulate API call
+    setTimeout(() => {
+      setAcceptingAllotment(false);
+      toast({
+        title: "Allotment Accepted",
+        description: "Your allotment has been successfully accepted.",
+      });
+    }, 1500);
   };
 
   return (
@@ -91,9 +160,19 @@ export const AllotmentStatusCheck = () => {
                 </div>
               </div>
               <div className="text-right">
-                <p className="text-sm text-white/80 mb-1">UPN Number</p>
-                <p className="text-2xl font-bold">{applicationData.upnNumber}</p>
-                <p className="text-xs text-white/70 mt-1">App: {applicationData.applicationNumber}</p>
+                {upnGenerated ? (
+                  <>
+                    <p className="text-sm text-white/80 mb-1">UPN Number</p>
+                    <p className="text-2xl font-bold">{applicationData.upnNumber}</p>
+                    <p className="text-xs text-white/70 mt-1">App: {applicationData.applicationNumber}</p>
+                  </>
+                ) : (
+                  <>
+                    <p className="text-sm text-white/80 mb-1">Application Number</p>
+                    <p className="text-2xl font-bold">{applicationData.applicationNumber}</p>
+                    <p className="text-xs text-white/70 mt-1">UPN not generated yet</p>
+                  </>
+                )}
               </div>
             </div>
           </div>
@@ -184,51 +263,100 @@ export const AllotmentStatusCheck = () => {
               <CheckCircle2 className="w-5 h-5" />
               Payment Status
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="space-y-1">
                 <p className="text-sm text-muted-foreground">Status</p>
-                <p className="font-semibold text-orange-500">{applicationData.paymentStatus}</p>
+                <p className="font-semibold text-green-500">{applicationData.paymentStatus}</p>
               </div>
               <div className="space-y-1">
                 <p className="text-sm text-muted-foreground">Amount Paid</p>
                 <p className="font-semibold text-green-500 text-lg">{applicationData.amountPaid}</p>
               </div>
-              <div className="space-y-1">
-                <p className="text-sm text-muted-foreground">Pending Amount</p>
-                <p className="font-semibold text-orange-500 text-lg">{applicationData.pendingAmount}</p>
-              </div>
-              <div className="space-y-1">
-                <p className="text-sm text-muted-foreground">Next Installment</p>
-                <p className="font-semibold text-foreground flex items-center gap-2">
-                  <Clock className="w-4 h-4 text-accent" />
-                  {applicationData.nextInstallmentDate}
-                </p>
-              </div>
-            </div>
-
-            <div className="mt-4 p-4 bg-orange-500/10 rounded-lg border border-orange-500/20">
-              <div className="flex items-start gap-3">
-                <AlertCircle className="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5" />
-                <div>
-                  <h4 className="font-semibold text-foreground mb-1">Payment Reminder</h4>
-                  <p className="text-sm text-muted-foreground">
-                    Please ensure timely payment of the next installment to avoid penalties. You can make payment through the EMI & Payment Management section.
-                  </p>
-                </div>
-              </div>
             </div>
           </div>
 
+          {/* UPN Generation Section */}
+          {!upnGenerated ? (
+            <div className="bg-card rounded-2xl p-6 border border-border">
+              <h3 className="text-xl font-semibold text-primary mb-4 flex items-center gap-2">
+                <Key className="w-5 h-5" />
+                Generate UPN Number
+              </h3>
+              <div className="space-y-4">
+                <div className="p-4 bg-primary/10 rounded-lg border border-primary/20">
+                  <div className="flex items-start gap-3">
+                    <AlertCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                    <div>
+                      <h4 className="font-semibold text-foreground mb-1">Generate Your UPN</h4>
+                      <p className="text-sm text-muted-foreground">
+                        Click below to generate your Unique Property Number (UPN). This will be sent to your registered email and mobile number.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <button
+                  onClick={handleGenerateUpn}
+                  disabled={generatingUpn}
+                  className="w-full px-6 py-4 rounded-lg bg-primary text-white font-semibold hover:opacity-90 transition-all flex items-center justify-center gap-2 disabled:opacity-50"
+                >
+                  <Key className="w-5 h-5" />
+                  {generatingUpn ? "Generating..." : "Generate UPN Number"}
+                </button>
+              </div>
+            </div>
+          ) : !upnVerified ? (
+            <div className="bg-card rounded-2xl p-6 border border-border">
+              <h3 className="text-xl font-semibold text-primary mb-4 flex items-center gap-2">
+                <Key className="w-5 h-5" />
+                Verify UPN Number
+              </h3>
+              <div className="space-y-4">
+                <div className="p-4 bg-green-500/10 rounded-lg border border-green-500/20 mb-4">
+                  <div className="flex items-start gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                    <div>
+                      <h4 className="font-semibold text-foreground mb-1">UPN Generated Successfully</h4>
+                      <p className="text-sm text-muted-foreground">
+                        Your UPN has been sent to your registered email and mobile number. Please enter it below to download your allotment letter.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div className="flex gap-3">
+                  <input
+                    type="text"
+                    placeholder="Enter UPN Number"
+                    value={upnVerification}
+                    onChange={(e) => setUpnVerification(e.target.value)}
+                    className="flex-1 px-4 py-3 rounded-lg border border-input bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                  />
+                  <button
+                    onClick={handleVerifyUpn}
+                    className="px-8 py-3 rounded-lg bg-primary text-white font-semibold hover:opacity-90 transition-all"
+                  >
+                    Verify
+                  </button>
+                </div>
+              </div>
+            </div>
+          ) : null}
+
           {/* Action Buttons */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <button className="px-6 py-4 rounded-lg bg-primary text-white font-semibold hover:opacity-90 transition-all flex items-center justify-center gap-2">
+            <button
+              onClick={handleAcceptAllotment}
+              disabled={acceptingAllotment}
+              className="px-6 py-4 rounded-lg bg-primary text-white font-semibold hover:opacity-90 transition-all flex items-center justify-center gap-2 disabled:opacity-50"
+            >
               <CheckCircle2 className="w-5 h-5" />
-              Accept Allotment
+              {acceptingAllotment ? "Processing..." : "Accept Allotment"}
             </button>
-            <button className="px-6 py-4 rounded-lg border-2 border-primary text-primary font-semibold hover:bg-primary hover:text-white transition-all flex items-center justify-center gap-2">
-              <Download className="w-5 h-5" />
-              Download Allotment Letter
-            </button>
+            {upnVerified && (
+              <button className="px-6 py-4 rounded-lg border-2 border-primary text-primary font-semibold hover:bg-primary hover:text-white transition-all flex items-center justify-center gap-2">
+                <Download className="w-5 h-5" />
+                Download Allotment Letter
+              </button>
+            )}
             <button className="px-6 py-4 rounded-lg border-2 border-border text-foreground font-semibold hover:bg-muted transition-all flex items-center justify-center gap-2">
               <Download className="w-5 h-5" />
               Download Receipt
