@@ -61,7 +61,7 @@ export const EMIPaymentManagement = () => {
 
   // Generate remaining payment rows based on selected option
   const generateRemainingPayments = () => {
-    if (!paymentStatuses[2] || !paymentOption || !isPaymentOptionLocked) return [];
+    if (!paymentStatuses[2] || !paymentOption) return [];
     
     const remainingAmount = 1250000; // 50% of 25,00,000
     
@@ -414,6 +414,8 @@ export const EMIPaymentManagement = () => {
                           ) : (
                             <span className="text-sm text-muted-foreground">-</span>
                           )
+                        ) : payment.id > 2 && !isPaymentOptionLocked ? (
+                          <span className="text-sm text-muted-foreground italic">Confirm option to pay</span>
                         ) : (
                           <Button
                             onClick={handlePayNow}
