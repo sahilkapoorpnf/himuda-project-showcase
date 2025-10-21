@@ -416,6 +416,8 @@ export const EMIPaymentManagement = () => {
                           )
                         ) : payment.id > 2 && !isPaymentOptionLocked ? (
                           <span className="text-sm text-muted-foreground italic">Confirm option to pay</span>
+                        ) : payment.id > 2 && isPaymentOptionLocked && paymentOption === "emi" && payment.daysRemaining > 30 ? (
+                          <span className="text-sm text-muted-foreground italic">Available 1 month before due date</span>
                         ) : (
                           <Button
                             onClick={handlePayNow}
