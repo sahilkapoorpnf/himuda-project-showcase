@@ -7,6 +7,7 @@ import { Building2, MapPin, User, Phone, Mail, Home, Calendar, CreditCard, Downl
 import { useToast } from "@/hooks/use-toast";
 import { PaymentGateway } from "@/components/PaymentGateway";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle } from "@/components/ui/alert-dialog";
 
 export const EMIPaymentManagement = () => {
   const [upnNumber, setUpnNumber] = useState("");
@@ -17,6 +18,8 @@ export const EMIPaymentManagement = () => {
     2: false  // Second installment pending
   });
   const [paymentOption, setPaymentOption] = useState<"complete" | "emi" | null>(null);
+  const [isPaymentOptionLocked, setIsPaymentOptionLocked] = useState(false);
+  const [showConfirmDialog, setShowConfirmDialog] = useState(false);
   const { toast } = useToast();
 
   // Mock data - in real app this would come from API
@@ -58,7 +61,7 @@ export const EMIPaymentManagement = () => {
 
   // Generate remaining payment rows based on selected option
   const generateRemainingPayments = () => {
-    if (!paymentStatuses[2] || !paymentOption) return [];
+    if (!paymentStatuses[2] || !paymentOption || !isPaymentOptionLocked) return [];
     
     const remainingAmount = 1250000; // 50% of 25,00,000
     
@@ -123,6 +126,27 @@ export const EMIPaymentManagement = () => {
     toast({
       title: "Payment Successful",
       description: "Your payment has been processed successfully",
+    });
+  };
+
+  const handleSubmitPaymentOption = () => {
+    if (!paymentOption) {
+      toast({
+        title: "Error",
+        description: "Please select a payment option",
+        variant: "destructive",
+      });
+      return;
+    }
+    setShowConfirmDialog(true);
+  };
+
+  const handleConfirmPaymentOption = () => {
+    setIsPaymentOptionLocked(true);
+    setShowConfirmDialog(false);
+    toast({
+      title: "Payment Option Locked",
+      description: `Your ${paymentOption === "complete" ? "Complete Payment" : "EMI"} option has been confirmed`,
     });
   };
 
@@ -285,7 +309,7 @@ export const EMIPaymentManagement = () => {
             </div>
 
             {/* Payment Option Selector - Show after second payment is made */}
-            {paymentStatuses[2] && !paymentOption && (
+            {paymentStatuses[2] && !isPaymentOptionLocked && (
               <div className="mb-6 p-4 bg-accent/10 rounded-lg border border-accent/20">
                 <h4 className="text-lg font-semibold text-primary mb-4">Select Payment Option for Remaining 50%</h4>
                 <RadioGroup value={paymentOption || ""} onValueChange={(value) => setPaymentOption(value as "complete" | "emi")}>
@@ -293,13 +317,38 @@ export const EMIPaymentManagement = () => {
                     <RadioGroupItem value="complete" id="complete" />
                     <Label htmlFor="complete" className="cursor-pointer">Complete Payment (Pay full 50% at once)</Label>
                   </div>
-                  <div className="flex items-center space-x-2">
+                  <div className="flex items-center space-x-2 mb-2">
                     <RadioGroupItem value="emi" id="emi" />
                     <Label htmlFor="emi" className="cursor-pointer">EMI (10 installments over 5 years, 6 months gap)</Label>
                   </div>
                 </RadioGroup>
+                <Button 
+                  onClick={handleSubmitPaymentOption}
+                  className="mt-4 bg-primary text-white hover:bg-primary/90"
+                  disabled={!paymentOption}
+                >
+                  Submit Payment Option
+                </Button>
               </div>
             )}
+
+            {/* Confirmation Dialog */}
+            <AlertDialog open={showConfirmDialog} onOpenChange={setShowConfirmDialog}>
+              <AlertDialogContent>
+                <AlertDialogHeader>
+                  <AlertDialogTitle>Confirm Payment Option</AlertDialogTitle>
+                  <AlertDialogDescription>
+                    You will not be able to update this option after submitting. Are you sure you want to proceed with the {paymentOption === "complete" ? "Complete Payment" : "EMI"} option?
+                  </AlertDialogDescription>
+                </AlertDialogHeader>
+                <AlertDialogFooter>
+                  <AlertDialogCancel>Cancel</AlertDialogCancel>
+                  <AlertDialogAction onClick={handleConfirmPaymentOption}>
+                    Yes, Confirm
+                  </AlertDialogAction>
+                </AlertDialogFooter>
+              </AlertDialogContent>
+            </AlertDialog>
 
             <div className="rounded-lg border border-border overflow-hidden">
               <Table>
