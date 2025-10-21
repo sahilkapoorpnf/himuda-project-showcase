@@ -24,6 +24,7 @@ import { AllotteePropertiesTable } from "@/components/AllotteePropertiesTable";
 import { PaymentGateway } from "@/components/PaymentGateway";
 import { PaymentSuccess } from "@/components/PaymentSuccess";
 import { AllotmentStatusCheck } from "@/components/AllotmentStatusCheck";
+import { EMIPaymentManagement } from "@/components/EMIPaymentManagement";
 import { ChevronLeft, ChevronRight, Home, Search, FileText, UserCheck, Download, Building2, Filter, MapPin, Calendar, FileCheck, User, CreditCard, Bell, Edit, MessageSquare, Shield, CheckCircle2, Forward, Upload, FileSpreadsheet, Megaphone, FolderCheck, Settings, DollarSign, Receipt, TrendingUp, FileBarChart, RefreshCw, AlertCircle, PieChart, Wallet, Crown, Users, Lock, Globe, Activity, Database, BarChart3, Target, Newspaper, Mail, Smartphone, BellRing, Clock, Send, AlertTriangle, Phone, Zap } from 'lucide-react';
 
 import heroProperty from '@/assets/hero-property.jpg';
@@ -1115,19 +1116,19 @@ const Index = () => {
       </div>
     </div>,
 
-    // Slide 14: Applications Management Dashboard
-    <div key="applications-dashboard" className="min-h-screen bg-gradient-to-br from-background via-accent/5 to-background">
+    // Slide 14: EMI & Payment Management
+    <div key="emi-payment-management" className="min-h-screen bg-gradient-to-br from-background via-accent/5 to-background">
       <DashboardHeader />
       
       <div className="flex w-full pt-[8.5rem]">
         <DashboardSidebar 
-          activeSection="dashboard"
+          activeSection="payments"
           onSectionChange={() => {}}
         />
         
         <main className="flex-1 p-8 overflow-y-auto max-h-[calc(100vh-8.5rem)]">
           <div className="max-w-7xl mx-auto">
-            <ApplicationsTable />
+            <EMIPaymentManagement />
           </div>
         </main>
       </div>
