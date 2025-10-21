@@ -6,6 +6,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { Building2, MapPin, User, Phone, Mail, Home, Calendar, CreditCard, Download } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { PaymentGateway } from "@/components/PaymentGateway";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
 export const EMIPaymentManagement = () => {
   const [upnNumber, setUpnNumber] = useState("");
@@ -15,6 +16,7 @@ export const EMIPaymentManagement = () => {
     1: true,  // Booking amount is already paid
     2: false  // Second installment pending
   });
+  const [paymentOption, setPaymentOption] = useState<"complete" | "emi" | null>(null);
   const { toast } = useToast();
 
   // Mock data - in real app this would come from API
@@ -53,6 +55,45 @@ export const EMIPaymentManagement = () => {
       }
     ]
   };
+
+  // Generate remaining payment rows based on selected option
+  const generateRemainingPayments = () => {
+    if (!paymentStatuses[2] || !paymentOption) return [];
+    
+    const remainingAmount = 1250000; // 50% of 25,00,000
+    
+    if (paymentOption === "complete") {
+      return [{
+        id: 3,
+        description: "Final Payment (50%)",
+        amount: "₹12,50,000",
+        dueDate: new Date(Date.now() + 45 * 24 * 60 * 60 * 1000).toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' }),
+        daysRemaining: 45,
+        status: "Pending",
+        isPaid: false
+      }];
+    } else {
+      // Generate 10 EMIs with 6 months gap
+      const emiAmount = remainingAmount / 10;
+      return Array.from({ length: 10 }, (_, i) => {
+        const monthsFromNow = (i + 1) * 6;
+        const dueDate = new Date();
+        dueDate.setMonth(dueDate.getMonth() + monthsFromNow);
+        
+        return {
+          id: 3 + i,
+          description: `EMI ${i + 1}/10 (5% each)`,
+          amount: `₹${(emiAmount / 100000).toFixed(2)} Lakh`,
+          dueDate: dueDate.toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' }),
+          daysRemaining: Math.ceil((dueDate.getTime() - Date.now()) / (1000 * 60 * 60 * 24)),
+          status: "Pending",
+          isPaid: false
+        };
+      });
+    }
+  };
+
+  const allPayments = [...propertyData.payments, ...generateRemainingPayments()];
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -230,6 +271,23 @@ export const EMIPaymentManagement = () => {
               </h3>
             </div>
 
+            {/* Payment Option Selector - Show after second payment is made */}
+            {paymentStatuses[2] && !paymentOption && (
+              <div className="mb-6 p-4 bg-accent/10 rounded-lg border border-accent/20">
+                <h4 className="text-lg font-semibold text-primary mb-4">Select Payment Option for Remaining 50%</h4>
+                <RadioGroup value={paymentOption || ""} onValueChange={(value) => setPaymentOption(value as "complete" | "emi")}>
+                  <div className="flex items-center space-x-2 mb-2">
+                    <RadioGroupItem value="complete" id="complete" />
+                    <Label htmlFor="complete" className="cursor-pointer">Complete Payment (Pay full 50% at once)</Label>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <RadioGroupItem value="emi" id="emi" />
+                    <Label htmlFor="emi" className="cursor-pointer">EMI (10 installments over 5 years, 6 months gap)</Label>
+                  </div>
+                </RadioGroup>
+              </div>
+            )}
+
             <div className="rounded-lg border border-border overflow-hidden">
               <Table>
                 <TableHeader>
@@ -242,7 +300,7 @@ export const EMIPaymentManagement = () => {
                   </TableRow>
                 </TableHeader>
                 <TableBody>
-                  {propertyData.payments.map((payment) => (
+                  {allPayments.map((payment) => (
                     <TableRow key={payment.id}>
                       <TableCell className="font-medium text-foreground">
                         {payment.description}
@@ -254,7 +312,7 @@ export const EMIPaymentManagement = () => {
                         {payment.isPaid ? (
                           <div className="flex items-center gap-2">
                             <Calendar className="w-4 h-4 text-muted-foreground" />
-                            {payment.date}
+                            {'date' in payment ? payment.date : payment.dueDate}
                           </div>
                         ) : (
                           <div>
