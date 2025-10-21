@@ -2,6 +2,7 @@ import { useState } from "react";
 import { DashboardHeader } from "@/components/DashboardHeader";
 import { DashboardSidebar } from "@/components/DashboardSidebar";
 import { ApplicationsTable } from "@/components/ApplicationsTable";
+import { EMIPaymentManagement } from "@/components/EMIPaymentManagement";
 
 export default function Dashboard() {
   const [activeSection, setActiveSection] = useState("applications");
@@ -24,12 +25,7 @@ export default function Dashboard() {
               <p className="text-muted-foreground mt-2">Coming soon...</p>
             </div>
           )}
-          {activeSection === "payments" && (
-            <div className="text-center py-12">
-              <h2 className="text-2xl font-bold text-primary">Payment Management</h2>
-              <p className="text-muted-foreground mt-2">Coming soon...</p>
-            </div>
-          )}
+          {activeSection === "payments" && <EMIPaymentManagement />}
           {activeSection === "documents" && (
             <div className="text-center py-12">
               <h2 className="text-2xl font-bold text-primary">Document Management</h2>
