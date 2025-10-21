@@ -264,10 +264,23 @@ export const EMIPaymentManagement = () => {
 
           {/* Payment Table */}
           <div className="bg-card rounded-xl p-6 border border-border shadow-sm">
+            {/* Delay Payment Penalty Information */}
+            <div className="mb-6 p-4 bg-yellow-500/10 rounded-lg border border-yellow-500/20">
+              <h4 className="text-lg font-semibold text-yellow-700 dark:text-yellow-500 mb-2 flex items-center gap-2">
+                <CreditCard className="w-5 h-5" />
+                Delay Payment Penalty (HIMUDA Guidelines)
+              </h4>
+              <div className="text-sm text-muted-foreground space-y-1">
+                <p>• <span className="font-semibold">0.1% interest per month</span> will be charged on delayed EMI payments for the first 3 months from the due date.</p>
+                <p>• After 3 months, the interest rate increases to <span className="font-semibold">0.2% per month</span> on the outstanding amount.</p>
+                <p className="text-xs text-yellow-700 dark:text-yellow-500 mt-2">* Please ensure timely payment to avoid penalty charges.</p>
+              </div>
+            </div>
+
             <div className="flex items-center gap-2 mb-6">
               <CreditCard className="w-6 h-6 text-primary" />
               <h3 className="text-xl font-semibold text-primary">
-                Consideration Amount: {propertyData.considerationAmount}
+                Total Consideration Amount: {propertyData.considerationAmount}
               </h3>
             </div>
 
