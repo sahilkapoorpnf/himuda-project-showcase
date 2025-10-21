@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Building2, MapPin, User, Phone, Mail, Home, Calendar, CreditCard } from "lucide-react";
+import { Building2, MapPin, User, Phone, Mail, Home, Calendar, CreditCard, Download } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { PaymentGateway } from "@/components/PaymentGateway";
 
@@ -11,6 +11,10 @@ export const EMIPaymentManagement = () => {
   const [upnNumber, setUpnNumber] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [showPaymentGateway, setShowPaymentGateway] = useState(false);
+  const [paymentStatuses, setPaymentStatuses] = useState({
+    1: true,  // Booking amount is already paid
+    2: false  // Second installment pending
+  });
   const { toast } = useToast();
 
   // Mock data - in real app this would come from API
@@ -34,17 +38,18 @@ export const EMIPaymentManagement = () => {
         description: "Booking Amount (10%)",
         amount: "₹2,50,000",
         date: "15 Jan 2025",
-        status: "Paid",
-        isPaid: true
+        status: paymentStatuses[1] ? "Paid" : "Pending",
+        isPaid: paymentStatuses[1]
       },
       {
         id: 2,
         description: "Second Installment (40%)",
         amount: "₹10,00,000",
+        date: "20 Feb 2025",
         dueDate: "1 Mar 2025",
         daysRemaining: 45,
-        status: "Pending",
-        isPaid: false
+        status: paymentStatuses[2] ? "Paid" : "Pending",
+        isPaid: paymentStatuses[2]
       }
     ]
   };
@@ -72,14 +77,27 @@ export const EMIPaymentManagement = () => {
 
   const handlePaymentSuccess = () => {
     setShowPaymentGateway(false);
+    // Update payment status for second installment
+    setPaymentStatuses(prev => ({ ...prev, 2: true }));
     toast({
       title: "Payment Successful",
       description: "Your payment has been processed successfully",
     });
-    // Reload or update payment status
-    setTimeout(() => {
-      window.location.reload();
-    }, 2000);
+  };
+
+  const handleDownloadAgreement = () => {
+    // Create a link and trigger download
+    const link = document.createElement('a');
+    link.href = '/documents/Agreement_Letter.pdf';
+    link.download = 'Agreement_Letter.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    
+    toast({
+      title: "Download Started",
+      description: "Agreement letter is being downloaded",
+    });
   };
 
   if (showPaymentGateway) {
@@ -263,7 +281,19 @@ export const EMIPaymentManagement = () => {
                       </TableCell>
                       <TableCell>
                         {payment.isPaid ? (
-                          <span className="text-sm text-muted-foreground">-</span>
+                          payment.id === 2 ? (
+                            <Button
+                              onClick={handleDownloadAgreement}
+                              variant="outline"
+                              size="sm"
+                              className="gap-2"
+                            >
+                              <Download className="w-4 h-4" />
+                              Download Agreement Letter
+                            </Button>
+                          ) : (
+                            <span className="text-sm text-muted-foreground">-</span>
+                          )
                         ) : (
                           <Button
                             onClick={handlePayNow}
