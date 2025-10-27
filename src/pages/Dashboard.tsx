@@ -3,6 +3,7 @@ import { DashboardHeader } from "@/components/DashboardHeader";
 import { DashboardSidebar } from "@/components/DashboardSidebar";
 import { ApplicationsTable } from "@/components/ApplicationsTable";
 import { EMIPaymentManagement } from "@/components/EMIPaymentManagement";
+import { ChangeOwnershipForm } from "@/components/ChangeOwnershipForm";
 
 export default function Dashboard() {
   const [activeSection, setActiveSection] = useState("applications");
@@ -38,6 +39,7 @@ export default function Dashboard() {
               <p className="text-muted-foreground mt-2">Coming soon...</p>
             </div>
           )}
+          {activeSection === "change-ownership" && <ChangeOwnershipForm />}
         </main>
       </div>
     </div>
