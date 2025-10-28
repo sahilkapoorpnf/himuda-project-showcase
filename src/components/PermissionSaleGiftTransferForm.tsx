@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
-import { Building2, User, Users, FileText, DollarSign } from "lucide-react";
+import { Building2, User, Users, FileText } from "lucide-react";
 
 export const PermissionSaleGiftTransferForm = () => {
   const [upnNumber, setUpnNumber] = useState("");
@@ -32,7 +32,6 @@ export const PermissionSaleGiftTransferForm = () => {
     legalHeirOf: "",
     legalHeirName: "",
     relationshipWithPurchaser: "",
-    processingFee: "",
   });
 
   const handleUpnSubmit = (e: React.FormEvent) => {
@@ -54,7 +53,6 @@ export const PermissionSaleGiftTransferForm = () => {
       reservedPrice: "₹25,00,000",
       saleType: "Outright Sale",
       usageType: "Residential",
-      processingFee: "₹5,000",
     });
     setShowForm(true);
     toast.success("Property details loaded successfully");
@@ -328,19 +326,8 @@ export const PermissionSaleGiftTransferForm = () => {
                 <li>Self attested copy of sanction of Sewerage Connection / Occupation Certificate (if obtained)</li>
                 <li>Photo identity proof of All Purchasers</li>
                 <li>Photo Identity Proof of All Sellers</li>
+                <li>Processing Fee in case of Residential Plot 10,300 /- including GST, Commercial Plot 20,600 /- including GST (Annually increases 10% from 1, April)</li>
               </ul>
-            </div>
-
-            {/* Processing Fee */}
-            <div className="space-y-4">
-              <h3 className="text-xl font-bold text-primary flex items-center gap-2 border-b pb-2">
-                <DollarSign className="h-5 w-5" />
-                Processing Fee
-              </h3>
-              <div className="space-y-2">
-                <Label htmlFor="processingFee">Processing Fee</Label>
-                <Input id="processingFee" value={formData.processingFee} disabled />
-              </div>
             </div>
 
             <div className="flex gap-4 pt-4">
