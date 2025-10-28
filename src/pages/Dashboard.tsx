@@ -5,6 +5,8 @@ import { ApplicationsTable } from "@/components/ApplicationsTable";
 import { EMIPaymentManagement } from "@/components/EMIPaymentManagement";
 import { ChangeOwnershipForm } from "@/components/ChangeOwnershipForm";
 import { ChangeOwnershipDeathCaseForm } from "@/components/ChangeOwnershipDeathCaseForm";
+import { ChangeOwnershipDeathCaseAllLegalHeirsForm } from "@/components/ChangeOwnershipDeathCaseAllLegalHeirsForm";
+import { ChangeOwnershipDeathCaseRegisteredWillForm } from "@/components/ChangeOwnershipDeathCaseRegisteredWillForm";
 
 export default function Dashboard() {
   const [activeSection, setActiveSection] = useState("applications");
@@ -42,6 +44,8 @@ export default function Dashboard() {
           )}
           {activeSection === "change-ownership" && <ChangeOwnershipForm />}
           {activeSection === "change-ownership-death-case" && <ChangeOwnershipDeathCaseForm />}
+          {activeSection === "change-ownership-death-case-all-heirs" && <ChangeOwnershipDeathCaseAllLegalHeirsForm />}
+          {activeSection === "change-ownership-death-case-registered-will" && <ChangeOwnershipDeathCaseRegisteredWillForm />}
         </main>
       </div>
     </div>

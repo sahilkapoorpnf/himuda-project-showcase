@@ -27,6 +27,8 @@ import { AllotmentStatusCheck } from "@/components/AllotmentStatusCheck";
 import { EMIPaymentManagement } from "@/components/EMIPaymentManagement";
 import { ChangeOwnershipForm } from "@/components/ChangeOwnershipForm";
 import { ChangeOwnershipDeathCaseForm } from "@/components/ChangeOwnershipDeathCaseForm";
+import { ChangeOwnershipDeathCaseAllLegalHeirsForm } from "@/components/ChangeOwnershipDeathCaseAllLegalHeirsForm";
+import { ChangeOwnershipDeathCaseRegisteredWillForm } from "@/components/ChangeOwnershipDeathCaseRegisteredWillForm";
 import { ChevronLeft, ChevronRight, Home, Search, FileText, UserCheck, Download, Building2, Filter, MapPin, Calendar, FileCheck, User, CreditCard, Bell, Edit, MessageSquare, Shield, CheckCircle2, Forward, Upload, FileSpreadsheet, Megaphone, FolderCheck, Settings, DollarSign, Receipt, TrendingUp, FileBarChart, RefreshCw, AlertCircle, PieChart, Wallet, Crown, Users, Lock, Globe, Activity, Database, BarChart3, Target, Newspaper, Mail, Smartphone, BellRing, Clock, Send, AlertTriangle, Phone, Zap } from 'lucide-react';
 
 import heroProperty from '@/assets/hero-property.jpg';
@@ -1172,7 +1174,43 @@ const Index = () => {
       </div>
     </div>,
 
-    // Slide 17: Superadmin Dashboard
+    // Slide 17: Change of Ownership (Death Case All Legal Heirs)
+    <div key="change-ownership-death-case-all-heirs" className="min-h-screen bg-gradient-to-br from-background via-accent/5 to-background">
+      <DashboardHeader />
+      
+      <div className="flex w-full pt-[8.5rem]">
+        <DashboardSidebar 
+          activeSection="change-ownership-death-case-all-heirs"
+          onSectionChange={() => {}}
+        />
+        
+        <main className="flex-1 p-8 overflow-y-auto max-h-[calc(100vh-8.5rem)]">
+          <div className="max-w-7xl mx-auto">
+            <ChangeOwnershipDeathCaseAllLegalHeirsForm />
+          </div>
+        </main>
+      </div>
+    </div>,
+
+    // Slide 18: Change of Ownership (Death Case Registered Will)
+    <div key="change-ownership-death-case-registered-will" className="min-h-screen bg-gradient-to-br from-background via-accent/5 to-background">
+      <DashboardHeader />
+      
+      <div className="flex w-full pt-[8.5rem]">
+        <DashboardSidebar 
+          activeSection="change-ownership-death-case-registered-will"
+          onSectionChange={() => {}}
+        />
+        
+        <main className="flex-1 p-8 overflow-y-auto max-h-[calc(100vh-8.5rem)]">
+          <div className="max-w-7xl mx-auto">
+            <ChangeOwnershipDeathCaseRegisteredWillForm />
+          </div>
+        </main>
+      </div>
+    </div>,
+
+    // Slide 19: Superadmin Dashboard
     <div key="superadmin-dashboard" className="min-h-screen bg-gradient-to-br from-background via-accent/5 to-background">
       <DashboardHeader />
       
