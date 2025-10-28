@@ -12,6 +12,7 @@ import { NoDueCertificateForm } from "@/components/NoDueCertificateForm";
 import { ReallotmentLetterForm } from "@/components/ReallotmentLetterForm";
 import { PermissionSaleGiftTransferForm } from "@/components/PermissionSaleGiftTransferForm";
 import { PermissionToMortgageForm } from "@/components/PermissionToMortgageForm";
+import { TransferLetterOfIntentForm } from "@/components/TransferLetterOfIntentForm";
 
 export default function Dashboard() {
   const [activeSection, setActiveSection] = useState("applications");
@@ -56,6 +57,7 @@ export default function Dashboard() {
           {activeSection === "reallotment-letter" && <ReallotmentLetterForm />}
           {activeSection === "permission-sale-gift-transfer" && <PermissionSaleGiftTransferForm />}
           {activeSection === "permission-to-mortgage" && <PermissionToMortgageForm />}
+          {activeSection === "transfer-letter-of-intent" && <TransferLetterOfIntentForm />}
         </main>
       </div>
     </div>

@@ -24,6 +24,7 @@ export const DashboardSidebar = ({ activeSection, onSectionChange }: DashboardSi
     { id: "reallotment-letter", label: "Issue of Re-allotment Letter", icon: FileText },
     { id: "permission-sale-gift-transfer", label: "Permission for Sale/Gift/Transfer", icon: FileCheck },
     { id: "permission-to-mortgage", label: "Permission to Mortgage", icon: Building2 },
+    { id: "transfer-letter-of-intent", label: "Transfer of Letter of Intent", icon: FileText },
     { id: "grievance", label: "Grievance / Query", icon: Settings },
   ];
 
