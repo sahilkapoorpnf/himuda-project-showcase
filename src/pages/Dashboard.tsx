@@ -8,6 +8,7 @@ import { ChangeOwnershipDeathCaseForm } from "@/components/ChangeOwnershipDeathC
 import { ChangeOwnershipDeathCaseAllLegalHeirsForm } from "@/components/ChangeOwnershipDeathCaseAllLegalHeirsForm";
 import { ChangeOwnershipDeathCaseRegisteredWillForm } from "@/components/ChangeOwnershipDeathCaseRegisteredWillForm";
 import { ConveyanceDeedForm } from "@/components/ConveyanceDeedForm";
+import { NoDueCertificateForm } from "@/components/NoDueCertificateForm";
 
 export default function Dashboard() {
   const [activeSection, setActiveSection] = useState("applications");
@@ -48,6 +49,7 @@ export default function Dashboard() {
           {activeSection === "change-ownership-death-case-all-heirs" && <ChangeOwnershipDeathCaseAllLegalHeirsForm />}
           {activeSection === "change-ownership-death-case-registered-will" && <ChangeOwnershipDeathCaseRegisteredWillForm />}
           {activeSection === "conveyance-deed" && <ConveyanceDeedForm />}
+          {activeSection === "no-due-certificate" && <NoDueCertificateForm />}
         </main>
       </div>
     </div>
