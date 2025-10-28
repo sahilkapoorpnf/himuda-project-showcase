@@ -228,7 +228,7 @@ export const ChangeOwnershipDeathCaseForm = () => {
           <Card>
             <CardHeader>
               <CardTitle>Documents Required</CardTitle>
-              <CardDescription>Please upload all required documents</CardDescription>
+              <CardDescription>All documents require physical verification</CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="space-y-4 p-4 bg-accent/10 rounded-lg">
@@ -263,11 +263,6 @@ export const ChangeOwnershipDeathCaseForm = () => {
                     <span>Affidavits of attesting witnesses in prescribed format (Physical verification required)</span>
                   </li>
                 </ul>
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="documents">Upload All Required Documents</Label>
-                <Input id="documents" type="file" multiple />
               </div>
             </CardContent>
           </Card>
