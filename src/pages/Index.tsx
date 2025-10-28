@@ -31,6 +31,7 @@ import { ChangeOwnershipDeathCaseAllLegalHeirsForm } from "@/components/ChangeOw
 import { ChangeOwnershipDeathCaseRegisteredWillForm } from "@/components/ChangeOwnershipDeathCaseRegisteredWillForm";
 import { ConveyanceDeedForm } from "@/components/ConveyanceDeedForm";
 import { NoDueCertificateForm } from "@/components/NoDueCertificateForm";
+import { ReallotmentLetterForm } from "@/components/ReallotmentLetterForm";
 import { ChevronLeft, ChevronRight, Home, Search, FileText, UserCheck, Download, Building2, Filter, MapPin, Calendar, FileCheck, User, CreditCard, Bell, Edit, MessageSquare, Shield, CheckCircle2, Forward, Upload, FileSpreadsheet, Megaphone, FolderCheck, Settings, DollarSign, Receipt, TrendingUp, FileBarChart, RefreshCw, AlertCircle, PieChart, Wallet, Crown, Users, Lock, Globe, Activity, Database, BarChart3, Target, Newspaper, Mail, Smartphone, BellRing, Clock, Send, AlertTriangle, Phone, Zap } from 'lucide-react';
 
 import heroProperty from '@/assets/hero-property.jpg';
@@ -1248,7 +1249,25 @@ const Index = () => {
       </div>
     </div>,
 
-    // Slide 21: Superadmin Dashboard
+    // Slide 21: Issue of Re-allotment Letter
+    <div key="reallotment-letter" className="min-h-screen bg-gradient-to-br from-background via-accent/5 to-background">
+      <DashboardHeader />
+      
+      <div className="flex w-full pt-[8.5rem]">
+        <DashboardSidebar 
+          activeSection="reallotment-letter"
+          onSectionChange={() => {}}
+        />
+        
+        <main className="flex-1 p-8 overflow-y-auto max-h-[calc(100vh-8.5rem)]">
+          <div className="max-w-7xl mx-auto">
+            <ReallotmentLetterForm />
+          </div>
+        </main>
+      </div>
+    </div>,
+
+    // Slide 22: Superadmin Dashboard
     <div key="superadmin-dashboard" className="min-h-screen bg-gradient-to-br from-background via-accent/5 to-background">
       <DashboardHeader />
       
