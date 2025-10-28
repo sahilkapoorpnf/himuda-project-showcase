@@ -16,6 +16,7 @@ export const DashboardSidebar = ({ activeSection, onSectionChange }: DashboardSi
     { id: "post-allotment", label: "Post-Allotment Requests", icon: FolderOpen },
     { id: "lease", label: "Lease Management", icon: Receipt },
     { id: "change-ownership", label: "Change of Ownership", icon: Users },
+    { id: "change-ownership-death-case", label: "Change of Ownership (Death Case Unregistered Will)", icon: User },
     { id: "grievance", label: "Grievance / Query", icon: Settings },
   ];
 

@@ -4,6 +4,7 @@ import { DashboardSidebar } from "@/components/DashboardSidebar";
 import { ApplicationsTable } from "@/components/ApplicationsTable";
 import { EMIPaymentManagement } from "@/components/EMIPaymentManagement";
 import { ChangeOwnershipForm } from "@/components/ChangeOwnershipForm";
+import { ChangeOwnershipDeathCaseForm } from "@/components/ChangeOwnershipDeathCaseForm";
 
 export default function Dashboard() {
   const [activeSection, setActiveSection] = useState("applications");
@@ -40,6 +41,7 @@ export default function Dashboard() {
             </div>
           )}
           {activeSection === "change-ownership" && <ChangeOwnershipForm />}
+          {activeSection === "change-ownership-death-case" && <ChangeOwnershipDeathCaseForm />}
         </main>
       </div>
     </div>
