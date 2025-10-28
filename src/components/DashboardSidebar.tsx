@@ -19,6 +19,7 @@ export const DashboardSidebar = ({ activeSection, onSectionChange }: DashboardSi
     { id: "change-ownership-death-case", label: "Change of Ownership (Death Case Unregistered Will)", icon: User },
     { id: "change-ownership-death-case-all-heirs", label: "Change of Ownership (Death Case All Legal Heirs)", icon: User },
     { id: "change-ownership-death-case-registered-will", label: "Change of Ownership (Death Case Registered Will)", icon: User },
+    { id: "conveyance-deed", label: "Issuance of Conveyance Deed", icon: FileCheck },
     { id: "grievance", label: "Grievance / Query", icon: Settings },
   ];
 

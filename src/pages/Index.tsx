@@ -29,6 +29,7 @@ import { ChangeOwnershipForm } from "@/components/ChangeOwnershipForm";
 import { ChangeOwnershipDeathCaseForm } from "@/components/ChangeOwnershipDeathCaseForm";
 import { ChangeOwnershipDeathCaseAllLegalHeirsForm } from "@/components/ChangeOwnershipDeathCaseAllLegalHeirsForm";
 import { ChangeOwnershipDeathCaseRegisteredWillForm } from "@/components/ChangeOwnershipDeathCaseRegisteredWillForm";
+import { ConveyanceDeedForm } from "@/components/ConveyanceDeedForm";
 import { ChevronLeft, ChevronRight, Home, Search, FileText, UserCheck, Download, Building2, Filter, MapPin, Calendar, FileCheck, User, CreditCard, Bell, Edit, MessageSquare, Shield, CheckCircle2, Forward, Upload, FileSpreadsheet, Megaphone, FolderCheck, Settings, DollarSign, Receipt, TrendingUp, FileBarChart, RefreshCw, AlertCircle, PieChart, Wallet, Crown, Users, Lock, Globe, Activity, Database, BarChart3, Target, Newspaper, Mail, Smartphone, BellRing, Clock, Send, AlertTriangle, Phone, Zap } from 'lucide-react';
 
 import heroProperty from '@/assets/hero-property.jpg';
@@ -1210,7 +1211,25 @@ const Index = () => {
       </div>
     </div>,
 
-    // Slide 19: Superadmin Dashboard
+    // Slide 19: Issuance of Conveyance Deed
+    <div key="conveyance-deed" className="min-h-screen bg-gradient-to-br from-background via-accent/5 to-background">
+      <DashboardHeader />
+      
+      <div className="flex w-full pt-[8.5rem]">
+        <DashboardSidebar 
+          activeSection="conveyance-deed"
+          onSectionChange={() => {}}
+        />
+        
+        <main className="flex-1 p-8 overflow-y-auto max-h-[calc(100vh-8.5rem)]">
+          <div className="max-w-7xl mx-auto">
+            <ConveyanceDeedForm />
+          </div>
+        </main>
+      </div>
+    </div>,
+
+    // Slide 20: Superadmin Dashboard
     <div key="superadmin-dashboard" className="min-h-screen bg-gradient-to-br from-background via-accent/5 to-background">
       <DashboardHeader />
       
