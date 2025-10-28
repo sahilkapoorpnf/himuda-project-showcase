@@ -11,6 +11,7 @@ import { ConveyanceDeedForm } from "@/components/ConveyanceDeedForm";
 import { NoDueCertificateForm } from "@/components/NoDueCertificateForm";
 import { ReallotmentLetterForm } from "@/components/ReallotmentLetterForm";
 import { PermissionSaleGiftTransferForm } from "@/components/PermissionSaleGiftTransferForm";
+import { PermissionToMortgageForm } from "@/components/PermissionToMortgageForm";
 
 export default function Dashboard() {
   const [activeSection, setActiveSection] = useState("applications");
@@ -54,6 +55,7 @@ export default function Dashboard() {
           {activeSection === "no-due-certificate" && <NoDueCertificateForm />}
           {activeSection === "reallotment-letter" && <ReallotmentLetterForm />}
           {activeSection === "permission-sale-gift-transfer" && <PermissionSaleGiftTransferForm />}
+          {activeSection === "permission-to-mortgage" && <PermissionToMortgageForm />}
         </main>
       </div>
     </div>
