@@ -22,6 +22,7 @@ export const DashboardSidebar = ({ activeSection, onSectionChange }: DashboardSi
     { id: "conveyance-deed", label: "Issuance of Conveyance Deed", icon: FileCheck },
     { id: "no-due-certificate", label: "Issue of No Due Certificate", icon: Receipt },
     { id: "reallotment-letter", label: "Issue of Re-allotment Letter", icon: FileText },
+    { id: "permission-sale-gift-transfer", label: "Permission for Sale/Gift/Transfer", icon: FileCheck },
     { id: "grievance", label: "Grievance / Query", icon: Settings },
   ];
 
