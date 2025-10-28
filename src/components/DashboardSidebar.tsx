@@ -25,6 +25,7 @@ export const DashboardSidebar = ({ activeSection, onSectionChange }: DashboardSi
     { id: "permission-sale-gift-transfer", label: "Permission for Sale/Gift/Transfer", icon: FileCheck },
     { id: "permission-to-mortgage", label: "Permission to Mortgage", icon: Building2 },
     { id: "transfer-letter-of-intent", label: "Transfer of Letter of Intent", icon: FileText },
+    { id: "transfer-permission-before-cd", label: "Transfer Permission (Before CD)", icon: FileCheck },
     { id: "grievance", label: "Grievance / Query", icon: Settings },
   ];
 

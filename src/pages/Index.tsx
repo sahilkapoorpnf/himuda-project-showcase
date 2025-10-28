@@ -35,6 +35,7 @@ import { ReallotmentLetterForm } from "@/components/ReallotmentLetterForm";
 import { PermissionSaleGiftTransferForm } from "@/components/PermissionSaleGiftTransferForm";
 import { PermissionToMortgageForm } from "@/components/PermissionToMortgageForm";
 import { TransferLetterOfIntentForm } from "@/components/TransferLetterOfIntentForm";
+import { TransferPermissionBeforeCDForm } from "@/components/TransferPermissionBeforeCDForm";
 import { ChevronLeft, ChevronRight, Home, Search, FileText, UserCheck, Download, Building2, Filter, MapPin, Calendar, FileCheck, User, CreditCard, Bell, Edit, MessageSquare, Shield, CheckCircle2, Forward, Upload, FileSpreadsheet, Megaphone, FolderCheck, Settings, DollarSign, Receipt, TrendingUp, FileBarChart, RefreshCw, AlertCircle, PieChart, Wallet, Crown, Users, Lock, Globe, Activity, Database, BarChart3, Target, Newspaper, Mail, Smartphone, BellRing, Clock, Send, AlertTriangle, Phone, Zap } from 'lucide-react';
 
 import heroProperty from '@/assets/hero-property.jpg';
@@ -1324,7 +1325,25 @@ const Index = () => {
       </div>
     </div>,
 
-    // Slide 25: Superadmin Dashboard
+    // Slide 25: Transfer Permission (Before CD)
+    <div key="transfer-permission-before-cd" className="min-h-screen bg-gradient-to-br from-background via-accent/5 to-background">
+      <DashboardHeader />
+      
+      <div className="flex w-full pt-[8.5rem]">
+        <DashboardSidebar 
+          activeSection="transfer-permission-before-cd"
+          onSectionChange={() => {}}
+        />
+        
+        <main className="flex-1 p-8 overflow-y-auto max-h-[calc(100vh-8.5rem)]">
+          <div className="max-w-7xl mx-auto">
+            <TransferPermissionBeforeCDForm />
+          </div>
+        </main>
+      </div>
+    </div>,
+
+    // Slide 26: Superadmin Dashboard
     <div key="superadmin-dashboard" className="min-h-screen bg-gradient-to-br from-background via-accent/5 to-background">
       <DashboardHeader />
       
