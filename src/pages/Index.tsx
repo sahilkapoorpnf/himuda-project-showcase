@@ -2636,66 +2636,10 @@ const Index = () => {
       </div>
     </div>,
 
-    // Slide 30: Thank You
-    <PresentationSlide key="thank-you" gradient="hero">
-      <div className="flex items-center justify-center min-h-screen">
-        <div className="text-center text-white space-y-10 max-w-4xl mx-auto px-8">
-          <div className="flex items-center justify-center gap-8 mb-12 animate-fade-in">
-            <img 
-              src={himudaLogo} 
-              alt="HIMUDA Logo" 
-              className="h-24 object-contain brightness-0 invert drop-shadow-2xl"
-            />
-            <div className="h-24 w-px bg-white/30" />
-            <img 
-              src={bitdecentroLogo} 
-              alt="Bitdecentro Logo" 
-              className="h-16 object-contain brightness-0 invert drop-shadow-2xl"
-            />
-          </div>
-
-          <h2 className="text-7xl font-bold mb-8 animate-fade-in" style={{ animationDelay: '0.2s' }}>
-            Thank You
-          </h2>
-          
-          <div className="h-1 w-32 bg-accent mx-auto mb-8 animate-fade-in" style={{ animationDelay: '0.4s' }} />
-
-          <p className="text-3xl text-white/95 leading-relaxed mb-8 animate-fade-in" style={{ animationDelay: '0.6s' }}>
-            We are honored that <span className="font-bold text-accent">HIMUDA</span> has trusted{' '}
-            <span className="font-bold text-secondary">Bitdecentro</span> as your technology partner
-          </p>
-
-          <p className="text-2xl text-white/90 leading-relaxed animate-fade-in" style={{ animationDelay: '0.8s' }}>
-            Thank you for giving us this incredible opportunity to contribute to{' '}
-            <span className="font-semibold">Himachal Pradesh's digital transformation</span>
-          </p>
-
-          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-10 border border-white/20 mt-12 animate-fade-in" style={{ animationDelay: '1s' }}>
-            <p className="text-xl text-white/95 italic">
-              "We are committed to delivering excellence and building a platform that will serve{' '}
-              the citizens of Himachal Pradesh with distinction"
-            </p>
-            <div className="mt-6 pt-6 border-t border-white/20">
-              <p className="text-lg font-semibold text-accent">Sahil Kapoor</p>
-              <p className="text-sm text-white/70 mt-1">CEO, Bitdecentro</p>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 text-white/80 animate-fade-in max-w-2xl mx-auto" style={{ animationDelay: '1.2s' }}>
-            <div className="flex items-center justify-center gap-2">
-              <Mail className="w-5 h-5 shrink-0" />
-              <span className="text-sm">sahil@bitdecentro.com</span>
-            </div>
-            <div className="flex items-center justify-center gap-2">
-              <Phone className="w-5 h-5 shrink-0" />
-              <span className="text-sm">+91 78370 06262</span>
-            </div>
-            <div className="flex items-center justify-center gap-2">
-              <Globe className="w-5 h-5 shrink-0" />
-              <span className="text-sm">www.bitdecentro.com</span>
-            </div>
-          </div>
-        </div>
+    // Slide 30: Application Management with Statistics
+    <PresentationSlide key="application-management" gradient="none">
+      <div className="min-h-screen py-16 px-8">
+        <SuperadminApplicationManagementNew />
       </div>
     </PresentationSlide>,
 

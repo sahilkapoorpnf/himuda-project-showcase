@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Search, Download, Filter } from "lucide-react";
+import { Search, Download, Filter, FileText, Building2 } from "lucide-react";
 import * as XLSX from 'xlsx';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -150,6 +150,33 @@ export default function SuperadminApplicationManagementNew() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <h1 className="text-3xl font-bold">Application Management</h1>
+      </div>
+
+      {/* Statistics Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="bg-gradient-to-br from-primary/10 to-primary/5 rounded-lg border border-primary/20 p-6">
+          <div className="flex items-center justify-between">
+            <div>
+              <p className="text-sm text-muted-foreground mb-1">Total Applications</p>
+              <p className="text-4xl font-bold text-primary">{showResults ? totalApplications : 0}</p>
+            </div>
+            <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
+              <FileText className="w-8 h-8 text-primary" />
+            </div>
+          </div>
+        </div>
+        
+        <div className="bg-gradient-to-br from-accent/10 to-accent/5 rounded-lg border border-accent/20 p-6">
+          <div className="flex items-center justify-between">
+            <div>
+              <p className="text-sm text-muted-foreground mb-1">Total Units</p>
+              <p className="text-4xl font-bold text-accent">{showResults ? totalUnits : 0}</p>
+            </div>
+            <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center">
+              <Building2 className="w-8 h-8 text-accent" />
+            </div>
+          </div>
+        </div>
       </div>
 
       {/* Property Selection Form */}
