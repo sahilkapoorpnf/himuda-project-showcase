@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Search, ChevronDown } from "lucide-react";
+import { Search, Download, Filter } from "lucide-react";
+import * as XLSX from 'xlsx';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -111,6 +112,8 @@ export default function SuperadminApplicationManagementNew() {
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedApplication, setSelectedApplication] = useState<any>(null);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [filterPropertyType, setFilterPropertyType] = useState<string>("");
+  const [filterStatus, setFilterStatus] = useState<string>("");
 
   const handleSubmit = () => {
     if (selectedProperty) {
@@ -125,7 +128,9 @@ export default function SuperadminApplicationManagementNew() {
       app.applicationNumber.toLowerCase().includes(searchQuery.toLowerCase()) ||
       app.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       app.propertyName.toLowerCase().includes(searchQuery.toLowerCase());
-    return matchesProperty && matchesSearch;
+    const matchesPropertyType = filterPropertyType ? app.propertyType === filterPropertyType : true;
+    const matchesStatus = filterStatus ? app.paymentStatus === filterStatus : true;
+    return matchesProperty && matchesSearch && matchesPropertyType && matchesStatus;
   });
 
   const totalPages = Math.ceil(filteredApplications.length / ITEMS_PER_PAGE);
@@ -147,6 +152,27 @@ export default function SuperadminApplicationManagementNew() {
   const handleViewDetails = (application: any) => {
     setSelectedApplication(application);
     setIsDialogOpen(true);
+  };
+
+  const handleDownloadExcel = () => {
+    const worksheet = XLSX.utils.json_to_sheet(
+      filteredApplications.map(app => ({
+        "Application Number": app.applicationNumber,
+        "Name": app.name,
+        "Property Name": app.propertyName,
+        "Property Type": app.propertyType,
+        "Size": app.size,
+        "Amount": app.amount,
+        "Payment Status": app.paymentStatus,
+        "Submitted Date": app.submittedDate,
+        "Email": app.email,
+        "Phone": app.phone,
+        "Address": app.address,
+      }))
+    );
+    const workbook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workbook, worksheet, "Applications");
+    XLSX.writeFile(workbook, `Applications_${selectedProperty}_${new Date().toISOString().split('T')[0]}.xlsx`);
   };
 
   return (
@@ -182,19 +208,7 @@ export default function SuperadminApplicationManagementNew() {
       {/* Results Section - Only shown after submit */}
       {showResults && (
         <>
-          {/* Summary Cards */}
-          <div className="grid grid-cols-2 gap-4">
-            <div className="bg-card rounded-lg border border-border p-6">
-              <h3 className="text-sm font-medium text-muted-foreground mb-2">Total Applications</h3>
-              <p className="text-3xl font-bold">{totalApplications}</p>
-            </div>
-            <div className="bg-card rounded-lg border border-border p-6">
-              <h3 className="text-sm font-medium text-muted-foreground mb-2">Total Units</h3>
-              <p className="text-3xl font-bold">{totalUnits}</p>
-            </div>
-          </div>
-
-          {/* Search Bar */}
+          {/* Search and Filter Bar */}
           <div className="flex items-center gap-4">
             <div className="relative flex-1">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
@@ -206,6 +220,32 @@ export default function SuperadminApplicationManagementNew() {
                 onChange={(e) => setSearchQuery(e.target.value)}
               />
             </div>
+            <Select value={filterPropertyType} onValueChange={setFilterPropertyType}>
+              <SelectTrigger className="w-[180px]">
+                <SelectValue placeholder="Property Type" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="all">All Types</SelectItem>
+                <SelectItem value="Flat">Flat</SelectItem>
+                <SelectItem value="Plot">Plot</SelectItem>
+                <SelectItem value="Commercial">Commercial</SelectItem>
+              </SelectContent>
+            </Select>
+            <Select value={filterStatus} onValueChange={setFilterStatus}>
+              <SelectTrigger className="w-[180px]">
+                <SelectValue placeholder="Payment Status" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="all">All Status</SelectItem>
+                <SelectItem value="Received">Received</SelectItem>
+                <SelectItem value="Pending">Pending</SelectItem>
+                <SelectItem value="Overdue">Overdue</SelectItem>
+              </SelectContent>
+            </Select>
+            <Button onClick={handleDownloadExcel} variant="outline">
+              <Download className="mr-2 h-4 w-4" />
+              Excel
+            </Button>
           </div>
 
           {/* Applications Table */}
