@@ -7,7 +7,7 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } f
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from "@/components/ui/pagination";
-import { Search, Eye, Download, Filter } from "lucide-react";
+import { Search, Eye, Download, Filter, Send } from "lucide-react";
 import * as XLSX from 'xlsx';
 
 interface PaymentRecord {
@@ -457,6 +457,7 @@ const getAmountStatusBadge = (allottee: Allottee) => {
                       <TableHead>Type</TableHead>
                       <TableHead>Amount</TableHead>
                       <TableHead>Status</TableHead>
+                      <TableHead>Action</TableHead>
                     </TableRow>
                   </TableHeader>
                   <TableBody>
@@ -467,11 +468,20 @@ const getAmountStatusBadge = (allottee: Allottee) => {
                           <TableCell>{payment.type}</TableCell>
                           <TableCell className="font-medium">{payment.amount}</TableCell>
                           <TableCell>{getPaymentStatusBadge(payment.status)}</TableCell>
+                          <TableCell>
+                            <Button
+                              variant="outline"
+                              size="sm"
+                            >
+                              <Send className="mr-2 h-4 w-4" />
+                              Send Reminder
+                            </Button>
+                          </TableCell>
                         </TableRow>
                       ))
                     ) : (
                       <TableRow>
-                        <TableCell colSpan={4} className="text-center py-8 text-muted-foreground">
+                        <TableCell colSpan={5} className="text-center py-8 text-muted-foreground">
                           No payments found
                         </TableCell>
                       </TableRow>
