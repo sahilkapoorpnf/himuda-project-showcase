@@ -2768,7 +2768,7 @@ const Index = () => {
       </div>
 
       {/* Navigation */}
-      <div className="flex items-center justify-center gap-4 bg-card/95 backdrop-blur-md px-8 py-4 rounded-2xl border border-border/50 animate-fade-in mx-auto w-fit mb-8" style={{ boxShadow: 'var(--shadow-elegant)' }}>
+      <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 flex items-center justify-center gap-4 bg-card/95 backdrop-blur-md px-8 py-4 rounded-2xl border border-border/50 animate-fade-in w-fit" style={{ boxShadow: 'var(--shadow-elegant)' }}>
         <button
           onClick={prevSlide}
           className="p-3 hover:bg-primary/10 rounded-xl transition-all duration-300 hover:scale-110 group"
