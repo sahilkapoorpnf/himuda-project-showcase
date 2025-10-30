@@ -430,6 +430,10 @@ const getAmountStatusBadge = (allottee: Allottee) => {
                       onChange={(e) => setPaymentSearchQuery(e.target.value)}
                     />
                   </div>
+                  <Button variant="default">
+                    <Send className="mr-2 h-4 w-4" />
+                    Send Reminder
+                  </Button>
                   <Button
                     variant="outline"
                     onClick={() => {
@@ -457,7 +461,6 @@ const getAmountStatusBadge = (allottee: Allottee) => {
                       <TableHead>Type</TableHead>
                       <TableHead>Amount</TableHead>
                       <TableHead>Status</TableHead>
-                      <TableHead>Action</TableHead>
                     </TableRow>
                   </TableHeader>
                   <TableBody>
@@ -468,20 +471,11 @@ const getAmountStatusBadge = (allottee: Allottee) => {
                           <TableCell>{payment.type}</TableCell>
                           <TableCell className="font-medium">{payment.amount}</TableCell>
                           <TableCell>{getPaymentStatusBadge(payment.status)}</TableCell>
-                          <TableCell>
-                            <Button
-                              variant="outline"
-                              size="sm"
-                            >
-                              <Send className="mr-2 h-4 w-4" />
-                              Send Reminder
-                            </Button>
-                          </TableCell>
                         </TableRow>
                       ))
                     ) : (
                       <TableRow>
-                        <TableCell colSpan={5} className="text-center py-8 text-muted-foreground">
+                        <TableCell colSpan={4} className="text-center py-8 text-muted-foreground">
                           No payments found
                         </TableCell>
                       </TableRow>
