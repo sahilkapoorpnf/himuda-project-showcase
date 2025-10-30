@@ -38,6 +38,7 @@ import { TransferLetterOfIntentForm } from "@/components/TransferLetterOfIntentF
 import { TransferPermissionBeforeCDForm } from "@/components/TransferPermissionBeforeCDForm";
 import { SuperadminApplicationManagement } from "@/components/SuperadminApplicationManagement";
 import SuperadminApplicationManagementNew from "@/components/SuperadminApplicationManagementNew";
+import { OwnershipChangeRequestsTable } from "@/components/OwnershipChangeRequestsTable";
 import { ChevronLeft, ChevronRight, Home, Search, FileText, UserCheck, Download, Building2, Filter, MapPin, Calendar, FileCheck, User, CreditCard, Bell, Edit, MessageSquare, Shield, CheckCircle2, Forward, Upload, FileSpreadsheet, Megaphone, FolderCheck, Settings, DollarSign, Receipt, TrendingUp, FileBarChart, RefreshCw, AlertCircle, PieChart, Wallet, Crown, Users, Lock, Globe, Activity, Database, BarChart3, Target, Newspaper, Mail, Smartphone, BellRing, Clock, Send, AlertTriangle, Phone, Zap } from 'lucide-react';
 
 import heroProperty from '@/assets/hero-property.jpg';
@@ -1081,7 +1082,25 @@ const Index = () => {
       </div>
     </div>,
 
-    // Slide 11: Payment Gateway
+    // Slide 11: Ownership Change Requests Management
+    <div key="manage-ownership-requests" className="min-h-screen bg-gradient-to-br from-background via-accent/5 to-background">
+      <DashboardHeader />
+      
+      <div className="flex w-full pt-[8.5rem]">
+        <DashboardSidebar 
+          activeSection="manage-ownership-requests"
+          onSectionChange={() => {}}
+        />
+        
+        <main className="flex-1 p-8 overflow-y-auto max-h-[calc(100vh-8.5rem)]">
+          <div className="max-w-7xl mx-auto">
+            <OwnershipChangeRequestsTable />
+          </div>
+        </main>
+      </div>
+    </div>,
+
+    // Slide 12: Payment Gateway
     <div key="payment-gateway" className="min-h-screen bg-gradient-to-br from-background via-accent/5 to-background">
       <DashboardHeader />
       
