@@ -37,6 +37,7 @@ import { PermissionToMortgageForm } from "@/components/PermissionToMortgageForm"
 import { TransferLetterOfIntentForm } from "@/components/TransferLetterOfIntentForm";
 import { TransferPermissionBeforeCDForm } from "@/components/TransferPermissionBeforeCDForm";
 import { SuperadminApplicationManagement } from "@/components/SuperadminApplicationManagement";
+import SuperadminApplicationManagementNew from "@/components/SuperadminApplicationManagementNew";
 import { ChevronLeft, ChevronRight, Home, Search, FileText, UserCheck, Download, Building2, Filter, MapPin, Calendar, FileCheck, User, CreditCard, Bell, Edit, MessageSquare, Shield, CheckCircle2, Forward, Upload, FileSpreadsheet, Megaphone, FolderCheck, Settings, DollarSign, Receipt, TrendingUp, FileBarChart, RefreshCw, AlertCircle, PieChart, Wallet, Crown, Users, Lock, Globe, Activity, Database, BarChart3, Target, Newspaper, Mail, Smartphone, BellRing, Clock, Send, AlertTriangle, Phone, Zap } from 'lucide-react';
 
 import heroProperty from '@/assets/hero-property.jpg';
@@ -1731,6 +1732,58 @@ const Index = () => {
           <div className="max-w-7xl mx-auto space-y-8">
             <AllotteePropertiesTable />
           </div>
+        </main>
+      </div>
+    </div>,
+
+    // Slide 28: Superadmin Application Management (New)
+    <div key="superadmin-app-mgmt-new" className="min-h-screen bg-gradient-to-br from-background via-accent/5 to-background">
+      <DashboardHeader />
+      
+      <div className="flex w-full pt-[8.5rem]">
+        <aside className="w-64 bg-card border-r border-border sticky top-[8.5rem] h-[calc(100vh-8.5rem)] overflow-y-auto">
+          <nav className="p-4 space-y-2">
+            <button className="w-full flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-muted transition-colors text-left">
+              <Crown className="w-5 h-5 text-primary" />
+              Dashboard
+            </button>
+            <button className="w-full flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-muted transition-colors text-left">
+              <Users className="w-5 h-5 text-primary" />
+              User Management
+            </button>
+            <button className="w-full flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-muted transition-colors text-left">
+              <Users className="w-5 h-5 text-primary" />
+              Allottee Management
+            </button>
+            <button className="w-full flex items-center gap-3 px-4 py-3 rounded-lg bg-primary text-primary-foreground font-medium">
+              <FolderCheck className="w-5 h-5" />
+              Application Management
+            </button>
+            <button className="w-full flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-muted transition-colors text-left">
+              <Shield className="w-5 h-5 text-primary" />
+              Role Management
+            </button>
+            <button className="w-full flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-muted transition-colors text-left">
+              <FileText className="w-5 h-5 text-primary" />
+              Content Management
+            </button>
+            <button className="w-full flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-muted transition-colors text-left">
+              <Building2 className="w-5 h-5 text-primary" />
+              Property Management
+            </button>
+            <button className="w-full flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-muted transition-colors text-left">
+              <Activity className="w-5 h-5 text-primary" />
+              Activity Monitoring
+            </button>
+            <button className="w-full flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-muted transition-colors text-left">
+              <Settings className="w-5 h-5 text-primary" />
+              Setting
+            </button>
+          </nav>
+        </aside>
+        
+        <main className="flex-1 p-8 overflow-y-auto max-h-[calc(100vh-8.5rem)]">
+          <SuperadminApplicationManagementNew />
         </main>
       </div>
     </div>,
