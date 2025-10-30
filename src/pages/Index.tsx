@@ -1116,7 +1116,7 @@ const Index = () => {
       </div>
     </div>,
 
-    // Slide 12: Payment Success
+    // Slide 13: Payment Success
     <div key="payment-success" className="min-h-screen bg-gradient-to-br from-background via-accent/5 to-background">
       <DashboardHeader />
       
@@ -2731,7 +2731,7 @@ const Index = () => {
       </div>
 
       {/* Navigation */}
-      <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 flex items-center justify-center gap-4 bg-card/95 backdrop-blur-md px-8 py-4 rounded-2xl border border-border/50 animate-fade-in w-fit" style={{ boxShadow: 'var(--shadow-elegant)' }}>
+      <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 flex items-center justify-center gap-6 bg-card/95 backdrop-blur-md px-8 py-4 rounded-2xl border border-border/50 animate-fade-in" style={{ boxShadow: 'var(--shadow-elegant)' }}>
         <button
           onClick={prevSlide}
           className="p-3 hover:bg-primary/10 rounded-xl transition-all duration-300 hover:scale-110 group"
@@ -2740,18 +2740,41 @@ const Index = () => {
           <ChevronLeft className="w-6 h-6 text-primary group-hover:text-secondary transition-colors" />
         </button>
         
-        <div className="flex gap-3">
+        {/* Slide Number Display */}
+        <div className="flex items-center gap-3 px-6 py-2 bg-primary/10 rounded-xl">
+          <span className="text-2xl font-bold text-primary">
+            {currentSlide + 1}
+          </span>
+          <span className="text-muted-foreground">/</span>
+          <span className="text-lg font-semibold text-muted-foreground">
+            {slides.length}
+          </span>
+        </div>
+        
+        <div className="flex gap-2 max-w-md overflow-x-auto">
           {slides.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentSlide(index)}
-              className={`h-2.5 rounded-full transition-all duration-500 ${
+              className={`relative group transition-all duration-300 ${
                 index === currentSlide 
-                  ? 'w-10 bg-gradient-to-r from-primary via-secondary to-accent shadow-lg' 
-                  : 'w-2.5 bg-muted-foreground/30 hover:bg-muted-foreground/60 hover:scale-125'
+                  ? 'scale-110' 
+                  : 'hover:scale-105'
               }`}
               aria-label={`Go to slide ${index + 1}`}
-            />
+            >
+              <div className={`h-8 w-8 rounded-lg flex items-center justify-center text-xs font-bold transition-all ${
+                index === currentSlide 
+                  ? 'bg-gradient-to-r from-primary via-secondary to-accent text-white shadow-lg' 
+                  : 'bg-muted text-muted-foreground hover:bg-primary/20 hover:text-primary'
+              }`}>
+                {index + 1}
+              </div>
+              {/* Tooltip */}
+              <div className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 px-2 py-1 bg-popover text-popover-foreground text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+                Slide {index + 1}
+              </div>
+            </button>
           ))}
         </div>
 
@@ -2762,10 +2785,6 @@ const Index = () => {
         >
           <ChevronRight className="w-6 h-6 text-primary group-hover:text-secondary transition-colors" />
         </button>
-
-        <div className="ml-4 pl-4 border-l border-border text-sm font-bold text-primary tracking-wide">
-          {currentSlide + 1} / {slides.length}
-        </div>
       </div>
     </div>
   );
