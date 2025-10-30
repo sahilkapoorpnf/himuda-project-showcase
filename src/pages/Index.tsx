@@ -2797,23 +2797,34 @@ const Index = () => {
           <ChevronLeft className="w-6 h-6 text-primary group-hover:text-secondary transition-colors" />
         </button>
         
-        {/* Slide Number Display */}
+        {/* Slide Number Display with Jump */}
         <div className="flex items-center gap-3 px-6 py-2 bg-primary/10 rounded-xl">
-          <span className="text-2xl font-bold text-primary">
-            {currentSlide + 1}
-          </span>
+          <span className="text-sm text-muted-foreground">Go to:</span>
+          <input
+            type="number"
+            min="1"
+            max={slides.length}
+            value={currentSlide + 1}
+            onChange={(e) => {
+              const slideNum = parseInt(e.target.value);
+              if (slideNum >= 1 && slideNum <= slides.length) {
+                setCurrentSlide(slideNum - 1);
+              }
+            }}
+            className="w-16 px-2 py-1 text-center text-lg font-bold text-primary bg-background rounded border border-border focus:outline-none focus:ring-2 focus:ring-primary"
+          />
           <span className="text-muted-foreground">/</span>
           <span className="text-lg font-semibold text-muted-foreground">
             {slides.length}
           </span>
         </div>
         
-        <div className="flex gap-2 max-w-md overflow-x-auto">
+        <div className="flex gap-2 max-w-md overflow-x-auto scrollbar-thin scrollbar-thumb-primary scrollbar-track-muted">
           {slides.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentSlide(index)}
-              className={`relative group transition-all duration-300 ${
+              className={`relative group transition-all duration-300 flex-shrink-0 ${
                 index === currentSlide 
                   ? 'scale-110' 
                   : 'hover:scale-105'
@@ -2828,7 +2839,7 @@ const Index = () => {
                 {index + 1}
               </div>
               {/* Tooltip */}
-              <div className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 px-2 py-1 bg-popover text-popover-foreground text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+              <div className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 px-2 py-1 bg-popover text-popover-foreground text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-50">
                 Slide {index + 1}
               </div>
             </button>
