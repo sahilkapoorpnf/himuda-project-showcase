@@ -117,16 +117,22 @@ export function AllotteeManagementTable() {
   const [selectedAllottee, setSelectedAllottee] = useState<Allottee | null>(null);
   const [showPaymentDialog, setShowPaymentDialog] = useState(false);
 
-  const handleSubmit = () => {
-    if (selectedProperty) {
-      setShowTable(true);
-    }
-  };
+const filteredAllottees = selectedProperty
+  ? mockAllottees.filter((a) =>
+      a.propertyName.toLowerCase().includes(selectedProperty.toLowerCase())
+    )
+  : [];
 
-  const handleViewPayments = (allottee: Allottee) => {
-    setSelectedAllottee(allottee);
-    setShowPaymentDialog(true);
-  };
+const handleSubmit = () => {
+  if (selectedProperty) {
+    setShowTable(true);
+  }
+};
+
+const handleViewPayments = (allottee: Allottee) => {
+  setSelectedAllottee(allottee);
+  setShowPaymentDialog(true);
+};
 
   const getPaymentStatusBadge = (status: PaymentRecord["status"]) => {
     const variants = {
@@ -142,10 +148,35 @@ export function AllotteeManagementTable() {
     );
   };
 
-  const getStatusBadge = (status: string) => {
-    const variant = status === "Active" ? "default" : "destructive";
-    return <Badge variant={variant}>{status}</Badge>;
-  };
+const getStatusBadge = (status: string) => {
+  const variant = status === "Active" ? "default" : "destructive";
+  return <Badge variant={variant}>{status}</Badge>;
+};
+
+const getAmountStatusBadge = (allottee: Allottee) => {
+  const hasOverdue = allottee.payments.some((p) => p.status === "Overdue");
+  const allPaid = allottee.payments.every((p) => p.status === "Paid");
+  const somePaid = allottee.payments.some((p) => p.status === "Paid");
+
+  let label = "Pending";
+  let variant: "default" | "secondary" | "destructive" = "secondary";
+
+  if (hasOverdue) {
+    label = "Overdue";
+    variant = "destructive";
+  } else if (allPaid) {
+    label = "Received (Full)";
+    variant = "default";
+  } else if (somePaid) {
+    label = "Partially Received";
+    variant = "secondary";
+  } else {
+    label = "Pending";
+    variant = "secondary";
+  }
+
+  return <Badge variant={variant}>{label}</Badge>;
+};
 
   return (
     <div className="p-6 space-y-6">
@@ -187,7 +218,7 @@ export function AllotteeManagementTable() {
                 <CardTitle className="text-sm font-medium">Total Allotments</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">{mockAllottees.length}</div>
+                <div className="text-2xl font-bold">{filteredAllottees.length}</div>
               </CardContent>
             </Card>
             <Card>
@@ -195,7 +226,7 @@ export function AllotteeManagementTable() {
                 <CardTitle className="text-sm font-medium">Total Units</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">{mockAllottees.length}</div>
+                <div className="text-2xl font-bold">{filteredAllottees.length}</div>
               </CardContent>
             </Card>
           </div>
@@ -215,13 +246,14 @@ export function AllotteeManagementTable() {
                     <TableHead>Property Type</TableHead>
                     <TableHead>Size</TableHead>
                     <TableHead>Amount</TableHead>
-                    <TableHead>Status</TableHead>
+                    <TableHead>Amount Status</TableHead>
+                    <TableHead>Submitted Date</TableHead>
                     <TableHead>Allotment Date</TableHead>
                     <TableHead>Payment Info</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
-                  {mockAllottees.map((allottee) => (
+                  {filteredAllottees.map((allottee) => (
                     <TableRow key={allottee.upnNumber}>
                       <TableCell className="font-medium">{allottee.upnNumber}</TableCell>
                       <TableCell>{allottee.name}</TableCell>
@@ -229,7 +261,8 @@ export function AllotteeManagementTable() {
                       <TableCell>{allottee.propertyType}</TableCell>
                       <TableCell>{allottee.size}</TableCell>
                       <TableCell>{allottee.amount}</TableCell>
-                      <TableCell>{getStatusBadge(allottee.status)}</TableCell>
+                      <TableCell>{getAmountStatusBadge(allottee)}</TableCell>
+                      <TableCell>{allottee.submittedDate}</TableCell>
                       <TableCell>{allottee.allotmentDate}</TableCell>
                       <TableCell>
                         <Button
