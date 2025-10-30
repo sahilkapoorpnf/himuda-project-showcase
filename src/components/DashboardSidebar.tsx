@@ -9,13 +9,7 @@ interface DashboardSidebarProps {
 }
 
 export const DashboardSidebar = ({ activeSection, onSectionChange }: DashboardSidebarProps) => {
-  const [isChangeOwnershipOpen, setIsChangeOwnershipOpen] = useState(
-    activeSection === "change-ownership" || 
-    activeSection === "manage-ownership-requests" ||
-    activeSection === "change-ownership-death-case" ||
-    activeSection === "change-ownership-death-case-all-heirs" ||
-    activeSection === "change-ownership-death-case-registered-will"
-  );
+  const [isChangeOwnershipOpen, setIsChangeOwnershipOpen] = useState(true);
 
   const menuItems = [
     { id: "dashboard", label: "Dashboard Summary", icon: Home },
