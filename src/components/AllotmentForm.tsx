@@ -39,7 +39,7 @@ export const AllotmentForm = () => {
 
   return (
     <div className="space-y-8">
-      <h2 className="text-5xl font-bold text-primary text-center mb-8">Property Allotment Application</h2>
+      <h2 className="text-5xl font-bold text-primary text-center mb-8">Property Application Form</h2>
       
       <div className="bg-card p-8 rounded-2xl space-y-12" style={{ boxShadow: 'var(--shadow-card)' }}>
         

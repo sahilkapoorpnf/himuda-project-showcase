@@ -1067,7 +1067,7 @@ const Index = () => {
           <div className="max-w-6xl mx-auto">
             <div className="mb-8 bg-gradient-to-r from-primary/10 via-accent/10 to-secondary/10 p-8 rounded-2xl border border-primary/20">
               <h1 className="text-4xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-2">
-                Apply for Allotment
+                Apply Application
               </h1>
               <p className="text-muted-foreground text-lg">Fill out the form below to apply for property allotment</p>
             </div>
@@ -1127,7 +1127,29 @@ const Index = () => {
       </div>
     </div>,
 
-    // Slide 14: EMI & Payment Management
+    // Slide 14: Application Management
+    <div key="application-management" className="min-h-screen bg-gradient-to-br from-background via-accent/5 to-background">
+      <DashboardHeader />
+      
+      <div className="flex w-full pt-[8.5rem]">
+        <DashboardSidebar 
+          activeSection="application-management"
+          onSectionChange={() => {}}
+        />
+        
+        <main className="flex-1 p-8 overflow-y-auto max-h-[calc(100vh-8.5rem)]">
+          <div className="max-w-7xl mx-auto">
+            <div className="mb-8">
+              <h1 className="text-4xl font-bold text-primary mb-2">Application Management</h1>
+              <p className="text-muted-foreground text-lg">View and manage all your property applications</p>
+            </div>
+            <ApplicationsTable />
+          </div>
+        </main>
+      </div>
+    </div>,
+
+    // Slide 15: EMI & Payment Management
     <div key="emi-payment-management" className="min-h-screen bg-gradient-to-br from-background via-accent/5 to-background">
       <DashboardHeader />
       
@@ -1145,7 +1167,7 @@ const Index = () => {
       </div>
     </div>,
 
-    // Slide 15: Change of Ownership
+    // Slide 16: Change of Ownership
     <div key="change-ownership" className="min-h-screen bg-gradient-to-br from-background via-accent/5 to-background">
       <DashboardHeader />
       
@@ -1163,7 +1185,7 @@ const Index = () => {
       </div>
     </div>,
 
-    // Slide 16: Change of Ownership (Death Case Unregistered Will)
+    // Slide 17: Change of Ownership (Death Case Unregistered Will)
     <div key="change-ownership-death-case" className="min-h-screen bg-gradient-to-br from-background via-accent/5 to-background">
       <DashboardHeader />
       
@@ -1181,7 +1203,7 @@ const Index = () => {
       </div>
     </div>,
 
-    // Slide 17: Change of Ownership (Death Case All Legal Heirs)
+    // Slide 18: Change of Ownership (Death Case All Legal Heirs)
     <div key="change-ownership-death-case-all-heirs" className="min-h-screen bg-gradient-to-br from-background via-accent/5 to-background">
       <DashboardHeader />
       
@@ -1199,7 +1221,7 @@ const Index = () => {
       </div>
     </div>,
 
-    // Slide 18: Change of Ownership (Death Case Registered Will)
+    // Slide 19: Change of Ownership (Death Case Registered Will)
     <div key="change-ownership-death-case-registered-will" className="min-h-screen bg-gradient-to-br from-background via-accent/5 to-background">
       <DashboardHeader />
       
@@ -1217,7 +1239,7 @@ const Index = () => {
       </div>
     </div>,
 
-    // Slide 19: Issuance of Conveyance Deed
+    // Slide 20: Issuance of Conveyance Deed
     <div key="conveyance-deed" className="min-h-screen bg-gradient-to-br from-background via-accent/5 to-background">
       <DashboardHeader />
       
@@ -1235,7 +1257,7 @@ const Index = () => {
       </div>
     </div>,
 
-    // Slide 20: Issue of No Due Certificate
+    // Slide 21: Issue of No Due Certificate
     <div key="no-due-certificate" className="min-h-screen bg-gradient-to-br from-background via-accent/5 to-background">
       <DashboardHeader />
       
@@ -1253,7 +1275,7 @@ const Index = () => {
       </div>
     </div>,
 
-    // Slide 21: Issue of Re-allotment Letter
+    // Slide 22: Issue of Re-allotment Letter
     <div key="reallotment-letter" className="min-h-screen bg-gradient-to-br from-background via-accent/5 to-background">
       <DashboardHeader />
       
@@ -1271,7 +1293,7 @@ const Index = () => {
       </div>
     </div>,
 
-    // Slide 22: Permission for Sale/Gift/Transfer
+    // Slide 23: Permission for Sale/Gift/Transfer
     <div key="permission-sale-gift-transfer" className="min-h-screen bg-gradient-to-br from-background via-accent/5 to-background">
       <DashboardHeader />
       
@@ -1289,7 +1311,7 @@ const Index = () => {
       </div>
     </div>,
 
-    // Slide 23: Permission to Mortgage
+    // Slide 24: Permission to Mortgage
     <div key="permission-to-mortgage" className="min-h-screen bg-gradient-to-br from-background via-accent/5 to-background">
       <DashboardHeader />
       
@@ -1307,7 +1329,7 @@ const Index = () => {
       </div>
     </div>,
 
-    // Slide 24: Transfer of Letter of Intent
+    // Slide 25: Transfer of Letter of Intent
     <div key="transfer-letter-of-intent" className="min-h-screen bg-gradient-to-br from-background via-accent/5 to-background">
       <DashboardHeader />
       
@@ -1325,7 +1347,7 @@ const Index = () => {
       </div>
     </div>,
 
-    // Slide 25: Transfer Permission (Before CD)
+    // Slide 26: Transfer Permission (Before CD)
     <div key="transfer-permission-before-cd" className="min-h-screen bg-gradient-to-br from-background via-accent/5 to-background">
       <DashboardHeader />
       
@@ -1343,7 +1365,7 @@ const Index = () => {
       </div>
     </div>,
 
-    // Slide 26: Superadmin Dashboard
+    // Slide 27: Superadmin Dashboard
     <div key="superadmin-dashboard" className="min-h-screen bg-gradient-to-br from-background via-accent/5 to-background">
       <DashboardHeader />
       

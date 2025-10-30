@@ -30,6 +30,15 @@ export default function Dashboard() {
         
         <main className="flex-1 p-8">
           {activeSection === "applications" && <ApplicationsTable />}
+          {activeSection === "application-management" && (
+            <div className="max-w-7xl mx-auto">
+              <div className="mb-8">
+                <h1 className="text-4xl font-bold text-primary mb-2">Application Management</h1>
+                <p className="text-muted-foreground text-lg">View and manage all your property applications</p>
+              </div>
+              <ApplicationsTable />
+            </div>
+          )}
           {activeSection === "properties" && (
             <div className="text-center py-12">
               <h2 className="text-2xl font-bold text-primary">Property Management</h2>

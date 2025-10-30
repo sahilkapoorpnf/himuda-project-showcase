@@ -1,4 +1,4 @@
-import { FileText, Home, CreditCard, FolderOpen, User, Settings, FileCheck, Building2, Receipt, DollarSign, Users } from "lucide-react";
+import { FileText, Home, CreditCard, FolderOpen, User, Settings, FileCheck, Building2, Receipt, DollarSign, Users, FolderCheck } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface DashboardSidebarProps {
@@ -11,6 +11,7 @@ export const DashboardSidebar = ({ activeSection, onSectionChange }: DashboardSi
     { id: "dashboard", label: "Dashboard Summary", icon: Home },
     { id: "scheme-application", label: "Scheme Application / Booking", icon: FileText },
     { id: "allotment-status", label: "Allotment Status & Acceptance", icon: FileCheck },
+    { id: "application-management", label: "Application Management", icon: FolderCheck },
     { id: "emi-payment", label: "EMI & Payment Management", icon: CreditCard },
     { id: "possession", label: "Possession Request", icon: Building2 },
     { id: "post-allotment", label: "Post-Allotment Requests", icon: FolderOpen },
