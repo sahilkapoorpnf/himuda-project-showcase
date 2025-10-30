@@ -35,76 +35,59 @@ interface Allottee {
   lastPaymentDate: string;
 }
 
-const mockAllottees: Allottee[] = [
-  {
-    upnNumber: "UPN2024001",
-    name: "Rajesh Kumar",
-    propertyName: "Shimla Green Valley - A101",
-    propertyType: "Flat",
-    size: "1200 sq ft",
-    amount: "₹45,00,000",
-    status: "Active",
-    submittedDate: "2024-01-15",
-    allotmentDate: "2024-02-01",
-    email: "rajesh.kumar@email.com",
-    phone: "+91 98765 43210",
-    address: "123, Green Valley, Shimla",
+const bases = [
+  "Shimla Green Valley",
+  "Dharamshala Heights", 
+  "Manali Pine Plots",
+  "Kullu Valley Flats",
+  "Solan Hills Project"
+];
+
+const demoNames = [
+  "Rajesh Kumar","Priya Sharma","Amit Verma","Sunita Devi","Anil Kapoor",
+  "Neha Gupta","Vikas Singh","Pooja Mehta","Rohit Sharma","Kiran Bedi"
+];
+
+const mockAllottees: Allottee[] = Array.from({ length: 30 }, (_, i) => {
+  const base = bases[i % bases.length];
+  const propertyType = base.includes("Plots") ? "Plot" : "Flat";
+  const upnNumber = `UPN2024${String(i + 1).padStart(3, '0')}`;
+  const unitSuffix = propertyType === "Flat" ? `- A${101 + (i % 50)}` : `- P${1 + (i % 50)}`;
+  const propertyName = `${base} ${unitSuffix}`;
+  const size = propertyType === "Flat" ? `${1000 + (i % 6) * 100} sq ft` : `${300 + (i % 6) * 50} sq yards`;
+  const amount = propertyType === "Flat" ? "₹45,00,000" : "₹25,00,000";
+  const status = i % 7 === 0 ? "Defaulter" : "Active";
+  const submittedDate = `2024-${String(1 + (i % 6)).padStart(2,'0')}-${String(10 + (i % 18)).padStart(2,'0')}`;
+  const allotmentDate = `2024-${String(2 + (i % 6)).padStart(2,'0')}-${String(1 + (i % 18)).padStart(2,'0')}`;
+  const email = `${demoNames[i % demoNames.length].toLowerCase().replace(/\s+/g, '.')}@email.com`;
+  const phone = "+91 98765 " + String(43000 + (i % 900)).padStart(5,'0');
+  const address = `${100 + i}, Sample Address, City`;
+  const payments: PaymentRecord[] = [
+    { date: "2024-02-01", amount: "₹5,00,000", status: "Paid", type: "Booking Amount" },
+    { date: "2024-03-01", amount: "₹10,00,000", status: i % 3 === 0 ? "Overdue" : "Paid", type: "First Installment" },
+    { date: "2024-04-01", amount: "₹10,00,000", status: i % 5 === 0 ? "Overdue" : "Upcoming", type: "Second Installment" },
+    { date: "2024-05-01", amount: "₹10,00,000", status: "Upcoming", type: "Third Installment" },
+    { date: "2024-06-01", amount: "₹10,00,000", status: "Upcoming", type: "Final Payment" },
+  ];
+
+  return {
+    upnNumber,
+    name: demoNames[i % demoNames.length],
+    propertyName,
+    propertyType,
+    size,
+    amount,
+    status,
+    submittedDate,
+    allotmentDate,
+    email,
+    phone,
+    address,
     nextPaymentDate: "2024-04-01",
     lastPaymentDate: "2024-03-01",
-    payments: [
-      { date: "2024-02-01", amount: "₹5,00,000", status: "Paid", type: "Booking Amount" },
-      { date: "2024-03-01", amount: "₹10,00,000", status: "Paid", type: "First Installment" },
-      { date: "2024-04-01", amount: "₹10,00,000", status: "Upcoming", type: "Second Installment" },
-      { date: "2024-05-01", amount: "₹10,00,000", status: "Upcoming", type: "Third Installment" },
-      { date: "2024-06-01", amount: "₹10,00,000", status: "Upcoming", type: "Final Payment" },
-    ]
-  },
-  {
-    upnNumber: "UPN2024002",
-    name: "Priya Sharma",
-    propertyName: "Dharamshala Heights - B205",
-    propertyType: "Flat",
-    size: "1000 sq ft",
-    amount: "₹38,00,000",
-    status: "Active",
-    submittedDate: "2024-01-20",
-    allotmentDate: "2024-02-10",
-    email: "priya.sharma@email.com",
-    phone: "+91 98765 43211",
-    address: "456, Valley View, Dharamshala",
-    nextPaymentDate: "2024-04-10",
-    lastPaymentDate: "2024-03-10",
-    payments: [
-      { date: "2024-02-10", amount: "₹4,00,000", status: "Paid", type: "Booking Amount" },
-      { date: "2024-03-10", amount: "₹8,00,000", status: "Paid", type: "First Installment" },
-      { date: "2024-04-10", amount: "₹8,00,000", status: "Upcoming", type: "Second Installment" },
-      { date: "2024-05-10", amount: "₹9,00,000", status: "Upcoming", type: "Third Installment" },
-      { date: "2024-06-10", amount: "₹9,00,000", status: "Upcoming", type: "Final Payment" },
-    ]
-  },
-  {
-    upnNumber: "UPN2024003",
-    name: "Amit Verma",
-    propertyName: "Manali Pine Plots - P12",
-    propertyType: "Plot",
-    size: "500 sq yards",
-    amount: "₹25,00,000",
-    status: "Defaulter",
-    submittedDate: "2024-02-01",
-    allotmentDate: "2024-02-15",
-    email: "amit.verma@email.com",
-    phone: "+91 98765 43212",
-    address: "789, Pine Colony, Manali",
-    nextPaymentDate: "2024-03-15",
-    lastPaymentDate: "2024-02-15",
-    payments: [
-      { date: "2024-02-15", amount: "₹3,00,000", status: "Paid", type: "Booking Amount" },
-      { date: "2024-03-15", amount: "₹6,00,000", status: "Overdue", type: "First Installment" },
-      { date: "2024-04-15", amount: "₹8,00,000", status: "Upcoming", type: "Second Installment" },
-      { date: "2024-05-15", amount: "₹8,00,000", status: "Upcoming", type: "Final Payment" },
-    ]
-  },
-];
+    payments,
+  };
+});
 
 const properties = [
   "Shimla Green Valley",
@@ -136,10 +119,11 @@ const filteredAllottees = selectedProperty
         a.upnNumber.toLowerCase().includes(searchQuery.toLowerCase()) ||
         a.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
         a.propertyName.toLowerCase().includes(searchQuery.toLowerCase());
-      const matchesPropertyType = filterPropertyType ? a.propertyType === filterPropertyType : true;
+      const propertyTypeFilterActive = filterPropertyType && filterPropertyType !== 'all';
+      const matchesPropertyType = propertyTypeFilterActive ? a.propertyType === filterPropertyType : true;
       
       let matchesStatus = true;
-      if (filterStatus) {
+      if (filterStatus && filterStatus !== 'all') {
         const hasOverdue = a.payments.some((p) => p.status === "Overdue");
         const allPaid = a.payments.every((p) => p.status === "Paid");
         const somePaid = a.payments.some((p) => p.status === "Paid");
@@ -282,7 +266,7 @@ const getAmountStatusBadge = (allottee: Allottee) => {
                 onChange={(e) => setSearchQuery(e.target.value)}
               />
             </div>
-            <Select value={filterPropertyType} onValueChange={setFilterPropertyType}>
+            <Select value={filterPropertyType} onValueChange={(v) => setFilterPropertyType(v === 'all' ? '' : v)}>
               <SelectTrigger className="w-[180px]">
                 <SelectValue placeholder="Property Type" />
               </SelectTrigger>
@@ -293,7 +277,7 @@ const getAmountStatusBadge = (allottee: Allottee) => {
                 <SelectItem value="Commercial">Commercial</SelectItem>
               </SelectContent>
             </Select>
-            <Select value={filterStatus} onValueChange={setFilterStatus}>
+            <Select value={filterStatus} onValueChange={(v) => setFilterStatus(v === 'all' ? '' : v)}>
               <SelectTrigger className="w-[200px]">
                 <SelectValue placeholder="Amount Status" />
               </SelectTrigger>
@@ -435,15 +419,35 @@ const getAmountStatusBadge = (allottee: Allottee) => {
                   </div>
                 </div>
 
-                <div className="relative">
-                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
-                  <Input
-                    type="text"
-                    placeholder="Search payments..."
-                    className="pl-10"
-                    value={paymentSearchQuery}
-                    onChange={(e) => setPaymentSearchQuery(e.target.value)}
-                  />
+                <div className="flex items-center gap-3">
+                  <div className="relative flex-1">
+                    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
+                    <Input
+                      type="text"
+                      placeholder="Search payments..."
+                      className="pl-10"
+                      value={paymentSearchQuery}
+                      onChange={(e) => setPaymentSearchQuery(e.target.value)}
+                    />
+                  </div>
+                  <Button
+                    variant="outline"
+                    onClick={() => {
+                      const worksheet = XLSX.utils.json_to_sheet(
+                        filteredPayments.map((p) => ({
+                          Date: p.date,
+                          Type: p.type,
+                          Amount: p.amount,
+                          Status: p.status,
+                        }))
+                      );
+                      const workbook = XLSX.utils.book_new();
+                      XLSX.utils.book_append_sheet(workbook, worksheet, "Payments");
+                      XLSX.writeFile(workbook, `${selectedAllottee.upnNumber}_Payments.xlsx`);
+                    }}
+                  >
+                    <Download className="mr-2 h-4 w-4" /> Excel
+                  </Button>
                 </div>
 
                 <Table>

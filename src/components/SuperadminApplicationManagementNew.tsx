@@ -44,64 +44,35 @@ const mockProperties = [
 ];
 
 // Mock applications data
-const mockApplications = [
-  {
-    id: 1,
-    applicationNumber: "APP-2024-001",
-    name: "Rajesh Kumar",
-    propertyName: "Shimla Green Valley Apartments",
-    propertyType: "Flat",
-    size: "1200 sq ft",
-    amount: "₹45,00,000",
-    paymentStatus: "Received",
-    submittedDate: "2024-01-15",
-    email: "rajesh.kumar@email.com",
-    phone: "+91 98765 43210",
-    address: "123 Mall Road, Shimla",
-  },
-  {
-    id: 2,
-    applicationNumber: "APP-2024-002",
-    name: "Priya Sharma",
-    propertyName: "Shimla Green Valley Apartments",
-    propertyType: "Flat",
-    size: "1000 sq ft",
-    amount: "₹38,00,000",
-    paymentStatus: "Received",
-    submittedDate: "2024-01-20",
-    email: "priya.sharma@email.com",
-    phone: "+91 98765 43211",
-    address: "456 Ridge Road, Shimla",
-  },
-  {
-    id: 3,
-    applicationNumber: "APP-2024-003",
-    name: "Amit Verma",
-    propertyName: "Shimla Green Valley Apartments",
-    propertyType: "Plot",
-    size: "500 sq yards",
-    amount: "₹25,00,000",
-    paymentStatus: "Received",
-    submittedDate: "2024-02-01",
-    email: "amit.verma@email.com",
-    phone: "+91 98765 43212",
-    address: "789 Lakkar Bazaar, Shimla",
-  },
-  {
-    id: 4,
-    applicationNumber: "APP-2024-004",
-    name: "Sunita Devi",
-    propertyName: "Dharamshala Mountain View Homes",
-    propertyType: "Flat",
-    size: "1500 sq ft",
-    amount: "₹55,00,000",
-    paymentStatus: "Received",
-    submittedDate: "2024-02-10",
-    email: "sunita.devi@email.com",
-    phone: "+91 98765 43213",
-    address: "321 Dharamshala Road",
-  },
+const names = [
+  "Rajesh Kumar","Priya Sharma","Amit Verma","Sunita Devi","Anil Kapoor",
+  "Neha Gupta","Vikas Singh","Pooja Mehta","Rohit Sharma","Kiran Bedi"
 ];
+
+const mockApplications = Array.from({ length: 30 }, (_, i) => {
+  const id = i + 1;
+  const property = mockProperties[i % mockProperties.length].name;
+  const type = /Apartments|Homes|Residences/.test(property) ? "Flat" : "Plot";
+  const size = type === "Flat" ? `${1000 + (i % 6) * 100} sq ft` : `${300 + (i % 6) * 50} sq yards`;
+  const amountBase = type === "Flat" ? 3500000 : 2000000;
+  const amount = `₹${(amountBase + (i % 10) * 250000).toLocaleString('en-IN')}`;
+  const name = names[i % names.length];
+  const submitted = `2024-${String(1 + (i % 6)).padStart(2,'0')}-${String(10 + (i % 18)).padStart(2,'0')}`;
+  return {
+    id,
+    applicationNumber: `APP-2024-${String(id).padStart(3,'0')}`,
+    name,
+    propertyName: property,
+    propertyType: type,
+    size,
+    amount,
+    paymentStatus: "Received",
+    submittedDate: submitted,
+    email: `${name.toLowerCase().replace(/\s+/g,'.')}@email.com`,
+    phone: "+91 98765 " + String(43210 + (i % 90)).padStart(5,'0'),
+    address: `${100 + i}, Sample Address, City`,
+  };
+});
 
 const ITEMS_PER_PAGE = 10;
 
@@ -128,8 +99,8 @@ export default function SuperadminApplicationManagementNew() {
       app.applicationNumber.toLowerCase().includes(searchQuery.toLowerCase()) ||
       app.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       app.propertyName.toLowerCase().includes(searchQuery.toLowerCase());
-    const matchesPropertyType = filterPropertyType ? app.propertyType === filterPropertyType : true;
-    const matchesStatus = filterStatus ? app.paymentStatus === filterStatus : true;
+    const matchesPropertyType = !filterPropertyType || filterPropertyType === 'all' ? true : app.propertyType === filterPropertyType;
+    const matchesStatus = !filterStatus || filterStatus === 'all' ? true : app.paymentStatus === filterStatus;
     return matchesProperty && matchesSearch && matchesPropertyType && matchesStatus;
   });
 
@@ -220,7 +191,7 @@ export default function SuperadminApplicationManagementNew() {
                 onChange={(e) => setSearchQuery(e.target.value)}
               />
             </div>
-            <Select value={filterPropertyType} onValueChange={setFilterPropertyType}>
+            <Select value={filterPropertyType} onValueChange={(v) => setFilterPropertyType(v === 'all' ? '' : v)}>
               <SelectTrigger className="w-[180px]">
                 <SelectValue placeholder="Property Type" />
               </SelectTrigger>
@@ -231,7 +202,7 @@ export default function SuperadminApplicationManagementNew() {
                 <SelectItem value="Commercial">Commercial</SelectItem>
               </SelectContent>
             </Select>
-            <Select value={filterStatus} onValueChange={setFilterStatus}>
+            <Select value={filterStatus} onValueChange={(v) => setFilterStatus(v === 'all' ? '' : v)}>
               <SelectTrigger className="w-[180px]">
                 <SelectValue placeholder="Payment Status" />
               </SelectTrigger>
