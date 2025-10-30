@@ -52,7 +52,7 @@ const mockApplications = [
     propertyType: "Flat",
     size: "1200 sq ft",
     amount: "₹45,00,000",
-    status: "Approved",
+    paymentStatus: "Received",
     submittedDate: "2024-01-15",
     email: "rajesh.kumar@email.com",
     phone: "+91 98765 43210",
@@ -66,7 +66,7 @@ const mockApplications = [
     propertyType: "Flat",
     size: "1000 sq ft",
     amount: "₹38,00,000",
-    status: "Under Review",
+    paymentStatus: "Received",
     submittedDate: "2024-01-20",
     email: "priya.sharma@email.com",
     phone: "+91 98765 43211",
@@ -80,7 +80,7 @@ const mockApplications = [
     propertyType: "Plot",
     size: "500 sq yards",
     amount: "₹25,00,000",
-    status: "Rejected",
+    paymentStatus: "Received",
     submittedDate: "2024-02-01",
     email: "amit.verma@email.com",
     phone: "+91 98765 43212",
@@ -94,7 +94,7 @@ const mockApplications = [
     propertyType: "Flat",
     size: "1500 sq ft",
     amount: "₹55,00,000",
-    status: "Approved",
+    paymentStatus: "Received",
     submittedDate: "2024-02-10",
     email: "sunita.devi@email.com",
     phone: "+91 98765 43213",
@@ -219,7 +219,7 @@ export default function SuperadminApplicationManagementNew() {
                   <TableHead>Property Type</TableHead>
                   <TableHead>Size</TableHead>
                   <TableHead>Amount</TableHead>
-                  <TableHead>Status</TableHead>
+                  <TableHead>Payment Status</TableHead>
                   <TableHead>Submitted Date</TableHead>
                   <TableHead>Action</TableHead>
                 </TableRow>
@@ -234,7 +234,7 @@ export default function SuperadminApplicationManagementNew() {
                       <TableCell>{app.propertyType}</TableCell>
                       <TableCell>{app.size}</TableCell>
                       <TableCell>{app.amount}</TableCell>
-                      <TableCell>{getStatusBadge(app.status)}</TableCell>
+                      <TableCell>{app.paymentStatus}</TableCell>
                       <TableCell>{app.submittedDate}</TableCell>
                       <TableCell>
                         <Button
